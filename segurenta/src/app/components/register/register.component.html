@@ -1,0 +1,159 @@
+<mat-card class="my-card">
+    <mat-card-header>
+        <mat-card-title>
+            <button m-button (click)="changeRegister(1)">Rentar</button>
+            <button m-button (click)="changeRegister(2)">Publicar</button>
+            <button m-button (click)="changeRegister(3)">Propietario</button>
+
+            <p style="padding-left: 900px">
+                <small class="txt-muted">Registro </small> <span class="custom-title">{{ title }}</span>
+            </p>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content *ngIf="esPublicar">
+        <mat-grid-list cols="12" rowHeight="1:4">
+            <mat-grid-tile colspan="6">
+                <form class="my-form">
+                    <mat-form-field class="full-width">
+                        <input type="text" matInput placeholder="Nombre(s)" name="nombres">
+                    </mat-form-field>
+                    <mat-form-field style="padding-right: 10%;">
+                        <input type="text" matInput placeholder="Apellido Paterno" name="apellidoP">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input type="text" matInput placeholder="Apellido Materno" name="apellidoM">
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <input type="email" matInput placeholder="Correo Electrónico" name="email">
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <input type="password" matInput placeholder="Contraseña" name="password">
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <input type="tel" matInput placeholder="Teléfono" name="telefono">
+                    </mat-form-field>
+                </form>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="6">
+
+                <div class="example-button-row">
+                    <h2 class="full-width">¿En dónde quiero mis comisiones?</h2>
+                    <form class="my-form">
+                        <mat-form-field class="full-width">
+                            <input type="text" matInput placeholder="Institución Bancaria" name="banco">
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <input type="text" matInput placeholder="Número de Tarjeta" name="numeroTarjeta">
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <input type="text" matInput placeholder="Número de Cuenta" name="numeroCuenta">
+                        </mat-form-field>
+                    </form>
+                    <button class="custom-button full-width" mat-raised-button color="primary">Registrarme</button>
+                    <p class="txt-muted txt-center"><small>Al registrarte aceptas los <a class="alert-light" (click)="openViewer()">Términos y Condiciones</a>y las <a class="alert-light" (click)="openViewer()">Políticas de Privacidad</a>.</small></p>
+                </div>
+
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-card-content>
+
+    <mat-card-content *ngIf="esRenta">
+        <mat-grid-list cols="12" rowHeight="1:4">
+            <mat-grid-tile colspan="6">
+                <div class="example-button-row">
+                    <form class="my-form">
+                        <mat-form-field class="full-width">
+                            <input type="text" matInput placeholder="Nombre(s)" name="nombres">
+                        </mat-form-field>
+                        <mat-form-field style="padding-right: 10%;">
+                            <input type="text" matInput placeholder="Apellido Paterno" name="apellidoP">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="Apellido Materno" name="apellidoM">
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <input type="email" matInput placeholder="Correo Electrónico" name="email">
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <input type="password" matInput placeholder="Contraseña" name="password">
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <input type="tel" matInput placeholder="Teléfono" name="telefono">
+                        </mat-form-field>
+                    </form>
+                    <button class="custom-button full-width" style="margin-top: 5%;" mat-raised-button color="primary">Registrarme</button>
+                    <p class="txt-muted txt-center"><small>Al registrarte aceptas los <a class="alert-light" (click)="openViewer()">Términos y Condiciones</a>y las <a class="alert-light" (click)="openViewer()">Políticas de Privacidad</a>.</small></p>
+                </div>
+
+
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1">
+                <h1 class="txt-muted">ó</h1>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="5">
+
+                <div class="example-button-row">
+                    <h1 class="txt-muted full-width">Registrarme con:</h1>
+                    <button mat-fab style="background-color: black">
+                                <fa-icon [icon]="['fab', 'facebook-f']" size="2x"></fa-icon>
+                                    
+                            </button>
+                    <button mat-fab style="background-color: black">
+                                <fa-icon [icon]="['fab', 'google']" size="2x"></fa-icon>
+                            </button>
+                </div>
+
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-card-content>
+
+    <mat-card-content *ngIf="esPropietario">
+        <mat-grid-list cols="12" rowHeight="1:3">
+            <mat-grid-tile colspan="6">
+                <div class="example-button-row">
+                    <h2 class="full-width txt-center txt-muted">Código Contrato</h2>
+                    <form class="my-form">
+                        <mat-form-field class="code-number">
+                            <input type="number" matInput name="numero1">
+                        </mat-form-field>
+                        <mat-form-field class="code-number">
+                            <input type="number" matInput name="numero2">
+                        </mat-form-field>
+                        <mat-form-field class="code-number">
+                            <input type="number" matInput name="numero3">
+                        </mat-form-field>
+                        <mat-form-field class="code-number">
+                            <input type="number" matInput name="numero4">
+                        </mat-form-field>
+                        <mat-form-field class="code-number">
+                            <input type="number" matInput name="numero5">
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <input type="text" matInput disabled placeholder="Antonio López" name="nombrePropietario">
+                        </mat-form-field>
+                    </form>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="6">
+
+                <div class="example-button-row">
+                    <form class="my-form">
+                        <mat-form-field class="full-width">
+                            <input type="email" matInput placeholder="Correo Electrónico" name="email">
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <input type="password" matInput placeholder="Contraseña" name="password">
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <input type="tel" matInput placeholder="Teléfono" name="telefono">
+                        </mat-form-field>
+                    </form>
+                    <button class="custom-button full-width" mat-raised-button color="primary">Registrarme</button>
+                    <p class="txt-muted txt-center"><small>Al registrarte aceptas los <a class="alert-light" (click)="openViewer()">Términos y Condiciones</a>y las <a class="alert-light" (click)="openViewer()">Políticas de Privacidad</a>.</small></p>
+                </div>
+
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-card-content>
+
+</mat-card>

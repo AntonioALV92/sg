@@ -1,0 +1,82 @@
+<div class="bg-img">
+    <!-- <img class="bg-img" src="./assets/img/bgHome.png"> -->
+    <mat-grid-list cols="3" rowHeight="2:1">
+        <mat-grid-tile>1</mat-grid-tile>
+        <mat-grid-tile>2</mat-grid-tile>
+        <mat-grid-tile>3</mat-grid-tile>
+        <mat-grid-tile>
+            <mat-list role="list">
+                <mat-list-item role="listitem" style="margin-bottom: 20%;">
+                    <button mat-fab style="background-color: black">
+                                                                        <fa-icon [icon]="['fab', 'facebook-f']" size="2x"></fa-icon>
+                                                                    </button>
+                </mat-list-item>
+                <mat-list-item role="listitem" style="margin-bottom: 20%;">
+                    <button mat-fab style="background-color: black">
+                                                                        <fa-icon [icon]="['fab', 'instagram']" size="2x"></fa-icon>
+                                                                    </button>
+                </mat-list-item>
+                <mat-list-item role="listitem" style="margin-bottom: 20%;">
+                    <button mat-fab style="background-color: black">
+                                                                        <fa-icon [icon]="['fab', 'linkedin-in']" size="2x"></fa-icon>
+                                                                    </button>
+                </mat-list-item>
+                <mat-list-item role="listitem" style="margin-bottom: 20%;">
+                    <button mat-fab style="background-color: black">
+                                                                        <fa-icon [icon]="['fab', 'twitter']" size="2x"></fa-icon>
+                                                                    </button>
+                </mat-list-item>
+            </mat-list>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <input type="text" class="input-search">
+        </mat-grid-tile>
+        <mat-grid-tile>6</mat-grid-tile>
+        <mat-grid-tile>7</mat-grid-tile>
+        <mat-grid-tile>
+            <button mat-button>
+                <img src="./assets/img/appstore.png">
+            </button>
+            <button mat-button>
+                    <img src="./assets/img/googleplay.png">
+                </button>
+        </mat-grid-tile>
+        <mat-grid-tile>9</mat-grid-tile>
+    </mat-grid-list>
+</div>
+
+<!-- <div class="head-background">
+
+            <div id="overlay-bg" class="bg"></div>
+            <div id="overlay" style="opacity: 1;"></div>
+
+        </div> -->
+<h1>
+    <legend>Propiedades Más Recientes <button mat-fab style="background-color: black">
+            <fa-icon [icon]="['fas', 'plus']" size="2x"></fa-icon>
+        </button></legend>
+</h1>
+<div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+
+    <!-- <mat-grid-list cols="4" rowHeight="2:1">
+            <mat-grid-tile>
+                
+            </mat-grid-tile>
+        </mat-grid-list> -->
+
+    <mat-card class="card-picture" *ngFor="let picture of pictures">
+        <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+            <!-- <span fxFlex="80%">{{picture.title}}</span> -->
+        </mat-card-title>
+        <img mat-card-image [src]="picture.img">
+        <mat-card-content>
+            <p>
+                <fa-icon [icon]="['fas', 'expand-arrows-alt']" fxFlex="10%"></fa-icon> 50&nbsp;&nbsp;
+                <fa-icon [icon]="['fas', 'bed']" fxFlex="10%"></fa-icon> 2&nbsp;&nbsp;
+                <fa-icon [icon]="['fas', 'toilet']" fxFlex="10%"></fa-icon> 1&nbsp;&nbsp;
+                <fa-icon [icon]="['fas', 'plus-circle']" size="2x"></fa-icon>
+            </p>
+        </mat-card-content>
+    </mat-card>
+
+</div>

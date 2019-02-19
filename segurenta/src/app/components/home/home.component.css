@@ -1,0 +1,87 @@
+/* .head-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-height: 100%;
+    margin: auto;
+    overflow: auto;
+    z-index: -1;
+    width: 100%;
+    max-width: 1920px;
+    background-size: 100%;
+} */
+
+.bg-img {
+    background-image: url('../../../assets/img/bgHome.png');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.input-search {
+    opacity: 0.8;
+    height: 20%;
+    font-size: 16pt;
+    border-radius: 10px;
+    font-size: 4rem !important;
+}
+
+.img {
+    width: 100%;
+    margin-bottom: 18%;
+}
+
+.card-picture {
+    width: 23%;
+    margin-bottom: 2%;
+}
+
+.container {
+    min-height: 100%;
+    width: 100%;
+}
+
+
+/* .bg-img {
+    background-image: url('../../../assets/img/bgHome.png');
+    opacity: 1;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
+
+/* 
+div {
+    display: block;
+} 
+
+#overlay-bg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    z-index: 1;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1s;
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.25);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 1s;
+}*/
+
+;

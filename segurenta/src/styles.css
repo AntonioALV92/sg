@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/assets/fonts/Montserrat/Montserrat-Thin.ttf');
+}
+
+* {
+    font-family: 'Montserrat';
+}
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+}
+
+.txt-muted {
+    font-size: 1.5rem !important;
+    color: #BABABA;
+}
+
+.txt-title {
+    font-size: 4rem !important;
+    color: #0D62B7 !important;
+}
+
+.txt-right {
+    text-align: right;
+}
+
+.full-width {
+    width: 100%;
+}
+
+
+/* input {
+    font-size: 4rem !important;
+} */
+
+.btn-black {
+    background-color: black !important;
+}
