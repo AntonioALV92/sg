@@ -21,6 +21,10 @@ import { PasswordRecoveryComponent } from './components/password-recovery/passwo
 import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+// Imports services
+import { AuthService } from './services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -39,9 +43,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FAwesomeModule,
     APP_ROUTING,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
     LoginComponent,
