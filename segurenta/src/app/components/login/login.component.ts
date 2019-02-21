@@ -16,21 +16,21 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(12)])
+      password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(10)])
     });
   }
 
   getErrorMessage() {
-    return this.loginForm.get('email').hasError('required') ? 'El correo es obligatorio' :
-      this.loginForm.get('email').hasError('email') ? 'No es un correo válido' :
-      this.loginForm.get('email').hasError('pattern') ? 'No es un correo válido' :
+    return this.loginForm.get('email').hasError('required') ? 'Campo requerido' :
+      this.loginForm.get('email').hasError('email') ? 'Formato inválido' :
+      this.loginForm.get('email').hasError('pattern') ? 'Formato inválido' :
       '';
   }
 
   getErrorMessagePass() {
-    return this.loginForm.get('password').hasError('required') ? 'La contraseña es obligatoria' :
+    return this.loginForm.get('password').hasError('required') ? 'Campo requerido' :
       this.loginForm.get('password').hasError('minlength') ? 'Mínimo 6 caracteres' :
-      this.loginForm.get('password').hasError('maxlength') ? 'Máximo 12 caracteres' :
+      this.loginForm.get('password').hasError('maxlength') ? 'Máximo 10 caracteres' :
        '';
   }
 
@@ -49,6 +49,7 @@ export class LoginComponent {
       },
       error => {
         console.error(error);
+        alert('Algo salió mal :(');
       },
 
       () => this.navigate()

@@ -8,6 +8,8 @@ import { APP_ROUTING } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 
+import { HttpClientModule } from '@angular/common/http';
+
 // Imports Font Awesome
 import { FAwesomeModule } from './fAwesome.module';
 
@@ -23,7 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Imports services
 import { AuthService } from './services/auth.service';
-import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({

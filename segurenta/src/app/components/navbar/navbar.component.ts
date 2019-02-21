@@ -35,6 +35,13 @@ export class NavbarComponent implements OnInit {
 
     // dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
+    dialogConfig.direction = 'ltr';
+    dialogConfig.width = '90%';
+
+    dialogConfig.position = {
+      top: '150px',
+      left: '300px'
+    };
 
     this.registerDialogRef = this.dialog.open(RegisterComponent, dialogConfig);
   }

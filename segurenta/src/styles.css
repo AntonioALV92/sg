@@ -16,8 +16,12 @@ html {
     margin: 0;
 }
 
-.txt-muted {
+.txt-title-muted {
     font-size: 1.5rem !important;
+    color: #BABABA;
+}
+
+.txt-muted {
     color: #BABABA;
 }
 

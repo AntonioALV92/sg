@@ -1,5 +1,5 @@
 <div class="txt-right">
-    <h2 mat-dialog-title><small class="txt-muted">Ingresar </small><span class="txt-title"> Login</span></h2>
+    <h2 mat-dialog-title><small class="txt-title-muted">Ingresar </small><span class="txt-title"> Login</span></h2>
 </div>
 <mat-grid-list cols="12" rowHeight="1:3">
     <mat-grid-tile colspan="6">
@@ -10,8 +10,8 @@
             </mat-form-field>
             <mat-form-field class="full-width">
                 <input [type]="hide ? 'password' : 'text'" class="input-form" matInput placeholder="Contraseña" formControlName="password" required>
-                <fa-icon *ngIf="hide" matSuffix (click)="hide = !hide" [icon]="['fas', 'eye-slash']" size="2x"></fa-icon>
-                <fa-icon *ngIf="!hide" matSuffix (click)="hide = !hide" [icon]="['fas', 'eye']" size="2x"></fa-icon>
+                <fa-icon *ngIf="hide" matSuffix (click)="hide = !hide" [icon]="['fas', 'eye-slash']"></fa-icon>
+                <fa-icon *ngIf="!hide" matSuffix (click)="hide = !hide" [icon]="['fas', 'eye']"></fa-icon>
                 <mat-error *ngIf="loginForm.get('password').invalid">{{getErrorMessagePass()}}</mat-error>
             </mat-form-field>
             <a routerLink="/password-recovery" class="full-width">Recuperar mi contraseña</a>
@@ -37,8 +37,8 @@
     </mat-grid-tile>
 </mat-grid-list>
 
-<mat-dialog-actions>
+<!-- <mat-dialog-actions>
     <div style="">
         <button type="submit" class="custom-button" mat-raised-button color="primary" (click)="logIn(email.value, password.value, $event)">Ingresar</button>
     </div>
-</mat-dialog-actions>
+</mat-dialog-actions> -->

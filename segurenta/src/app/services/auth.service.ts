@@ -9,6 +9,7 @@ export class AuthService {
   login(username: string, password: string) {
     return this.http.post('https://reqres.in/api/login', {
       email: username,
+      // tslint:disable-next-line:object-literal-shorthand
       password: password,
     });
   }
