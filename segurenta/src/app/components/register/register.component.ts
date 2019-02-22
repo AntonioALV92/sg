@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PersonInterface } from '../../interfaces/person.interface';
 import { Router } from '@angular/router';
+import { MatDialogRef, MatDialog } from '@angular/material';
+import { PdfViewerComponent } from '../pdf-viewer/pdf-viewer.component';
 
 @Component({
   selector: 'app-register',
@@ -28,10 +30,12 @@ export class RegisterComponent implements OnInit {
     email: '',
     nationality: 0,
     bankName: '',
+    cardNumber: '',
     clabe: ''
   };
 
   owner: PersonInterface = {
+    id: 0,
     names: '',
     firstLastName: '',
     secondLastName: '',
@@ -42,14 +46,20 @@ export class RegisterComponent implements OnInit {
     clabe: ''
   };
 
-  esPropietario: boolean;
-  esPublicar: boolean;
-  esRenta: boolean = true;
-  title: string = 'Rentar';
+  isRenter: boolean ;
+  isAdviser: boolean;
+  isOwner: boolean;
+  title: string;
   registerForm: FormGroup;
-  hide: true;
+  registerFormAdviser: FormGroup;
+  registerFormOwner: FormGroup;
 
-  constructor(private router: Router) {
+  fileNameDialogRef: MatDialogRef<PdfViewerComponent>;
+
+  constructor(private router: Router, private dialog: MatDialog) {
+    this.isRenter = true;
+    this.title = 'Rentar';
+
     this.registerForm = new FormGroup({
       names: new FormControl('', [Validators.required]),
       firstLastName: new FormControl('', [Validators.required]),
@@ -58,31 +68,62 @@ export class RegisterComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]),
       password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(10)])
     });
+    this.registerFormAdviser = new FormGroup({
+      names: new FormControl('', [Validators.required]),
+      firstLastName: new FormControl('', [Validators.required]),
+      secondLastName: new FormControl('', [Validators.required]),
+      phoneNumber: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(12)]),
+      email: new FormControl('', [Validators.required, Validators.email, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]),
+      bankName: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(15)]),
+      // tslint:disable-next-line:max-line-length
+      cardNumber: new FormControl('', [Validators.required, Validators.minLength(16), Validators.maxLength(16), Validators.pattern('[0-9]{16}$')]),
+      // tslint:disable-next-line:max-line-length
+      clabe: new FormControl('', [Validators.required, Validators.minLength(16), Validators.maxLength(20), Validators.pattern('[0-9]{16,20}$')])
+    });
+    this.registerFormOwner = new FormGroup({
+      nameComplete: new FormControl(''),
+      phoneNumber: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(12)]),
+      email: new FormControl('', [Validators.required, Validators.email, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]),
+      num1: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(1)]),
+      num2: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(1)]),
+      num3: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(1)]),
+      num4: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(1)]),
+      num5: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(1)]),
+      num6: new FormControl('', [Validators.required, Validators.minLength(1), Validators.maxLength(1)])
+    });
   }
 
   ngOnInit() {
   }
 
+  openViewer() {
+    this.fileNameDialogRef = this.dialog.open(PdfViewerComponent);
+    // const dialogConfig = new MatDialogConfig();
+    // this.dialog.open(DialogBodyComponent, dialogConfig);
+  }
+
   changeRegister(opt: number) {
     switch (opt) {
       case 1: {
-          this.esRenta = true;
-          this.esPublicar = false;
-          this.esPropietario = false;
+          this.isRenter = true;
+          this.isAdviser = false;
+          this.isOwner = false;
           this.title = 'Rentar';
           break;
       }
       case 2: {
-        this.esRenta = false;
-        this.esPublicar = true;
-        this.esPropietario = false;
+        this.isRenter = false;
+        this.isAdviser = true;
+        this.isOwner = false;
         this.title = 'Publicar';
         break;
       }
       case 3: {
-        this.esRenta = false;
-        this.esPublicar = false;
-        this.esPropietario = true;
+        this.isRenter = false;
+        this.isAdviser = false;
+        this.isOwner = true;
         this.title = 'Propietario';
         break;
       }
@@ -127,6 +168,91 @@ export class RegisterComponent implements OnInit {
           '';
   }
 
+
+
+
+  getErrorMessageNamesA() {
+    return this.registerFormAdviser.get('names').hasError('required') ? 'Campo requerido' :
+    '';
+  }
+
+  getErrorMessageFA() {
+    return this.registerFormAdviser.get('firstLastName').hasError('required') ? 'Campo requerido' :
+    '';
+  }
+
+  getErrorMessageSA() {
+    return this.registerFormAdviser.get('secondLastName').hasError('required') ? 'Campo requerido' :
+    '';
+  }
+
+  getErrorMessagePhoneA() {
+    return this.registerFormAdviser.get('phoneNumber').hasError('required') ? 'Campo requerido' :
+    '';
+  }
+
+  getErrorMessageEmailA() {
+    return this.registerFormAdviser.get('email').hasError('required') ? 'Campo requerido' :
+          this.registerFormAdviser.get('email').hasError('email') ? 'Formato inválido' :
+          this.registerFormAdviser.get('email').hasError('pattern') ? 'Formato inválido' :
+          '';
+  }
+
+  getErrorMessagePassA() {
+    return this.registerFormAdviser.get('password').hasError('required') ? 'Campo requerido' :
+          this.registerFormAdviser.get('password').hasError('minlength') ? 'Mínimo 6 caracteres' :
+          this.registerFormAdviser.get('password').hasError('maxlength') ? 'Máximo 10 caracteres' :
+          '';
+  }
+
+  getErrorMessageBank() {
+    return this.registerFormAdviser.get('bankName').hasError('required') ? 'Campo requerido' :
+          this.registerFormAdviser.get('bankName').hasError('minlength') ? 'Mínimo 2 caracteres' :
+          this.registerFormAdviser.get('bankName').hasError('maxlength') ? 'Máximo 15 caracteres' :
+          '';
+  }
+
+  getErrorMessageCard() {
+    return this.registerFormAdviser.get('cardNumber').hasError('required') ? 'Campo requerido' :
+          this.registerFormAdviser.get('cardNumber').hasError('minlength') ? '16 digitos' :
+          this.registerFormAdviser.get('cardNumber').hasError('maxlength') ? '16 digitos' :
+          this.registerFormAdviser.get('cardNumber').hasError('pattern') ? '16 digitos' :
+          '';
+  }
+  getErrorMessageCLABE() {
+    return this.registerFormAdviser.get('clabe').hasError('required') ? 'Campo requerido' :
+          this.registerFormAdviser.get('clabe').hasError('minlength') ? 'Entre 16 y 20 digitos' :
+          this.registerFormAdviser.get('clabe').hasError('maxlength') ? 'Entre 16 y 20 digitos' :
+          this.registerFormAdviser.get('clabe').hasError('pattern') ? 'Entre 16 y 20 digitos' :
+          '';
+  }
+
+
+
+  getErrorMessagePhoneO() {
+    return this.registerFormOwner.get('phoneNumber').hasError('required') ? 'Campo requerido' :
+    '';
+  }
+
+  getErrorMessageEmailO() {
+    return this.registerFormOwner.get('email').hasError('required') ? 'Campo requerido' :
+          this.registerFormOwner.get('email').hasError('email') ? 'Formato inválido' :
+          this.registerFormOwner.get('email').hasError('pattern') ? 'Formato inválido' :
+          '';
+  }
+
+  getErrorMessagePassO() {
+    return this.registerFormOwner.get('password').hasError('required') ? 'Campo requerido' :
+          this.registerFormOwner.get('password').hasError('minlength') ? 'Mínimo 6 caracteres' :
+          this.registerFormOwner.get('password').hasError('maxlength') ? 'Máximo 10 caracteres' :
+          '';
+  }
+  getErrorMessageNum() {
+    return this.registerFormOwner.get('num1').hasError('required') ? 'Campo requerido' :
+    '';
+  }
+
+
   register() {
     event.preventDefault(); // Avoid default action for the submit button of the login form
     console.log(this.registerForm);
@@ -138,7 +264,7 @@ export class RegisterComponent implements OnInit {
       const email = this.registerForm.get('email').value;
       const password = this.registerForm.get('password').value;
       console.log(this.renter);
-      alert('Registrado!');
+      alert('Inquilino registrado!');
       // Calls service to login user to the api rest
     //   this.authService.login(email, password).subscribe(
 

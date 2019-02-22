@@ -20,11 +20,15 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
+
 // Imports services
 import { AuthService } from './services/auth.service';
+import { PersonRegisterService } from './services/person-register.service';
 
 
 
@@ -46,15 +50,18 @@ import { AuthService } from './services/auth.service';
     APP_ROUTING,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    PdfViewerModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    PersonRegisterService
   ],
   bootstrap: [AppComponent],
   entryComponents: [
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PdfViewerComponent
   ]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 export interface PersonInterface {
+    id?: number;
     names: string;
     firstLastName: string;
     secondLastName: string;
@@ -6,5 +7,6 @@ export interface PersonInterface {
     email: string;
     nationality: number;
     bankName?: string;
+    cardNumber?: string;
     clabe?: string;
 }

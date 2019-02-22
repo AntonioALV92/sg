@@ -30,8 +30,17 @@ html {
     color: #0D62B7 !important;
 }
 
+.txt-subtitle {
+    font-size: 2rem !important;
+    color: #0D62B7 !important;
+}
+
 .txt-right {
     text-align: right;
+}
+
+.txt-center {
+    text-align: center;
 }
 
 .full-width {
@@ -45,4 +54,18 @@ html {
 
 .btn-black {
     background-color: black !important;
+}
+
+.dialog-width .mat-dialog-container {
+    max-width: none;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.btn-rounded {
+    border-radius: 30px !important;
+    background-color: #0D62B7;
+    color: white;
 }

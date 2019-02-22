@@ -3,7 +3,7 @@
 </div>
 <mat-grid-list cols="12" rowHeight="1:3">
     <mat-grid-tile colspan="6">
-        <form class="my-form" [formGroup]="loginForm" (ngSubmit)="logIn()" novalidate>
+        <form [formGroup]="loginForm" (ngSubmit)="logIn()" novalidate>
             <mat-form-field class="full-width">
                 <input type="email" class="input-form" matInput placeholder="Correo Electrónico" formControlName="email" required>
                 <mat-error *ngIf="loginForm.get('email').invalid">{{getErrorMessage()}}</mat-error>
@@ -15,7 +15,7 @@
                 <mat-error *ngIf="loginForm.get('password').invalid">{{getErrorMessagePass()}}</mat-error>
             </mat-form-field>
             <a routerLink="/password-recovery" class="full-width">Recuperar mi contraseña</a>
-            <button type="submit" class="custom-button full-width" mat-raised-button color="primary">Ingresar</button>
+            <button type="submit" class="btn-rounded full-width" mat-raised-button>Ingresar</button>
         </form>
     </mat-grid-tile>
     <mat-grid-tile colspan="1">

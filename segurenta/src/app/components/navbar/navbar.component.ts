@@ -20,11 +20,14 @@ export class NavbarComponent implements OnInit {
     // dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.direction = 'ltr';
-    dialogConfig.width = '90%';
+    // dialogConfig.width = '90%';
+    dialogConfig.width = '100vw';
+    dialogConfig.maxWidth = '95vw';
+    dialogConfig.panelClass = 'dialog-width';
 
     dialogConfig.position = {
-      top: '150px',
-      left: '300px'
+      top: '100px',
+      left: '200px'
     };
 
     this.loginDialogRef = this.dialog.open(LoginComponent, dialogConfig);
@@ -36,11 +39,14 @@ export class NavbarComponent implements OnInit {
     // dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.direction = 'ltr';
-    dialogConfig.width = '90%';
+    // dialogConfig.width = '90%';
+    dialogConfig.width = '100vw';
+    dialogConfig.maxWidth = '95vw';
+    dialogConfig.panelClass = 'dialog-width';
 
     dialogConfig.position = {
-      top: '150px',
-      left: '300px'
+      top: '100px',
+      left: '200px'
     };
 
     this.registerDialogRef = this.dialog.open(RegisterComponent, dialogConfig);
