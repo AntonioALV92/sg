@@ -8,12 +8,17 @@ import { Component, OnInit } from '@angular/core';
 export class PdfViewerComponent implements OnInit {
 
   pdfSrc = '/assets/documents/TyC.pdf';
-  page: number = 1;
-  // page2 = this.page + 1;
+  page: number;
+  page2 = this.page + 1;
   totalPages: number;
-  isLoaded: boolean = false;
-
-  afterLoadComplete(pdfData: any) {
+  isLoaded: boolean;
+  name: string;
+  constructor() {
+    this.page = 1;
+    this.isLoaded = false;
+    this.name = 'Términos y Condiciones';
+   }
+   afterLoadComplete(pdfData: any) {
     this.totalPages = pdfData.numPages;
     this.isLoaded = true;
   }
@@ -28,8 +33,6 @@ export class PdfViewerComponent implements OnInit {
     // this.page2--;
 
   }
-  constructor() { }
-
   ngOnInit() {
   }
 

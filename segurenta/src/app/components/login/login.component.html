@@ -9,13 +9,16 @@
                 <mat-error *ngIf="loginForm.get('email').invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
             <mat-form-field class="full-width">
-                <input [type]="hide ? 'password' : 'text'" class="input-form" matInput placeholder="Contraseña" formControlName="password" required>
-                <fa-icon *ngIf="hide" matSuffix (click)="hide = !hide" [icon]="['fas', 'eye-slash']"></fa-icon>
-                <fa-icon *ngIf="!hide" matSuffix (click)="hide = !hide" [icon]="['fas', 'eye']"></fa-icon>
+                <input [type]="isHide ? 'password' : 'text'" class="input-form" matInput placeholder="Contraseña" formControlName="password" required>
+                <fa-icon *ngIf="isHide" matSuffix (click)="isHide = !isHide" [icon]="['fas', 'eye-slash']"></fa-icon>
+                <fa-icon *ngIf="!isHide" matSuffix (click)="isHide = !isHide" [icon]="['fas', 'eye']"></fa-icon>
                 <mat-error *ngIf="loginForm.get('password').invalid">{{getErrorMessagePass()}}</mat-error>
             </mat-form-field>
             <a routerLink="/password-recovery" class="full-width">Recuperar mi contraseña</a>
             <button type="submit" class="btn-rounded full-width" mat-raised-button>Ingresar</button>
+            <div *ngIf="invalidLogin" class="error">
+                <div>Invalid credentials.</div>
+            </div>
         </form>
     </mat-grid-tile>
     <mat-grid-tile colspan="1">
@@ -36,9 +39,3 @@
 
     </mat-grid-tile>
 </mat-grid-list>
-
-<!-- <mat-dialog-actions>
-    <div style="">
-        <button type="submit" class="custom-button" mat-raised-button color="primary" (click)="logIn(email.value, password.value, $event)">Ingresar</button>
-    </div>
-</mat-dialog-actions> -->

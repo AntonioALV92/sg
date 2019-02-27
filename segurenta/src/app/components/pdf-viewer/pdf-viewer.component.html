@@ -1,26 +1,31 @@
-<!-- <h1 mat-dialog-title>{{data.name}}</h1>
-<div mat-dialog-content col>
-    <mat-grid-list cols="12" rowHeight="1:3">
-        <mat-grid-tile colspan="4">
-            <div *ngIf="isLoaded" style="text-align: center;">
-                <button (click)="prevPage()" [disabled]="page === 1">Prev</button>
-                <span>{{ page }} / {{ totalPages }}</span>
-                <button (click)="nextPage()" [disabled]="page === totalPages">Next</button>
-            </div>
-        </mat-grid-tile>
-        <pdf-viewer colspan="4" [src]="pdfSrc" [show-all]="false" [page]="page" originalSize="false" autoresize="true" (after-load-complete)="afterLoadComplete($event)"></pdf-viewer>
-        <pdf-viewer colspan="4" [src]="pdfSrc" [show-all]="false" [page]="page2" originalSize="false" autoresize="true" (after-load-complete)="afterLoadComplete($event)"></pdf-viewer>
-
-    </mat-grid-list>
-</div>
-
-<div mat-dialog-actions>
-</div> -->
-
-
-<div *ngIf="isLoaded" style="text-align: center;">
-    <button (click)="prevPage()" [disabled]="page === 1">Prev</button>
+<!-- <div *ngIf="isLoaded" class="text-center" style="background-color:black;">
+    <button class="btn btn-sm" (click)="prevPage()" [disabled]="page === 1">Prev</button>
     <span>{{ page }} / {{ totalPages }}</span>
-    <button (click)="nextPage()" [disabled]="page === totalPages">Next</button>
+    <button class="btn btn-sm" (click)="nextPage()" [disabled]="page === totalPages">Next</button>
 </div>
-<pdf-viewer colspan="4" [src]="pdfSrc" [show-all]="false" [page]="page" originalSize="false" autoresize="true" (after-load-complete)="afterLoadComplete($event)"></pdf-viewer>
+<pdf-viewer colspan="4" [src]="pdfSrc" [show-all]="false" [page]="page" originalSize="false" autoresize="true" (after-load-complete)="afterLoadComplete($event)"></pdf-viewer> -->
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <h1 mat-dialog-title>{{ name }}</h1>
+            <div *ngIf="isLoaded" style="text-align: center;">
+                <button class="btn btn-sm btn-light" (click)="prevPage()" [disabled]="page === 1">
+                    <fa-icon [icon]="[ 'fas', 'angle-left']"></fa-icon>
+                </button>
+                <span>{{ page }} / {{ totalPages }}</span>
+                <button class="btn btn-sm btn-light" (click)="nextPage()" [disabled]="page === totalPages">
+                    <fa-icon [icon]="[ 'fas', 'angle-right']"></fa-icon>
+                </button>
+                <!-- <button (click)="prevPage()" [disabled]="page === 1">Prev</button>
+                <span>{{ page }} / {{ totalPages }}</span>
+                <button (click)="nextPage()" [disabled]="page === totalPages">Next</button> -->
+            </div>
+        </div>
+        <div class="col-sm">
+            <pdf-viewer [src]="pdfSrc" [original-size]="false" [show-all]="false" [page]="page" (after-load-complete)="afterLoadComplete($event)"></pdf-viewer>
+        </div>
+    </div>
+</div>

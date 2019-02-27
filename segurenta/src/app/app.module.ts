@@ -22,6 +22,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component';
+import { FooterComponent } from './components/footer/footer.component';
+
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -29,6 +32,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Imports services
 import { AuthService } from './services/auth.service';
 import { PersonRegisterService } from './services/person-register.service';
+
 
 
 
@@ -40,7 +44,8 @@ import { PersonRegisterService } from './services/person-register.service';
     LoginComponent,
     RegisterComponent,
     PasswordRecoveryComponent,
-    PdfViewerComponent
+    PdfViewerComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

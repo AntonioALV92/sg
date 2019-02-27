@@ -10,11 +10,13 @@
     font-family: 'Montserrat';
 }
 
-body,
+
+/* body,
 html {
+    max-width: 100%;
     height: 100%;
     margin: 0;
-}
+} */
 
 .txt-title-muted {
     font-size: 1.5rem !important;

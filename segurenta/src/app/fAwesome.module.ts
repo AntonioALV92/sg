@@ -9,11 +9,18 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { faShareAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faCommentAlt } from '@fortawesome/free-regular-svg-icons';
+
+
 
 import { faExpandArrowsAlt } from '@fortawesome/free-solid-svg-icons';
 import { faBed } from '@fortawesome/free-solid-svg-icons';
@@ -26,6 +33,8 @@ library.add(faInstagram);
 library.add(faLinkedinIn);
 library.add(faTwitter);
 library.add(faAngleDown);
+library.add(faAngleLeft);
+library.add(faAngleRight);
 library.add(faSearch);
 library.add(faExpandArrowsAlt);
 library.add(faBed);
@@ -34,6 +43,9 @@ library.add(faPlus);
 library.add(faPlusCircle);
 library.add(faEyeSlash);
 library.add(faEye);
+library.add(faShareAlt);
+library.add(faHeart);
+library.add(faCommentAlt);
 
 
 @NgModule({
