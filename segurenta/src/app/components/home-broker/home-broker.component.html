@@ -17,53 +17,215 @@
 
     <!-- Second section: Opciones -->
     <div class="row col-12 m-0 p-0 ">
-        <div class="col-sm text-center py-5" style="background-color: black;border-right: 1px solid white;">
-            <a [href]="linkFacebook" class="mx-3" target="_blank">
-                <button class="btn btn-outline-dark rounded-circle" style="height: 100px; width: 100px">
+        <div class="col-sm text-center text-white pt-3" style="background-color: black;border-right: 1px solid white;">
+            <div class="btn-group-vertical align-items-center mx-4">
+                <a>
+                    <button class="btn btn-outline-dark rounded-circle" style="height: 100px; width: 100px; color: white">
                   <fa-icon [icon]="[ 'far', 'clock']" size="2x"></fa-icon>
                 </button>
-            </a>
-            <a [href]="linkTwitter" class="mx-3" target="_blank">
-                <button class="btn btn-outline-dark rounded-circle" style="height: 100px; width: 100px">
-                  <fa-icon [icon]="[ 'fas', 'book']" size="2x"></fa-icon>
-                </button>
-            </a>
-            <a [href]="linkInstagram" class="mx-3" target="_blank">
-                <button class="btn btn-outline-dark rounded-circle" style="height: 100px; width: 100px">
-                  <fa-icon [icon]="[ 'fas', 'dollar-sign']" size="2x"></fa-icon>
-                </button>
-            </a>
-            <a [href]="linkTwitter" class="mx-3" target="_blank">
-                <button class="btn btn-outline-dark rounded-circle" style="height: 100px; width: 100px">
-                  <fa-icon [icon]="[ 'fas', 'plus']" size="2x"></fa-icon>
-                </button>
-            </a>
-            <a [href]="linkLinkedIn" class="mx-3" target="_blank">
-                <button class="btn btn-outline-dark rounded-circle" style="height: 100px; width: 100px">
-                  <fa-icon [icon]="[ 'fas', 'hiking']" size="2x"></fa-icon>
-                </button>
-            </a>
-            <a [href]="linkInstagram" class="mx-3" target="_blank">
-                <button class="btn btn-outline-dark rounded-circle" style="height: 100px; width: 100px">
-                  <fa-icon [icon]="[ 'fas', 'home']" size="2x"></fa-icon>
-                </button>
-            </a>
-            <a [href]="linkLinkedIn" class="mx-3" target="_blank">
-                <button class="btn btn-outline-dark rounded-circle" style="height: 100px; width: 100px">
-                  <fa-icon [icon]="[ 'far', 'calendar-alt']" size="2x"></fa-icon>
-                </button>
-            </a>
+                </a>
+                <p>Historial</p>
+            </div>
+            <div class="btn-group-vertical align-items-center mx-4">
+                <a>
+                    <button class="btn btn-outline-dark rounded-circle" style="height: 100px; width: 100px; color: white">
+                      <fa-icon [icon]="[ 'fas', 'book']" size="2x"></fa-icon>
+                    </button>
+                </a>
+                <p>Mis Rentas</p>
+            </div>
+            <div class="btn-group-vertical align-items-center mx-4">
+                <a>
+                    <button class="btn btn-outline-dark rounded-circle" style="height: 100px; width: 100px; color: white">
+                      <fa-icon [icon]="[ 'fas', 'dollar-sign']" size="2x"></fa-icon>
+                    </button>
+                </a>
+                <p>Mis Comisiones</p>
+            </div>
+            <div class="btn-group-vertical align-items-center mx-5">
+                <a>
+                    <button class="btn btn-outline-dark rounded-circle" style="height: 100px; width: 100px; color: white">
+                      <fa-icon [icon]="[ 'fas', 'plus']" size="2x"></fa-icon>
+                    </button>
+                </a>
+                <p>Crear Propiedad</p>
+            </div>
+            <div class="btn-group-vertical align-items-center mx-4">
+                <a>
+                    <button class="btn btn-outline-dark rounded-circle" style="height: 100px; width: 100px; color: white">
+                      <fa-icon [icon]="[ 'fas', 'hiking']" size="2x"></fa-icon>
+                    </button>
+                </a>
+                <p>Crear Inquilino</p>
+            </div>
+            <div class="btn-group-vertical align-items-center mx-4">
+                <a>
+                    <button class="btn btn-outline-dark rounded-circle" style="height: 100px; width: 100px; color: white">
+                      <fa-icon [icon]="[ 'fas', 'home']" size="2x"></fa-icon>
+                    </button>
+                </a>
+                <p>Procesos</p>
+            </div>
+            <div class="btn-group-vertical align-items-center mx-4">
+                <a>
+                    <button class="btn btn-outline-dark rounded-circle" style="height: 100px; width: 100px; color: white">
+                      <fa-icon [icon]="[ 'far', 'calendar-alt']" size="2x"></fa-icon>
+                    </button>
+                </a>
+                <p>Mis Citas</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Third section: Buscador -->
+    <div class="row col-12 m-0 p-0 align-items-center">
+        <div class="col">
+
+        </div>
+        <div class="col">
+            <div class="input-group mt-5 mb-2">
+                <input type="text" class="form-control input-transparent" placeholder="Busca tus propiedades">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-black btn-transparent" type="button">
+                      <fa-icon [icon]="[ 'fas', 'angle-down']" size="2x"></fa-icon>
+                    </button>
+                </div>
+            </div>
+            <!-- <div>
+                <button class="btn btn-dark mx-3" style="border-radius: 15px;" type="button ">Categorias</button>
+                <button class="btn btn-dark mx-3" style="border-radius: 15px;" type="button ">Zonas</button>
+            </div> -->
+        </div>
+        <div class="col">
 
         </div>
     </div>
 
-    <!-- Third section: Propiedades Màs Recientes  -->
+    <!-- Fourth section: Mis Citas / En Proceso  -->
+    <div class="row col-12 m-0 p-0 ">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title font-weight-bold"><span class="text-muted"><u>P</u>eticiones Diarias /</span> Mis Citas</h2>
+                    <div class="card-deck ">
+                        <div class="card border-0 mb-3 bg-transparent " style="max-width: 15rem; " *ngFor="let picture of picturesZone ">
+                            <img class="card-img-top " [src]="picture.img ">
+                            <div class="card-img-overlay col-sm-12">
+                                <div class="card-title">
+                                    <p class="text-white d-inline"><b>{{ picture.state }}</b></p>
+                                    <div class="text-white d-inline float-right">
+                                        <fa-icon class="pr-3 " [icon]="[ 'fas', 'share-alt'] "></fa-icon>
+                                    </div>
+                                </div>
+                                <div class="card-text d-flex bd-highlight">
+                                    <div class="card-text w-100">
+                                        <p class="text-white m-0">{{ picture.title }}</p>
+                                        <p class="card-text text-white m-0">{{ picture.location }}</p>
+                                    </div>
+                                    <div class="card-text flex-shrink-1 ">
+                                        <p class="text-white text-sm-right m-0">{{ picture.date }}</p>
+                                        <p class="card-text text-white text-right m-0">{{ picture.month }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body px-0">
+                                <button class="btn btn-sm btn-outline-dark float-left" style="border-radius: 15px;" type="button ">Reagendar</button>
+                                <button class="btn btn-sm btn-dark float-right" style="border-radius: 15px;" type="button ">Aceptar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-deck ">
+                        <div class="card border-0 mb-3 bg-transparent " style="max-width: 15rem; " *ngFor="let picture of picturesZone ">
+                            <img class="card-img-top " [src]="picture.img ">
+                            <div class="card-img-overlay col-sm-12">
+                                <div class="card-title">
+                                    <p class="text-white d-inline"><b>{{ picture.state }}</b></p>
+                                    <div class="text-white d-inline float-right">
+                                        <fa-icon class="pr-3 " [icon]="[ 'fas', 'share-alt'] "></fa-icon>
+                                    </div>
+                                </div>
+                                <div class="card-text d-flex bd-highlight">
+                                    <div class="card-text w-100">
+                                        <p class="text-white m-0">{{ picture.title }}</p>
+                                        <p class="card-text text-white m-0">{{ picture.location }}</p>
+                                    </div>
+                                    <div class="card-text flex-shrink-1 ">
+                                        <p class="text-white text-sm-right m-0">{{ picture.date }}</p>
+                                        <p class="card-text text-white text-right m-0">{{ picture.month }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body px-0">
+                                <button class="btn btn-sm btn-outline-dark float-left" style="border-radius: 15px;" type="button ">Reagendar</button>
+                                <button class="btn btn-sm btn-dark float-right" style="border-radius: 15px;" type="button ">Aceptar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title font-weight-bold"><span class="text-muted"><u>P</u>ropiedades</span> En Proceso</h2>
+                    <div class="card-deck mb-5">
+                        <div class="card border-0 mb-3 bg-transparent " style="max-width: 15rem; " *ngFor="let picture of picturesZone ">
+                            <img class="card-img-top " [src]="picture.img ">
+                            <div class="card-img-overlay col-sm-12">
+                                <div class="card-title">
+                                    <p class="text-white d-inline"><b>{{ picture.state }}</b></p>
+                                    <div class="text-white d-inline float-right">
+                                        <fa-icon class="pr-3 " [icon]="[ 'fas', 'share-alt'] "></fa-icon>
+                                    </div>
+                                </div>
+                                <div class="card-text d-flex bd-highlight">
+                                    <div class="card-text w-100">
+                                        <p class="text-white m-0">{{ picture.title }}</p>
+                                        <p class="card-text text-white m-0">{{ picture.location }}</p>
+                                    </div>
+                                    <div class="card-text flex-shrink-1 ">
+                                        <p class="text-white text-sm-right m-0">${{ picture.price }}</p>
+                                        <p class="card-text text-white text-right m-0">{{ picture.period }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-deck mb-5 pt-5">
+                        <div class="card border-0 mb-3 bg-transparent " style="max-width: 15rem; " *ngFor="let picture of picturesZone ">
+                            <img class="card-img-top " [src]="picture.img ">
+                            <div class="card-img-overlay col-sm-12">
+                                <div class="card-title">
+                                    <p class="text-white d-inline"><b>{{ picture.state }}</b></p>
+                                    <div class="text-white d-inline float-right">
+                                        <fa-icon class="pr-3 " [icon]="[ 'fas', 'share-alt'] "></fa-icon>
+                                    </div>
+                                </div>
+                                <div class="card-text d-flex bd-highlight">
+                                    <div class="card-text w-100">
+                                        <p class="text-white m-0">{{ picture.title }}</p>
+                                        <p class="card-text text-white m-0">{{ picture.location }}</p>
+                                    </div>
+                                    <div class="card-text flex-shrink-1 ">
+                                        <p class="text-white text-sm-right m-0">${{ picture.price }}</p>
+                                        <p class="card-text text-white text-right m-0">{{ picture.period }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fifth section: Mis Propiedades  -->
     <div class="row col-sm-12 m-0 p-0">
         <div class="col-sm-12 my-4">
             <h2 class="font-weight-bold"><span class="text-muted"><u>M</u>is</span> Propiedades</h2>
         </div>
         <div class="col-sm-12">
-            <div class="card-deck">
+            <div class="card-deck mb-3">
                 <div class="card border-light" *ngFor="let picture of pictures">
                     <img class="card-img-top" [src]="picture.img">
                     <div class="card-img-overlay col-sm-12">
@@ -86,20 +248,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body ">
-                        <p class="card-text ">
-                            <fa-icon [icon]="[ 'fas', 'expand-arrows-alt'] " size="2x "></fa-icon> 50&nbsp;&nbsp;
-                            <fa-icon [icon]="[ 'fas', 'bed'] " size="2x "></fa-icon> 2&nbsp;&nbsp;
-                            <fa-icon [icon]="[ 'fas', 'toilet'] " size="2x "></fa-icon> 1&nbsp;&nbsp;
-                            <!-- <fa-icon [icon]="[ 'fas', 'plus-circle'] " size="2x "></fa-icon> -->
-                        </p>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Fourth section: Explorar -->
+    <!-- Sixth section: Explorar -->
     <div class="row col-12 m-0 p-0 ">
         <div class="col-sm " style="background-color: #0D62B7;border-right: 1px solid white; ">
             <div class="col-sm-12 mx-0 p-0 my-4 ">

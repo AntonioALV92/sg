@@ -63,17 +63,28 @@ export class HomeBrokerComponent implements OnInit {
     {
       id: 1,
       title: 'Titulo',
+      state: 'Disponible',
       zone: 'Polanco',
       categ: 'Departamentos',
       price: 10500,
+      date: 'Martes',
+      month: 'Febrero',
+      location: 'CDMX',
+      period: 'mensual',
       // tslint:disable-next-line:max-line-length
       img: 'https://e41ef2ad9891d7dd1442-94bb8684ffa0a53fb3624a3fb44b51a2.ssl.cf1.rackcdn.com/cliente/1398/fotosproductos/departamento-residencial-en-renta-en-colonia-jardines-de-virginia-boca-del-rio-16869_thumb.jpg'
     },
     {
       id: 2,
       title: 'Titulo',
+      state: 'Disponible',
       zone: 'Roma',
       categ: 'Casas',
+      price: 10500,
+      date: 'Martes',
+      month: 'Febrero',
+      location: 'CDMX',
+      period: 'mensual',
       img: 'https://i.ebayimg.com/images/g/ZacAAOSwGIZcOSuL/s-l400.jpg'
     }
   ];
