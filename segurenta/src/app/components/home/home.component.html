@@ -122,34 +122,56 @@
     <div class="row col-sm-12 m-0 p-0">
         <img src="./assets/img/bgHome.png" class="img-fluid w-100" />
         <div class="img-overlay">
-            <div class="col-2">
-                <div class="col-sm-12 mt-2 mb-2">
-                    <a [href]="linkFacebook" target="_blank">
-                        <button class="btn btn-sm btn-dark rounded-circle" style="height: 50px; width: 50px">
-                            <fa-icon [icon]="[ 'fab', 'facebook-f']" size="2x"></fa-icon>
-                        </button>
-                    </a>
+            <div class="row">
+                <div class="col-3">
+                    <div class="col-sm-12 mt-2 mb-2">
+                        <a [href]="linkFacebook" target="_blank">
+                            <button class="btn btn-sm btn-dark rounded-circle" style="height: 50px; width: 50px">
+                                        <fa-icon [icon]="[ 'fab', 'facebook-f']" size="2x"></fa-icon>
+                                    </button>
+                        </a>
+                    </div>
+                    <div class="col-sm-12 mb-2">
+                        <a [href]="linkInstagram" target="_blank">
+                            <button class="btn btn-sm btn-dark rounded-circle" style="height: 50px; width: 50px">
+                                        <fa-icon [icon]="[ 'fab', 'instagram']" size="2x"></fa-icon>
+                                    </button>
+                        </a>
+                    </div>
+                    <div class="col-sm-12 mb-2">
+                        <a [href]="linkLinkedIn" target="_blank">
+                            <button class="btn btn-sm btn-dark rounded-circle" style="height: 50px; width: 50px">
+                                        <fa-icon [icon]="[ 'fab', 'linkedin-in']" size="2x"></fa-icon>
+                                    </button>
+                        </a>
+                    </div>
+                    <div class="col-sm-12 mb-2">
+                        <a [href]="linkTwitter" target="_blank">
+                            <button class="btn btn-sm btn-dark rounded-circle" style="height: 50px; width: 50px">
+                                        <fa-icon [icon]="[ 'fab', 'twitter']" size="2x"></fa-icon>
+                                    </button>
+                        </a>
+                    </div>
                 </div>
-                <div class="col-sm-12 mb-2">
-                    <a [href]="linkInstagram" target="_blank">
-                        <button class="btn btn-sm btn-dark rounded-circle" style="height: 50px; width: 50px">
-                            <fa-icon [icon]="[ 'fab', 'instagram']" size="2x"></fa-icon>
-                        </button>
-                    </a>
-                </div>
-                <div class="col-sm-12 mb-2">
-                    <a [href]="linkLinkedIn" target="_blank">
-                        <button class="btn btn-sm btn-dark rounded-circle" style="height: 50px; width: 50px">
-                            <fa-icon [icon]="[ 'fab', 'linkedin-in']" size="2x"></fa-icon>
-                        </button>
-                    </a>
-                </div>
-                <div class="col-sm-12 mb-2">
-                    <a [href]="linkTwitter" target="_blank">
-                        <button class="btn btn-sm btn-dark rounded-circle" style="height: 50px; width: 50px">
-                            <fa-icon [icon]="[ 'fab', 'twitter']" size="2x"></fa-icon>
-                        </button>
-                    </a>
+                <div class="col-6">
+                    <div class="col-12">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control input-transparent" placeholder="Busca tu propiedad ideal">
+                            <div class="input-group-append">
+                                <button class="btn btn-black btn-transparent" type="button">
+                                    <fa-icon class="text-white" [icon]="[ 'fas', 'angle-down']" size="2x"></fa-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <a href="{{linkAppStore}}" target="_blank" class="bg-transparent m-1">
+                            <img src="./assets/img/appstore.png">
+                        </a>
+                        <a href="{{linkPlayStore}}" target="_blank" class="bg-transparent m-1">
+                            <img src="./assets/img/googleplay.png">
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -164,32 +186,32 @@
             <div class="card-columns">
                 <div class="card border-light" *ngFor="let picture of pictures">
                     <img class="card-img-top" [src]="picture.img">
-                    <div class="card-img-overlay col-sm-12 align-bottom">
+                    <div class="card-img-overlay col-sm-12">
                         <div class="card-title">
                             <p class="h4 text-white d-inline"><b>{{ picture.state }}</b></p>
                             <div class="text-white d-inline float-right">
-                                <fa-icon class="pr-3" [icon]="['fas', 'share-alt']" size="2x"></fa-icon>
-                                <fa-icon class="pr-3" [icon]="['far', 'heart']" size="2x"></fa-icon>
-                                <fa-icon [icon]="['far', 'comment-alt']" size="2x"></fa-icon>
+                                <fa-icon class="pr-3 " [icon]="[ 'fas', 'share-alt'] " size="2x "></fa-icon>
+                                <fa-icon class="pr-3 " [icon]="[ 'far', 'heart'] " size="2x "></fa-icon>
+                                <fa-icon [icon]="[ 'far', 'comment-alt'] " size="2x "></fa-icon>
                             </div>
                         </div>
                         <div class="card-text d-flex bd-highlight">
-                            <div class="card-text w-100">
-                                <p class="h4 text-white">{{ picture.title }}</p>
-                                <p class="card-text text-white">{{ picture.location }}</p>
+                            <div class="card-text w-100 ">
+                                <p class="h4 text-white ">{{ picture.title }}</p>
+                                <p class="card-text text-white ">{{ picture.location }}</p>
                             </div>
-                            <div class="card-text flex-shrink-1">
-                                <p class="h4 text-white">${{ picture.price }}</p>
-                                <p class="card-text text-white text-right">{{ picture.period }}</p>
+                            <div class="card-text flex-shrink-1 ">
+                                <p class="h4 text-white ">${{ picture.price }}</p>
+                                <p class="card-text text-white text-right ">{{ picture.period }}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <p class="card-text">
-                            <fa-icon [icon]="['fas', 'expand-arrows-alt']" size="2x"></fa-icon> 50&nbsp;&nbsp;
-                            <fa-icon [icon]="['fas', 'bed']" size="2x"></fa-icon> 2&nbsp;&nbsp;
-                            <fa-icon [icon]="['fas', 'toilet']" size="2x"></fa-icon> 1&nbsp;&nbsp;
-                            <!-- <fa-icon [icon]="['fas', 'plus-circle']" size="2x"></fa-icon> -->
+                    <div class="card-body ">
+                        <p class="card-text ">
+                            <fa-icon [icon]="[ 'fas', 'expand-arrows-alt'] " size="2x "></fa-icon> 50&nbsp;&nbsp;
+                            <fa-icon [icon]="[ 'fas', 'bed'] " size="2x "></fa-icon> 2&nbsp;&nbsp;
+                            <fa-icon [icon]="[ 'fas', 'toilet'] " size="2x "></fa-icon> 1&nbsp;&nbsp;
+                            <!-- <fa-icon [icon]="[ 'fas', 'plus-circle'] " size="2x "></fa-icon> -->
                         </p>
                     </div>
                 </div>
@@ -199,25 +221,25 @@
     </div>
 
     <!-- Third section -->
-    <div class="row col-sm-12 m-0 p-0" style="height: 400px">
-        <img src="./assets/img/imgPrueba.png" class="img-fluid w-100" />
-        <div class="img-overlay">
-            <div class="row align-items-center text-center p-0 m-0">
-                <div class="col-sm">
-                    <div class="col-sm-12 mx-0 p-0 my-4">
-                        <p class="h3 text-white"><strong>¿Quieres <span class="h1">Publicar</span>?</strong></p>
-                        <p class="h3 text-white"><strong>Unete a SeguRenta</strong></p>
+    <div class="row col-sm-12 m-0 p-0 " style="height: 400px ">
+        <img src="./assets/img/imgPrueba.png " class="img-fluid w-100 " />
+        <div class="img-overlay ">
+            <div class="row align-items-center text-center p-0 m-0 ">
+                <div class="col-sm ">
+                    <div class="col-sm-12 mx-0 p-0 my-4 ">
+                        <p class="h3 text-white "><strong>¿Quieres <span class="h1 ">Publicar</span>?</strong></p>
+                        <p class="h3 text-white "><strong>Unete a SeguRenta</strong></p>
                     </div>
-                    <button class="btn btn-outline-dark m-1" type="button">Beneficios</button>
-                    <button class="btn btn-dark m-1" type="button">Regístrate</button>
+                    <button class="btn btn-outline-dark m-1 " type="button ">Beneficios</button>
+                    <button class="btn btn-dark m-1 " type="button ">Regístrate</button>
                 </div>
-                <div class="col-sm">
-                    <div class="col-sm-12">
-                        <a class="bg-transparent m-1">
-                            <img src="./assets/img/appstore.png">
+                <div class="col-sm ">
+                    <div class="col-sm-12 ">
+                        <a href="{{linkAppStore}}" target="_blank " class="bg-transparent m-1 ">
+                            <img src="./assets/img/appstore.png ">
                         </a>
-                        <a href="https://play.google.com/store/apps/details?id=in.loop.hdmakeover" class="bg-transparent m-1">
-                            <img src="./assets/img/googleplay.png">
+                        <a href="{{linkPlayStore}}" target="_blank " class="bg-transparent m-1 ">
+                            <img src="./assets/img/googleplay.png ">
                         </a>
                     </div>
                 </div>
@@ -227,50 +249,50 @@
     </div>
 
     <!-- Fourth section: Explorar -->
-    <div class="row col-12 m-0 p-0">
-        <div class="col-sm" style="background-color: #0D62B7;border-right: 1px solid white;">
-            <div class="col-sm-12 mx-0 p-0 my-4">
-                <h3 class="font-weight-bold text-white"><span class="txt-muted"><u>E</u>xplorar</span> Zonas </h3>
+    <div class="row col-12 m-0 p-0 ">
+        <div class="col-sm " style="background-color: #0D62B7;border-right: 1px solid white; ">
+            <div class="col-sm-12 mx-0 p-0 my-4 ">
+                <h3 class="font-weight-bold text-white "><span class="txt-muted "><u>E</u>xplorar</span> Zonas </h3>
             </div>
-            <div class="card-deck">
-                <div class="card border-0 mb-3 bg-transparent" style="max-width: 15rem;" *ngFor="let picture of picturesZone">
-                    <img class="card-img-top" [src]="picture.img">
-                    <div class="card-img-overlay right">
-                        <a class="badge rounded-circle badge-dark align-middle" style="width: 70px; height: 70px;">
-                            <h6 class="text-white">+{{ countNews }}<br>NUEVAS</h6>
+            <div class="card-deck ">
+                <div class="card border-0 mb-3 bg-transparent " style="max-width: 15rem; " *ngFor="let picture of picturesZone ">
+                    <img class="card-img-top " [src]="picture.img ">
+                    <div class="card-img-overlay right ">
+                        <a class="badge rounded-circle badge-dark align-middle " style="width: 70px; height: 70px; ">
+                            <h6 class="text-white ">+{{ countNews }}<br>NUEVAS</h6>
                         </a>
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title text-white">Zona {{ picture.zone }}</h5>
+                    <div class="card-body ">
+                        <h5 class="card-title text-white ">Zona {{ picture.zone }}</h5>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-sm" style="background-color: #0D62B7;border-left: 1px solid white;">
-            <div class="col-sm-12 mx-0 p-0 my-4">
-                <h3 class="font-weight-bold text-white"><span class="txt-muted"><u>E</u>xplorar</span> Categorías </h3>
+        <div class="col-sm " style="background-color: #0D62B7;border-left: 1px solid white; ">
+            <div class="col-sm-12 mx-0 p-0 my-4 ">
+                <h3 class="font-weight-bold text-white "><span class="txt-muted "><u>E</u>xplorar</span> Categorías </h3>
             </div>
-            <div class="card-deck">
-                <div class="card border-0 mb-3 bg-transparent" style="max-width: 15rem;" *ngFor="let picture of picturesZone">
-                    <img class="card-img-top" [src]="picture.img">
-                    <div class="card-img-overlay">
-                        <a class="badge rounded-circle badge-dark align-middle" style="width: 70px; height: 70px;">
-                            <h6 class="text-white">+{{ countNews }}<br>NUEVAS</h6>
+            <div class="card-deck ">
+                <div class="card border-0 mb-3 bg-transparent " style="max-width: 15rem; " *ngFor="let picture of picturesZone ">
+                    <img class="card-img-top " [src]="picture.img ">
+                    <div class="card-img-overlay ">
+                        <a class="badge rounded-circle badge-dark align-middle " style="width: 70px; height: 70px; ">
+                            <h6 class="text-white ">+{{ countNews }}<br>NUEVAS</h6>
                         </a>
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title text-white">{{ picture.categ }}</h5>
+                    <div class="card-body ">
+                        <h5 class="card-title text-white ">{{ picture.categ }}</h5>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row col-sm-12">
-        <div class="col-sm-12">
-            <div class="col-sm-6">
+    <div class="row col-sm-12 ">
+        <div class="col-sm-12 ">
+            <div class="col-sm-6 ">
 
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6 ">
 
             </div>
         </div>
@@ -278,66 +300,66 @@
     </div>
 </div>
 
-<!-- <div class="container-fluid">
-    <div class="row col-sm-12">
-        <img src="./assets/img/bgHome.png">
+<!-- <div class="container-fluid ">
+    <div class="row col-sm-12 ">
+        <img src="./assets/img/bgHome.png ">
     </div>
-    <div class="row col-sm-12">
-        <div class="col-sm-12">
-            <h3 class="font-weight-bold"><span class="txt-muted"><u>P</u>ropiedades</span> Más Recientes <button mat-mini-fab style="background-color: black">
-                    <fa-icon [icon]="['fas', 'plus']" size="2x"></fa-icon>
+    <div class="row col-sm-12 ">
+        <div class="col-sm-12 ">
+            <h3 class="font-weight-bold "><span class="txt-muted "><u>P</u>ropiedades</span> Más Recientes <button mat-mini-fab style="background-color: black ">
+                    <fa-icon [icon]="[ 'fas', 'plus'] " size="2x "></fa-icon>
                 </button></h3>
 
         </div>
-        <div class="card" style="width: 18rem;" *ngFor="let picture of pictures">
-            <img class="card-img-top" [src]="picture.img">
-            <div class="card-img-overlay">
-                <h5 class="card-title text-white">{{ picture.title }}</h5>
-                <p class="card-text">Last updated 3 mins ago</p>
+        <div class="card " style="width: 18rem; " *ngFor="let picture of pictures ">
+            <img class="card-img-top " [src]="picture.img ">
+            <div class="card-img-overlay ">
+                <h5 class="card-title text-white ">{{ picture.title }}</h5>
+                <p class="card-text ">Last updated 3 mins ago</p>
             </div>
-            <div class="card-body">
-                <p class="card-text">
-                    <fa-icon [icon]="['fas', 'expand-arrows-alt']" fxFlex="10%"></fa-icon> 50&nbsp;&nbsp;
-                    <fa-icon [icon]="['fas', 'bed']" fxFlex="10%"></fa-icon> 2&nbsp;&nbsp;
-                    <fa-icon [icon]="['fas', 'toilet']" fxFlex="10%"></fa-icon> 1&nbsp;&nbsp;
-                    <fa-icon [icon]="['fas', 'plus-circle']" size="2x"></fa-icon>
+            <div class="card-body ">
+                <p class="card-text ">
+                    <fa-icon [icon]="[ 'fas', 'expand-arrows-alt'] " fxFlex="10% "></fa-icon> 50&nbsp;&nbsp;
+                    <fa-icon [icon]="[ 'fas', 'bed'] " fxFlex="10% "></fa-icon> 2&nbsp;&nbsp;
+                    <fa-icon [icon]="[ 'fas', 'toilet'] " fxFlex="10% "></fa-icon> 1&nbsp;&nbsp;
+                    <fa-icon [icon]="[ 'fas', 'plus-circle'] " size="2x "></fa-icon>
                 </p>
             </div>
         </div>
     </div>
-    <div class="row col-sm-12">
+    <div class="row col-sm-12 ">
     </div>
-    <div class="row col-sm-12" style="background-color: #0D62B7">
-        <div class="col-sm-6">
-            <h3 class="font-weight-bold text-white"><span class="txt-muted"><u>E</u>xplorar</span> Zonas <button mat-mini-fab style="background-color: black">
-                                <fa-icon [icon]="['fas', 'plus']" size="2x"></fa-icon>
+    <div class="row col-sm-12 " style="background-color: #0D62B7 ">
+        <div class="col-sm-6 ">
+            <h3 class="font-weight-bold text-white "><span class="txt-muted "><u>E</u>xplorar</span> Zonas <button mat-mini-fab style="background-color: black ">
+                                <fa-icon [icon]="[ 'fas', 'plus'] " size="2x "></fa-icon>
                             </button></h3>
-            <div class="card-group">
-                <div class="card border-0 mb-3 bg-transparent" style="max-width: 15rem;" *ngFor="let picture of picturesZone">
-                    <img class="card-img-top" [src]="picture.img">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title text-white">{{ picture.title }}</h5>
-                        <p class="card-text">Last updated 3 mins ago</p>
+            <div class="card-group ">
+                <div class="card border-0 mb-3 bg-transparent " style="max-width: 15rem; " *ngFor="let picture of picturesZone ">
+                    <img class="card-img-top " [src]="picture.img ">
+                    <div class="card-img-overlay ">
+                        <h5 class="card-title text-white ">{{ picture.title }}</h5>
+                        <p class="card-text ">Last updated 3 mins ago</p>
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title text-white">Zona {{ picture.zone }}</h5>
+                    <div class="card-body ">
+                        <h5 class="card-title text-white ">Zona {{ picture.zone }}</h5>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-sm-6">
-            <h3 class="font-weight-bold text-white"><span class="txt-muted"><u>E</u>xplorar</span> Categorías <button mat-mini-fab style="background-color: black">
-                                <fa-icon [icon]="['fas', 'plus']" size="2x"></fa-icon>
+        <div class="col-sm-6 ">
+            <h3 class="font-weight-bold text-white "><span class="txt-muted "><u>E</u>xplorar</span> Categorías <button mat-mini-fab style="background-color: black ">
+                                <fa-icon [icon]="[ 'fas', 'plus'] " size="2x "></fa-icon>
                             </button></h3>
-            <div class="card-group">
-                <div class="card border-0 mb-3 bg-transparent" style="max-width: 15rem;" *ngFor="let picture of picturesZone">
-                    <img class="card-img-top" [src]="picture.img">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title text-white">{{ picture.title }}</h5>
-                        <p class="card-text">Last updated 3 mins ago</p>
+            <div class="card-group ">
+                <div class="card border-0 mb-3 bg-transparent " style="max-width: 15rem; " *ngFor="let picture of picturesZone ">
+                    <img class="card-img-top " [src]="picture.img ">
+                    <div class="card-img-overlay ">
+                        <h5 class="card-title text-white ">{{ picture.title }}</h5>
+                        <p class="card-text ">Last updated 3 mins ago</p>
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title text-white">{{ picture.categ }}</h5>
+                    <div class="card-body ">
+                        <h5 class="card-title text-white ">{{ picture.categ }}</h5>
                     </div>
                 </div>
             </div>

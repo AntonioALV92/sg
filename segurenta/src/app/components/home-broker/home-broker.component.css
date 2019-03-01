@@ -1,36 +1,3 @@
-/* 
-.bg-img {
-    background-image: url('../../../assets/img/bgHome.png');
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.input-search {
-    opacity: 0.8;
-    height: 20%;
-    font-size: 16pt;
-    border-radius: 10px;
-    font-size: 4rem !important;
-}
-
-.img {
-    width: 100%;
-    margin-bottom: 18%;
-}
-
-.card-picture {
-    width: 23%;
-    margin-bottom: 2%;
-}
-
-.container {
-    min-height: 100%;
-    width: 100%;
-}
- */
-
 .img-wrapper {
     position: relative;
 }

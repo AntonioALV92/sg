@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { PortalInjector } from '@angular/cdk/portal';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-home-broker',
+  templateUrl: './home-broker.component.html',
+  styleUrls: ['./home-broker.component.css']
 })
-export class HomeComponent implements OnInit {
-
+export class HomeBrokerComponent implements OnInit {
   pictures = [
     {
       id: 1,
@@ -59,27 +57,7 @@ export class HomeComponent implements OnInit {
       price: 10500,
       period: 'mensual',
       img: 'https://i.ebayimg.com/images/g/ci0AAOSwE8Vbx8kP/s-l400.jpg'
-    },
-    {
-      id: 5,
-      title: 'Tech',
-      state: 'Disponible',
-      location: 'CDMX',
-      price: 10500,
-      period: 'mensual',
-      // tslint:disable-next-line:max-line-length
-      img: 'https://e41ef2ad9891d7dd1442-94bb8684ffa0a53fb3624a3fb44b51a2.ssl.cf1.rackcdn.com/cliente/1398/fotosproductos/departamento-residencial-en-renta-en-colonia-jardines-de-virginia-boca-del-rio-16869_thumb.jpg'
-
-    },
-    {
-      id: 6,
-      title: 'Nightlife',
-      state: 'Disponible',
-      location: 'CDMX',
-      price: 10500,
-      period: 'mensual',
-      img: 'https://i.ebayimg.com/images/g/PWYAAOSwj81boADF/s-l400.jpg'
-    },
+    }
   ];
   picturesZone = [
     {
@@ -99,17 +77,17 @@ export class HomeComponent implements OnInit {
       img: 'https://i.ebayimg.com/images/g/ZacAAOSwGIZcOSuL/s-l400.jpg'
     }
   ];
-
   linkFacebook: string;
   linkInstagram: string;
   linkTwitter: string;
   linkLinkedIn: string;
   linkAppStore: string;
   linkPlayStore: string;
-
   countNews: number;
+
+
   constructor() {
-    this.countNews = 30;
+    this.countNews = 43;
     this.linkFacebook = 'https://es-la.facebook.com/Segurenta/';
     this.linkInstagram = 'https://www.instagram.com/segurenta/';
     this.linkTwitter = 'https://twitter.com/segurenta?lang=es';
@@ -120,6 +98,5 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
-
 
 }

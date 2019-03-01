@@ -19,8 +19,12 @@ import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { faShareAlt } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faCommentAlt } from '@fortawesome/free-regular-svg-icons';
-
-
+import { faClock } from '@fortawesome/free-regular-svg-icons';
+import { faDollarSign } from '@fortawesome/free-solid-svg-icons';
+import { faBook } from '@fortawesome/free-solid-svg-icons';
+import { faHiking } from '@fortawesome/free-solid-svg-icons';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
 
 import { faExpandArrowsAlt } from '@fortawesome/free-solid-svg-icons';
 import { faBed } from '@fortawesome/free-solid-svg-icons';
@@ -46,6 +50,13 @@ library.add(faEye);
 library.add(faShareAlt);
 library.add(faHeart);
 library.add(faCommentAlt);
+library.add(faClock);
+library.add(faDollarSign);
+library.add(faBook);
+library.add(faHiking);
+library.add(faHome);
+library.add(faCalendarAlt);
+
 
 
 @NgModule({
