@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
+import { MatStepperModule } from '@angular/material/stepper';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatDialogModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatStepperModule
   ],
   exports: [
     FlexLayoutModule,
@@ -40,7 +42,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatDialogModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatStepperModule
   ]
 })
 export class MaterialModule { }

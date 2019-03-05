@@ -1,0 +1,11 @@
+.badge-notify {
+    background: red;
+    position: relative;
+    top: -10px;
+    left: -35px;
+}
+
+.navbar-overlay {
+    margin-bottom: -104px;
+    z-index: 1;
+}

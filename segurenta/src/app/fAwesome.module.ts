@@ -8,6 +8,7 @@ import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
@@ -25,6 +26,7 @@ import { faBook } from '@fortawesome/free-solid-svg-icons';
 import { faHiking } from '@fortawesome/free-solid-svg-icons';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
+import { faBell } from '@fortawesome/free-solid-svg-icons';
 
 import { faExpandArrowsAlt } from '@fortawesome/free-solid-svg-icons';
 import { faBed } from '@fortawesome/free-solid-svg-icons';
@@ -36,6 +38,7 @@ library.add(faGoogle);
 library.add(faInstagram);
 library.add(faLinkedinIn);
 library.add(faTwitter);
+library.add(faAngleUp);
 library.add(faAngleDown);
 library.add(faAngleLeft);
 library.add(faAngleRight);
@@ -56,6 +59,7 @@ library.add(faBook);
 library.add(faHiking);
 library.add(faHome);
 library.add(faCalendarAlt);
+library.add(faBell);
 
 
 

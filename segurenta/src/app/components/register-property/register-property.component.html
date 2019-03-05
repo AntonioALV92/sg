@@ -1,3 +1,63 @@
-<p>
-  register-property works!
-</p>
+<div class="txt-right">
+    <h2 mat-dialog-title><small class="txt-title-muted">Registro </small><span class="txt-title"> Titulo </span></h2>
+</div>
+<mat-grid-list cols="12" rowHeight="1:5">
+    <mat-grid-tile colspan="2" style="border-right: black 1px solid;">
+        <button mat-fab class="btn-black">
+            <fa-icon [icon]="['fas', 'angle-up']" size="2x"></fa-icon>
+        </button>
+        <mat-vertical-stepper [linear]="true" #stepper>
+            <button mat-fab class="btn-black">
+                        <fa-icon [icon]="['fas', 'angle-up']" size="2x"></fa-icon>
+                    </button>
+            <mat-step>
+                <form>
+                    <ng-template matStepLabel>Fill out your name</ng-template>
+                </form>
+            </mat-step>
+            <mat-step>
+                <form>
+                    <ng-template matStepLabel>Fill out your address</ng-template>
+                    <mat-form-field>
+                        <input matInput placeholder="Address" required>
+                    </mat-form-field>
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button matStepperNext>Next</button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Done</ng-template>
+            </mat-step>
+        </mat-vertical-stepper>
+    </mat-grid-tile>
+    <div>
+        <mat-grid-tile colspan="5" style="margin-left:1%;">
+            <form novalidate="novalidate">
+                <mat-form-field class="full-width">
+                    <input type="text" class="input-form" matInput placeholder="Nombre(s)" required>
+                </mat-form-field>
+
+                <button class="btn-rounded full-width" style="margin-top: 5%;" mat-raised-button>Registrarme</button>
+            </form>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1">
+            <h1 class="txt-muted">ó</h1>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="4">
+            <div class="example-button-row">
+                <h1 class="txt-muted full-width">Ingresar con:</h1>
+                <div class="flex">
+                    <button mat-fab class="btn-black">
+                                        <fa-icon [icon]="['fab', 'facebook-f']" size="2x"></fa-icon>
+                                    </button>
+                    <button mat-fab class="btn-black">
+                                        <fa-icon [icon]="['fab', 'google']" size="2x"></fa-icon>
+                                    </button>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </div>
+
+</mat-grid-list>

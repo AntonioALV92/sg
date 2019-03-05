@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogConfig, MatDialogRef, MatDialog } from '@angular/material';
+import { RegisterPropertyComponent } from '../register-property/register-property.component';
 
 @Component({
   selector: 'app-home-broker',
@@ -96,8 +98,10 @@ export class HomeBrokerComponent implements OnInit {
   linkPlayStore: string;
   countNews: number;
 
+  registerDialogRef: MatDialogRef<RegisterPropertyComponent>;
 
-  constructor() {
+
+  constructor(private dialog: MatDialog) {
     this.countNews = 43;
     this.linkFacebook = 'https://es-la.facebook.com/Segurenta/';
     this.linkInstagram = 'https://www.instagram.com/segurenta/';
@@ -108,6 +112,18 @@ export class HomeBrokerComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  openRegisterProperty() {
+    const dialogConfig = new MatDialogConfig();
+
+    // dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.direction = 'ltr';
+    dialogConfig.width = '100vw';
+    dialogConfig.maxWidth = '98vw';
+
+    this.registerDialogRef = this.dialog.open(RegisterPropertyComponent, dialogConfig);
   }
 
 }

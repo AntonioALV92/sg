@@ -69,7 +69,8 @@ import { PersonRegisterService } from './services/person-register.service';
   entryComponents: [
     LoginComponent,
     RegisterComponent,
-    PdfViewerComponent
+    PdfViewerComponent,
+    RegisterPropertyComponent
   ]
 })
 export class AppModule { }

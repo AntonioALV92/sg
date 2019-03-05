@@ -1,10 +1,18 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top">
+<nav class="navbar navbar-expand-lg navbar-overlay pb-1" style="background-color: rgba(0, 0, 0, 0.7);">
     <a class="navbar-brand" [routerLink]="['home']">
-        <img src="./assets/img/logoSeguRenta_bco.png" width="250" height="70" class="d-inline-block align-top">
+        <img src="./assets/img/logoSeguRenta_bco.png" width="150" height="40" class="d-inline-block align-top img-responsive">
     </a>
 
-    <div class="collapse navbar-collapse d-flex justify-content-end">
+    <div *ngIf="!isLogged" class="collapse navbar-collapse d-flex justify-content-end">
         <button class="btn btn-sm btn-outline-light m-1" type="button" (click)="openRegister()">Registrarse</button>
         <button class="btn btn-sm btn-outline-light m-1" type="button" (click)="openLogin()">Entrar</button>
+    </div>
+
+    <div *ngIf="isLogged" class="collapse navbar-collapse d-flex justify-content-end">
+        <a class="btn btn-default btn-link text-white">
+            <fa-icon class="pr-3" [icon]="[ 'fas', 'bell']"></fa-icon>
+        </a>
+        <span class="badge badge-notify rounded-circle text-white">9</span>
+        <a class="m-1"><img src="./assets/img/usrPrueba.png" class="rounded-circle" width="30" height="30"></a>
     </div>
 </nav>
