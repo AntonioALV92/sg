@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogConfig, MatDialogRef, MatDialog } from '@angular/material';
 import { RegisterPropertyComponent } from '../register-property/register-property.component';
+import { MatDialogRef, MatDialog, MatDialogConfig } from '@angular/material';
 
 @Component({
-  selector: 'app-home-broker',
-  templateUrl: './home-broker.component.html',
-  styleUrls: ['./home-broker.component.css']
+  selector: 'app-home-rent',
+  templateUrl: './home-rent.component.html',
+  styleUrls: ['./home-rent.component.css']
 })
-export class HomeBrokerComponent implements OnInit {
+export class HomeRentComponent implements OnInit {
   pictures = [
     {
       id: 1,
@@ -31,7 +31,7 @@ export class HomeBrokerComponent implements OnInit {
       price: 10500,
       period: 'mensual',
       // tslint:disable-next-line:max-line-length
-      img: 'https://e41ef2ad9891d7dd1442-94bb8684ffa0a53fb3624a3fb44b51a2.ssl.cf1.rackcdn.com/cliente/1398/fotosproductos/departamento-residencial-en-renta-en-colonia-jardines-de-virginia-boca-del-rio-16869_thumb.jpg'
+      img: './assets/img/imgPrueba3.jpg'
     },
     {
       id: 2,
@@ -40,7 +40,8 @@ export class HomeBrokerComponent implements OnInit {
       location: 'CDMX',
       price: 10500,
       period: 'mensual',
-      img: 'https://i.ebayimg.com/images/g/ZacAAOSwGIZcOSuL/s-l400.jpg'
+      // img: 'https://i.ebayimg.com/images/g/ZacAAOSwGIZcOSuL/s-l400.jpg'
+      img: './assets/img/imgPrueba3.jpg'
     },
     {
       id: 3,
@@ -49,7 +50,8 @@ export class HomeBrokerComponent implements OnInit {
       location: 'CDMX',
       price: 10500,
       period: 'mensual',
-      img: 'https://i.ebayimg.com/images/g/ZHEAAOSwNqRcNjJy/s-l400.jpg'
+      // img: 'https://i.ebayimg.com/images/g/ZHEAAOSwNqRcNjJy/s-l400.jpg'
+      img: './assets/img/imgPrueba3.jpg'
     },
     {
       id: 4,
@@ -58,7 +60,8 @@ export class HomeBrokerComponent implements OnInit {
       location: 'CDMX',
       price: 10500,
       period: 'mensual',
-      img: 'https://i.ebayimg.com/images/g/ci0AAOSwE8Vbx8kP/s-l400.jpg'
+      // img: 'https://i.ebayimg.com/images/g/ci0AAOSwE8Vbx8kP/s-l400.jpg'
+      img: './assets/img/imgPrueba3.jpg'
     }
   ];
   picturesZone = [
@@ -74,7 +77,8 @@ export class HomeBrokerComponent implements OnInit {
       location: 'CDMX',
       period: 'mensual',
       // tslint:disable-next-line:max-line-length
-      img: 'https://e41ef2ad9891d7dd1442-94bb8684ffa0a53fb3624a3fb44b51a2.ssl.cf1.rackcdn.com/cliente/1398/fotosproductos/departamento-residencial-en-renta-en-colonia-jardines-de-virginia-boca-del-rio-16869_thumb.jpg'
+      // img: 'https://e41ef2ad9891d7dd1442-94bb8684ffa0a53fb3624a3fb44b51a2.ssl.cf1.rackcdn.com/cliente/1398/fotosproductos/departamento-residencial-en-renta-en-colonia-jardines-de-virginia-boca-del-rio-16869_thumb.jpg'
+      img: './assets/img/imgPrueba3.jpg'
     },
     {
       id: 2,
@@ -87,7 +91,8 @@ export class HomeBrokerComponent implements OnInit {
       month: 'Febrero',
       location: 'CDMX',
       period: 'mensual',
-      img: 'https://i.ebayimg.com/images/g/ZacAAOSwGIZcOSuL/s-l400.jpg'
+      // img: 'https://i.ebayimg.com/images/g/ZacAAOSwGIZcOSuL/s-l400.jpg'
+      img: './assets/img/imgPrueba3.jpg'
     }
   ];
   linkFacebook: string;

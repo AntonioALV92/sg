@@ -25,6 +25,8 @@ import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeBrokerComponent } from './components/home-broker/home-broker.component';
 import { RegisterPropertyComponent } from './components/register-property/register-property.component';
+import { UploadImageComponent } from './components/upload-image/upload-image.component';
+import { HomeRentComponent } from './components/home-rent/home-rent.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -48,7 +50,9 @@ import { PersonRegisterService } from './services/person-register.service';
     PdfViewerComponent,
     FooterComponent,
     HomeBrokerComponent,
-    RegisterPropertyComponent
+    HomeRentComponent,
+    RegisterPropertyComponent,
+    UploadImageComponent
   ],
   imports: [
     BrowserModule,

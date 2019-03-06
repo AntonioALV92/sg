@@ -5,14 +5,16 @@ import { HomeComponent } from './components/home/home.component';
 import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
 // import { RegisterComponent } from './components/register/register.component';
 import { HomeBrokerComponent } from './components/home-broker/home-broker.component';
+import { HomeRentComponent } from './components/home-rent/home-rent.component';
 
 const APP_ROUTES: Routes = [
-    {path: 'home', component: HomeComponent},
+    { path: 'home', component: HomeComponent},
     // {path: 'login', component: LoginComponent},
-    {path: 'password-recovery', component: PasswordRecoveryComponent},
-    {path: 'home-broker', component: HomeBrokerComponent },
+    { path: 'password-recovery', component: PasswordRecoveryComponent},
+    { path: 'home-broker', component: HomeBrokerComponent },
+    { path: 'home-rent', component: HomeRentComponent },
     // {path: 'register', component: RegisterComponent},
-    {path: '**', pathMatch: 'full', redirectTo: 'home' }
+    { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);

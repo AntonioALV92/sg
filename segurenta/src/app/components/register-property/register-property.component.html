@@ -1,63 +1,97 @@
 <div class="txt-right">
     <h2 mat-dialog-title><small class="txt-title-muted">Registro </small><span class="txt-title"> Titulo </span></h2>
 </div>
-<mat-grid-list cols="12" rowHeight="1:5">
-    <mat-grid-tile colspan="2" style="border-right: black 1px solid;">
-        <button mat-fab class="btn-black">
-            <fa-icon [icon]="['fas', 'angle-up']" size="2x"></fa-icon>
-        </button>
-        <mat-vertical-stepper [linear]="true" #stepper>
-            <button mat-fab class="btn-black">
-                        <fa-icon [icon]="['fas', 'angle-up']" size="2x"></fa-icon>
-                    </button>
-            <mat-step>
-                <form>
-                    <ng-template matStepLabel>Fill out your name</ng-template>
-                </form>
-            </mat-step>
-            <mat-step>
-                <form>
-                    <ng-template matStepLabel>Fill out your address</ng-template>
-                    <mat-form-field>
-                        <input matInput placeholder="Address" required>
-                    </mat-form-field>
-                    <div>
-                        <button mat-button matStepperPrevious>Back</button>
-                        <button mat-button matStepperNext>Next</button>
-                    </div>
-                </form>
-            </mat-step>
-            <mat-step>
-                <ng-template matStepLabel>Done</ng-template>
-            </mat-step>
-        </mat-vertical-stepper>
-    </mat-grid-tile>
-    <div>
-        <mat-grid-tile colspan="5" style="margin-left:1%;">
-            <form novalidate="novalidate">
-                <mat-form-field class="full-width">
-                    <input type="text" class="input-form" matInput placeholder="Nombre(s)" required>
+<mat-vertical-stepper [linear]="true" #stepper>
+    <mat-step>
+        <form>
+            <ng-template matStepLabel>Fotos y video</ng-template>
+            <app-upload-image></app-upload-image>
+        </form>
+    </mat-step>
+    <mat-step>
+        <form>
+            <ng-template matStepLabel>Tipo de Propiedad</ng-template>
+            <h3>Precio</h3>
+            <div class="d-inline mr-5">
+                <mat-label>$ </mat-label>
+                <mat-form-field>
+                    <input type="number" matInput required>
                 </mat-form-field>
-
-                <button class="btn-rounded full-width" style="margin-top: 5%;" mat-raised-button>Registrarme</button>
-            </form>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="1">
-            <h1 class="txt-muted">ó</h1>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="4">
-            <div class="example-button-row">
-                <h1 class="txt-muted full-width">Ingresar con:</h1>
-                <div class="flex">
-                    <button mat-fab class="btn-black">
-                                        <fa-icon [icon]="['fab', 'facebook-f']" size="2x"></fa-icon>
-                                    </button>
-                    <button mat-fab class="btn-black">
-                                        <fa-icon [icon]="['fab', 'google']" size="2x"></fa-icon>
-                                    </button>
-                </div>
+                <mat-label> Renta al mes</mat-label>
             </div>
-        </mat-grid-tile>
-    </div>
+            <div class="d-inline mx-5">
+                <mat-label>$ </mat-label>
+                <mat-form-field>
+                    <input type="number" matInput required>
+                </mat-form-field>
+                <mat-label> Precio de venta</mat-label>
+            </div>
+            <div class="d-inline ml-5">
+                <mat-label>$ </mat-label>
+                <mat-form-field>
+                    <input type="number" matInput required>
+                </mat-form-field>
+                <mat-label> Mantenimiento</mat-label>
+            </div>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Dirección</ng-template>
+        <h3>Dirección</h3>
+        <div class="col-sm-12">
+            <div class="col-sm-6">
 
-</mat-grid-list>
+            </div>
+            <div class="col-sm-6">
+                <form novalidate>
+                    <mat-form-field>
+                        <input type="text" matInput placeholder="Nombre del inmueble (Alias)" required>
+                    </mat-form-field>
+                </form>
+            </div>
+        </div>
+        <!-- <mat-grid-tile colspan="6">
+                <form [formGroup]="registerForm" (ngSubmit)="register()" novalidate="novalidate">
+                        <mat-form-field class="full-width">
+                            <input type="text" class="input-form" matInput placeholder="Nombre(s)" [(ngModel)]="renter.names" formControlName="names" required>
+                            <mat-error *ngIf="registerForm.get('names').invalid">{{getErrorMessageNames()}}</mat-error>
+                        </mat-form-field>
+                        <mat-form-field style="padding-right: 10%;">
+                            <input type="text" class="input-form" matInput placeholder="Apellido Paterno" [(ngModel)]="renter.firstLastName" formControlName="firstLastName" required>
+                            <mat-error *ngIf="registerForm.get('firstLastName').invalid">{{getErrorMessageF()}}</mat-error>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input type="text" class="input-form" matInput placeholder="Apellido Materno" [(ngModel)]="renter.secondLastName" formControlName="secondLastName" required>
+                            <mat-error *ngIf="registerForm.get('secondLastName').invalid">{{getErrorMessageS()}}</mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <input type="tel" class="input-form" matInput placeholder="Teléfono" [(ngModel)]="renter.phoneNumber" formControlName="phoneNumber" required>
+                            <mat-error *ngIf="registerForm.get('phoneNumber').invalid">{{getErrorMessagePhone()}}</mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <input type="email" class="input-form" matInput placeholder="Correo Electrónico" [(ngModel)]="renter.email" formControlName="email" required>
+                            <mat-error *ngIf="registerForm.get('email').invalid">{{getErrorMessageEmail()}}</mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <input type="password" class="input-form" matInput placeholder="Contraseña" #renter.password formControlName="password" required>
+                            <mat-error *ngIf="registerForm.get('password').invalid">{{getErrorMessagePass()}}</mat-error>
+                        </mat-form-field>
+                        <button class="btn-rounded full-width" style="margin-top: 5%;" mat-raised-button>Registrarme</button>
+                        <small class="txt-muted">Al registrarte aceptas los <a (click)="openViewer()">Términos y Condiciones</a> y las <a (click)="openViewer()">Políticas de Privacidad</a>.</small>
+                    </form>
+            <form novalidate>
+                <mat-label>Edita los datos que no coincidan del autollenado</mat-label>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Calle, Num. Ext. e Int" required>
+                </mat-form-field>
+            </form>
+        </mat-grid-tile> -->
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Características</ng-template>
+    </mat-step>
+</mat-vertical-stepper>
