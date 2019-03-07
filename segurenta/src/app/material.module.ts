@@ -13,6 +13,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatDialogModule,
     MatInputModule,
     MatIconModule,
-    MatStepperModule
+    MatStepperModule,
+    MatChipsModule
   ],
   exports: [
     FlexLayoutModule,
@@ -43,7 +45,8 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatDialogModule,
     MatInputModule,
     MatIconModule,
-    MatStepperModule
+    MatStepperModule,
+    MatChipsModule
   ]
 })
 export class MaterialModule { }

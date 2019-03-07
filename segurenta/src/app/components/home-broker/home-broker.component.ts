@@ -122,7 +122,7 @@ export class HomeBrokerComponent implements OnInit {
     dialogConfig.direction = 'ltr';
     dialogConfig.width = '100vw';
     dialogConfig.maxWidth = '98vw';
-    dialogConfig.panelClass = 'dialog-register';
+    // dialogConfig.panelClass = 'dialog-register';
 
 
     this.registerDialogRef = this.dialog.open(RegisterPropertyComponent, dialogConfig);

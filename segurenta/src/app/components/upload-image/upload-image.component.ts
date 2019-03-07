@@ -12,7 +12,7 @@ export class UploadImageComponent implements OnInit {
   public message: string;
 
   constructor() {
-    this.imgURL = 'https://i.ebayimg.com/images/g/ZacAAOSwGIZcOSuL/s-l400.jpg';
+    this.imgURL = './assets/img/imgImagen.png';
    }
 
   ngOnInit() {
