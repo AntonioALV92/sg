@@ -23,7 +23,7 @@ import { PasswordRecoveryComponent } from './components/password-recovery/passwo
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HomeBrokerComponent } from './components/home-broker/home-broker.component';
+import { HomeAdviserComponent } from './components/home-adviser/home-adviser.component';
 import { RegisterPropertyComponent } from './components/register-property/register-property.component';
 import { UploadImageComponent } from './components/upload-image/upload-image.component';
 import { HomeRentComponent } from './components/home-rent/home-rent.component';
@@ -36,7 +36,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
 import { PersonRegisterService } from './services/person-register.service';
 
-
+// Files
+import { ngfModule, ngf } from 'angular-file';
 
 
 @NgModule({
@@ -49,7 +50,7 @@ import { PersonRegisterService } from './services/person-register.service';
     PasswordRecoveryComponent,
     PdfViewerComponent,
     FooterComponent,
-    HomeBrokerComponent,
+    HomeAdviserComponent,
     HomeRentComponent,
     RegisterPropertyComponent,
     UploadImageComponent
@@ -63,7 +64,8 @@ import { PersonRegisterService } from './services/person-register.service';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    PdfViewerModule
+    PdfViewerModule,
+    ngfModule
   ],
   providers: [
     AuthService,

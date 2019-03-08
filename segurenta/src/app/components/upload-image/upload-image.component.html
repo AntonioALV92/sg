@@ -3,9 +3,108 @@
 <input #file type="file" accept='image/*' (change)="preview(file.files)" />
 <img [src]="imgURL" height="200" *ngIf="imgURL"> -->
 
-<div class="image-upload m-1">
+
+
+
+<!-- <div class="image-upload m-1">
     <input id="file-input" #file type="file" accept='image/*' (change)="preview(file.files)" />
     <label for="file-input">
     <img [src]="imgURL" class="img-thumbnail" *ngIf="imgURL">        
     </label>
+</div> -->
+
+
+
+
+<style>
+    .my-drop-zone {
+        border: dotted 3px lightgrey;
+        cursor: pointer;
+        width: 150px;
+        height: 100px;
+    }
+    /* Default class applied to drop zones on over */
+    
+    .invalid-drag {
+        border: dotted 3px red;
+    }
+    
+    .valid-drag {
+        border: dotted 3px green;
+    }
+    
+    .previewIcon {
+        width: 100px;
+        height: 100px;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    
+    .inline-block {
+        display: inline-block;
+        margin: .2em;
+    }
+</style>
+
+<ngfFormData [files]="files" postName="file" [(FormData)]="sendableFormData"></ngfFormData>
+
+<ngfUploadStatus [(percent)]="progress" [httpEvent]="httpEvent"></ngfUploadStatus>
+
+
+<!-- <div class="inline-block">
+    <h3>Select Files</h3>
+
+    <div class="inline-block">
+        Multiple
+        <input ngfSelect multiple type="file" [(files)]="files" [accept]="accept" [maxSize]="maxSize" [(lastInvalids)]="lastInvalids" (filesChange)="lastFileAt=getDate()" />
+    </div>
+
+    <div class="inline-block">
+        Single
+        <input ngfSelect type="file" [(files)]="files" [accept]="accept" [maxSize]="maxSize" [(lastInvalids)]="lastInvalids" (filesChange)="lastFileAt=getDate()" />
+    </div>
+
+    <div class="inline-block">
+        Element
+        <div ngfSelect multiple="1" [accept]="accept" [maxSize]="maxSize" [(files)]="files" class="well my-drop-zone" style="border-style:groove;padding:0.5em;text-align:center;width:150px;" [(lastInvalids)]="lastInvalids" (filesChange)="lastFileAt=getDate()">
+            Tap to Select
+        </div>
+    </div>
+
+    <div class="inline-block">
+        <strong>Images</strong> Only
+        <div ngfSelect accept="image/*" multiple="1" [maxSize]="maxSize" [(files)]="files" class="well my-drop-zone" style="border-style:groove;padding:0.5em;text-align:center;width:150px;" [(lastInvalids)]="lastInvalids" (filesChange)="lastFileAt=getDate()">
+            Tap to Select
+        </div>
+    </div>
+</div> -->
+
+<div>
+    <div class="inline-block">
+        <div ngfDrop selectable="1" [(validDrag)]="baseDropValid" (fileOver)="hasBaseDropZoneOver=$event" [(files)]="files" [accept]="accept" [maxSize]="maxSize" [(dragFiles)]="dragFiles" [(lastInvalids)]="lastInvalids" class="my-drop-zone text-center" [class.invalid-drag]="baseDropValid===false"
+            [class.valid-drag]="baseDropValid" (filesChange)="lastFileAt=getDate()">
+            <span class="align-middle">Imagen</span><br>
+            <span class="align-middle">( Máx. 2MB)</span>
+        </div>
+    </div>
+
+    <!-- <div class="inline-block">
+        <div ngfDrop [(validDrag)]="baseDropValid" (fileOver)="hasBaseDropZoneOver=$event" [(files)]="files" [accept]="accept" [maxSize]="maxSize" [(dragFiles)]="dragFiles" [(lastInvalids)]="lastInvalids" class="well my-drop-zone" [class.invalid-drag]="baseDropValid===false"
+            [class.valid-drag]="baseDropValid" (filesChange)="lastFileAt=getDate()">
+            Imagen
+        </div>
+        <strong>accept:</strong>
+        <div>
+            <input type="text" [(ngModel)]="accept" />
+        </div>
+    </div> -->
+</div>
+
+
+<div *ngIf="dragFiles">
+    <h3 style="margin:0">Drag Files</h3>
+    <p *ngIf="!dragFiles.length" style="color:red;">
+        This browser does NOT release metadata for files being dragged. All files will be considered valid drags until dropped.
+    </p>
+    <pre>{{ dragFiles | json }}</pre>
 </div>

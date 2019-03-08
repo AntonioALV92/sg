@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { TypeProperty } from '../../interfaces/catalog.interface';
+import { TypeProperty, CatalogItems } from '../../interfaces/catalog.interface';
 
 @Component({
   selector: 'app-register-property',
@@ -9,9 +9,12 @@ import { TypeProperty } from '../../interfaces/catalog.interface';
 })
 export class RegisterPropertyComponent implements OnInit {
 
+
   registerPictures: FormGroup;
   typeProperties: Array<TypeProperty>;
   selectedProperty: TypeProperty;
+  rules: CatalogItems;
+  amenities: CatalogItems;
 
   constructor() {
     this.typeProperties = [
@@ -23,6 +26,25 @@ export class RegisterPropertyComponent implements OnInit {
       new TypeProperty( 6, 'Edificio', false ),
       new TypeProperty( 7, 'Rancho', false ),
       new TypeProperty( 8, 'Oficina', false ),
+    ];
+    this.rules = [
+      {id: 1, value: 'No mascotas'},
+      {id: 2, value: 'No niños'},
+      {id: 3, value: 'No plantas'},
+      {id: 4, value: 'Solo mujeres'},
+      {id: 5, value: 'Solo estudiantes'},
+      {id: 6, value: 'Solo hombres'},
+    ];
+
+    this.amenities = [
+      {id: 1, value: 'Gimnasio'},
+      {id: 2, value: 'Alberca'},
+      {id: 3, value: 'Minisuper'},
+      {id: 4, value: 'Centro comerciales'},
+      {id: 5, value: 'Lavanderia'},
+      {id: 6, value: 'Bussiness center'},
+      {id: 7, value: 'SPA'},
+      {id: 8, value: 'Transporte público'},
     ];
   }
 

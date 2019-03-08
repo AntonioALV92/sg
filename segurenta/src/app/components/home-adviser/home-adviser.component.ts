@@ -3,11 +3,11 @@ import { MatDialogConfig, MatDialogRef, MatDialog } from '@angular/material';
 import { RegisterPropertyComponent } from '../register-property/register-property.component';
 
 @Component({
-  selector: 'app-home-broker',
-  templateUrl: './home-broker.component.html',
-  styleUrls: ['./home-broker.component.css']
+  selector: 'app-home-adviser',
+  templateUrl: './home-adviser.component.html',
+  styleUrls: ['./home-adviser.component.css']
 })
-export class HomeBrokerComponent implements OnInit {
+export class HomeAdviserComponent implements OnInit {
   pictures = [
     {
       id: 1,

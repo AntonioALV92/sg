@@ -12,24 +12,12 @@
                     </div>
                     <div class="row">
                         <app-upload-image></app-upload-image>
-                        <app-upload-image></app-upload-image>
-                        <app-upload-image></app-upload-image>
-                        <app-upload-image></app-upload-image>
-
-                    </div>
-                    <div class="row">
-                        <app-upload-image></app-upload-image>
-                        <app-upload-image></app-upload-image>
-                        <app-upload-image></app-upload-image>
-                        <app-upload-image></app-upload-image>
                     </div>
                 </div>
                 <div class="col-4">
                     <img src="./assets/img/imgVideo.png" class="img-thumbnail">
                 </div>
             </div>
-
-
         </form>
     </mat-step>
     <mat-step>
@@ -37,11 +25,6 @@
             <ng-template matStepLabel>Clasificación y precio</ng-template>
             <h3>Tipo de Propiedad</h3>
             <div class="col-12">
-                <!-- <button type="button" class="btn rounded btn-dark col-2 m-1" [ngClass]="{
-                    'active': item.selected,
-                    'inactive': !item.selected }" (click)="item.selected = !item.selected" *ngFor="let item of typeProperties">
-                    {{ item.value }}
-                </button> -->
                 <button type="button" class="btn rounded btn-outline-dark col-2 m-1" [ngClass]="{
                     'active': item.selected,
                     'inactive': !item.selected }" (click)="selectProperty(item.id)" *ngFor="let item of typeProperties">
@@ -128,9 +111,45 @@
                 </form>
             </div>
         </div>
-
     </mat-step>
     <mat-step>
         <ng-template matStepLabel>Características</ng-template>
+        <div class="col-12 row">
+            <div class="col-6">
+                <h3>Características</h3>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        <fa-icon [icon]="[ 'fas', 'toilet']"></fa-icon>
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="gridCheck2">
+                    <label class="form-check-label" for="gridCheck2">
+                            <fa-icon [icon]="[ 'fas', 'expand-arrows-alt']"></fa-icon>
+                        </label>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="col-12">
+                    <h3>Reglas</h3>
+                    <div class="form-check form-check-inline col-4" *ngFor="let item of rules">
+                        <input class="form-check-input" type="checkbox" [id]="'R'+item.id">
+                        <label class="form-check-label" [for]="'R'+item.id">
+                            {{ item.value }}
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <h3>Comodidades</h3>
+                    <div class="form-check form-check-inline col-4" *ngFor="let item of amenities">
+                        <input class="form-check-input" type="checkbox" [id]="'A' + item.id">
+                        <label class="form-check-label" [for]="'A' + item.id">
+                                {{ item.value }}
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
     </mat-step>
 </mat-vertical-stepper>
