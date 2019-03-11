@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
 })
 export class UploadImageComponent {
 
-  accept = 'image/*';
+  accept = '*';
   files: File[] = [];
   progress: number;
   url = 'https://evening-anchorage-3159.herokuapp.com/api/';
@@ -17,7 +17,8 @@ export class UploadImageComponent {
   httpEmitter: Subscription;
   httpEvent: HttpEvent<{}>;
   lastFileAt: Date;
-  maxSize: number = 2048;
+  maxSizeImage: number = 2097152;
+  maxSizeVideo: number = 20971520;
 
   sendableFormData: FormData;
 
@@ -52,6 +53,7 @@ export class UploadImageComponent {
 
   getDate() {
     return new Date();
+    console.log(this.files);
   }
 
   // public imagePath;

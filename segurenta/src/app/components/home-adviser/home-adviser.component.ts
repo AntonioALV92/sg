@@ -31,7 +31,8 @@ export class HomeAdviserComponent implements OnInit {
       price: 10500,
       period: 'mensual',
       // tslint:disable-next-line:max-line-length
-      img: 'https://e41ef2ad9891d7dd1442-94bb8684ffa0a53fb3624a3fb44b51a2.ssl.cf1.rackcdn.com/cliente/1398/fotosproductos/departamento-residencial-en-renta-en-colonia-jardines-de-virginia-boca-del-rio-16869_thumb.jpg'
+      // img: 'https://e41ef2ad9891d7dd1442-94bb8684ffa0a53fb3624a3fb44b51a2.ssl.cf1.rackcdn.com/cliente/1398/fotosproductos/departamento-residencial-en-renta-en-colonia-jardines-de-virginia-boca-del-rio-16869_thumb.jpg'
+      img: './assets/img/imgPrueba3.jpg'
     },
     {
       id: 2,
@@ -40,7 +41,8 @@ export class HomeAdviserComponent implements OnInit {
       location: 'CDMX',
       price: 10500,
       period: 'mensual',
-      img: 'https://i.ebayimg.com/images/g/ZacAAOSwGIZcOSuL/s-l400.jpg'
+      // img: 'https://i.ebayimg.com/images/g/ZacAAOSwGIZcOSuL/s-l400.jpg'
+      img: './assets/img/imgPrueba3.jpg'
     },
     {
       id: 3,
@@ -49,7 +51,8 @@ export class HomeAdviserComponent implements OnInit {
       location: 'CDMX',
       price: 10500,
       period: 'mensual',
-      img: 'https://i.ebayimg.com/images/g/ZHEAAOSwNqRcNjJy/s-l400.jpg'
+      // img: 'https://i.ebayimg.com/images/g/ZHEAAOSwNqRcNjJy/s-l400.jpg'
+      img: './assets/img/imgPrueba3.jpg'
     },
     {
       id: 4,
@@ -58,7 +61,8 @@ export class HomeAdviserComponent implements OnInit {
       location: 'CDMX',
       price: 10500,
       period: 'mensual',
-      img: 'https://i.ebayimg.com/images/g/ci0AAOSwE8Vbx8kP/s-l400.jpg'
+      // img: 'https://i.ebayimg.com/images/g/ci0AAOSwE8Vbx8kP/s-l400.jpg'
+      img: './assets/img/imgPrueba3.jpg'
     }
   ];
   picturesZone = [
@@ -74,7 +78,8 @@ export class HomeAdviserComponent implements OnInit {
       location: 'CDMX',
       period: 'mensual',
       // tslint:disable-next-line:max-line-length
-      img: 'https://e41ef2ad9891d7dd1442-94bb8684ffa0a53fb3624a3fb44b51a2.ssl.cf1.rackcdn.com/cliente/1398/fotosproductos/departamento-residencial-en-renta-en-colonia-jardines-de-virginia-boca-del-rio-16869_thumb.jpg'
+      // img: 'https://e41ef2ad9891d7dd1442-94bb8684ffa0a53fb3624a3fb44b51a2.ssl.cf1.rackcdn.com/cliente/1398/fotosproductos/departamento-residencial-en-renta-en-colonia-jardines-de-virginia-boca-del-rio-16869_thumb.jpg'
+      img: './assets/img/imgPrueba3.jpg'
     },
     {
       id: 2,
@@ -87,7 +92,8 @@ export class HomeAdviserComponent implements OnInit {
       month: 'Febrero',
       location: 'CDMX',
       period: 'mensual',
-      img: 'https://i.ebayimg.com/images/g/ZacAAOSwGIZcOSuL/s-l400.jpg'
+      // img: 'https://i.ebayimg.com/images/g/ZacAAOSwGIZcOSuL/s-l400.jpg'
+      img: './assets/img/imgPrueba3.jpg'
     }
   ];
   linkFacebook: string;
