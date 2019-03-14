@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
 })
 export class UploadImageComponent {
 
-  accept = '*';
+  accept = 'image/*';
   files: File[] = [];
   progress: number;
   url = 'https://evening-anchorage-3159.herokuapp.com/api/';
@@ -18,20 +18,20 @@ export class UploadImageComponent {
   httpEvent: HttpEvent<{}>;
   lastFileAt: Date;
   maxSizeImage: number = 2097152;
-  maxSizeVideo: number = 20971520;
+  // maxSizeImage: number = 209;
+  
 
   sendableFormData: FormData;
 
   // tslint:disable-next-line:no-shadowed-variable
-  constructor(public HttpClient: HttpClient) {}
+  constructor(public HttpClient: HttpClient) { }
 
-  cancel() {
-    this.progress = 0;
-    if ( this.httpEmitter ) {
-      console.log('cancelled');
-      this.httpEmitter.unsubscribe();
-    }
-  }
+  // cancel() {
+  //   this.progress = 0;
+  //   if ( this.httpEmitter ) {
+  //     this.httpEmitter.unsubscribe();
+  //   }
+  // }
 
   uploadFiles(files: File[]): Subscription {
     const req = new HttpRequest<FormData>('POST', this.url, this.sendableFormData, {
@@ -52,8 +52,9 @@ export class UploadImageComponent {
   }
 
   getDate() {
-    return new Date();
     console.log(this.files);
+    console.log(this.files[0].type);
+    return new Date();
   }
 
   // public imagePath;

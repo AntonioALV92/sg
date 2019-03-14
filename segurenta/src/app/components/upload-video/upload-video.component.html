@@ -1,0 +1,24 @@
+<ngfFormData [files]="files" postName="file" [(FormData)]="sendableFormData"></ngfFormData>
+<ngfUploadStatus [(percent)]="progress" [httpEvent]="httpEvent"></ngfUploadStatus>
+
+<div class="inline-block">
+    <div ngfDrop multiple="1" selectable="1" [(validDrag)]="validComboDrag" [(files)]="files" [accept]="accept" [maxSize]="maxSizeImage" [(lastInvalids)]="lastInvalids" [(dragFiles)]="dragFiles" class="well my-drop-zone" [class.invalid-drag]="validComboDrag===false"
+        [class.valid-drag]="validComboDrag" (filesChange)="lastFileAt=getDate()">
+        <p class="text-center">Video <br> (Máx. <strong>20 MB</strong>)</p>
+    </div>
+</div>
+
+<div class="row">
+    <h6>({{ files.length }}) Imagenes</h6>
+    <button type="button" class="btn btn-danger btn-sm" *ngIf="files.length>=2" (click)="files.length=0">
+        Quitar todas
+    </button>
+    <div class="col-12">
+        <div class="box m-2" *ngFor="let item of files;let i=index">
+            <div *ngIf="['image/gif','image/png','image/jpeg'].indexOf(item.type)>=0">
+                <div class="previewIcon" [ngfBackground]="item"></div>
+            </div>
+            <button type="button" class="btn btn-danger btn-xs mb-1" (click)="files.splice(i,1)">X</button>
+        </div>
+    </div>
+</div>

@@ -1,9 +1,36 @@
-.image-upload>input {
-    display: none;
-}
-
-.image-upload img {
+.my-drop-zone {
+    border: dotted 3px lightgrey;
+    cursor: pointer;
     width: 150px;
     height: 100px;
-    cursor: pointer;
+}
+
+
+/* Default class applied to drop zones on over */
+
+.invalid-drag {
+    border: dotted 3px red;
+}
+
+.valid-drag {
+    border: dotted 3px green;
+}
+
+.previewIcon {
+    border: solid 3px lightgrey;
+    width: 100px !important;
+    height: 100px !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.inline-block {
+    display: inline-block;
+    margin: .2em;
+}
+
+.box {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
 }
