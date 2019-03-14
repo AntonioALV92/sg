@@ -2,7 +2,11 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { element } from 'protractor';
+import { PersonInterface } from '../../interfaces/person.interface';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @Component({
   selector: 'app-navbar',
@@ -10,14 +14,35 @@ import { element } from 'protractor';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  
+  renter: PersonInterface = {
+    names: '',
+    firstLastName: '',
+    secondLastName: '',
+    phoneNumber: '',
+    email: '',
+    nationality: 0,
+  };
+  registerForm: FormGroup;
   loginDialogRef: MatDialogRef<LoginComponent>;
   registerDialogRef: MatDialogRef<RegisterComponent>;
 
   isLogged: boolean;
+  isRenter: boolean;
+  isBroker: boolean;
 
   constructor(private dialog: MatDialog) {
-    this.isLogged = false;
+    this.isLogged = true;
+    this.isRenter = true;
+    this.isBroker = false;
+    this.registerForm = new FormGroup({
+      names: new FormControl('', [Validators.required]),
+      firstLastName: new FormControl('', [Validators.required]),
+      secondLastName: new FormControl('', [Validators.required]),
+      phoneNumber: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(12)]),
+      email: new FormControl('', [Validators.required, Validators.email, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(10)])
+    });
   }
   openLogin() {
     const dialogConfig = new MatDialogConfig();
@@ -58,6 +83,40 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  getErrorMessageNames() {
+    return this.registerForm.get('names').hasError('required') ? 'Campo requerido' :
+    '';
+  }
+
+  getErrorMessageF() {
+    return this.registerForm.get('firstLastName').hasError('required') ? 'Campo requerido' :
+    '';
+  }
+
+  getErrorMessageS() {
+    return this.registerForm.get('secondLastName').hasError('required') ? 'Campo requerido' :
+    '';
+  }
+
+  getErrorMessagePhone() {
+    return this.registerForm.get('phoneNumber').hasError('required') ? 'Campo requerido' :
+    '';
+  }
+
+  getErrorMessageEmail() {
+    return this.registerForm.get('email').hasError('required') ? 'Campo requerido' :
+          this.registerForm.get('email').hasError('email') ? 'Formato inválido' :
+          this.registerForm.get('email').hasError('pattern') ? 'Formato inválido' :
+          '';
+  }
+
+  getErrorMessagePass() {
+    return this.registerForm.get('password').hasError('required') ? 'Campo requerido' :
+          this.registerForm.get('password').hasError('minlength') ? 'Mínimo 6 caracteres' :
+          this.registerForm.get('password').hasError('maxlength') ? 'Máximo 10 caracteres' :
+          '';
   }
 
 
