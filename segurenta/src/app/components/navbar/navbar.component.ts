@@ -6,6 +6,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { element } from 'protractor';
 import { PersonInterface } from '../../interfaces/person.interface';
 import { MatIconModule } from '@angular/material/icon';
+import { UpdateRenterComponent } from '../update-renter/update-renter.component';
 
 
 @Component({
@@ -16,16 +17,17 @@ import { MatIconModule } from '@angular/material/icon';
 export class NavbarComponent implements OnInit {
   
   renter: PersonInterface = {
-    names: '',
-    firstLastName: '',
-    secondLastName: '',
-    phoneNumber: '',
-    email: '',
+    names: 'Daniela',
+    firstLastName: 'Ortiz',
+    secondLastName: 'Rodriguez',
+    phoneNumber: '5555067209',
+    email: 'daniela.ortiz@stratplus.com',
     nationality: 0,
   };
   registerForm: FormGroup;
   loginDialogRef: MatDialogRef<LoginComponent>;
   registerDialogRef: MatDialogRef<RegisterComponent>;
+  updateDialogRef: MatDialogRef<UpdateRenterComponent>;
 
   isLogged: boolean;
   isRenter: boolean;
@@ -118,6 +120,26 @@ export class NavbarComponent implements OnInit {
           this.registerForm.get('password').hasError('maxlength') ? 'Máximo 10 caracteres' :
           '';
   }
+
+  openUpdateRenterData() {
+    const dialogConfig = new MatDialogConfig();
+
+    // dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.direction = 'ltr';
+    dialogConfig.width = '100vw';
+    dialogConfig.maxWidth = '98vw';
+    dialogConfig.panelClass = 'dialog-width';
+    dialogConfig.position = {
+      top: '100px',
+      left: '200px'
+    };
+
+
+
+    this.updateDialogRef = this.dialog.open(UpdateRenterComponent, dialogConfig);
+  }
+
 
 
 }

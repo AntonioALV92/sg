@@ -28,6 +28,7 @@ import { RegisterPropertyComponent } from './components/register-property/regist
 import { UploadImageComponent } from './components/upload-image/upload-image.component';
 import { HomeRentComponent } from './components/home-rent/home-rent.component';
 import { UpdateRenterComponent } from './components/update-renter/update-renter.component';
+import { UpdatePropertyComponent } from './components/update-property/update-property.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -55,7 +56,8 @@ import { ngfModule, ngf } from 'angular-file';
     HomeRentComponent,
     RegisterPropertyComponent,
     UploadImageComponent,
-    UpdateRenterComponent
+    UpdateRenterComponent,
+    UpdatePropertyComponent
   ],
   imports: [
     BrowserModule,

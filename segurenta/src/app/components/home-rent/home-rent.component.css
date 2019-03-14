@@ -100,3 +100,11 @@ input.input-transparent::placeholder {
 .img-opacity:hover {
     background-color: rgba(0, 0, 0, 0);
 }
+.card-columns {
+    -webkit-column-count: 4;
+    column-count: 4;
+    -webkit-column-gap: 1.25rem;
+    column-gap: 1.25rem;
+    orphans: 1;
+    widows: 1;
+}
