@@ -84,6 +84,10 @@ export class NavbarComponent implements OnInit {
     this.registerDialogRef = this.dialog.open(RegisterComponent, dialogConfig);
   }
 
+  showAlert(){
+    alert('Se modificó el usuario');
+  }
+
   ngOnInit() {
   }
 

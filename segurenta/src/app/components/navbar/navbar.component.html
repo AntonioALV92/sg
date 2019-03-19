@@ -14,8 +14,8 @@
             <fa-icon class="pr-3" [icon]="[ 'fas', 'bell']"></fa-icon>
         </a>
         <span class="badge badge-notify rounded-circle text-white">9</span>
-        <!-- <a href="#myModal" role="button" data-toggle="modal"><img src="./assets/img/usrPrueba.png" class="rounded-circle" width="30" height="30"></a> -->
-        <a (click)="openUpdateRenterData()" role="button"><img src="./assets/img/usrPrueba.png" class="rounded-circle" width="30" height="30"></a>
+        <a href="#myModal" role="button" data-toggle="modal"><img src="./assets/img/usrPrueba.png" class="rounded-circle" width="30" height="30"></a>
+        <!-- <a (click)="openUpdateRenterData()" role="button"><img src="./assets/img/usrPrueba.png" class="rounded-circle" width="30" height="30"></a> -->
            
         </div>
     
@@ -79,7 +79,7 @@
                    
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary"  style="border-radius: 15px;">Modificar</button>
+          <button type="button" class="btn btn-primary" (click)="showAlert()" style="border-radius: 15px;">Modificar</button>
         </div>
       </div>
     </div>
