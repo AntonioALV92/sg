@@ -104,7 +104,7 @@
                     <input type="text" matInput placeholder="Número de Cuenta" #adviser.clabe formControlName="clabe" required>
                     <mat-error *ngIf="registerFormAdviser.get('clabe').invalid">{{getErrorMessageCLABE()}}</mat-error>
                 </mat-form-field>
-                <button class="btn-rounded full-width" style="margin-top: 5%;" mat-raised-button>Registrarme</button>
+                <button class="btn-rounded full-width" style="margin-top: 5%;" mat-raised-button (click)="registerU(1)">Registrarme</button>
                 <small class="txt-muted">Al registrarte aceptas los <a (click)="openViewer()">Términos y Condiciones</a> y las <a (click)="openViewer()">Políticas de Privacidad</a>.</small>
             </form>
         </mat-grid-tile>
@@ -150,7 +150,7 @@
                     <input type="password" class="input-form" matInput placeholder="Contraseña" #adviser.password formControlName="password" required>
                     <mat-error *ngIf="registerForm.get('password').invalid">{{getErrorMessagePass()}}</mat-error>
                 </mat-form-field>
-                <button class="btn-rounded full-width" style="margin-top: 5%;" mat-raised-button>Registrarme</button>
+                <button class="btn-rounded full-width" style="margin-top: 5%;" mat-raised-button (click)="registerU(2)">Registrarme</button>
                 <small class="txt-muted">Al registrarte aceptas los <a (click)="openViewer()">Términos y Condiciones</a> y las <a (click)="openViewer()">Políticas de Privacidad</a>.</small>
             </form>
         </mat-grid-tile>

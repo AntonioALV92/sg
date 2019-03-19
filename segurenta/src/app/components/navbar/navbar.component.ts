@@ -2,12 +2,10 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { element } from 'protractor';
-import { PersonInterface } from '../../interfaces/person.interface';
-import { MatIconModule } from '@angular/material/icon';
+import { PersonInterface } from 'src/app/interfaces/person.interface';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UpdateRenterComponent } from '../update-renter/update-renter.component';
-
 
 @Component({
   selector: 'app-navbar',
@@ -15,7 +13,7 @@ import { UpdateRenterComponent } from '../update-renter/update-renter.component'
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  
+
   renter: PersonInterface = {
     names: 'Daniela',
     firstLastName: 'Ortiz',
@@ -25,6 +23,7 @@ export class NavbarComponent implements OnInit {
     nationality: 0,
   };
   registerForm: FormGroup;
+
   loginDialogRef: MatDialogRef<LoginComponent>;
   registerDialogRef: MatDialogRef<RegisterComponent>;
   updateDialogRef: MatDialogRef<UpdateRenterComponent>;
@@ -32,6 +31,7 @@ export class NavbarComponent implements OnInit {
   isLogged: boolean;
   isRenter: boolean;
   isBroker: boolean;
+
 
   constructor(private dialog: MatDialog) {
     this.isLogged = true;
@@ -45,6 +45,7 @@ export class NavbarComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]),
       password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(10)])
     });
+
   }
   openLogin() {
     const dialogConfig = new MatDialogConfig();
@@ -139,7 +140,6 @@ export class NavbarComponent implements OnInit {
 
     this.updateDialogRef = this.dialog.open(UpdateRenterComponent, dialogConfig);
   }
-
 
 
 }

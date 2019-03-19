@@ -26,13 +26,13 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeAdviserComponent } from './components/home-adviser/home-adviser.component';
 import { RegisterPropertyComponent } from './components/register-property/register-property.component';
 import { UploadImageComponent } from './components/upload-image/upload-image.component';
+import { UploadVideoComponent } from './components/upload-video/upload-video.component';
 import { HomeRentComponent } from './components/home-rent/home-rent.component';
+import { PropertyDetailComponent } from './components/property-detail/property-detail.component';
+import { MapComponent } from './components/map/map.component';
 import { UpdateRenterComponent } from './components/update-renter/update-renter.component';
-import { UpdatePropertyComponent } from './components/update-property/update-property.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
 
 // Imports services
 import { AuthService } from './services/auth.service';
@@ -40,6 +40,10 @@ import { PersonRegisterService } from './services/person-register.service';
 
 // Files
 import { ngfModule, ngf } from 'angular-file';
+
+// Maps
+import { AgmCoreModule } from '@agm/core';
+import { UpdatePropertyComponent } from './components/update-property/update-property.component';
 
 
 @NgModule({
@@ -56,6 +60,9 @@ import { ngfModule, ngf } from 'angular-file';
     HomeRentComponent,
     RegisterPropertyComponent,
     UploadImageComponent,
+    UploadVideoComponent,
+    PropertyDetailComponent,
+    MapComponent,
     UpdateRenterComponent,
     UpdatePropertyComponent
   ],
@@ -69,7 +76,10 @@ import { ngfModule, ngf } from 'angular-file';
     ReactiveFormsModule,
     HttpClientModule,
     PdfViewerModule,
-    ngfModule
+    ngfModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyB3frb1yu2iHSbY-RnHgL-vjvqquWLvXxY'
+    })
   ],
   providers: [
     AuthService,

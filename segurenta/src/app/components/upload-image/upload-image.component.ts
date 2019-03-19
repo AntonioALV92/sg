@@ -19,7 +19,7 @@ export class UploadImageComponent {
   lastFileAt: Date;
   maxSizeImage: number = 2097152;
   // maxSizeImage: number = 209;
-  
+
 
   sendableFormData: FormData;
 
