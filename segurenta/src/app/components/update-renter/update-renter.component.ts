@@ -1,13 +1,10 @@
-import { Component, OnInit, HostListener } from '@angular/core';
-import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
+import { Component, OnInit } from '@angular/core';
+import { PersonInterface } from 'src/app/interfaces/person.interface';
 import { LoginComponent } from '../login/login.component';
+import { MatDialogRef } from '@angular/material';
 import { RegisterComponent } from '../register/register.component';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { element } from 'protractor';
-import { PersonInterface } from '../../interfaces/person.interface';
-import { MatIconModule } from '@angular/material/icon';
 
-declare var $: any;
 @Component({
   selector: 'app-update-renter',
   templateUrl: './update-renter.component.html',
@@ -33,7 +30,7 @@ export class UpdateRenterComponent implements OnInit {
   isRenter: boolean;
   isBroker: boolean;
 
-  constructor() { 
+  constructor() {
     this.isLogged = true;
     this.isRenter = true;
     this.isBroker = false;
@@ -81,7 +78,7 @@ export class UpdateRenterComponent implements OnInit {
   }
 
   ngOnInit() {
-    //$('#myModal').modal('show');
   }
+
 
 }

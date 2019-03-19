@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TypeProperty, CatalogItems } from '../../interfaces/catalog.interface';
+import { TypeProperty, CatalogItems } from 'src/app/interfaces/catalog.interface';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -8,14 +8,14 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./update-property.component.css']
 })
 export class UpdatePropertyComponent implements OnInit {
-  
+
   registerPictures: FormGroup;
   typeProperties: Array<TypeProperty>;
   selectedProperty: TypeProperty;
   rules: CatalogItems;
   amenities: CatalogItems;
 
-  constructor() { 
+  constructor() {
     this.typeProperties = [
       new TypeProperty( 1, 'Casa', false),
       new TypeProperty( 2, 'Departamento', false ),
@@ -47,6 +47,7 @@ export class UpdatePropertyComponent implements OnInit {
     ];
   }
 
+
   ngOnInit() {
   }
 
@@ -60,5 +61,6 @@ export class UpdatePropertyComponent implements OnInit {
       }
     });
   }
+
 
 }

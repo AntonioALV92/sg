@@ -253,7 +253,7 @@ export class RegisterComponent implements OnInit {
   }
 
 
-  register() {
+  register(n?: number) {
     event.preventDefault(); // Avoid default action for the submit button of the login form
     console.log(this.registerForm);
     if (this.registerForm.valid) {
@@ -264,7 +264,10 @@ export class RegisterComponent implements OnInit {
       const email = this.registerForm.get('email').value;
       const password = this.registerForm.get('password').value;
       console.log(this.renter);
+
       alert('Inquilino registrado!');
+      this.router.navigate(['home-rent']);
+      this.dialog.closeAll();
       // Calls service to login user to the api rest
     //   this.authService.login(email, password).subscribe(
 
@@ -283,8 +286,17 @@ export class RegisterComponent implements OnInit {
 
 
   }
+  registerU(n?: number) {
+    if (n === 1) {
+      alert('Asesor registrado!');
+      this.router.navigate(['home-adviser']);
+    } else if (n === 2 ) {
+      alert('Propietario registrado!');
+    }
+    this.dialog.closeAll();
+  }
 
   navigate() {
-    this.router.navigateByUrl('/home');
+    this.router.navigate(['home-rent']);
   }
 }

@@ -9,10 +9,13 @@
 </div>
 
 <div class="row">
-    <h6>({{ files.length }}) Imágenes</h6>
-    <button type="button" class="btn btn-danger btn-sm" *ngIf="files.length>=2" (click)="files.length=0">
-        Quitar todas
-    </button>
+    <div class="col-12 form-inline">
+        <h4 class="m-2">({{ files.length }}) Imágenes</h4>
+        <button type="button" class="btn btn-danger btn-sm" *ngIf="files.length>=2" (click)="files.length=0">
+            Quitar todas
+        </button>
+    </div>
+
     <div class="col-12">
         <div class="box m-2" *ngFor="let item of files;let i=index">
             <div *ngIf="['image/gif','image/png','image/jpeg'].indexOf(item.type)>=0">
@@ -72,7 +75,7 @@
     </table>
 </div> -->
 
-<div style="margin-bottom: 40px">
+<!-- <div style="margin-bottom: 40px">
     <div>
         <div>
             Progreso:
@@ -86,4 +89,4 @@
     <button type="button" class="btn btn-success btn-s" (click)="uploadFiles(files)" *ngIf="files.length>0">
       Subir
     </button>
-</div>
+</div> -->

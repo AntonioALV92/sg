@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { TypeProperty, CatalogItems } from '../../interfaces/catalog.interface';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-register-property',
@@ -16,7 +17,7 @@ export class RegisterPropertyComponent implements OnInit {
   rules: CatalogItems;
   amenities: CatalogItems;
 
-  constructor() {
+  constructor(private dialogRef: MatDialog) {
     this.typeProperties = [
       new TypeProperty( 1, 'Casa', false),
       new TypeProperty( 2, 'Departamento', false ),
@@ -60,6 +61,10 @@ export class RegisterPropertyComponent implements OnInit {
         console.log(this.selectedProperty);
       }
     });
+  }
+
+  closeDialog() {
+    this.dialogRef.closeAll();
   }
 
 }
