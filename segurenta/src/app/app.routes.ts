@@ -19,7 +19,7 @@ const APP_ROUTES: Routes = [
     { path: 'update-renter', component: UpdateRenterComponent },
     { path: 'update-property', component: UpdatePropertyComponent },
     // {path: 'register', component: RegisterComponent},
-    { path: '**', pathMatch: 'full', redirectTo: 'home' }
+    { path: '**', pathMatch: 'full', redirectTo: 'home-rent' }
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);

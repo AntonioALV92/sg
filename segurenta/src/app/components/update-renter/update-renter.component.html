@@ -1,5 +1,5 @@
 <div class="txt-right">
-    <h2 mat-dialog-title><small class="txt-title-muted">Editar </small><span class="txt-title"> {{ title }}</span></h2>
+    <h2 mat-dialog-title class="text-center"><small class="txt-title-muted">Editar </small><span class="text-blue-big">Perfil</span></h2>
     <mat-grid-list cols="12" rowHeight="1:5">
         <mat-grid-tile colspan="5" style="margin-left:1%;">
             <form [formGroup]="updateForm" (ngSubmit)="register()" novalidate="novalidate">
@@ -7,7 +7,7 @@
                     <input type="text" class="input-form" matInput placeholder="Nombre(s)" [(ngModel)]="renter.names" formControlName="names" required>
                     <mat-error *ngIf="updateForm.get('names').invalid">{{getErrorMessageNames()}}</mat-error>
                 </mat-form-field>
-                <mat-form-field style="padding-right: 10%;">
+                <mat-form-field class="mid-width">
                     <input type="text" class="input-form" matInput placeholder="Apellido Paterno" [(ngModel)]="renter.firstLastName" formControlName="firstLastName" required>
                     <mat-error *ngIf="updateForm.get('firstLastName').invalid">{{getErrorMessageF()}}</mat-error>
                 </mat-form-field>

@@ -35,8 +35,8 @@ export class NavbarComponent implements OnInit {
 
   constructor(private dialog: MatDialog) {
     this.isLogged = true;
-    this.isRenter = true;
-    this.isBroker = false;
+    this.isRenter = false;
+    this.isBroker = true;
     this.registerForm = new FormGroup({
       names: new FormControl('', [Validators.required]),
       firstLastName: new FormControl('', [Validators.required]),

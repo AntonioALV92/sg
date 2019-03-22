@@ -22,6 +22,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component';
+import { ShowRequirementsComponent } from './components/show-requirements/show-requirements.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeAdviserComponent } from './components/home-adviser/home-adviser.component';
 import { RegisterPropertyComponent } from './components/register-property/register-property.component';
@@ -63,8 +64,9 @@ import { UpdatePropertyComponent } from './components/update-property/update-pro
     UploadVideoComponent,
     PropertyDetailComponent,
     MapComponent,
+    ShowRequirementsComponent,
     UpdateRenterComponent,
-    UpdatePropertyComponent
+    UpdatePropertyComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,7 +92,8 @@ import { UpdatePropertyComponent } from './components/update-property/update-pro
     LoginComponent,
     RegisterComponent,
     PdfViewerComponent,
-    RegisterPropertyComponent
+    RegisterPropertyComponent,
+    ShowRequirementsComponent
   ]
 })
 export class AppModule { }

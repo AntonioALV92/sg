@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
+import { ShowRequirementsComponent } from '../show-requirements/show-requirements.component';
 
 @Component({
   selector: 'app-property-detail',
@@ -6,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./property-detail.component.css']
 })
 export class PropertyDetailComponent implements OnInit {
+  fileNameDialogRef: MatDialogRef<ShowRequirementsComponent>;
   property = {
       alias: 'Departamento Del Valle',
       periodicidad: 'Mensual',
@@ -61,11 +64,27 @@ export class PropertyDetailComponent implements OnInit {
         longitud: '-99.266552'
       }
     };
-  constructor() {
+  constructor(private dialog: MatDialog) {
     console.log(this.property);
    }
 
   ngOnInit() {
+  }
+
+  openViewer() {
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.autoFocus = true;
+    dialogConfig.direction = 'ltr';
+    dialogConfig.width = '100vw';
+    dialogConfig.maxWidth = '95vw';
+    
+    dialogConfig.position = {
+      top: '100px',
+      left: '200px'
+    };
+    this.fileNameDialogRef = this.dialog.open(ShowRequirementsComponent, dialogConfig);
   }
 
 }

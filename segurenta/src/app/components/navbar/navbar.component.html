@@ -3,12 +3,12 @@
         <img src="./assets/img/logoSeguRenta_bco.png" width="150" height="40" class="d-inline-block align-top img-responsive">
     </a>
 
-    <div *ngIf="isLogged" class="collapse navbar-collapse d-flex justify-content-end">
+    <div *ngIf="!isLogged" class="collapse navbar-collapse d-flex justify-content-end">
         <button class="btn btn-sm btn-outline-light m-1" type="button" (click)="openRegister()">Registrarse</button>
         <button class="btn btn-sm btn-outline-light m-1" type="button" (click)="openLogin()">Entrar</button>
     </div>
 
-    <div *ngIf="!isLogged" class="collapse navbar-collapse d-flex justify-content-end">
+    <div *ngIf="isLogged" class="collapse navbar-collapse d-flex justify-content-end">
         <a class="btn btn-default btn-link text-white">
             <fa-icon class="pr-3" [icon]="[ 'fas', 'bell']"></fa-icon>
         </a>
@@ -25,7 +25,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">
                     <span class="text-center">
-                        Editar <span class="text-blue-big">Perfil</span>
+                        Editar Perfil <span class="text-blue-big">Perfil</span>
                     </span>
 
                 </h5>
