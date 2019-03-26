@@ -44,28 +44,33 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       const email = this.loginForm.get('email').value;
       const password = this.loginForm.get('password').value;
-      if (email === 'inquilino@email.com') {
-        alert('Entraste!');
-        this.router.navigate(['home-rent']);
-      } else if (email === 'asesor@email.com') {
-        alert('Entraste!');
-        this.router.navigate(['home-adviser']);
-      }
+      // if (email === 'inquilino@email.com') {
+      //   alert('Entraste!');
+      //   this.closeDialog();
+      //   this.router.navigate(['home-rent']);
+      // } else if (email === 'asesor@email.com') {
+      //   alert('Entraste!');
+      //   this.closeDialog();
+      //   this.router.navigate(['home-adviser']);
+      // } else {
+      //   alert('Credenciales inválidas');
+      // }
+
 
       // Calls service to login user to the api rest
-    //   this.authService.login(email, password).subscribe(
+      this.authService.login(email, password).subscribe(
 
-    //   res => {
-    //    console.log(res);
-    //    alert('Entraste!');
-    //   },
-    //   error => {
-    //     console.error(error);
-    //     alert('Algo salió mal :(');
-    //   },
+      res => {
+       console.log(res);
+       alert('Entraste!');
+      },
+      error => {
+        console.error(error);
+        alert('Algo salió mal :(');
+      },
 
-    //   () => this.navigate()
-    // );
+      () => this.navigate()
+    );
     }
 
 

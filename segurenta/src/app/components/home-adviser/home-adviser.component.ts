@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogConfig, MatDialogRef, MatDialog } from '@angular/material';
 import { RegisterPropertyComponent } from '../register-property/register-property.component';
+import { Globals } from 'src/app/interfaces/catalog.interface';
 
 @Component({
   selector: 'app-home-adviser',
@@ -8,6 +9,7 @@ import { RegisterPropertyComponent } from '../register-property/register-propert
   styleUrls: ['./home-adviser.component.css']
 })
 export class HomeAdviserComponent implements OnInit {
+  isLogged: boolean;
   pictures = [
     {
       id: 1,
@@ -107,7 +109,10 @@ export class HomeAdviserComponent implements OnInit {
   registerDialogRef: MatDialogRef<RegisterPropertyComponent>;
 
 
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog, private globals: Globals) {
+    globals.isLogged = true;
+    this.isLogged = globals.isLogged;
+
     this.countNews = 43;
     this.linkFacebook = 'https://es-la.facebook.com/Segurenta/';
     this.linkInstagram = 'https://www.instagram.com/segurenta/';

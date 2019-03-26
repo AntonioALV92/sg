@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterPropertyComponent } from '../register-property/register-property.component';
 import { MatDialogRef, MatDialog, MatDialogConfig } from '@angular/material';
+import { Globals } from 'src/app/interfaces/catalog.interface';
 
 @Component({
   selector: 'app-home-rent',
@@ -8,6 +9,7 @@ import { MatDialogRef, MatDialog, MatDialogConfig } from '@angular/material';
   styleUrls: ['./home-rent.component.css']
 })
 export class HomeRentComponent implements OnInit {
+  isLogged: boolean;
   pictures = [
     {
       id: 1,
@@ -106,7 +108,10 @@ export class HomeRentComponent implements OnInit {
   registerDialogRef: MatDialogRef<RegisterPropertyComponent>;
 
 
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog, private globals: Globals) {
+    globals.isLogged = true;
+    this.isLogged = globals.isLogged;
+
     this.countNews = 43;
     this.linkFacebook = 'https://es-la.facebook.com/Segurenta/';
     this.linkInstagram = 'https://www.instagram.com/segurenta/';

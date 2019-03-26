@@ -41,11 +41,11 @@
             </div>
             <div class="btn-group-vertical align-items-center mx-4">
                 <a>
-                    <button class="btn btn-outline-dark rounded-circle" style="height: 100px; width: 100px; color: white">
+                    <button class="btn btn-outline-dark rounded-circle" data-toggle="modal" data-target=".renter-profiler-modal" style="height: 100px; width: 100px; color: white">
                       <fa-icon [icon]="[ 'fas', 'hiking']" size="2x"></fa-icon>
                     </button>
                 </a>
-                <p>Crear Inquilino</p>
+                <p>Perfilador</p>
             </div>
             <div class="btn-group-vertical align-items-center mx-4">
                 <a>
@@ -235,7 +235,7 @@
             <div class="card-deck mb-3">
                 <div class="card border-light" *ngFor="let picture of pictures">
                     <img class="card-img-top" [src]="picture.img">
-                    <div class="card-img-overlay p-0 img-opacity">
+                    <div class="card-img-overlay p-0 img-opacity" [routerLink]="['/property-detail']">
                         <div class="card-title p-1">
                             <p class="h4 text-white d-inline"><b>{{ picture.state }}</b></p>
                             <div class="text-white d-inline float-right">
@@ -318,3 +318,5 @@
         </div>
     </div>
 </div>
+
+<app-renter-profiler></app-renter-profiler>

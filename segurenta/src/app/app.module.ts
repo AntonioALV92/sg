@@ -22,7 +22,6 @@ import { RegisterComponent } from './components/register/register.component';
 import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component';
-import { ShowRequirementsComponent } from './components/show-requirements/show-requirements.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeAdviserComponent } from './components/home-adviser/home-adviser.component';
 import { RegisterPropertyComponent } from './components/register-property/register-property.component';
@@ -45,7 +44,15 @@ import { ngfModule, ngf } from 'angular-file';
 // Maps
 import { AgmCoreModule } from '@agm/core';
 import { UpdatePropertyComponent } from './components/update-property/update-property.component';
+import { RenterProfilerComponent } from './components/renter-profiler/renter-profiler.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
+import { ShowRequirementsComponent } from './components/show-requirements/show-requirements.component';
 
+// Video
+import { VgCoreModule } from 'videogular2/core';
+import { VgControlsModule } from 'videogular2/controls';
+import { VgOverlayPlayModule } from 'videogular2/overlay-play';
+import { VgBufferingModule } from 'videogular2/buffering';
 
 @NgModule({
   declarations: [
@@ -64,9 +71,11 @@ import { UpdatePropertyComponent } from './components/update-property/update-pro
     UploadVideoComponent,
     PropertyDetailComponent,
     MapComponent,
-    ShowRequirementsComponent,
     UpdateRenterComponent,
     UpdatePropertyComponent,
+    RenterProfilerComponent,
+    LoadingComponent,
+    ShowRequirementsComponent
   ],
   imports: [
     BrowserModule,
@@ -79,6 +88,10 @@ import { UpdatePropertyComponent } from './components/update-property/update-pro
     HttpClientModule,
     PdfViewerModule,
     ngfModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB3frb1yu2iHSbY-RnHgL-vjvqquWLvXxY'
     })

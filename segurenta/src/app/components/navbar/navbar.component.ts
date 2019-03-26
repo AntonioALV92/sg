@@ -6,6 +6,9 @@ import { element } from 'protractor';
 import { PersonInterface } from 'src/app/interfaces/person.interface';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UpdateRenterComponent } from '../update-renter/update-renter.component';
+import { Globals } from 'src/app/interfaces/catalog.interface';
+import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -28,15 +31,15 @@ export class NavbarComponent implements OnInit {
   registerDialogRef: MatDialogRef<RegisterComponent>;
   updateDialogRef: MatDialogRef<UpdateRenterComponent>;
 
-  isLogged: boolean;
   isRenter: boolean;
   isBroker: boolean;
 
+  isLoggedIn$: Observable<boolean>;
 
-  constructor(private dialog: MatDialog) {
-    this.isLogged = true;
-    this.isRenter = false;
-    this.isBroker = true;
+
+  constructor(private dialog: MatDialog, private authService: AuthService) {
+    this.isRenter = true;
+    this.isBroker = false;
     this.registerForm = new FormGroup({
       names: new FormControl('', [Validators.required]),
       firstLastName: new FormControl('', [Validators.required]),
@@ -85,11 +88,8 @@ export class NavbarComponent implements OnInit {
     this.registerDialogRef = this.dialog.open(RegisterComponent, dialogConfig);
   }
 
-  showAlert(){
-    alert('Se modificó el usuario');
-  }
-
   ngOnInit() {
+    this.isLoggedIn$ = this.authService.isLoggedIn;
   }
 
   getErrorMessageNames() {

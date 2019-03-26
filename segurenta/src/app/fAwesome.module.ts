@@ -27,6 +27,8 @@ import { faHiking } from '@fortawesome/free-solid-svg-icons';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+
 
 
 import { faExpandArrowsAlt } from '@fortawesome/free-solid-svg-icons';
@@ -61,7 +63,8 @@ library.add(faHiking);
 library.add(faHome);
 library.add(faCalendarAlt);
 library.add(faBell);
-
+library.add(faSpinner);
+library.add(faPlusCircle);
 
 
 @NgModule({

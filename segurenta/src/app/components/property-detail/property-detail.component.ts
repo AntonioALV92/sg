@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
+import { MatDialogConfig, MatDialog, MatDialogRef } from '@angular/material';
 import { ShowRequirementsComponent } from '../show-requirements/show-requirements.component';
 
 @Component({
@@ -9,8 +9,9 @@ import { ShowRequirementsComponent } from '../show-requirements/show-requirement
 })
 export class PropertyDetailComponent implements OnInit {
   fileNameDialogRef: MatDialogRef<ShowRequirementsComponent>;
+  imageSelected: string;
   property = {
-      alias: 'Departamento Del Valle',
+      alias: 'DEPARTAMENTO 87m2 Del Valle, CDMX',
       periodicidad: 'Mensual',
       precioRenta: 10000,
       mantenimiento: 500,
@@ -20,13 +21,13 @@ export class PropertyDetailComponent implements OnInit {
       urlVideo: './assets/video/videoPrueba.mp4',
       imagenes: [
         { url: './assets/img/imgPrueba3.jpg', orden: 1 },
-        { url: './assets/img/imgPrueba3.jpg', orden: 2 },
-        { url: './assets/img/imgPrueba3.jpg', orden: 3 },
+        { url: './assets/img/imgPrueba2.png', orden: 2 },
+        { url: './assets/img/imgPrueba4.jpg', orden: 3 },
         { url: './assets/img/imgPrueba3.jpg', orden: 4 },
-        { url: './assets/img/imgPrueba3.jpg', orden: 5 },
-        { url: './assets/img/imgPrueba3.jpg', orden: 6 },
+        { url: './assets/img/imgPrueba2.png', orden: 5 },
+        { url: './assets/img/imgPrueba4.jpg', orden: 6 },
         { url: './assets/img/imgPrueba3.jpg', orden: 7 },
-        { url: './assets/img/imgPrueba3.jpg', orden: 8 }
+        { url: './assets/img/imgPrueba2.png', orden: 8 }
       ],
       noCitas: 15,
       caracteristicas: [
@@ -64,8 +65,9 @@ export class PropertyDetailComponent implements OnInit {
         longitud: '-99.266552'
       }
     };
-  constructor(private dialog: MatDialog) {
-    console.log(this.property);
+    constructor(private dialog: MatDialog) {
+      this.imageSelected = '';
+      console.log(this.property);
    }
 
   ngOnInit() {
@@ -79,12 +81,21 @@ export class PropertyDetailComponent implements OnInit {
     dialogConfig.direction = 'ltr';
     dialogConfig.width = '100vw';
     dialogConfig.maxWidth = '95vw';
-    
+
     dialogConfig.position = {
       top: '100px',
       left: '200px'
     };
     this.fileNameDialogRef = this.dialog.open(ShowRequirementsComponent, dialogConfig);
   }
+
+  changeImage(urlImage: string) {
+    this.imageSelected = urlImage;
+  }
+
+  showVideo() {
+    this.imageSelected = '';
+  }
+
 
 }

@@ -6,14 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./show-requirements.component.css']
 })
 export class ShowRequirementsComponent implements OnInit {
-
   pdfSrc = '/assets/documents/Requisitos.pdf';
   page: number;
   page2 = this.page + 1;
   totalPages: number;
   isLoaded: boolean;
   name: string;
-  constructor() { 
+  constructor() {
     this.page = 1;
     this.isLoaded = false;
     this.name = 'Requisitos';

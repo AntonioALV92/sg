@@ -15,7 +15,7 @@
                 <mat-error *ngIf="loginForm.get('password').invalid">{{getErrorMessagePass()}}</mat-error>
             </mat-form-field>
             <a routerLink="/password-recovery" class="full-width">Recuperar mi contraseña</a>
-            <button type="submit" class="btn-rounded full-width" (click)="closeDialog()" mat-raised-button>Ingresar</button>
+            <button type="submit" class="btn-rounded full-width" mat-raised-button>Ingresar</button>
             <!-- <div *ngIf="invalidLogin" class="error">
                 <div>Invalid credentials.</div>
             </div> -->
