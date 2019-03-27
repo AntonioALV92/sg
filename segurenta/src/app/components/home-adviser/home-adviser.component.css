@@ -102,3 +102,9 @@ input.input-transparent::placeholder {
 .btn-dark {
     background-color: #000 !important;
 }
+
+@media (max-width: 819px) {
+    .text-state {
+        font-size: 12px;
+    }
+  }
