@@ -31,6 +31,10 @@ input.input-transparent {
     border-right-color: #ddd !important;
 }
 
+input.input-transparent::placeholder {
+    color: #ddd;
+}
+
 .btn-transparent {
     background-color: rgba(255, 255, 255, 0) !important;
     border-color: #ddd !important;
@@ -94,4 +98,7 @@ input.input-transparent {
 
 .img-opacity:hover {
     background-color: rgba(0, 0, 0, 0);
+}
+.btn-dark {
+    background-color: #000 !important;
 }

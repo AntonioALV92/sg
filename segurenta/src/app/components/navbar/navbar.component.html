@@ -2,8 +2,12 @@
     <a class="navbar-brand" [routerLink]="['home']">
         <img src="./assets/img/logoSeguRenta_bco.png" width="150" height="40" class="d-inline-block align-top img-responsive">
     </a>
-
-    <div class="collapse navbar-collapse d-flex justify-content-end">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" 
+    data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" 
+    aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
         <button class="btn btn-sm btn-outline-light btn-block m-1 col-1" type="button" style="border-radius: 8px; font-size: 0.7rem;" (click)="openRegister()">Registrarse</button>
         <button class="btn btn-sm btn-outline-light btn-block m-1 col-1" type="button" style="border-radius: 8px; font-size: 0.7rem;" (click)="openLogin() ">Entrar</button>
     </div>

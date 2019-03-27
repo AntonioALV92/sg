@@ -109,9 +109,8 @@ export class HomeAdviserComponent implements OnInit {
   registerDialogRef: MatDialogRef<RegisterPropertyComponent>;
 
 
-  constructor(private dialog: MatDialog, private globals: Globals) {
-    globals.isLogged = true;
-    this.isLogged = globals.isLogged;
+  constructor(private dialog: MatDialog) {
+    // globals.isLogged = true;y 
 
     this.countNews = 43;
     this.linkFacebook = 'https://es-la.facebook.com/Segurenta/';

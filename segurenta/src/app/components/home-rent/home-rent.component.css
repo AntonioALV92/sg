@@ -109,3 +109,9 @@ input.input-transparent::placeholder {
     orphans: 1;
     widows: 1;
 }
+
+@media (max-width: 819px) {
+    .text-state {
+        font-size: 12px;
+    }
+  }
