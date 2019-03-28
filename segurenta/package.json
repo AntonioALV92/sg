@@ -5,6 +5,8 @@
         "ng": "ng",
         "start": "node server.js",
         "build": "ng build",
+        "build-prod": "ng build --configuration=production --base-href /url/",
+        "build-dummys": "ng build --configuration=dummys",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",

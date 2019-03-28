@@ -9,6 +9,9 @@ import { UpdateRenterComponent } from '../update-renter/update-renter.component'
 import { Globals } from 'src/app/interfaces/catalog.interface';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
+import { environment } from '../../../environments/environment';
+import { HttpClient, HttpRequest, HttpHeaders } from  "@angular/common/http";
+import {HttpParams} from  "@angular/common/http";
 
 @Component({
   selector: 'app-navbar',
@@ -16,6 +19,8 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+
+  customersObservable : Observable<string>;
 
   renter: PersonInterface = {
     names: 'Daniela',
@@ -37,7 +42,7 @@ export class NavbarComponent implements OnInit {
   isLoggedIn$: Observable<boolean>;
 
 
-  constructor(private dialog: MatDialog, private authService: AuthService) {
+  constructor(private dialog: MatDialog, private authService: AuthService, private  httpClient:HttpClient) {
     this.isRenter = true;
     this.isBroker = false;
     this.registerForm = new FormGroup({
@@ -89,7 +94,29 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getDummy().subscribe(
+      res => {
+        console.log(res);
+      },
+      error  =>{
+        console.log(error);
+      }
+    );
     this.isLoggedIn$ = this.authService.isLoggedIn;
+  }
+
+  getDummy() {
+    debugger;
+    let heade = new HttpHeaders();
+    heade.set('Accept-Charset', 'utf-8');
+    heade.set('Authorization', 'YWxhZGRpbjpvcGVuc2VzYW1l');
+    let url : string = environment.AuthSignin;
+    console.log(url);
+    return this.httpClient.post(url, {
+      username: 'pabloFront',
+      password: 'frontend',
+      cuenta: 1
+    }, {headers: heade});
   }
 
   getErrorMessageNames() {
