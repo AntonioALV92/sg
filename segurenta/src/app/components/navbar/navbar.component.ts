@@ -157,13 +157,13 @@ export class NavbarComponent implements OnInit {
         ]
       }
     };
-    debugger;
     let heade = new HttpHeaders();
     heade.set('Accept-Charset', 'utf-8');
     heade.set('Authorization', 'YWxhZGRpbjpvcGVuc2VzYW1l');
-    let url : string = environment.SrPropiedades;
+    let url : string = environment.API_URL;
+    let text : string = '/api/sr/propiedades';
     console.log(url);
-    return this.httpClient.post(url, request, {headers: heade});
+    return this.httpClient.post(url+text, request, {headers: heade});
     // return this.httpClient.post(url, {
     //   username: 'pabloFront',
     //   password: 'frontend',

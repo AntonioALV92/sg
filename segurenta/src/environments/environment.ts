@@ -4,9 +4,7 @@
 
 export const environment = {
   production: false,
-  env: 'dummys',
-  AuthSignin: 'http://localhost:3050/auth/signin',
-  SrPropiedades: 'http://localhost:3050/api/sr/propiedades'
+  API_URL: process.env.URL_MIDDLEWARE
 };
 
 /*

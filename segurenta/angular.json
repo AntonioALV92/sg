@@ -11,8 +11,11 @@
             "schematics": {},
             "architect": {
                 "build": {
-                    "builder": "@angular-devkit/build-angular:browser",
+                    "builder": "@angular-builders/custom-webpack:browser",
                     "options": {
+                        "customWebpackConfig": {
+                            "path": "custom-webpack-config.js"
+                        },
                         "outputPath": "dist/segurenta",
                         "index": "src/index.html",
                         "main": "src/main.ts",
@@ -56,40 +59,17 @@
                                 "maximumWarning": "2mb",
                                 "maximumError": "5mb"
                             }]
-                        },
-                        "dummys": {
-                            "fileReplacements": [{
-                                "replace": "src/environments/environment.prod.ts",
-                                "with": "src/environments/environment.ts"
-                            }],
-                            "optimization": true,
-                            "outputHashing": "all",
-                            "sourceMap": false,
-                            "extractCss": true,
-                            "namedChunks": false,
-                            "aot": true,
-                            "extractLicenses": true,
-                            "vendorChunk": false,
-                            "buildOptimizer": true,
-                            "budgets": [{
-                                "type": "initial",
-                                "maximumWarning": "2mb",
-                                "maximumError": "5mb"
-                            }]
                         }
                     }
                 },
                 "serve": {
-                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "builder": "@angular-builders/dev-server:generic",
                     "options": {
                         "browserTarget": "segurenta:build"
                     },
                     "configurations": {
                         "production": {
                             "browserTarget": "segurenta:build:production"
-                        },
-                        "dummys": {
-                            "browserTarget": "segurenta:build:dummys"
                         }
                     }
                 },

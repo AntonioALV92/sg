@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  env: 'Production'
+  API_URL: process.env.URL_MIDDLEWARE
 };
