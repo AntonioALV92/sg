@@ -106,17 +106,69 @@ export class NavbarComponent implements OnInit {
   }
 
   getDummy() {
+    let request = {
+      "propiedad": {
+        "id": 0,
+        "tipoPropiedad": 0,
+        "nombre": "String",
+        "precioRenta": 0.0,
+        "mantenimiento": 0.0,
+        "descripcion": "String",
+        "paso": 1,
+        "estatus": 0,
+        "idCuenta": 0,
+        "periodicidad": "dd-mm-yyyy",
+        "ultimaModificacion": "dd-mm-yyyy",
+        "fechaAlta": "dd-mm-yyyy",
+        "imagenes": [
+          {
+            "dato": "file",
+            "tipoImagen": 0
+          }
+        ],
+        "direccionPropiedad": {
+          "calle": "String",
+          "numeroInterior": 0,
+          "codigoPostal": 0,
+          "colonia": "String",
+          "ciudad": "String",
+          "latitud": "19.001231023012",
+          "longitud": "19.001231023012",
+          "numeroExterior": 0,
+          "observaciones": "String",
+          "zona": "String",
+          "delegacion": "String"
+        },
+        "caracteristicas": [
+          {
+            "idTipoCaracteristica": 0,
+            "valor": ""
+          }
+        ],
+        "disponibilidad": [
+          {
+            "fecha": "dd-mm-yyyy",
+            "incio": "dd-mm-yyyy HH:mm:ss",
+            "fin": "dd-mm-yyyy HH:mm:ss",
+            "estatus": 0,
+            "idCuenta": 0,
+            "idAgente": 0
+          }
+        ]
+      }
+    };
     debugger;
     let heade = new HttpHeaders();
     heade.set('Accept-Charset', 'utf-8');
     heade.set('Authorization', 'YWxhZGRpbjpvcGVuc2VzYW1l');
-    let url : string = environment.AuthSignin;
+    let url : string = environment.SrPropiedades;
     console.log(url);
-    return this.httpClient.post(url, {
-      username: 'pabloFront',
-      password: 'frontend',
-      cuenta: 1
-    }, {headers: heade});
+    return this.httpClient.post(url, request, {headers: heade});
+    // return this.httpClient.post(url, {
+    //   username: 'pabloFront',
+    //   password: 'frontend',
+    //   cuenta: 1
+    // }, {headers: heade});
   }
 
   getErrorMessageNames() {
