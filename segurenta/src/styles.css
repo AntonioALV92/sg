@@ -87,6 +87,18 @@ html {
     background-color: black !important;
 }
 
+.btn-dark {
+    color: #fff;
+    background-color: black !important;
+    border-color: black !important;
+}
+
+.btn-dark:hover {
+    color: black !important;
+    background-color: #ffffff !important;
+    border-color: black !important;
+}
+
 .dialog-width .mat-dialog-container {
     max-width: none;
 }

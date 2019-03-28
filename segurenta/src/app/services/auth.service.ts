@@ -21,7 +21,7 @@ export class AuthService {
       email: userName,
       // tslint:disable-next-line:object-literal-shorthand
       password: password,
-    });
+    }, );
   }
 
   logout() {
