@@ -92,6 +92,11 @@
         <mat-grid-tile colspan="4">
             <form [formGroup]="registerFormAdviser" (ngSubmit)="register()" novalidate="novalidate">
                 <h3 class="full-width">¿En dónde quiero mis comisiones?</h3>
+                <select class="form-control" #banco id="selectArrendador">
+                    <option *ngFor="let item of catBancos">
+                        {{item.descripcion}}
+                    </option>
+                </select>
                 <mat-form-field class="full-width">
                     <input type="text" matInput placeholder="Institución Bancaria" #adviser.bankName formControlName="bankName" required>
                     <mat-error *ngIf="registerFormAdviser.get('bankName').invalid">{{getErrorMessageBank()}}</mat-error>

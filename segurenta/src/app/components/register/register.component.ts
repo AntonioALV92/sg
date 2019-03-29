@@ -14,6 +14,9 @@ import { CatalogosService } from 'src/app/services/catalogos/catalogos.service';
 
 export class RegisterComponent implements OnInit {
 
+  public catBancos = {};
+  public banco;
+
   renter: PersonInterface = {
     names: '',
     firstLastName: '',
@@ -97,8 +100,12 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
-    let catBancos = this.catalog.getBancos();
-    // console.log(catBancos);
+    this.getBancos();
+  }
+
+  private async getBancos() {
+    this.catBancos = await this.catalog.getBancos();
+    console.log(this.catBancos);
   }
 
   openViewer() {
