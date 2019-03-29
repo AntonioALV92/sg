@@ -10,9 +10,7 @@ import { Globals } from 'src/app/interfaces/catalog.interface';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { MiddlewareService } from 'src/app/services/middleware/middleware.service';
-import { environment } from '../../../environments/environment';
-import { HttpClient, HttpRequest, HttpHeaders } from  "@angular/common/http";
-import {HttpParams} from  "@angular/common/http";
+import { HttpClient } from  "@angular/common/http";
 
 @Component({
   selector: 'app-navbar',
@@ -107,7 +105,6 @@ export class NavbarComponent implements OnInit {
   }
 
   getDummy() {
-    debugger;
     let request = {
       "propiedad": {
         "id": 0,
@@ -163,19 +160,8 @@ export class NavbarComponent implements OnInit {
       'Accept-Charset': 'utf-8',
       'Authorization': 'YWxhZGRpbjpvcGVuc2VzYW1l'
     };
-    // let heade = new HttpHeaders();
-    // heade.set('Accept-Charset', 'utf-8');
-    // heade.set('Authorization', 'YWxhZGRpbjpvcGVuc2VzYW1l');
-    let url : string = environment.API_URL;
     let text : string = '/api/sr/propiedades';
-    console.log(url);
     return this.middleware.post(text, request, h);
-    // return this.httpClient.post(url+text, request, {headers: heade});
-    // return this.httpClient.post(url, {
-    //   username: 'pabloFront',
-    //   password: 'frontend',
-    //   cuenta: 1
-    // }, {headers: heade});
   }
 
   getErrorMessageNames() {
