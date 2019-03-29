@@ -9,6 +9,7 @@ import { UpdateRenterComponent } from '../update-renter/update-renter.component'
 import { Globals } from 'src/app/interfaces/catalog.interface';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
+import { MiddlewareService } from 'src/app/services/middleware/middleware.service';
 import { environment } from '../../../environments/environment';
 import { HttpClient, HttpRequest, HttpHeaders } from  "@angular/common/http";
 import {HttpParams} from  "@angular/common/http";
@@ -42,7 +43,7 @@ export class NavbarComponent implements OnInit {
   isLoggedIn$: Observable<boolean>;
 
 
-  constructor(private dialog: MatDialog, private authService: AuthService, private  httpClient:HttpClient) {
+  constructor(private dialog: MatDialog, private authService: AuthService, private middleware: MiddlewareService, private  httpClient:HttpClient) {
     this.isRenter = true;
     this.isBroker = false;
     this.registerForm = new FormGroup({
@@ -106,6 +107,7 @@ export class NavbarComponent implements OnInit {
   }
 
   getDummy() {
+    debugger;
     let request = {
       "propiedad": {
         "id": 0,
@@ -157,13 +159,18 @@ export class NavbarComponent implements OnInit {
         ]
       }
     };
-    let heade = new HttpHeaders();
-    heade.set('Accept-Charset', 'utf-8');
-    heade.set('Authorization', 'YWxhZGRpbjpvcGVuc2VzYW1l');
+    let h = {
+      'Accept-Charset': 'utf-8',
+      'Authorization': 'YWxhZGRpbjpvcGVuc2VzYW1l'
+    };
+    // let heade = new HttpHeaders();
+    // heade.set('Accept-Charset', 'utf-8');
+    // heade.set('Authorization', 'YWxhZGRpbjpvcGVuc2VzYW1l');
     let url : string = environment.API_URL;
     let text : string = '/api/sr/propiedades';
     console.log(url);
-    return this.httpClient.post(url+text, request, {headers: heade});
+    return this.middleware.post(text, request, h);
+    // return this.httpClient.post(url+text, request, {headers: heade});
     // return this.httpClient.post(url, {
     //   username: 'pabloFront',
     //   password: 'frontend',
