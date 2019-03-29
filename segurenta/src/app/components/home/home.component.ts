@@ -119,8 +119,8 @@ export class HomeComponent implements OnInit {
   firstCarousel: [
     { urlImage: './assets/img/bgHome.png', order: 2, active: false },
     { urlImage: './assets/img/bgHome.png', order: 3, active: false },
-    { urlImage: './assets/img/bgHome.png', order: 1, active: true },
-    { urlImage: './assets/img/bgHome.png', order: 4, active: false }
+    { urlImage: './assets/img/imgPrueba3.png', order: 1, active: true },
+    { urlImage: './assets/img/imgPrueba.png', order: 4, active: false }
   ];
   countNews: number;
   // isLoading: boolean;
