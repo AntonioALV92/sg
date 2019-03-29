@@ -4,6 +4,7 @@ import { PersonInterface } from '../../interfaces/person.interface';
 import { Router } from '@angular/router';
 import { MatDialogRef, MatDialog } from '@angular/material';
 import { PdfViewerComponent } from '../pdf-viewer/pdf-viewer.component';
+import { CatalogosService } from 'src/app/services/catalogos/catalogos.service';
 
 @Component({
   selector: 'app-register',
@@ -56,7 +57,7 @@ export class RegisterComponent implements OnInit {
 
   fileNameDialogRef: MatDialogRef<PdfViewerComponent>;
 
-  constructor(private router: Router, private dialog: MatDialog) {
+  constructor(private router: Router, private dialog: MatDialog, private catalog: CatalogosService) {
     this.isRenter = true;
     this.title = 'Rentar';
 
@@ -96,6 +97,8 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
+    let catBancos = this.catalog.getBancos();
+    // console.log(catBancos);
   }
 
   openViewer() {

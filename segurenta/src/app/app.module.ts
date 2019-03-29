@@ -37,6 +37,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Imports services
 import { AuthService } from './services/auth.service';
 import { PersonRegisterService } from './services/person-register.service';
+import { MiddlewareService } from './services/middleware/middleware.service';
+import { CatalogosService } from './services/catalogos/catalogos.service';
+import { ConfigurationService } from './services/configuration/configuration.service'
 
 // Files
 import { ngfModule, ngf } from 'angular-file';
@@ -98,7 +101,10 @@ import { VgBufferingModule } from 'videogular2/buffering';
   ],
   providers: [
     AuthService,
-    PersonRegisterService
+    PersonRegisterService,
+    MiddlewareService,
+    CatalogosService,
+    ConfigurationService
   ],
   bootstrap: [AppComponent],
   entryComponents: [
