@@ -2,8 +2,8 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-11 col-xl-11">
-                    <div *ngIf="property.urlVideo && imageSelected === ''">
+                <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11 col-xl-11 rounded d-flex align-items-center" style="height: 67vh;">
+                    <div *ngIf="property.urlVideo && imageSelected === ''" style="max-height: 67vh">
                         <vg-player class="rounded">
                             <vg-overlay-play></vg-overlay-play>
                             <vg-buffering></vg-buffering>
@@ -29,33 +29,29 @@
                             </vg-controls>
 
                             <video [vgMedia]="media" #media id="singleVideo" preload="auto" crossorigin>
-                                        <source src="{{ property.urlVideo }}" type="video/mp4">
-                                    </video>
+                                                    <source src="{{ property.urlVideo }}" type="video/mp4">
+                                                </video>
                         </vg-player>
                     </div>
-                    <div *ngIf="imageSelected">
-                        <img src="{{ imageSelected }}" class="rounded img-responsive">
+                    <div *ngIf="imageSelected" class="col-12 p-0">
+                        <img src="{{ imageSelected }}" class="col-12 p-0 rounded img-fluid" style="max-height: 67vh;">
                         <div class="img-overlay">
-                            <label>Texto</label>
+                            Disponible
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-1 col-xl-1 text-center p-0">
+                <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 col-xl-1 text-center p-0">
                     <div class="row" *ngIf="property.urlVideo">
                         <div class="col-12 mb-1">
                             <a (click)="showVideo()">
-                                <img src="./assets/img/imgVideo.png" class="rounded img-responsive" width="70" height="50">
-                                <div class="card-img-overlay p-0 img-opacity">
-                                </div>
+                                <img src="./assets/img/imgVideo.png" class="rounded" width="70" height="50">
                             </a>
                         </div>
                     </div>
                     <div class="row" *ngFor="let item of property.imagenes">
                         <div class="col-12 mb-1">
                             <a (click)="changeImage(item.url)">
-                                <img src="{{ item.url }}" class="rounded img-responsive" width="70" height="50">
-                                <div class="card-img-overlay p-0 img-opacity">
-                                </div>
+                                <img src="{{ item.url }}" class="rounded" width="70" height="50">
                             </a>
                         </div>
                     </div>
@@ -65,14 +61,14 @@
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" style="border-right: black 1px solid;">
                     <div class="row">
                         <a class="col-3" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">
-                            <img src="./assets/img/usrPrueba.png" class="rounded-circle" width="75" height="75">
+                            <img [src]="property.asesor.imagen" class="rounded-circle" width="75" height="75">
                         </a>
                         <!-- <a class="col-3">
                             <img src="./assets/img/usrPrueba.png" class="rounded-circle" width="75" height="75">
                         </a> -->
                         <div class="col-6">
                             <p class="h5" style="color: #808080;">Horario para agendar una cita:</p>
-                            <p style="color: #808080;">Lun-Sab, 10:00 - 10:45</p>
+                            <p style="color: #808080;">{{ property.asesor.disponibilidad }}</p>
                         </div>
                         <div class="col-3">
                             <button class="btn btn-dark rounded-circle" style="height: 70px; width: 70px;">
@@ -188,5 +184,4 @@
         </div>
     </div>
 </div>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-xl">Extra large modal</button>
-<!-- <app-advertisement></app-advertisement> -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-xl">Extra large modal</button> -->

@@ -73,6 +73,10 @@ export class PropertyDetailComponent implements OnInit {
         pais: 'México',
         latitud: '19.370006',
         longitud: '-99.266552'
+      },
+      asesor: {
+        imagen: './assets/img/usrPrueba.png',
+        disponibilidad: 'Lun-Sab, 10:00 - 10:45'
       }
     };
     constructor(private dialog: MatDialog) {

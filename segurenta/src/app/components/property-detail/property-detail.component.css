@@ -12,6 +12,7 @@
     display: block;
     /* adjust 'height' to position overlay content vertically */
     height: 30%;
+    color: aqua;
 }
 
 .img-opacity {
