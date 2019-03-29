@@ -8,7 +8,7 @@ import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import { faAngleUp, faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
@@ -65,6 +65,8 @@ library.add(faCalendarAlt);
 library.add(faBell);
 library.add(faSpinner);
 library.add(faPlusCircle);
+library.add(faPen);
+library.add(faTrash);
 
 
 @NgModule({

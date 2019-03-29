@@ -1,0 +1,29 @@
+image: node:latest
+
+build:
+  stage: build
+  cache:
+  paths:
+  - node_modules/
+
+script:
+  - npm install --quiet
+  - npm run build-prod
+  artifacts:
+  paths:
+  - dist/
+
+# test:
+#   stage: test
+#   cache:
+#   policy: pull
+#   paths:
+#   - node_modules/
+#   dependencies:
+#   - build
+cache:
+  policy: pull
+  paths:
+  - node_modules/
+  script:
+  - npm run deploy
