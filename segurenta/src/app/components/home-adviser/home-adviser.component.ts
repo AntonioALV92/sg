@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogConfig, MatDialogRef, MatDialog } from '@angular/material';
-import { RegisterPropertyComponent } from '../register-property/register-property.component';
-import { Globals } from 'src/app/interfaces/catalog.interface';
 
 @Component({
   selector: 'app-home-adviser',
@@ -106,11 +103,8 @@ export class HomeAdviserComponent implements OnInit {
   linkPlayStore: string;
   countNews: number;
 
-  registerDialogRef: MatDialogRef<RegisterPropertyComponent>;
 
-
-  constructor(private dialog: MatDialog) {
-    // globals.isLogged = true;y 
+  constructor() {
 
     this.countNews = 43;
     this.linkFacebook = 'https://es-la.facebook.com/Segurenta/';
@@ -124,18 +118,18 @@ export class HomeAdviserComponent implements OnInit {
   ngOnInit() {
   }
 
-  openRegisterProperty() {
-    const dialogConfig = new MatDialogConfig();
+  // openRegisterProperty() {
+  //   const dialogConfig = new MatDialogConfig();
 
-    // dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.direction = 'ltr';
-    dialogConfig.width = '100vw';
-    dialogConfig.maxWidth = '98vw';
-    dialogConfig.panelClass = 'dialog-register';
+  //   // dialogConfig.disableClose = true;
+  //   dialogConfig.autoFocus = true;
+  //   dialogConfig.direction = 'ltr';
+  //   dialogConfig.width = '100vw';
+  //   dialogConfig.maxWidth = '98vw';
+  //   dialogConfig.panelClass = 'dialog-register';
 
 
-    this.registerDialogRef = this.dialog.open(RegisterPropertyComponent, dialogConfig);
-  }
+  //   this.registerDialogRef = this.dialog.open(RegisterPropertyComponent, dialogConfig);
+  // }
 
 }

@@ -8,6 +8,8 @@ import { ShowRequirementsComponent } from '../show-requirements/show-requirement
   styleUrls: ['./property-detail.component.css']
 })
 export class PropertyDetailComponent implements OnInit {
+  isRenter: boolean;
+  isAdviser: boolean;
   fileNameDialogRef: MatDialogRef<ShowRequirementsComponent>;
   imageSelected: string;
   property = {
@@ -50,6 +52,14 @@ export class PropertyDetailComponent implements OnInit {
         { tipo: 'fas', icono: 'expand-arrows-alt' },
         { tipo: 'fas', icono: 'bed' }
       ],
+      reglas: [
+        { tipo: 'fas', icono: 'bed' },
+        { tipo: 'fas', icono: 'toilet' },
+        { tipo: 'fas', icono: 'expand-arrows-alt' },
+        { tipo: 'fas', icono: 'bed' },
+        { tipo: 'fas', icono: 'toilet' },
+        { tipo: 'fas', icono: 'expand-arrows-alt' }
+      ],
       fechaAlta: '17 Marzo 2019',
       direccion: {
         calle: 'López Díaz de Armendáriz',
@@ -63,9 +73,15 @@ export class PropertyDetailComponent implements OnInit {
         pais: 'México',
         latitud: '19.370006',
         longitud: '-99.266552'
+      },
+      asesor: {
+        imagen: './assets/img/usrPrueba.png',
+        disponibilidad: 'Lun-Sab, 10:00 - 10:45'
       }
     };
     constructor(private dialog: MatDialog) {
+      this.isRenter = false;
+      this.isAdviser = false;
       this.imageSelected = '';
       console.log(this.property);
    }
