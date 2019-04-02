@@ -1,0 +1,33 @@
+<div class="row col-sm-12 m-0 p-0">
+    <div class="col-sm-12 my-4">
+        <h2 class="font-weight-bold"><span class="text-muted"><u>M</u>is</span> Propiedades</h2>
+    </div>
+    <div class="col-sm-12">
+        <div class="card-deck mb-3">
+            <div class="card border-light" *ngFor="let picture of pictures">
+                <img class="card-img-top" [src]="picture.img">
+                <div class="card-img-overlay p-0 img-opacity">
+                    <!-- [routerLink]="['/property-detail']"> -->
+                    <div class="card-title p-1">
+                        <p class="h4 text-white d-inline"><b>{{ picture.state }}</b></p>
+                        <div class="text-white d-inline float-right">
+                            <a>
+                                <!-- <fa-icon class="pr-3 " [icon]="[ 'fas', 'share-alt'] " size="2x "></fa-icon> -->
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-text">
+                        <div class="card-text bottom-left">
+                            <p class="h4 text-white">{{ picture.title }}</p>
+                            <p class="card-text text-white">{{ picture.location }}</p>
+                        </div>
+                        <div class="card-text bottom-right">
+                            <p class="h4 text-white">${{ picture.price }}</p>
+                            <p class="card-text text-white text-right">{{ picture.period }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
