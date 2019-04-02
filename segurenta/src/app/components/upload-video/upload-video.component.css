@@ -1,7 +1,8 @@
 .my-drop-zone {
     border: dotted 3px lightgrey;
+    background-color: #FFFFFF;
+    color: #808080;
     cursor: pointer;
-    width: 150px;
     height: 100px;
 }
 

@@ -1,10 +1,10 @@
-<div class="modal fade register-property-modal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade register-property-modal p-0" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-xl bgBlue">
         <div class="modal-content bgBlue">
             <div class="col-12">
                 <div class="row">
                     <div class="col-1">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" #closeModal class="close" data-dismiss="modal" aria-label="Close">
                             <h1 class="thin" style="color:white">X</h1>
                         </button>
                         <!-- <a class="col-12 thin" data-dismiss="modal">
@@ -25,111 +25,119 @@
                 <div class="row">
                     <div class="col-1 text-center">
                         <div class="row">
-                            <div class="col-12 my-3">
-                                <div class="btn-group-vertical align-items-center">
+                            <!-- <div class="col-12 my-3">
+                                <div [hidden]="!(n>1)" class="btn-group-vertical align-items-center" (click)="previousStep()">
                                     <a style="color: white;">
                                         <fa-icon [icon]="[ 'fas', 'angle-up']" size="2x"></fa-icon>
                                     </a>
-                                    <p class="thin m-0 small" style="color: white;">Atrás</p>
+                                    <p class="thin m-0 small" style="color: white; cursor:pointer;">Atrás</p>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col-12 my-3 ">
-                                <button (click)="step(1)" class="btn btn-sm btn-dark rounded-circle active" style="height: 40px; width: 40px ">
+                                <button (click)="step(1)" class="btn btn-sm btn-white rounded-circle active-step" style="height: 40px; width: 40px ">
                                     1
                                 </button>
                             </div>
                             <div class="col-12 my-3 ">
-                                <button (click)="step(2)" class="btn btn-sm btn-dark rounded-circle " style="height: 40px; width: 40px ">
+                                <button (click)="step(2)" class="btn btn-sm btn-white rounded-circle" [ngClass]="n>=2 ? 'active-step' : 'inactive-step'" style="height: 40px; width: 40px ">
                                     2
                                 </button>
                             </div>
                             <div class="col-12 my-3 ">
-                                <button (click)="step(3)" class="btn btn-sm btn-dark rounded-circle " style="height: 40px; width: 40px ">
+                                <button (click)="step(3)" class="btn btn-sm btn-white rounded-circle" [ngClass]="n>=3 ? 'active-step' : 'inactive-step'" style="height: 40px; width: 40px ">
                                     3
                                 </button>
                             </div>
                             <div class="col-12 my-3 ">
-                                <button (click)="step(4)" class="btn btn-sm btn-dark rounded-circle " style="height: 40px; width: 40px ">
+                                <button (click)="step(4)" class="btn btn-sm btn-white rounded-circle" [ngClass]="n>=4 ? 'active-step' : 'inactive-step'" style="height: 40px; width: 40px ">
                                     4
                                 </button>
                             </div>
-                            <div class="col-12 my-3">
-                                <div class="btn-group-vertical align-items-center">
-                                    <p class="thin m-0 small" style="color: white;">Siguiente</p>
+                            <!-- <div class="col-12 my-3">
+                                <div [hidden]="!(n<4)" class="btn-group-vertical align-items-center" (click)="nextStep()">
+                                    <p class="thin m-0 small" style="color: white; cursor: pointer;">Siguiente</p>
                                     <a style="color: white;">
                                         <fa-icon [icon]="[ 'fas', 'angle-down']" size="2x"></fa-icon>
                                     </a>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col-11">
+                        <hr>
                         <div class="row">
                             <div *ngIf="n === 1" class="col-12">
                                 <form>
-                                    <hr>
                                     <h3 style="color: white;">Video y fotos Propiedad</h3>
                                     <div class="col-12 row ">
-                                        <div class="col-8 ">
-                                            <div class="row ">
+                                        <div class="col-7">
+                                            <div class="row">
                                                 <h4 class="thin" style="color: white;">Arrastra tus archivos o da click para subir</h4>
                                             </div>
-                                            <div class="row ">
+                                            <div class="row">
                                                 <app-upload-image></app-upload-image>
                                             </div>
                                         </div>
-                                        <div class="col-4 ">
+                                        <div class="col-5">
                                             <app-upload-video></app-upload-video>
                                         </div>
                                     </div>
-                                    <button class="btn btn-outline-light btn-sm">Guardar para después</button>
                                 </form>
                             </div>
                             <div *ngIf="n === 2" class="col-12">
                                 <form autocomplete="off ">
-                                    <hr>
                                     <h3 style="color: white;">Tipo de Propiedad</h3>
-                                    <div class="col-12 ">
-                                        <button type="button " class="btn rounded btn-outline-dark col-2 m-1 " [ngClass]="{ 'active': item.selected, 'inactive': !item.selected } " (click)="selectProperty(item.id) " *ngFor="let item of typeProperties ">
-                                                    {{ item.value }}
-                                                </button>
+                                    <div class="col-12">
+                                        <button type="button " class="btn rounded btn-dark col-2 m-1 thin" [ngClass]="{ 'active-dark': item.selected, 'inactive-dark': !item.selected }" (click)="selectProperty(item.id)" *ngFor="let item of typeProperties ">
+                                            {{ item.value }}
+                                        </button>
                                     </div>
-                                    <h3>Precio</h3>
-                                    <div class="d-inline mr-5 ">
-                                        <mat-label>$ </mat-label>
-                                        <mat-form-field>
-                                            <input type="number " matInput required>
-                                        </mat-form-field>
-                                        <mat-label> Renta al mes</mat-label>
+                                    <hr>
+                                    <h3 style="color: white;">Precio</h3>
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <div class="d-inline">
+                                                <label class="thin" style="color: white;">$ </label>
+                                                <mat-form-field class="col-11">
+                                                    <input autocomplete="off" type="number" matInput required placeholder='Renta al mes'>
+                                                </mat-form-field>
+
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="d-inline">
+                                                <label class="thin" style="color: white;">$ </label>
+                                                <mat-form-field class="col-11">
+                                                    <input autocomplete="off" type="number" matInput required placeholder='Precio de venta"'>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="d-inline ">
+                                                <label class="thin " style="color: white;">$ </label>
+                                                <mat-form-field class="col-11">
+                                                    <input autocomplete="off" type="number" matInput required placeholder="Mantenimiento">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="d-inline mx-5 ">
-                                        <mat-label>$ </mat-label>
-                                        <mat-form-field>
-                                            <input type="number " matInput required>
-                                        </mat-form-field>
-                                        <mat-label> Precio de venta</mat-label>
-                                    </div>
-                                    <div class="d-inline ml-5 ">
-                                        <mat-label>$ </mat-label>
-                                        <mat-form-field>
-                                            <input type="number " matInput required>
-                                        </mat-form-field>
-                                        <mat-label> Mantenimiento</mat-label>
-                                    </div>
-                                    <button class="btn btn-outline-light btn-sm">Guardar para después</button>
                                 </form>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p style="color: white;" class="text-break "><small class="thin">"El precio de venta es estimado y no será visible en los detalles de la propiedad.</small></p>
+                                    </div>
+                                </div>
                             </div>
-                            <div *ngIf="n === 3" class="col-12">
-                                <hr>
-                                <h3 style="color: white;">Dirección</h3>
+                            <div *ngIf="n===3 " class="col-12 ">
+                                <h3 style="color: white; ">Dirección</h3>
                                 <div class="col-12 row">
                                     <div class="col-5 ">
                                         <app-map></app-map>
                                     </div>
-                                    <div class="col">
+                                    <div class="col ">
                                         <form autocomplete="off ">
                                             <mat-form-field class="full-width ">
-                                                <input autocomplete="off" type="text" matInput placeholder="Nombre del inmueble (Alias) " required>
+                                                <input autocomplete="off " type="text " matInput placeholder="Nombre del inmueble (Alias) " required>
                                             </mat-form-field>
                                             <div class="row ">
                                                 <div class="col-8 ">
@@ -170,184 +178,66 @@
                                             <mat-form-field class="full-width ">
                                                 <textarea matInput placeholder="Descripción general de la propiedad " required></textarea>
                                             </mat-form-field>
-                                            <button class="btn btn-outline-light btn-sm">Guardar para después</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
-                            <div *ngIf="n === 4" class="col-12">
-                                <p>4</p>
+                            <div *ngIf="n===4 " class="col-12">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h3 style="color: white;">Características</h3>
+                                        <div class="form-row">
+                                            <div class="col-4" *ngFor="let item of characteristics">
+                                                <div class="d-inline">
+                                                    <mat-form-field class="col-6">
+                                                        <input autocomplete="off" type="number" matInput required>
+                                                    </mat-form-field>
+                                                    <fa-icon style="color: white" [icon]="[ item.tipo, item.icono]"></fa-icon>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="row">
+                                            <h3 style="color: white;">Amenidades</h3>
+                                            <div class="form-row">
+                                                <div class="form-check form-check-inline col-4" *ngFor="let item of amenities">
+                                                    <input class="form-check-input" type="checkbox" [id]=" 'A'+item.id">
+                                                    <label class="form-check-label" [for]=" 'A'+item.id" style="color: white;">
+                                                        {{ item.value }}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <h3 style="color: white;">Reglas</h3>
+                                            <div class="form-row">
+                                                <div class="form-check form-check-inline col-4" *ngFor="let item of rules">
+                                                    <input class="form-check-input" type="checkbox" [id]=" 'R'+item.id">
+                                                    <label class="form-check-label" [for]=" 'R'+item.id" style="color: white;">
+                                                            {{ item.value }}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div *ngIf="n<4;" class="col-12 text-center">
+                                <button class="btn btn-outline-light col-4" (click)="nextStep()" style="border-radius: 8px">Siguiente</button>
+                            </div>
+                            <div *ngIf="n===4" class="col-12 text-center">
+                                <button class="btn btn-outline-light col-4" (click)="publishProperty()" style="border-radius: 8px">Publicar Propiedad</button>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
 </div>
-
-
-<!-- <div class="txt-right ">
-    <h2 mat-dialog-title><small class="txt-title-muted ">Crear </small><span class="txt-title "> Propiedad </span></h2>
-</div>
-<mat-vertical-stepper #stepper>
-    <mat-step>
-        <form>
-            <ng-template matStepLabel>Fotos y video</ng-template>
-            <div class="col-12 row ">
-                <div class="col-8 ">
-                    <div class="row ">
-                        <h3>Arrastra tus archivos o da click para subir</h3>
-                    </div>
-                    <div class="row ">
-                        <app-upload-image></app-upload-image>
-                    </div>
-                </div>
-                <div class="col-4 ">
-                    <app-upload-video></app-upload-video>
-                </div>
-            </div>
-            <button class="btn btn-outline-dark btn-sm " matStepperNext>Siguiente</button>
-        </form>
-    </mat-step>
-    <mat-step>
-        <form autocomplete="off ">
-            <ng-template matStepLabel>Clasificación y precio</ng-template>
-            <h3>Tipo de Propiedad</h3>
-            <div class="col-12 ">
-                <button type="button " class="btn rounded btn-outline-dark col-2 m-1 " [ngClass]="{ 'active': item.selected, 'inactive': !item.selected } " (click)="selectProperty(item.id) " *ngFor="let item of typeProperties ">
-                    {{ item.value }}
-                </button>
-            </div>
-            <h3>Precio</h3>
-            <div class="d-inline mr-5 ">
-                <mat-label>$ </mat-label>
-                <mat-form-field>
-                    <input type="number " matInput required>
-                </mat-form-field>
-                <mat-label> Renta al mes</mat-label>
-            </div>
-            <div class="d-inline mx-5 ">
-                <mat-label>$ </mat-label>
-                <mat-form-field>
-                    <input type="number " matInput required>
-                </mat-form-field>
-                <mat-label> Precio de venta</mat-label>
-            </div>
-            <div class="d-inline ml-5 ">
-                <mat-label>$ </mat-label>
-                <mat-form-field>
-                    <input type="number " matInput required>
-                </mat-form-field>
-                <mat-label> Mantenimiento</mat-label>
-            </div>
-            <div>
-                <button class="btn btn-outline-dark btn-sm " matStepperPrevious>Anterior</button>
-                <button class="btn btn-outline-dark btn-sm " matStepperNext>Siguiente</button>
-            </div>
-        </form>
-    </mat-step>
-    <mat-step>
-        <ng-template matStepLabel>Dirección</ng-template>
-        <h3>Dirección de la Propiedad</h3>
-        <div class="col-12 row ">
-            <div class="col-5 ">
-                <app-map></app-map>
-            </div>
-            <div class="col ">
-                <form autocomplete="off ">
-                    <mat-form-field class="full-width ">
-                        <input type="text " matInput placeholder="Nombre del inmueble (Alias) " required>
-                    </mat-form-field>
-                    <div class="row ">
-                        <div class="col-8 ">
-                            <mat-form-field class="full-width ">
-                                <input type="text " matInput placeholder="Calle, Num. Ext. e Int. " required>
-                            </mat-form-field>
-                        </div>
-                        <div class="col-4 ">
-                            <mat-form-field class="full-width ">
-                                <input type="text " matInput placeholder="C.P. " required>
-                            </mat-form-field>
-                        </div>
-                    </div>
-                    <div class="row ">
-                        <div class="col ">
-                            <mat-form-field class="full-width ">
-                                <input type="text " matInput placeholder="Del. " required>
-                            </mat-form-field>
-                        </div>
-                        <div class="col ">
-                            <mat-form-field class="full-width ">
-                                <input type="text " matInput placeholder="Col. " required>
-                            </mat-form-field>
-                        </div>
-                    </div>
-                    <div class="row ">
-                        <div class="col ">
-                            <mat-form-field class="full-width ">
-                                <input type="text " matInput placeholder="Ciudad " required>
-                            </mat-form-field>
-                        </div>
-                        <div class="col ">
-                            <mat-form-field class="full-width ">
-                                <input type="text " matInput placeholder="País " required>
-                            </mat-form-field>
-                        </div>
-                    </div>
-                    <mat-form-field class="full-width ">
-                        <textarea matInput placeholder="Descripción general de la propiedad " required></textarea>
-                    </mat-form-field>
-                </form>
-                <div>
-                    <button class="btn btn-outline-dark btn-sm " matStepperPrevious>Anterior</button>
-                    <button class="btn btn-outline-dark btn-sm " matStepperNext>Siguiente</button>
-                </div>
-            </div>
-        </div>
-    </mat-step>
-    <mat-step>
-        <ng-template matStepLabel>Características</ng-template>
-        <div class="col-12 row ">
-            <div class="col-6 ">
-                <h3>Características</h3>
-                <div class="form-check form-check-inline ">
-                    <input class="form-check-input " type="checkbox " id="gridCheck ">
-                    <label class="form-check-label " for="gridCheck ">
-                        <fa-icon [icon]="[ 'fas', 'toilet'] "></fa-icon>
-                    </label>
-                </div>
-                <div class="form-check form-check-inline ">
-                    <input class="form-check-input " type="checkbox " id="gridCheck2 ">
-                    <label class="form-check-label " for="gridCheck2 ">
-                            <fa-icon [icon]="[ 'fas', 'expand-arrows-alt'] "></fa-icon>
-                        </label>
-                </div>
-            </div>
-            <div class="col-6 ">
-                <div class="col-12 ">
-                    <h3>Reglas</h3>
-                    <div class="form-check form-check-inline col-4 " *ngFor="let item of rules ">
-                        <input class="form-check-input " type="checkbox " [id]=" 'R'+item.id ">
-                        <label class="form-check-label " [for]=" 'R'+item.id ">
-                            {{ item.value }}
-                        </label>
-                    </div>
-                </div>
-                <div class="col-12 ">
-                    <h3>Comodidades</h3>
-                    <div class="form-check form-check-inline col-4 " *ngFor="let item of amenities ">
-                        <input class="form-check-input " type="checkbox " [id]=" 'A' + item.id ">
-                        <label class="form-check-label " [for]=" 'A' + item.id ">
-                                {{ item.value }}
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div>
-            <button class="btn btn-outline-dark btn-sm " matStepperPrevious>Anterior</button>
-            <button class="btn btn-outline-dark btn-sm " [routerLink]="[ 'property-detail'] " (click)="closeDialog() ">Guardar</button>
-        </div>
-    </mat-step>
-</mat-vertical-stepper> -->

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { TypeProperty, CatalogItems } from '../../interfaces/catalog.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-property',
@@ -8,16 +9,24 @@ import { TypeProperty, CatalogItems } from '../../interfaces/catalog.interface';
   styleUrls: ['./register-property.component.css']
 })
 export class RegisterPropertyComponent implements OnInit {
+  @ViewChild('closeModal') public closeModal: ElementRef;
   n: number;
-
   registerPictures: FormGroup;
   typeProperties: Array<TypeProperty>;
   selectedProperty: TypeProperty;
+  characteristics = [
+    { valor: 0, tipoDato: 'number', tipo: 'fas', icono: 'expand-arrows-alt'},
+    { valor: 0, tipoDato: 'number', tipo: 'fas', icono: 'bed'},
+    { valor: 0, tipoDato: 'number', tipo: 'fas', icono: 'toilet'},
+    { valor: 0, tipoDato: 'number', tipo: 'fas', icono: 'expand-arrows-alt'},
+    { valor: 0, tipoDato: 'number', tipo: 'fas', icono: 'bed'},
+    { valor: 0, tipoDato: 'number', tipo: 'fas', icono: 'toilet'}
+  ];
   rules: CatalogItems;
   amenities: CatalogItems;
 
-  constructor() {
-    this.n = 1;
+  constructor(private router: Router) {
+    // this.n = this.n === 0 ? 1 : this.n;
     this.typeProperties = [
       new TypeProperty( 1, 'Casa', false),
       new TypeProperty( 2, 'Departamento', false ),
@@ -50,6 +59,7 @@ export class RegisterPropertyComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.n = 1;
   }
 
   selectProperty(id: number): void {
@@ -65,6 +75,24 @@ export class RegisterPropertyComponent implements OnInit {
 
   step(n: number) {
     this.n = n;
+  }
+
+  nextStep() {
+    if (this.n < 4) {
+      this.n++;
+    }
+  }
+
+  previousStep() {
+    if (this.n > 1) {
+      this.n--;
+    }
+  }
+
+  publishProperty() {
+    alert('Propiedad publicada successfully');
+    this.closeModal.nativeElement.click();
+    this.router.navigate(['property-detail']);
   }
 
 }

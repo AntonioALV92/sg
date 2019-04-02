@@ -38,10 +38,11 @@ export class NavbarComponent implements OnInit {
   isRenter: boolean;
   isBroker: boolean;
 
-  isLoggedIn$: Observable<boolean>;
+  isLogged: boolean;
 
 
-  constructor(private dialog: MatDialog, private authService: AuthService, private middleware: MiddlewareService, private  httpClient:HttpClient) {
+  constructor(private dialog: MatDialog, private middleware: MiddlewareService) {
+    this.isLogged = false;
     this.isRenter = true;
     this.isBroker = false;
     this.registerForm = new FormGroup({
@@ -101,7 +102,6 @@ export class NavbarComponent implements OnInit {
         console.log(error);
       }
     );
-    this.isLoggedIn$ = this.authService.isLoggedIn;
   }
 
   getDummy() {

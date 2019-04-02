@@ -5,17 +5,10 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
-  private loggedIn = new BehaviorSubject<boolean>(false);
-  get isLoggedIn() {
-    return this.loggedIn.asObservable(); // {2}
-  }
 
   constructor(private http: HttpClient, private router: Router) { }
 
   login(userName: string, password: string) {
-    if (userName !== '' && password !== '' ) { // {3}
-      this.loggedIn.next(true);
-    }
     this.router.navigate(['home-adviser']);
     return this.http.post('https://reqres.in/api/login', {
       email: userName,
@@ -25,7 +18,6 @@ export class AuthService {
   }
 
   logout() {
-    this.loggedIn.next(false);
     this.router.navigate(['home']);
   }
 

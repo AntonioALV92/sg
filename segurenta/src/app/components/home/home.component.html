@@ -60,11 +60,11 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="input-group">
-                                <input type="text" class="form-control input-transparent" placeholder="Busca tu propiedad ideal">
+                                <input type="text" class="form-control input-transparent thin" placeholder="Busca tu propiedad ideal">
                                 <div class="input-group-append">
                                     <button class="btn btn-black btn-transparent" type="button">
-                                                <fa-icon class="text-white" [icon]="[ 'fas', 'angle-down']" size="2x"></fa-icon>
-                                            </button>
+                                        <fa-icon class="text-white" [icon]="[ 'fas', 'angle-down']" size="2x"></fa-icon>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -94,7 +94,7 @@
     <div class="container-fluid">
         <div class="col-sm-12">
             <div class="my-4">
-                <h2 class="font-weight-bold"><span class="text-muted"><u>P</u>ropiedades</span> Más Recientes</h2>
+                <h2><span class="text-muted"><u>P</u>ropiedades</span> Más Recientes</h2>
             </div>
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-12" *ngFor="let picture of pictures">
@@ -195,47 +195,65 @@
 
 
     <!-- Third section -->
-    <div class="row col-sm-12 m-0 p-0 " style="height: 400px ">
-        <img src="./assets/img/imgPrueba.png " class="img-fluid w-100 " />
+    <div id="carouselSecond" class="carousel slide" data-ride="carousel" style="height: 400px">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselSecond" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselSecond" data-slide-to="1"></li>
+            <li data-target="#carouselSecond" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./assets/img/img1.jpg" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="./assets/img/img1.jpg" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="./assets/img/img1.jpg" class="d-block w-100">
+            </div>
+        </div>
         <div class="img-overlay">
-            <div class="row align-items-center text-center p-0 m-0 ">
-                <div class="col-sm ">
-                    <div class="col-sm-12 mx-0 p-0 my-4 ">
-                        <p class="h3 text-white "><strong>¿Quieres <span class="h1 ">Publicar</span>?</strong></p>
-                        <p class="h3 text-white "><strong>Unete a SeguRenta</strong></p>
+            <div class="row align-items-center text-center p-0 m-0">
+                <div class="col-sm">
+                    <div class="col-sm-12 mx-0 p-0 my-4">
+                        <p class="h3">¿Quieres <span class="h1">Publicar</span>?</p>
+                        <p class="h3">Unete a SeguRenta</p>
                     </div>
-                    <button class="btn btn-outline-dark m-1 " type="button ">Beneficios</button>
-                    <button class="btn btn-dark m-1 " type="button ">Regístrate</button>
+                    <button class="btn btn-outline-dark m-1" style="border-radius: 8px;" type="button">Beneficios</button>
+                    <button class="btn btn-dark m-1" style="border-radius: 8px;" type="button">Regístrate</button>
                 </div>
                 <div class="col-sm ">
                     <div class="col-sm-12 d-none d-lg-block">
                         <a href="{{linkAppStore}}" target="_blank " class="bg-transparent m-1 ">
-                            <img src="./assets/img/appstore.png ">
+                            <img src="./assets/img/appstore.png">
                         </a>
                         <a href="{{linkPlayStore}}" target="_blank " class="bg-transparent m-1 ">
-                            <img src="./assets/img/googleplay.png ">
+                            <img src="./assets/img/googleplay.png">
                         </a>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
     <!-- Fourth section: Explorar -->
     <div class="row col-12 m-0 p-0 ">
-        <div class="col-sm " style="background-color: #0D62B7;border-right: 1px solid white; ">
+        <div class="col-sm " style="background-color: #0D62B7;border-right: 1px solid white;">
             <div class="col-sm-12 mx-0 p-0 my-4 ">
-                <h3 class="font-weight-bold text-white "><span class="txt-muted "><u>E</u>xplorar</span> Zonas </h3>
+                <h3 class="text-white "><span class="txt-muted "><u>E</u>xplorar</span> Zonas </h3>
             </div>
             <div class="card-deck ">
                 <div class="card border-0 mb-3 bg-transparent " style="max-width: 15rem; " *ngFor="let picture of picturesZone ">
                     <img class="card-img-top " [src]="picture.img ">
-                    <div class="card-img-overlay right ">
+                    <div class="card-img-overlay ">
+                        <img src="./assets/img/nuevo.png" width="70" height="70">
+                        <p class="text-white text-center" style="position: absolute; top: 10%">+{{ countNews }}<br>NUEVAS</p>
+                    </div>
+                    <!-- <div class="card-img-overlay right ">
                         <a class="badge rounded-circle badge-dark align-middle " style="width: 70px; height: 70px; ">
                             <h6 class="text-white ">+{{ countNews }}<br>NUEVAS</h6>
                         </a>
-                    </div>
+                    </div> -->
                     <div class="card-body ">
                         <h5 class="card-title text-white ">Zona {{ picture.zone }}</h5>
                     </div>
@@ -244,15 +262,14 @@
         </div>
         <div class="col-sm " style="background-color: #0D62B7;border-left: 1px solid white; ">
             <div class="col-sm-12 mx-0 p-0 my-4 ">
-                <h3 class="font-weight-bold text-white "><span class="txt-muted "><u>E</u>xplorar</span> Categorías </h3>
+                <h3 class="text-white "><span class="txt-muted "><u>E</u>xplorar</span> Categorías </h3>
             </div>
             <div class="card-deck ">
                 <div class="card border-0 mb-3 bg-transparent " style="max-width: 15rem; " *ngFor="let picture of picturesZone ">
                     <img class="card-img-top " [src]="picture.img ">
                     <div class="card-img-overlay ">
-                        <a class="badge rounded-circle badge-dark align-middle " style="width: 70px; height: 70px; ">
-                            <h6 class="text-white ">+{{ countNews }}<br>NUEVAS</h6>
-                        </a>
+                        <img src="./assets/img/nuevo.png" width="70" height="70">
+                        <p class="text-white text-center" style="position: absolute; top: 10%">+{{ countNews }}<br>NUEVAS</p>
                     </div>
                     <div class="card-body ">
                         <h5 class="card-title text-white ">{{ picture.categ }}</h5>

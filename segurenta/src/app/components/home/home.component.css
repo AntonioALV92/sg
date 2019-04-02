@@ -78,6 +78,12 @@ input.input-transparent::placeholder {
     background-color: #000 !important;
 }
 
+.btn-dark:hover {
+    background-color: #fff !important;
+    color: #000 !important;
+    border-color: #fff !important;
+}
+
 .img-opacity {
     background-color: rgb(193, 193, 193, 0.58)
 }
