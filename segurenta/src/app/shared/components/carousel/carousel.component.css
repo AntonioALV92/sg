@@ -1,0 +1,37 @@
+.img-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.img-overlay:before {
+    content: ' ';
+    display: block;
+    /* adjust 'height' to position overlay content vertically */
+    height: 30%;
+}
+
+input.input-transparent {
+    background: rgba(255, 255, 255, 0.4) !important;
+    border: none !important;
+    height: 20%;
+    border-radius: 10px;
+    font-size: 22pt !important;
+    color: white;
+}
+
+input.input-transparent::placeholder {
+    color: #ddd;
+}
+
+.btn-transparent {
+    background-color: rgba(255, 255, 255, 0.4) !important;
+    border-color: none !important;
+}
+
+.btn-dark {
+    background-color: #000 !important;
+}

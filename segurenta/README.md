@@ -2,6 +2,39 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.
 
+Desarrollo: StratPlus+
+
+### Inicio
+
+
+```bash
+# clonar repositorio
+$ git clone https://gitlab.com/segurenta/plataforma_web.git
+
+# entrar al directorio
+$ cd plataforma_web/segurenta
+
+# instalar depedencias
+$ npm install
+
+# iniciar el servidor
+$ npm start
+```
+
+### Variables de entorno
+Estas son las varibles que hay que establecer para usar los **sg-dummy-services**
+
+```sh
+export URL_MIDDLEWARE="http://localhost:3050"
+```
+
+
+##  Instalación del proyecto en Dev
+
+* `fork` 
+* `clone`  fork
+* `npm install` instalar la aplicación
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
