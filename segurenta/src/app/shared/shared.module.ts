@@ -5,13 +5,15 @@ import { NopagefoundComponent } from './components/nopagefound/nopagefound.compo
 import { PublicarComponent } from './components/publicar/publicar.component';
 import { ExplorarZonaComponent } from './components/explorar-zona/explorar-zona.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 @NgModule({
   declarations: [
     NopagefoundComponent,
     PublicarComponent,
     ExplorarZonaComponent,
-    FooterComponent
+    FooterComponent,
+    CarouselComponent
   ],
   imports: [
     CommonModule
@@ -20,7 +22,8 @@ import { FooterComponent } from './components/footer/footer.component';
     NopagefoundComponent,
     PublicarComponent,
     ExplorarZonaComponent,
-    FooterComponent
+    FooterComponent,
+    CarouselComponent
   ]
 })
 export class SharedModule { }
