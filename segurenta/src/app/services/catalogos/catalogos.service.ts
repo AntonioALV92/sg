@@ -8,16 +8,16 @@ export class CatalogosService {
 
   constructor(private middleware: MiddlewareService, private config: ConfigurationService) { }
 
-  public getBancos() {
-    return new Promise((resolve) => {
-      this.middleware.get(this.config.endpoints.catBancos).subscribe(
-        (res: any) => {
-          return resolve(res);
-        },
-        (err: any) => {
-          console.error(err);
-        }
-      );
-    });
-  }
+  // public getBancos() {
+  //   return new Promise((resolve) => {
+  //     this.middleware.get(this.config.endpoints.catBancos).subscribe(
+  //       (res: any) => {
+  //         return resolve(res);
+  //       },
+  //       (err: any) => {
+  //         console.error(err);
+  //       }
+  //     );
+  //   });
+  // }
 }
