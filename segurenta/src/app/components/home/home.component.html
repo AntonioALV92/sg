@@ -92,24 +92,6 @@
 
     <!-- Second section: Propiedades Màs Recientes  -->
     <div class="container-fluid">
-
-            <div class="container">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="card card-hover h-100">
-                                <div class="card-body">
-                                    <i class="fa fa-search fa-5x float-right"></i>
-                                    <h3 class="card-title">Front</h3>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <div class="reveal bg-warning p-2">
-                                        This is hidden until card in hovered!
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
         <div class="col-sm-12">
             <div class="my-4">
                 <h2 class="font-weight-bold"><span class="text-muted"><u>P</u>ropiedades</span> Más Recientes</h2>
@@ -122,11 +104,11 @@
                             <div class="reveal bg-gray p-2">
                                 <div class="row">
                                     <div class="col-6">
-                                            <a class="icon-left" [routerLink]="['/property-detail']"><fa-icon class="icon" [icon]="[ 'fas', 'play']"></fa-icon>
+                                            <a class="icon-left"><fa-icon class="icon" [icon]="[ 'fas', 'play']"></fa-icon>
                                                 <br><span class="text-card-white icon-left">Video</span></a>
                                     </div>
                                     <div class="col-6 icon-left">
-                                            <a><fa-icon class="icon" [icon]="[ 'fas', 'ellipsis-v']"></fa-icon>
+                                            <a [routerLink]="['/property-detail']"><fa-icon class="icon" [icon]="[ 'fas', 'ellipsis-v']"></fa-icon>
                                                 <br><span class="text-card-white">Más</span></a>
                                         </div>
                                 </div>

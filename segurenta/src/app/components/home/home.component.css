@@ -116,6 +116,7 @@ input.input-transparent::placeholder {
 .icon {
     font-size: 48px;
     color: white;
+    padding-top: 50%;
 }
 
 @media (min-width : 992px) and (max-width: 1204px) {
