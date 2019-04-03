@@ -1,0 +1,28 @@
+.badge-notify {
+    background: red;
+    position: relative;
+    top: -10px;
+    left: -35px;
+}
+
+.navbar-overlay {
+    margin-bottom: -104px;
+    z-index: 9;
+}
+
+.modal-backdrop {
+    z-index: auto;
+}
+
+.text-blue-big {
+    color: #0D62B7;
+    font-size: 40px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mid-width {
+    width: 40%;
+}

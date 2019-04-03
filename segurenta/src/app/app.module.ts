@@ -10,6 +10,8 @@ import { HomeModule } from './home/home.module';
 import { HomeAdviserModule } from './home-adviser/home-adviser.module';
 import { HomeRentModule } from './home-rent/home-rent.module';
 import { SharedModule } from './shared/shared.module';
+import { MaterialModule } from './material.module';
+import { FAwesomeModule } from './fAwesome.module';
 
 // Imports Font Awesome
 
@@ -22,7 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Imports services
 import { MiddlewareService } from './services/middleware/middleware.service';
 import { CatalogosService } from './services/catalogos/catalogos.service';
-import { ConfigurationService } from './services/configuration/configuration.service'
+import { ConfigurationService } from './services/configuration/configuration.service';
+import { LoginService } from './services/login/login.service';
 
 // Files
 import { ngfModule } from 'angular-file';
@@ -38,6 +41,7 @@ import { VgBufferingModule } from 'videogular2/buffering';
 import { HttpClientModule } from '@angular/common/http';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,11 +53,13 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     SharedModule,
     HomeModule,
+    MaterialModule,
     HomeAdviserModule,
     HomeRentModule,
     HttpClientModule,
     ReactiveFormsModule,
     PdfViewerModule,
+    FAwesomeModule,
     ngfModule,
     VgCoreModule,
     VgControlsModule,
@@ -66,7 +72,8 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     MiddlewareService,
     CatalogosService,
-    ConfigurationService
+    ConfigurationService,
+    LoginService
   ],
   bootstrap: [AppComponent],
   entryComponents: [
