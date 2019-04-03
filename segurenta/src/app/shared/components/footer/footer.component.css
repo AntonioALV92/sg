@@ -2,3 +2,18 @@
     background-color: black;
     color: white;
 }
+
+.sg-logo {
+    width: 250px;
+    height: 70px;
+}
+
+@media (max-width: 725px) {
+    .sg-logo {
+        width: 125px;
+        height: 35px;
+    }
+    .text-footer {
+        font-size: 13.5px;
+    }
+  }
