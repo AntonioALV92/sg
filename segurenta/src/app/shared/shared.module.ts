@@ -6,6 +6,7 @@ import { PublicarComponent } from './components/publicar/publicar.component';
 import { ExplorarZonaComponent } from './components/explorar-zona/explorar-zona.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { PropiedadesRecientesComponent } from './components/propiedades-recientes/propiedades-recientes.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     PublicarComponent,
     ExplorarZonaComponent,
     FooterComponent,
-    CarouselComponent
+    CarouselComponent,
+    PropiedadesRecientesComponent
   ],
   imports: [
     CommonModule
@@ -23,7 +25,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     PublicarComponent,
     ExplorarZonaComponent,
     FooterComponent,
-    CarouselComponent
+    CarouselComponent,
+    PropiedadesRecientesComponent
   ]
 })
 export class SharedModule { }

@@ -8,6 +8,7 @@ import { APP_ROUTES } from './app.routes';
 // Imports Modulos
 import { HomeModule } from './home/home.module';
 import { HomeAdviserModule } from './home-adviser/home-adviser.module';
+import { HomeRentModule } from './home-rent/home-rent.module';
 import { SharedModule } from './shared/shared.module';
 
 // Imports Font Awesome
@@ -49,6 +50,7 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     HomeModule,
     HomeAdviserModule,
+    HomeRentModule,
     HttpClientModule,
     ReactiveFormsModule,
     PdfViewerModule,
