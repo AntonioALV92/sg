@@ -110,6 +110,7 @@ import { VgBufferingModule } from 'videogular2/buffering';
   entryComponents: [
     LoginComponent,
     RegisterComponent,
+    PasswordRecoveryComponent,
     PdfViewerComponent,
     RegisterPropertyComponent,
     ShowRequirementsComponent

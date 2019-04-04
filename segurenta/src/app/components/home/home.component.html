@@ -98,11 +98,29 @@
             </div>
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-12" *ngFor="let picture of pictures">
-                    <div class="card border-0">
+                    <div class="card card-hover border-0">
                         <img class="card-img-top" [src]="picture.img">
-                        <div class="card-img-overlay" [routerLink]="['/property-detail']">
+                        <div class="card-img-overlay">
+                            <div class="reveal bg-gray p-2">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <a class="icon-left">
+                                            <fa-icon class="icon" [icon]="[ 'fas', 'play']"></fa-icon>
+                                            <br><span class="text-card-white icon-left">Video</span></a>
+                                    </div>
+                                    <div class="col-6 icon-left">
+                                        <a [routerLink]="['/property-detail']">
+                                            <fa-icon class="icon" [icon]="[ 'fas', 'ellipsis-v']"></fa-icon>
+                                            <br><span class="text-card-white">Más</span></a>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
                         </div>
                         <div class="card-body py-1 px-0">
+
                             <div class="row">
                                 <div class="col d-none d-lg-block">
                                     <p class="card-text">
@@ -120,6 +138,7 @@
                                         <fa-icon [icon]="[ 'fas', 'toilet']"></fa-icon> 1
                                     </p>
                                 </div>
+
                                 <!-- <div class="col">
                                     <p class="card-text d-inline-block">Ver</p>
                                     <a [routerLink]="['/property-detail']" target="_blank">
@@ -203,13 +222,13 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="./assets/img/img1.jpg" class="d-block w-100">
+                <img src="./assets/img/home_broker.png" class="d-block w-100">
             </div>
             <div class="carousel-item">
-                <img src="./assets/img/img1.jpg" class="d-block w-100">
+                <img src="./assets/img/home_broker.png" class="d-block w-100">
             </div>
             <div class="carousel-item">
-                <img src="./assets/img/img1.jpg" class="d-block w-100">
+                <img src="./assets/img/home_broker.png" class="d-block w-100">
             </div>
         </div>
         <div class="img-overlay">

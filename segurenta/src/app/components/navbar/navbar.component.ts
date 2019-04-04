@@ -6,11 +6,9 @@ import { element } from 'protractor';
 import { PersonInterface } from 'src/app/interfaces/person.interface';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UpdateRenterComponent } from '../update-renter/update-renter.component';
-import { Globals } from 'src/app/interfaces/catalog.interface';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { MiddlewareService } from 'src/app/services/middleware/middleware.service';
-import { HttpClient } from  "@angular/common/http";
 
 @Component({
   selector: 'app-navbar',
@@ -18,8 +16,9 @@ import { HttpClient } from  "@angular/common/http";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  isLoggedIn$: Observable<boolean>;
 
-  customersObservable : Observable<string>;
+  customersObservable: Observable<string>;
 
   renter: PersonInterface = {
     names: 'Daniela',
@@ -38,11 +37,8 @@ export class NavbarComponent implements OnInit {
   isRenter: boolean;
   isBroker: boolean;
 
-  isLogged: boolean;
 
-
-  constructor(private dialog: MatDialog, private middleware: MiddlewareService) {
-    this.isLogged = false;
+  constructor(private dialog: MatDialog, private middleware: MiddlewareService, private authService: AuthService) {
     this.isRenter = true;
     this.isBroker = false;
     this.registerForm = new FormGroup({
@@ -55,6 +51,11 @@ export class NavbarComponent implements OnInit {
     });
 
   }
+
+  ngOnInit() {
+    this.isLoggedIn$ = this.authService.isLoggedIn;
+  }
+
   openLogin() {
     const dialogConfig = new MatDialogConfig();
 
@@ -93,76 +94,6 @@ export class NavbarComponent implements OnInit {
     this.registerDialogRef = this.dialog.open(RegisterComponent, dialogConfig);
   }
 
-  ngOnInit() {
-    this.getDummy().subscribe(
-      res => {
-        console.log(res);
-      },
-      error  =>{
-        console.log(error);
-      }
-    );
-  }
-
-  getDummy() {
-    let request = {
-      "propiedad": {
-        "id": 0,
-        "tipoPropiedad": 0,
-        "nombre": "String",
-        "precioRenta": 0.0,
-        "mantenimiento": 0.0,
-        "descripcion": "String",
-        "paso": 1,
-        "estatus": 0,
-        "idCuenta": 0,
-        "periodicidad": "dd-mm-yyyy",
-        "ultimaModificacion": "dd-mm-yyyy",
-        "fechaAlta": "dd-mm-yyyy",
-        "imagenes": [
-          {
-            "dato": "file",
-            "tipoImagen": 0
-          }
-        ],
-        "direccionPropiedad": {
-          "calle": "String",
-          "numeroInterior": 0,
-          "codigoPostal": 0,
-          "colonia": "String",
-          "ciudad": "String",
-          "latitud": "19.001231023012",
-          "longitud": "19.001231023012",
-          "numeroExterior": 0,
-          "observaciones": "String",
-          "zona": "String",
-          "delegacion": "String"
-        },
-        "caracteristicas": [
-          {
-            "idTipoCaracteristica": 0,
-            "valor": ""
-          }
-        ],
-        "disponibilidad": [
-          {
-            "fecha": "dd-mm-yyyy",
-            "incio": "dd-mm-yyyy HH:mm:ss",
-            "fin": "dd-mm-yyyy HH:mm:ss",
-            "estatus": 0,
-            "idCuenta": 0,
-            "idAgente": 0
-          }
-        ]
-      }
-    };
-    let h = {
-      'Accept-Charset': 'utf-8',
-      'Authorization': 'YWxhZGRpbjpvcGVuc2VzYW1l'
-    };
-    let text : string = '/api/sr/propiedades';
-    return this.middleware.post(text, request, h);
-  }
 
   getErrorMessageNames() {
     return this.registerForm.get('names').hasError('required') ? 'Campo requerido' :

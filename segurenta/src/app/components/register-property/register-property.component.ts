@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { TypeProperty, CatalogItems } from '../../interfaces/catalog.interface';
 import { Router } from '@angular/router';
+import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
+import { PasswordRecoveryComponent } from '../password-recovery/password-recovery.component';
 
 @Component({
   selector: 'app-register-property',
@@ -90,7 +92,7 @@ export class RegisterPropertyComponent implements OnInit {
   }
 
   publishProperty() {
-    alert('Propiedad publicada successfully');
+    alert('Propiedad publicada');
     this.closeModal.nativeElement.click();
     this.router.navigate(['property-detail']);
   }

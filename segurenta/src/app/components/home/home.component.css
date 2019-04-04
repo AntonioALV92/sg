@@ -91,3 +91,46 @@ input.input-transparent::placeholder {
 .img-opacity:hover {
     background-color: rgba(0, 0, 0, 0);
 }
+
+.card-hover .reveal {
+    visibility: hidden;
+    opacity: 0;
+    height: 100%;
+    padding: 0;
+}
+
+.card-hover:hover .reveal {
+    height: 80%;
+    visibility: visible;
+    opacity: 10;
+    transition: opacity 1s ease;
+}
+
+.bg-gray {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.icon-left {
+    padding-left: 30%;
+}
+
+.text-card-white {
+    color: white;
+}
+
+.icon {
+    font-size: 48px;
+    color: white;
+    padding-top: 50%;
+}
+
+@media (min-width: 992px) and (max-width: 1204px) {
+    .icon {
+        font-size: 24px;
+        color: white;
+    }
+    .text-card-white {
+        color: white;
+        font-size: 10px;
+    }
+}

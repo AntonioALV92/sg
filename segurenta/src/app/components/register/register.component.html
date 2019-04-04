@@ -6,7 +6,6 @@
         <ul style="list-style: none; margin-left: 15%; margin-right: 100px;">
             <li *ngIf="!isRenter" style="margin-bottom: 100px;" class="txt-subtitle"><a (click)="changeRegister(1)">Rentar</a></li>
             <li *ngIf="!isAdviser" style="margin-bottom: 100px;" class="txt-subtitle"><a (click)="changeRegister(2)">Publicar</a></li>
-            <li *ngIf="!isOwner" style="margin-bottom: 100px;" class="txt-subtitle"><a (click)="changeRegister(3)">Propietario</a></li>
         </ul>
     </mat-grid-tile>
     <div *ngIf="isRenter">
@@ -36,7 +35,7 @@
                     <input type="password" class="input-form" matInput placeholder="Contraseña" #renter.password formControlName="password" required>
                     <mat-error *ngIf="registerForm.get('password').invalid">{{getErrorMessagePass()}}</mat-error>
                 </mat-form-field>
-                <button class="btn-rounded full-width" style="margin-top: 5%;" mat-raised-button>Registrarme</button>
+                <button class="btn-rounded full-width" style="margin-top: 5%;" mat-raised-button (click)="register(0)">Registrarme</button>
                 <small class="txt-muted">Al registrarte aceptas los <a (click)="openViewer()">Términos y Condiciones</a> y las <a (click)="openViewer()">Políticas de Privacidad</a>.</small>
             </form>
         </mat-grid-tile>
@@ -48,11 +47,11 @@
                 <h1 class="txt-muted full-width">Ingresar con:</h1>
                 <div class="flex">
                     <button mat-fab class="btn-black">
-                                        <fa-icon [icon]="['fab', 'facebook-f']" size="2x"></fa-icon>
-                                    </button>
+                        <fa-icon [icon]="['fab', 'facebook-f']" size="2x"></fa-icon>
+                    </button>
                     <button mat-fab class="btn-black">
-                                        <fa-icon [icon]="['fab', 'google']" size="2x"></fa-icon>
-                                    </button>
+                        <fa-icon [icon]="['fab', 'google']" size="2x"></fa-icon>
+                    </button>
                 </div>
             </div>
         </mat-grid-tile>
@@ -93,64 +92,31 @@
             <form [formGroup]="registerFormAdviser" (ngSubmit)="register()" novalidate="novalidate">
                 <h3 class="full-width">¿En dónde quiero mis comisiones?</h3>
                 <mat-form-field class="full-width">
-                    <input type="text" matInput placeholder="Institución Bancaria" #adviser.bankName formControlName="bankName" required>
+                    <mat-label>Institución Bancaria</mat-label>
+                    <mat-select #adviser.bankName required>
+                        <mat-option>
+                            Banamex
+                        </mat-option>
+                        <mat-option>
+                            Banorte
+                        </mat-option>
+                        <mat-option>
+                            Bancomer
+                        </mat-option>
+                        <mat-option>
+                            Santander
+                        </mat-option>
+                        <mat-option>
+                            HSBC
+                        </mat-option>
+                    </mat-select>
                     <mat-error *ngIf="registerFormAdviser.get('bankName').invalid">{{getErrorMessageBank()}}</mat-error>
-                </mat-form-field>
-                <mat-form-field class="full-width">
-                    <input type="text" matInput placeholder="Número de Tarjeta" #adviser.cardNumber formControlName="cardNumber" required>
-                    <mat-error *ngIf="registerFormAdviser.get('cardNumber').invalid">{{getErrorMessageCard()}}</mat-error>
                 </mat-form-field>
                 <mat-form-field class="full-width">
                     <input type="text" matInput placeholder="Número de Cuenta" #adviser.clabe formControlName="clabe" required>
                     <mat-error *ngIf="registerFormAdviser.get('clabe').invalid">{{getErrorMessageCLABE()}}</mat-error>
                 </mat-form-field>
-                <button class="btn-rounded full-width" style="margin-top: 5%;" mat-raised-button (click)="registerU(1)">Registrarme</button>
-                <small class="txt-muted">Al registrarte aceptas los <a (click)="openViewer()">Términos y Condiciones</a> y las <a (click)="openViewer()">Políticas de Privacidad</a>.</small>
-            </form>
-        </mat-grid-tile>
-    </div>
-
-    <div *ngIf="isOwner">
-        <mat-grid-tile colspan="5" style="margin-left:1%;">
-            <form [formGroup]="registerFormOwner" (ngSubmit)="register()" novalidate="novalidate" style="text-align: center">
-                <h2>Código Contrato</h2>
-                <mat-form-field class="code-number">
-                    <input type="number" matInput formControlName="num1">
-                </mat-form-field>
-                <mat-form-field class="code-number">
-                    <input type="number" matInput formControlName="num2">
-                </mat-form-field>
-                <mat-form-field class="code-number">
-                    <input type="number" matInput formControlName="num3">
-                </mat-form-field>
-                <mat-form-field class="code-number">
-                    <input type="number" matInput formControlName="num4">
-                </mat-form-field>
-                <mat-form-field class="code-number">
-                    <input type="number" matInput formControlName="num5">
-                </mat-form-field>
-                <mat-form-field class="full-width">
-                    <input type="text" matInput disabled placeholder="Antonio López" formControlName="nameComplete">
-                </mat-form-field>
-            </form>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="1">
-        </mat-grid-tile>
-        <mat-grid-tile colspan="4">
-            <form [formGroup]="registerFormOwner" (ngSubmit)="register()" novalidate="novalidate">
-                <mat-form-field class="full-width">
-                    <input type="tel" class="input-form" matInput placeholder="Teléfono" [(ngModel)]="owner.phoneNumber" formControlName="phoneNumber" required>
-                    <mat-error *ngIf="registerForm.get('phoneNumber').invalid">{{getErrorMessagePhone()}}</mat-error>
-                </mat-form-field>
-                <mat-form-field class="full-width">
-                    <input type="email" class="input-form" matInput placeholder="Correo Electrónico" [(ngModel)]="owner.email" formControlName="email" required>
-                    <mat-error *ngIf="registerForm.get('email').invalid">{{getErrorMessageEmail()}}</mat-error>
-                </mat-form-field>
-                <mat-form-field class="full-width">
-                    <input type="password" class="input-form" matInput placeholder="Contraseña" #adviser.password formControlName="password" required>
-                    <mat-error *ngIf="registerForm.get('password').invalid">{{getErrorMessagePass()}}</mat-error>
-                </mat-form-field>
-                <button class="btn-rounded full-width" style="margin-top: 5%;" mat-raised-button (click)="registerU(2)">Registrarme</button>
+                <button class="btn-rounded full-width" style="margin-top: 5%;" mat-raised-button (click)="register(1)">Registrarme</button>
                 <small class="txt-muted">Al registrarte aceptas los <a (click)="openViewer()">Términos y Condiciones</a> y las <a (click)="openViewer()">Políticas de Privacidad</a>.</small>
             </form>
         </mat-grid-tile>

@@ -5,22 +5,19 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
     </button>
-    <div *ngIf="!isLogged; else perfil" class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
+    <div *ngIf="isLoggedIn$ | async" class="collapse navbar-collapse d-flex justify-content-end ">
+        <a class="btn btn-default btn-link text-white ">
+            <fa-icon class="pr-3 " [icon]="[ 'fas', 'bell'] "></fa-icon>
+        </a>
+        <span class="badge badge-notify rounded-circle text-white thin">9</span>
+        <a (click)="openUpdateRenterData() " role="button ">
+            <img src="./assets/img/usrPrueba.png " class="rounded-circle " width="30 " height="30 ">
+        </a>
+    </div>
+    <div *ngIf="!(isLoggedIn$ | async)" class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
         <button class="btn btn-sm btn-outline-light btn-block m-1 col-1 thin" type="button" style="border-radius: 8px; font-size: 0.7rem;" (click)="openRegister()">Registrarse</button>
         <button class="btn btn-sm btn-outline-light btn-block m-1 col-1 thin" type="button" style="border-radius: 8px; font-size: 0.7rem;" (click)="openLogin() ">Entrar</button>
     </div>
-
-    <ng-template #perfil>
-        <div class="collapse navbar-collapse d-flex justify-content-end ">
-            <a class="btn btn-default btn-link text-white ">
-                <fa-icon class="pr-3 " [icon]="[ 'fas', 'bell'] "></fa-icon>
-            </a>
-            <span class="badge badge-notify rounded-circle text-white thin">9</span>
-            <a (click)="openUpdateRenterData() " role="button ">
-                <img src="./assets/img/usrPrueba.png " class="rounded-circle " width="30 " height="30 ">
-            </a>
-        </div>
-    </ng-template>
 
 </nav>
 

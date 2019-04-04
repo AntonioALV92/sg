@@ -8,7 +8,7 @@ export class CatalogosService {
   constructor(private middleware: MiddlewareService, private config: ConfigurationService) { }
 
   async getBancos() {
-    let result =  await this.middleware.get(this.config.endpoints.getBancos).toPromise()
+    let result =  await this.middleware.get(this.config.endpoints.getBancos).toPromise();
     // .then(res => {
     //   return res;
     // })
