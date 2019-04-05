@@ -96,7 +96,16 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
+<<<<<<< HEAD
     this.catBancos = this.catalog.getBancos();
+=======
+    this.getBancos();
+  }
+
+  private async getBancos() {
+    this.catBancos = await this.catalog.getBancos();
+    console.log(this.catBancos);
+>>>>>>> 530abb38fb578a299cc2cd638f6db4214ca803d7
   }
 
   openViewer() {

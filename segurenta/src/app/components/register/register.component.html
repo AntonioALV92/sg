@@ -91,6 +91,11 @@
         <mat-grid-tile colspan="4">
             <form [formGroup]="registerFormAdviser" (ngSubmit)="register()" novalidate="novalidate">
                 <h3 class="full-width">¿En dónde quiero mis comisiones?</h3>
+                <select class="form-control" #banco id="selectArrendador">
+                    <option *ngFor="let item of catBancos" [value]="item">
+                        {{item.descripcion}}
+                    </option>
+                </select>
                 <mat-form-field class="full-width">
                     <mat-label>Institución Bancaria</mat-label>
                     <mat-select #adviser.bankName required>
