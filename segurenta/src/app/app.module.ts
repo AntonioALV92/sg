@@ -1,95 +1,67 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Import routes
-import { APP_ROUTING } from './app.routes';
+import { APP_ROUTES } from './app.routes';
+// import { HOMEADVISER_ROUTES } from './home-adviser/home-adviser.routes';
 
-// Imports angular-material
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// Imports Modulos
+import { HomeModule } from './home/home.module';
+import { HomeAdviserModule } from './home-adviser/home-adviser.module';
+import { HomeRentModule } from './home-rent/home-rent.module';
+import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './material.module';
-
-import { HttpClientModule } from '@angular/common/http';
+import { FAwesomeModule } from './fAwesome.module';
 
 // Imports Font Awesome
-import { FAwesomeModule } from './fAwesome.module';
 
 // Imports components
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
-import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { HomeAdviserComponent } from './components/home-adviser/home-adviser.component';
-import { RegisterPropertyComponent } from './components/register-property/register-property.component';
-import { UploadImageComponent } from './components/upload-image/upload-image.component';
-import { UploadVideoComponent } from './components/upload-video/upload-video.component';
-import { HomeRentComponent } from './components/home-rent/home-rent.component';
-import { PropertyDetailComponent } from './components/property-detail/property-detail.component';
-import { MapComponent } from './components/map/map.component';
-import { UpdateRenterComponent } from './components/update-renter/update-renter.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Imports services
-import { AuthService } from './services/auth.service';
-import { PersonRegisterService } from './services/person-register.service';
 import { MiddlewareService } from './services/middleware/middleware.service';
 import { CatalogosService } from './services/catalogos/catalogos.service';
-import { ConfigurationService } from './services/configuration/configuration.service'
+import { ConfigurationService } from './services/configuration/configuration.service';
+import { SessionService } from './services/session/session.service';
 
 // Files
-import { ngfModule, ngf } from 'angular-file';
+import { ngfModule } from 'angular-file';
 
 // Maps
 import { AgmCoreModule } from '@agm/core';
-import { UpdatePropertyComponent } from './components/update-property/update-property.component';
-import { RenterProfilerComponent } from './components/renter-profiler/renter-profiler.component';
-import { LoadingComponent } from './components/shared/loading/loading.component';
-import { ShowRequirementsComponent } from './components/show-requirements/show-requirements.component';
 
 // Video
 import { VgCoreModule } from 'videogular2/core';
 import { VgControlsModule } from 'videogular2/controls';
 import { VgOverlayPlayModule } from 'videogular2/overlay-play';
 import { VgBufferingModule } from 'videogular2/buffering';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    HomeComponent,
-    LoginComponent,
-    RegisterComponent,
-    PasswordRecoveryComponent,
-    PdfViewerComponent,
-    FooterComponent,
-    HomeAdviserComponent,
-    HomeRentComponent,
-    RegisterPropertyComponent,
-    UploadImageComponent,
-    UploadVideoComponent,
-    PropertyDetailComponent,
-    MapComponent,
-    UpdateRenterComponent,
-    UpdatePropertyComponent,
-    RenterProfilerComponent,
-    LoadingComponent,
-    ShowRequirementsComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule,
-    FAwesomeModule,
-    APP_ROUTING,
+    APP_ROUTES,
+    // HOMEADVISER_ROUTES,
     FormsModule,
-    ReactiveFormsModule,
+    SharedModule,
+    HomeModule,
+    MaterialModule,
+    HomeAdviserModule,
+    HomeRentModule,
     HttpClientModule,
+    ReactiveFormsModule,
     PdfViewerModule,
+    FAwesomeModule,
     ngfModule,
     VgCoreModule,
     VgControlsModule,
@@ -100,20 +72,13 @@ import { VgBufferingModule } from 'videogular2/buffering';
     })
   ],
   providers: [
-    AuthService,
-    PersonRegisterService,
     MiddlewareService,
     CatalogosService,
-    ConfigurationService
+    ConfigurationService,
+    SessionService
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    LoginComponent,
-    RegisterComponent,
-    PasswordRecoveryComponent,
-    PdfViewerComponent,
-    RegisterPropertyComponent,
-    ShowRequirementsComponent
   ]
 })
 export class AppModule { }

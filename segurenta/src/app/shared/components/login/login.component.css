@@ -1,0 +1,17 @@
+.full-width-dialog {
+    margin-left: 10%;
+}
+
+.input-form {
+    font-size: 2rem !important;
+}
+
+#x-close {
+    font-size: 4em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.flex {
+    display: flex;
+}

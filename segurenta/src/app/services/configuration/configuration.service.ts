@@ -7,8 +7,8 @@ export class ConfigurationService {
 
   public endpoints = {
     // Servicios Sesión
-    login: '/session/login',
-    logout: '/session/logout',
+    login: '/sesion/login',
+    logout: '/sesion/logout',
 
     // Catálogos
     catBanco: '/catalogos/banco/',
