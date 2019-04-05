@@ -15,7 +15,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material.module';
 import { FAwesomeModule } from '../fAwesome.module';
-
+import { PropertyDetailComponent } from './components/property-detail/property-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import { FAwesomeModule } from '../fAwesome.module';
     InProgressComponent,
     RequestDateComponent,
     NavbarComponent,
-    LoginComponent
+    LoginComponent,
+    PropertyDetailComponent
   ],
   imports: [
     CommonModule,
@@ -48,7 +49,8 @@ import { FAwesomeModule } from '../fAwesome.module';
     InProgressComponent,
     RequestDateComponent,
     NavbarComponent,
-    LoginComponent
+    LoginComponent,
+    PropertyDetailComponent
   ],
   entryComponents: [
     LoginComponent,

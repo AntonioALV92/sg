@@ -7,6 +7,5 @@ export interface PersonInterface {
     email: string;
     nationality: number;
     bankName?: string;
-    cardNumber?: string;
     clabe?: string;
 }

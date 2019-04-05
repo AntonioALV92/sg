@@ -14,7 +14,7 @@ import { MyPropertyComponent } from './components/my-property/my-property.compon
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class HomeAdviserModule { }

@@ -101,6 +101,20 @@ html {
     color: black !important;
     background-color: #ffffff !important;
     border-color: black !important;
+    font-family: 'Montserrat';
+}
+
+.inactive-dark {
+    color: #fff !important;
+    background-color: black !important;
+    border-color: black !important;
+}
+
+.active-dark {
+    color: black !important;
+    background-color: #ffffff !important;
+    border-color: black !important;
+    font-family: 'Montserrat';
 }
 
 .dialog-width .mat-dialog-container {
