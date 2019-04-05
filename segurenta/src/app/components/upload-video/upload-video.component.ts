@@ -16,7 +16,7 @@ export class UploadVideoComponent implements OnInit {
   httpEmitter: Subscription;
   httpEvent: HttpEvent<{}>;
   lastFileAt: Date;
-  maxSizeVideo: number = 20971520;
+  maxSizeVideo: number = 5242880;
 
   sendableFormData: FormData;
 
@@ -45,8 +45,6 @@ export class UploadVideoComponent implements OnInit {
   }
 
   getDate() {
-    console.log(this.files);
-    console.log(this.files[0].type);
     return new Date();
   }
 

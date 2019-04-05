@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PersonInterface } from '../../interfaces/person.interface';
 import { Router } from '@angular/router';
-import { MatDialogRef, MatDialog } from '@angular/material';
+import { MatDialogRef, MatDialog, MatDialogConfig } from '@angular/material';
 import { PdfViewerComponent } from '../pdf-viewer/pdf-viewer.component';
 import { CatalogosService } from 'src/app/services/catalogos/catalogos.service';
+import { CatalogInterface } from 'src/app/interfaces/catalog.interface';
+import { PasswordRecoveryComponent } from '../password-recovery/password-recovery.component';
 
 @Component({
   selector: 'app-register',
@@ -13,10 +15,7 @@ import { CatalogosService } from 'src/app/services/catalogos/catalogos.service';
 })
 
 export class RegisterComponent implements OnInit {
-
-  public catBancos = {};
-  public banco;
-
+  catBancos: any;
   renter: PersonInterface = {
     names: '',
     firstLastName: '',
@@ -34,7 +33,6 @@ export class RegisterComponent implements OnInit {
     email: '',
     nationality: 0,
     bankName: '',
-    cardNumber: '',
     clabe: ''
   };
 
@@ -81,8 +79,6 @@ export class RegisterComponent implements OnInit {
       password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]),
       bankName: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(15)]),
       // tslint:disable-next-line:max-line-length
-      cardNumber: new FormControl('', [Validators.required, Validators.minLength(16), Validators.maxLength(16), Validators.pattern('[0-9]{16}$')]),
-      // tslint:disable-next-line:max-line-length
       clabe: new FormControl('', [Validators.required, Validators.minLength(16), Validators.maxLength(20), Validators.pattern('[0-9]{16,20}$')])
     });
     this.registerFormOwner = new FormGroup({
@@ -100,12 +96,16 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
+<<<<<<< HEAD
+    this.catBancos = this.catalog.getBancos();
+=======
     this.getBancos();
   }
 
   private async getBancos() {
     this.catBancos = await this.catalog.getBancos();
     console.log(this.catBancos);
+>>>>>>> 530abb38fb578a299cc2cd638f6db4214ca803d7
   }
 
   openViewer() {
@@ -221,14 +221,6 @@ export class RegisterComponent implements OnInit {
           this.registerFormAdviser.get('bankName').hasError('maxlength') ? 'Máximo 15 caracteres' :
           '';
   }
-
-  getErrorMessageCard() {
-    return this.registerFormAdviser.get('cardNumber').hasError('required') ? 'Campo requerido' :
-          this.registerFormAdviser.get('cardNumber').hasError('minlength') ? '16 digitos' :
-          this.registerFormAdviser.get('cardNumber').hasError('maxlength') ? '16 digitos' :
-          this.registerFormAdviser.get('cardNumber').hasError('pattern') ? '16 digitos' :
-          '';
-  }
   getErrorMessageCLABE() {
     return this.registerFormAdviser.get('clabe').hasError('required') ? 'Campo requerido' :
           this.registerFormAdviser.get('clabe').hasError('minlength') ? 'Entre 16 y 20 digitos' :
@@ -274,8 +266,6 @@ export class RegisterComponent implements OnInit {
       const email = this.registerForm.get('email').value;
       const password = this.registerForm.get('password').value;
       console.log(this.renter);
-
-      alert('Inquilino registrado!');
       this.router.navigate(['home-rent']);
       this.dialog.closeAll();
       // Calls service to login user to the api rest
@@ -298,10 +288,7 @@ export class RegisterComponent implements OnInit {
   }
   registerU(n?: number) {
     if (n === 1) {
-      alert('Asesor registrado!');
       this.router.navigate(['home-adviser']);
-    } else if (n === 2 ) {
-      alert('Propietario registrado!');
     }
     this.dialog.closeAll();
   }

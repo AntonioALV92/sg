@@ -22,14 +22,14 @@ export class PropertyDetailComponent implements OnInit {
       estatus: 'Disponible',
       urlVideo: './assets/video/videoPrueba.mp4',
       imagenes: [
-        { url: './assets/img/imgPrueba3.jpg', orden: 1 },
-        { url: './assets/img/imgPrueba2.png', orden: 2 },
-        { url: './assets/img/imgPrueba4.jpg', orden: 3 },
-        { url: './assets/img/imgPrueba3.jpg', orden: 4 },
-        { url: './assets/img/imgPrueba2.png', orden: 5 },
-        { url: './assets/img/imgPrueba4.jpg', orden: 6 },
-        { url: './assets/img/imgPrueba3.jpg', orden: 7 },
-        { url: './assets/img/imgPrueba2.png', orden: 8 }
+        { url: './assets/img/1.jpg', orden: 1 },
+        { url: './assets/img/2.jpg', orden: 2 },
+        { url: './assets/img/3.jpeg', orden: 3 },
+        { url: './assets/img/1.jpg', orden: 4 },
+        { url: './assets/img/2.jpg', orden: 5 },
+        { url: './assets/img/3.jpeg', orden: 6 },
+        { url: './assets/img/1.jpg', orden: 7 },
+        { url: './assets/img/2.jpg', orden: 8 }
       ],
       noCitas: 15,
       caracteristicas: [

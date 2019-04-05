@@ -1,7 +1,23 @@
 <div class="container-fluid p-0">
     <!-- First section: Header  -->
-    <div class="row col-sm-12 m-0 p-0" style="height: 600px;">
-        <img src="./assets/img/imgPrueba2.png" class="img-fluid w-100 h-100" />
+    <div id="carouselPrincipal" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselPrincipal" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselPrincipal" data-slide-to="1"></li>
+            <li data-target="#carouselPrincipal" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./assets/img/home_broker.png" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="./assets/img/home_broker.png" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="./assets/img/home_broker.png" class="d-block w-100">
+            </div>
+        </div>
+
     </div>
 
     <!-- Second section: Opciones -->
@@ -73,7 +89,7 @@
         </div>
         <div class="col">
             <div class="input-group mt-5 mb-2">
-                <input type="text" class="form-control input-transparent" placeholder="Busca tus propiedades">
+                <input type="text" class="form-control input-transparent thin" placeholder="Busca tus propiedades">
                 <div class="input-group-append">
                     <button class="btn btn-outline-black btn-transparent" type="button">
                       <fa-icon [icon]="[ 'fas', 'angle-down']" size="2x"></fa-icon>
@@ -95,31 +111,31 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <h2 class="card-title font-weight-bold"><span class="text-muted"><u>P</u>eticiones Diarias /</span> Mis Citas</h2>
+                    <h2 class="card-title"><span class="text-muted"><u>P</u>eticiones Diarias /</span> Mis Citas</h2>
                     <div class="card-deck ">
                         <div class="card border-0 mb-3 bg-transparent " style="max-width: 15rem; " *ngFor="let picture of picturesZone ">
                             <img class="card-img-top " [src]="picture.img ">
                             <div class="card-img-overlay col-sm-12">
                                 <div class="card-title d-flex flex-row align-items-start">
-                                    <p class="text-white d-inline"><b>{{ picture.state }}</b></p>
+                                    <p class="text-white text-state d-inline">{{ picture.state }}</p>
                                     <div class="text-white text-right">
                                         <fa-icon class="pr-3 " [icon]="[ 'fas', 'share-alt'] "></fa-icon>
                                     </div>
                                 </div>
                                 <div class="card-text d-flex flex-row align-items-end bd-highlight">
                                     <div class="card-text w-100">
-                                        <p class="text-white m-0">{{ picture.title }}</p>
-                                        <p class="card-text text-white m-0">{{ picture.location }}</p>
+                                        <p class="text-white text-state m-0">{{ picture.title }}</p>
+                                        <p class="card-text text-state text-white m-0">{{ picture.location }}</p>
                                     </div>
                                     <div class="card-text flex-shrink-1 ">
-                                        <p class="text-white text-sm-right m-0">{{ picture.date }}</p>
-                                        <p class="card-text text-white text-right m-0">{{ picture.month }}</p>
+                                        <p class="text-white text-state text-sm-right m-0">{{ picture.date }}</p>
+                                        <p class="card-text text-state text-white text-right m-0">{{ picture.month }}</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-body px-0">
-                                <button class="btn btn-sm btn-outline-dark float-left" style="border-radius: 15px;" type="button ">Reagendar</button>
-                                <button class="btn btn-sm btn-dark float-right" style="border-radius: 15px;" type="button ">Aceptar</button>
+                                <button class="btn btn-sm btn-outline-dark float-left" style="border-radius: 15px;" type="button">Reagendar</button>
+                                <button class="btn btn-sm btn-dark float-right" style="border-radius: 15px;" type="button">Aceptar</button>
                             </div>
                         </div>
                     </div>
@@ -128,25 +144,25 @@
                             <img class="card-img-top " [src]="picture.img ">
                             <div class="card-img-overlay col-sm-12">
                                 <div class="card-title">
-                                    <p class="text-white d-inline"><b>{{ picture.state }}</b></p>
+                                    <p class="text-white text-state d-inline">{{ picture.state }}</p>
                                     <div class="text-white d-inline float-right">
                                         <fa-icon class="pr-3 " [icon]="[ 'fas', 'share-alt'] "></fa-icon>
                                     </div>
                                 </div>
                                 <div class="card-text d-flex bd-highlight">
                                     <div class="card-text w-100">
-                                        <p class="text-white m-0">{{ picture.title }}</p>
-                                        <p class="card-text text-white m-0">{{ picture.location }}</p>
+                                        <p class="text-white text-state m-0">{{ picture.title }}</p>
+                                        <p class="card-text text-state text-white m-0">{{ picture.location }}</p>
                                     </div>
                                     <div class="card-text flex-shrink-1 ">
-                                        <p class="text-white text-sm-right m-0">{{ picture.date }}</p>
-                                        <p class="card-text text-white text-right m-0">{{ picture.month }}</p>
+                                        <p class="text-white text-state text-sm-right m-0">{{ picture.date }}</p>
+                                        <p class="card-text text-state text-white text-right m-0">{{ picture.month }}</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-body px-0">
-                                <button class="btn btn-sm btn-outline-dark float-left" style="border-radius: 15px;" type="button ">Reagendar</button>
-                                <button class="btn btn-sm btn-dark float-right" style="border-radius: 15px;" type="button ">Aceptar</button>
+                                <button class="btn btn-sm btn-outline-dark float-left" style="border-radius: 15px;" type="button">Reagendar</button>
+                                <button class="btn btn-sm btn-dark float-right" style="border-radius: 15px;" type="button">Aceptar</button>
                             </div>
                         </div>
                     </div>
@@ -156,13 +172,13 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <h2 class="card-title font-weight-bold"><span class="text-muted"><u>P</u>ropiedades</span> En Proceso</h2>
+                    <h2 class="card-title"><span class="text-muted"><u>P</u>ropiedades</span> En Proceso</h2>
                     <div class="card-deck mb-5">
                         <div class="card border-0 mb-3 bg-transparent " style="max-width: 15rem; " *ngFor="let picture of picturesZone ">
                             <img class="card-img-top " [src]="picture.img ">
                             <div class="card-img-overlay p-0 img-opacity">
                                 <div class="card-title p-1">
-                                    <p class="text-white d-inline"><b>{{ picture.state }}</b></p>
+                                    <p class="text-white text-state d-inline">{{ picture.state }}</p>
                                     <div class="text-white d-inline float-right">
                                         <a>
                                             <fa-icon class="pr-3" [icon]="[ 'fas', 'share-alt'] "></fa-icon>
@@ -171,31 +187,13 @@
                                 </div>
                                 <div class="card-text">
                                     <div class="card-text bottom-left">
-                                        <p class="text-white">{{ picture.title }}<br>{{ picture.location }}</p>
+                                        <p class="text-white text-state">{{ picture.title }}<br>{{ picture.location }}</p>
                                     </div>
                                     <div class="card-text bottom-right">
-                                        <p class="text-white">${{ picture.price }}<br>{{ picture.period }}</p>
+                                        <p class="text-white text-state">${{ picture.price }}<br>{{ picture.period }}</p>
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="card-img-overlay col-sm-12">
-                                <div class="card-title">
-                                    <p class="text-white d-inline"><b>{{ picture.state }}</b></p>
-                                    <div class="text-white d-inline float-right">
-                                        <fa-icon class="pr-3 " [icon]="[ 'fas', 'share-alt'] "></fa-icon>
-                                    </div>
-                                </div>
-                                <div class="card-text d-flex bd-highlight">
-                                    <div class="card-text w-100">
-                                        <p class="text-white m-0">{{ picture.title }}</p>
-                                        <p class="card-text text-white m-0">{{ picture.location }}</p>
-                                    </div>
-                                    <div class="card-text flex-shrink-1 ">
-                                        <p class="text-white text-sm-right m-0">${{ picture.price }}</p>
-                                        <p class="card-text text-white text-right m-0">{{ picture.period }}</p>
-                                    </div>
-                                </div>
-                            </div> -->
                         </div>
                     </div>
                     <div class="card-deck mb-5 pt-5">
@@ -203,7 +201,7 @@
                             <img class="card-img-top " [src]="picture.img ">
                             <div class="card-img-overlay p-0 img-opacity">
                                 <div class="card-title p-1">
-                                    <p class="text-white d-inline"><b>{{ picture.state }}</b></p>
+                                    <p class="text-white text-state d-inline">{{ picture.state }}</p>
                                     <div class="text-white d-inline float-right">
                                         <a>
                                             <fa-icon class="pr-3" [icon]="[ 'fas', 'share-alt'] "></fa-icon>
@@ -212,10 +210,10 @@
                                 </div>
                                 <div class="card-text">
                                     <div class="card-text bottom-left">
-                                        <p class="text-white">{{ picture.title }}<br>{{ picture.location }}</p>
+                                        <p class="text-white text-state">{{ picture.title }}<br>{{ picture.location }}</p>
                                     </div>
                                     <div class="card-text bottom-right">
-                                        <p class="text-white">${{ picture.price }}<br>{{ picture.period }}</p>
+                                        <p class="text-white text-state">${{ picture.price }}<br>{{ picture.period }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -227,52 +225,46 @@
     </div>
 
     <!-- Fifth section: Mis Propiedades  -->
-    <div class="row col-sm-12 m-0 p-0">
-        <div class="col-sm-12 my-4">
-            <h2 class="font-weight-bold"><span class="text-muted"><u>M</u>is</span> Propiedades</h2>
-        </div>
+    <div class="container-fluid">
         <div class="col-sm-12">
-            <div class="card-deck mb-3">
-                <div class="card border-light" *ngFor="let picture of pictures">
-                    <img class="card-img-top" [src]="picture.img">
-                    <div class="card-img-overlay p-0 img-opacity" [routerLink]="['/property-detail']">
-                        <div class="card-title p-1">
-                            <p class="h4 text-white d-inline"><b>{{ picture.state }}</b></p>
-                            <div class="text-white d-inline float-right">
-                                <a>
-                                    <fa-icon class="pr-3 " [icon]="[ 'fas', 'share-alt'] " size="2x "></fa-icon>
-                                </a>
-                            </div>
+            <div class="my-4">
+                <h2><span class="text-muted"><u>M</u>is</span> Propiedades</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-12" *ngFor="let picture of pictures">
+                    <div class="card border-0">
+                        <img class="card-img-top" [src]="picture.img">
+                        <div class="card-img-overlay" [routerLink]="['/property-detail']">
                         </div>
-                        <div class="card-text">
-                            <div class="card-text bottom-left">
-                                <p class="h4 text-white">{{ picture.title }}</p>
-                                <p class="card-text text-white">{{ picture.location }}</p>
-                            </div>
-                            <div class="card-text bottom-right">
-                                <p class="h4 text-white">${{ picture.price }}</p>
-                                <p class="card-text text-white text-right">{{ picture.period }}</p>
+                        <div class="card-body py-1 px-0">
+                            <div class="row">
+                                <div class="col d-none d-lg-block">
+                                    <p class="card-text">
+                                        <fa-icon [icon]="[ 'fas', 'expand-arrows-alt']"></fa-icon>150
+                                    </p>
+                                </div>
+                                <div class="col">
+                                    <fa-icon [icon]="[ 'fas', 'bed']"></fa-icon>
+                                    <p class="card-text d-inline-block h5">
+                                        2
+                                    </p>
+                                </div>
+                                <div class="col">
+                                    <p class="card-text">
+                                        <fa-icon [icon]="[ 'fas', 'toilet']"></fa-icon> 1
+                                    </p>
+                                </div>
+                                <!-- <div class="col">
+                                    <p class="card-text d-inline-block">Ver</p>
+                                    <a [routerLink]="['/property-detail']" target="_blank">
+                                        <button class="btn btn-sm btn-dark rounded-circle" width="20" heigth="20">
+                                                    <fa-icon [icon]="[ 'fas', 'plus']"></fa-icon>
+                                                </button>
+                                    </a>
+                                </div> -->
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="card-img-overlay col-sm-12">
-                        <div class="card-title">
-                            <p class="h4 text-white d-inline"><b>{{ picture.state }}</b></p>
-                            <div class="text-white d-inline float-right">
-                                <fa-icon class="pr-3 " [icon]="[ 'fas', 'share-alt'] " size="2x "></fa-icon>
-                            </div>
-                        </div>
-                        <div class="card-text d-flex bd-highlight">
-                            <div class="card-text w-100 ">
-                                <p class="h4 text-white ">{{ picture.title }}</p>
-                                <p class="card-text text-white ">{{ picture.location }}</p>
-                            </div>
-                            <div class="card-text flex-shrink-1 ">
-                                <p class="h4 text-white ">${{ picture.price }}</p>
-                                <p class="card-text text-white text-right ">{{ picture.period }}</p>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -282,15 +274,14 @@
     <div class="row col-12 m-0 p-0 ">
         <div class="col-sm " style="background-color: #0D62B7;border-right: 1px solid white; ">
             <div class="col-sm-12 mx-0 p-0 my-4 ">
-                <h3 class="font-weight-bold text-white "><span class="txt-muted "><u>E</u>xplorar</span> Zonas </h3>
+                <h3 class="text-white"><span class="txt-muted "><u>E</u>xplorar</span> Zonas </h3>
             </div>
             <div class="card-deck">
                 <div class="card border-0 mb-3 bg-transparent " style="max-width: 15rem; " *ngFor="let picture of picturesZone ">
                     <img class="card-img-top" [src]="picture.img ">
-                    <div class="card-img-overlay right ">
-                        <a class="badge rounded-circle badge-dark align-middle " style="width: 70px; height: 70px; ">
-                            <h6 class="text-white ">+{{ countNews }}<br>NUEVAS</h6>
-                        </a>
+                    <div class="card-img-overlay">
+                        <img src="./assets/img/nuevo.png" width="70" height="70">
+                        <p class="text-white text-center" style="position: absolute; top: 10%">+{{ countNews }}<br>NUEVAS</p>
                     </div>
                     <div class="card-body ">
                         <h5 class="card-title text-white ">Zona {{ picture.zone }}</h5>
@@ -300,15 +291,14 @@
         </div>
         <div class="col-sm " style="background-color: #0D62B7;border-left: 1px solid white; ">
             <div class="col-sm-12 mx-0 p-0 my-4 ">
-                <h3 class="font-weight-bold text-white "><span class="txt-muted "><u>E</u>xplorar</span> Categorías </h3>
+                <h3 class="text-white"><span class="txt-muted"><u>E</u>xplorar</span> Categorías </h3>
             </div>
             <div class="card-deck ">
                 <div class="card border-0 mb-3 bg-transparent " style="max-width: 15rem; " *ngFor="let picture of picturesZone ">
                     <img class="card-img-top " [src]="picture.img ">
-                    <div class="card-img-overlay ">
-                        <a class="badge rounded-circle badge-dark align-middle " style="width: 70px; height: 70px; ">
-                            <h6 class="text-white ">+{{ countNews }}<br>NUEVAS</h6>
-                        </a>
+                    <div class="card-img-overlay">
+                        <img src="./assets/img/nuevo.png" width="70" height="70">
+                        <p class="text-white text-center" style="position: absolute; top: 10%">+{{ countNews }}<br>NUEVAS</p>
                     </div>
                     <div class="card-body ">
                         <h5 class="card-title text-white ">{{ picture.categ }}</h5>

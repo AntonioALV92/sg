@@ -28,7 +28,10 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faSave } from '@fortawesome/free-regular-svg-icons';
 
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisV} from '@fortawesome/free-solid-svg-icons';
 
 
 import { faExpandArrowsAlt } from '@fortawesome/free-solid-svg-icons';
@@ -37,6 +40,8 @@ import { faToilet } from '@fortawesome/free-solid-svg-icons';
 
 // Agregar iconos a library para su acceso
 library.add(faFacebookF);
+library.add(faEllipsisV);
+library.add(faPlay);
 library.add(faGoogle);
 library.add(faInstagram);
 library.add(faLinkedinIn);
@@ -67,6 +72,7 @@ library.add(faSpinner);
 library.add(faPlusCircle);
 library.add(faPen);
 library.add(faTrash);
+library.add(faSave);
 
 
 @NgModule({
