@@ -1,0 +1,38 @@
+<div class="row col-12 m-0 p-0 ">
+    <div class="col-sm " style="background-color: #0D62B7;border-right: 1px solid white; ">
+        <div class="col-sm-12 mx-0 p-0 my-4 ">
+            <h3 class="font-weight-bold text-white "><span class="txt-muted "><u>E</u>xplorar</span> Zonas </h3>
+        </div>
+        <div class="card-deck ">
+            <div class="card border-0 mb-3 bg-transparent " style="max-width: 15rem; " *ngFor="let picture of picturesZone ">
+                <img class="card-img-top " [src]="picture.img ">
+                <div class="card-img-overlay right ">
+                    <a class="badge rounded-circle badge-dark align-middle " style="width: 70px; height: 70px; ">
+                        <h6 class="text-card text-white ">+{{ countNews }}<br>NUEVAS</h6>
+                    </a>
+                </div>
+                <div class="card-body">
+                    <h5 class="text-zones text-white ">Zona {{ picture.zone }}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm " style="background-color: #0D62B7;border-left: 1px solid white; ">
+        <div class="col-sm-12 mx-0 p-0 my-4 ">
+            <h3 class="font-weight-bold text-white "><span class="txt-muted "><u>E</u>xplorar</span> Categorías </h3>
+        </div>
+        <div class="card-deck ">
+            <div class="card border-0 mb-3 bg-transparent " style="max-width: 15rem; " *ngFor="let picture of picturesZone ">
+                <img class="card-img-top " [src]="picture.img ">
+                <div class="card-img-overlay ">
+                    <a class="badge rounded-circle badge-dark align-middle " style="width: 70px; height: 70px; ">
+                        <h6 class="text-white text-card">+{{ countNews }}<br>NUEVAS</h6>
+                    </a>
+                </div>
+                <div class="card-body ">
+                    <h5 class="text-zones text-white ">{{ picture.categ }}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

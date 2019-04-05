@@ -1,4 +1,4 @@
-declare let proces: Process;
+declare let process: Process;
 
 interface Process {
     env: Env
