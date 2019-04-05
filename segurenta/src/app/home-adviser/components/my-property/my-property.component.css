@@ -28,3 +28,17 @@
 .img-opacity:hover {
     background-color: rgba(0, 0, 0, 0);
 }
+
+@media (min-width : 576px) and (max-width: 926px) {
+    .text-card {
+        font-size: 10px;
+    }
+  }
+
+  @media (min-width : 927px) and (max-width: 1115px) {
+    .text-card {
+        font-size: 18px;
+    }
+  }
+
+  
