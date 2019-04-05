@@ -1,26 +1,17 @@
 import { Component } from '@angular/core';
-import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
-import { LoginComponent } from '../login/login.component';
-// import { RegisterComponent } from '../register/register.component';
-// import { element } from 'protractor';
 
+import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
+// import { FormGroup, FormControl, Validators } from '@angular/forms';
+// import { Observable } from 'rxjs';
 
 // Interface
-import { PersonInterface } from 'src/app/shared/interfaces/person.interface';
+// import { PersonInterface } from 'src/app/shared/interfaces/person.interface';
 
 // Services
-import { LoginService } from 'src/app/services/login/login.service';
+// import { LoginService } from 'src/app/services/login/login.service';
 
-
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-// import { UpdateRenterComponent } from '../update-renter/update-renter.component';
-// import { Globals } from 'src/app/interfaces/catalog.interface';
-import { Observable } from 'rxjs';
-// import { AuthService } from 'src/app/services/auth.service';
-
-
-
-// import { HttpClient } from  "@angular/common/http";
+// Components
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-navbar',
@@ -29,24 +20,24 @@ import { Observable } from 'rxjs';
 })
 export class NavbarComponent {
 
-  renter: PersonInterface = {
-    names: 'Daniela',
-    firstLastName: 'Ortiz',
-    secondLastName: 'Rodriguez',
-    phoneNumber: '5555067209',
-    email: 'daniela.ortiz@stratplus.com',
-    nationality: 0,
-  };
-  registerForm: FormGroup;
+  // renter: PersonInterface = {
+  //   names: 'Daniela',
+  //   firstLastName: 'Ortiz',
+  //   secondLastName: 'Rodriguez',
+  //   phoneNumber: '5555067209',
+  //   email: 'daniela.ortiz@stratplus.com',
+  //   nationality: 0,
+  // };
+  // registerForm: FormGroup;
 
-  loginDialogRef: MatDialogRef<LoginComponent>;
+  public loginDialogRef: MatDialogRef<LoginComponent>;
   // registerDialogRef: MatDialogRef<RegisterComponent>;
   // updateDialogRef: MatDialogRef<UpdateRenterComponent>;
 
-  isRenter: boolean;
-  isBroker: boolean;
+  // isRenter: boolean;
+  // isBroker: boolean;
 
-  isLoggedIn$: Observable<boolean>;
+  // isLoggedIn$: Observable<boolean>;
 
 
   constructor(private dialog: MatDialog) {
@@ -63,17 +54,15 @@ export class NavbarComponent {
 
   }
 
-  register() {
-    console.log('sdsd');
-  }
+  // register() {
+  //   console.log('sdsd');
+  // }
 
   openLogin() {
     const dialogConfig = new MatDialogConfig();
 
-    // dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.direction = 'ltr';
-    // dialogConfig.width = '90%';
     dialogConfig.width = '100vw';
     dialogConfig.maxWidth = '95vw';
     dialogConfig.panelClass = 'dialog-width';
@@ -105,7 +94,7 @@ export class NavbarComponent {
   //   this.registerDialogRef = this.dialog.open(RegisterComponent, dialogConfig);
   // }
 
-
+/*
   getErrorMessageNames() {
     return this.registerForm.get('names').hasError('required') ? 'Campo requerido' :
     '';
@@ -139,20 +128,21 @@ export class NavbarComponent {
           this.registerForm.get('password').hasError('maxlength') ? 'Máximo 10 caracteres' :
           '';
   }
+  */
 
-  openUpdateRenterData() {
-    const dialogConfig = new MatDialogConfig();
+  // openUpdateRenterData() {
+  //   const dialogConfig = new MatDialogConfig();
 
-    // dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.direction = 'ltr';
-    dialogConfig.width = '100vw';
-    dialogConfig.maxWidth = '98vw';
-    dialogConfig.panelClass = 'dialog-width';
-    dialogConfig.position = {
-      top: '100px',
-      left: '200px'
-    };
+  //   // dialogConfig.disableClose = true;
+  //   dialogConfig.autoFocus = true;
+  //   dialogConfig.direction = 'ltr';
+  //   dialogConfig.width = '100vw';
+  //   dialogConfig.maxWidth = '98vw';
+  //   dialogConfig.panelClass = 'dialog-width';
+  //   dialogConfig.position = {
+  //     top: '100px',
+  //     left: '200px'
+  //   };
 
 
 
@@ -160,5 +150,5 @@ export class NavbarComponent {
   }
 
 
-}
+// }
 

@@ -1,0 +1,187 @@
+<div class="container-fluid mt-5 pt-5">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11 col-xl-11 rounded d-flex align-items-center" style="height: 67vh;">
+                    <div *ngIf="property.urlVideo && imageSelected === ''" style="max-height: 67vh">
+                        <!-- <vg-player class="rounded">
+                            <vg-overlay-play></vg-overlay-play>
+                            <vg-buffering></vg-buffering>
+                        
+                            <vg-scrub-bar>
+                                <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                                <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+                            </vg-scrub-bar>
+                        
+                            <vg-controls>
+                                <vg-play-pause></vg-play-pause>
+                        
+                                <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+                        
+                                <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
+                        
+                                <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+                        
+                                <vg-mute></vg-mute>
+                                <vg-volume></vg-volume>
+                        
+                                <vg-fullscreen></vg-fullscreen>
+                            </vg-controls>
+                        
+                            <video [vgMedia]="media" #media id="singleVideo" preload="auto" crossorigin>
+                                <source src="{{ property.urlVideo }}" type="video/mp4">
+                            </video>
+                        </vg-player> -->
+                    </div>
+                    <div *ngIf="imageSelected" class="col-12 p-0">
+                        <img src="{{ imageSelected }}" class="col-12 p-0 rounded img-fluid" style="max-height: 67vh;">
+                        <div class="img-overlay">
+                            Disponible
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 col-xl-1 text-center p-0">
+                    <div class="row" *ngIf="property.urlVideo">
+                        <div class="col-12 mb-1">
+                            <a (click)="showVideo()">
+                                <img src="./assets/img/imgVideo.png" class="rounded" width="70" height="50">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row" *ngFor="let item of property.imagenes">
+                        <div class="col-12 mb-1">
+                            <a (click)="changeImage(item.url)">
+                                <img src="{{ item.url }}" class="rounded" width="70" height="50">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!isAdviser; else elseBlock" class="row mt-2">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" style="border-right: black 1px solid;">
+                    <div class="row">
+                        <a class="col-3" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">
+                            <img [src]="property.asesor.imagen" class="rounded-circle" width="75" height="75">
+                        </a>
+                        <!-- <a class="col-3">
+                            <img src="./assets/img/usrPrueba.png" class="rounded-circle" width="75" height="75">
+                        </a> -->
+                        <div class="col-6">
+                            <p class="h5" style="color: #808080;">Horario para agendar una cita:</p>
+                            <p style="color: #808080;">{{ property.asesor.disponibilidad }}</p>
+                        </div>
+                        <div class="col-3">
+                            <button class="btn btn-dark rounded-circle" style="height: 70px; width: 70px;">
+                                <fa-icon [icon]="[ 'far', 'calendar-alt']" size="2x"></fa-icon>
+                              </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <h2 class="col-12" style="color: #808080;">{{ property.noCitas }}
+                        <small class="h2" style="color: #606060;"> personas citadas</small>
+                    </h2>
+                    <p class="col-12 h5 pl-5" style="color: #808080;">Publicado: <a class="text-decoration-none" style="color: #0D62B7;">{{ property.fechaAlta }}</a></p>
+                </div>
+            </div>
+            <ng-template #elseBlock>
+                <div class="row mt-2">
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3" style="border-right: black 1px solid;">
+                        <div class="row">
+                            <div class="col-6 text-center">
+                                <button class="btn btn-dark rounded-circle" style="height: 70px; width: 70px;">
+                                    <fa-icon [icon]="[ 'fas', 'pen']" size="2x"></fa-icon>
+                                </button>
+                            </div>
+                            <div class="col-6 text-center">
+                                <button class="btn btn-dark rounded-circle" style="height: 70px; width: 70px;">
+                                    <fa-icon [icon]="[ 'fas', 'trash']" size="2x"></fa-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4" style="border-right: black 1px solid;">
+                        <div class="row">
+                            <div class="col-8 align-middle">
+                                <p class="col-12 text-right small m-0" style="color: #808080;">Horario citas:</p>
+                                <p class="col-12 text-right small m-0" style="color: #808080;">Lun-Sab, 10:00 - 10:45</p>
+                            </div>
+                            <div class="col-4">
+                                <button class="btn btn-dark rounded-circle" style="height: 70px; width: 70px;">
+                                                    <fa-icon [icon]="[ 'far', 'calendar-alt']" size="2x"></fa-icon>
+                                                  </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+                        <div class="row">
+                            <div class="col-8">
+                                <p class="col-12 text-right small m-0" style="color: #808080;">{{ property.noCitas }} personas han hecho una cita</p>
+                                <p class="col-12 small pl-5" style="color: #808080;">Publicado: <a class="text-decoration-none" style="color: #0D62B7;">{{ property.fechaAlta }}</a></p>
+                            </div>
+                            <div class="col-4">
+                                <button class="btn btn-dark rounded-circle" style="height: 70px; width: 70px;">
+                                    <fa-icon [icon]="[ 'fas', 'home']" size="2x"></fa-icon>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </ng-template>
+            <div class="row my-5">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                    <div class="row">
+                        <h4 class="col-12 mb-4" style="color: #808080;">Características:</h4>
+                        <div class="col-6 my-1 mb-3" *ngFor="let item of property.caracteristicas">
+                            <div class="row">
+                                <div class="col-3">
+                                    <fa-icon [icon]="[ item.tipo, item.icono]" size="2x"></fa-icon>
+                                </div>
+                                <div class="col-3 text-right">
+                                    <h3 style="color: #808080;">{{ item.valor }}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                    <div class="row">
+                        <h4 class="col-12 mb-4" style="color: #808080;">Amenidades:</h4>
+                        <div class="col-2 m-1" *ngFor="let item of property.amenidades">
+                            <button class="btn btn-outline-dark rounded-circle" style="height: 75px; width: 75px;">
+                                <fa-icon [icon]="[ item.tipo, item.icono]" size="2x"></fa-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h4 class="col-12 my-4" style="color: #808080;">Reglas:</h4>
+                        <div class="col-2 m-1" *ngFor="let item of property.reglas">
+                            <button class="btn btn-outline-dark rounded-circle" style="height: 75px; width: 75px;">
+                                <fa-icon [icon]="[ item.tipo, item.icono]" size="2x"></fa-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+            <h2 class="col-12 mb-lg-5 mb-xl-5" style="color: #808080;">{{ property.alias }}</h2>
+            <h5 class="col-12" style="color: #838383;">Renta {{ property.periodicidad }}: {{ property.precioRenta | currency }}</h5>
+            <h5 class="col-12 mb-3" style="color: #838383;">Mantenimiento: {{ property.mantenimiento | currency }}</h5>
+            <p class="col-12 text-justify small" style="color: #4d4d4d;">{{ property.descripcion }}</p>
+
+            <div class="col-12 text-right my-lg-5 my-xl-5">
+                <button type="button" (click)="openViewer()" class="btn btn-outline-dark" style="border-radius: 8px">Requisitos</button>
+            </div>
+
+            <div class="col-12">
+                <h5 style="color: #808080;"><small style="color: #838383;"><u>E</u>xplora la zona</small> Puntos de interés</h5>
+                <div id="map" class="mb-1">
+                    <!-- <app-map></app-map> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-xl">Extra large modal</button> -->

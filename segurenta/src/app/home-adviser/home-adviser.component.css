@@ -1,0 +1,110 @@
+.img-wrapper {
+    position: relative;
+}
+
+.img-responsive {
+    width: 100%;
+    height: auto;
+}
+
+.img-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.img-overlay:before {
+    content: ' ';
+    display: block;
+    /* adjust 'height' to position overlay content vertically */
+    height: 30%;
+}
+
+input.input-transparent {
+    background: rgba(255, 255, 255, 0) !important;
+    height: 20%;
+    border-radius: 10px;
+    font-size: 22pt !important;
+    border-right-color: #ddd !important;
+}
+
+input.input-transparent::placeholder {
+    color: #ddd;
+}
+
+.btn-transparent {
+    background-color: rgba(255, 255, 255, 0) !important;
+    border-color: #ddd !important;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+
+/* Bottom left text */
+
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+}
+
+
+/* Top left text */
+
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+
+
+/* Top right text */
+
+.top-right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+}
+
+
+/* Bottom right text */
+
+.bottom-right {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+}
+
+.img-opacity {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+/* Centered text */
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.img-opacity:hover {
+    background-color: rgba(0, 0, 0, 0);
+}
+.btn-dark {
+    background-color: #000 !important;
+}
+
+@media (max-width: 819px) {
+    .text-state {
+        font-size: 12px;
+    }
+  }

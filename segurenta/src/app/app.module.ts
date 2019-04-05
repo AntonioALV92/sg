@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Import routes
 import { APP_ROUTES } from './app.routes';
+// import { HOMEADVISER_ROUTES } from './home-adviser/home-adviser.routes';
 
 // Imports Modulos
 import { HomeModule } from './home/home.module';
@@ -25,7 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MiddlewareService } from './services/middleware/middleware.service';
 import { CatalogosService } from './services/catalogos/catalogos.service';
 import { ConfigurationService } from './services/configuration/configuration.service';
-import { LoginService } from './services/login/login.service';
+import { SessionService } from './services/session/session.service';
 
 // Files
 import { ngfModule } from 'angular-file';
@@ -50,6 +51,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     BrowserAnimationsModule,
     APP_ROUTES,
+    // HOMEADVISER_ROUTES,
     FormsModule,
     SharedModule,
     HomeModule,
@@ -73,7 +75,7 @@ import { HttpClientModule } from '@angular/common/http';
     MiddlewareService,
     CatalogosService,
     ConfigurationService,
-    LoginService
+    SessionService
   ],
   bootstrap: [AppComponent],
   entryComponents: [

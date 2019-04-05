@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { FormGroup, Validators, FormControl} from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
-import { LoginService } from 'src/app/services/login/login.service';
+import { SessionService } from 'src/app/services/session/session.service';
+import { LoginInterface } from 'src/app/shared/interfaces/login.interface';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent {
   isInvalidLogin: boolean;
   isHide: boolean;
 
-  constructor(private login: LoginService, private router: Router, private dialogRef: MatDialog) {
+  constructor(private session: SessionService, private router: Router, private dialogRef: MatDialog) {
     this.isInvalidLogin = false;
     this.isHide = true;
     this.loginForm = new FormGroup({
@@ -38,52 +39,28 @@ export class LoginComponent {
        '';
   }
 
-  logIn() {
-    event.preventDefault(); // Avoid default action for the submit button of the login form
+  private async logIn() {
+    event.preventDefault();
     if (this.loginForm.valid) {
-      // const email = this.loginForm.get('email').value;
-      // let password = this.loginForm.get('password').value;
-      // if (email === 'inquilino@email.com') {
-      //   alert('Entraste!');
-      //   this.closeDialog();
-      //   this.router.navigate(['home-rent']);
-      // } else if (email === 'asesor@email.com') {
-      //   alert('Entraste!');
-      //   this.closeDialog();
-      //   this.router.navigate(['home-adviser']);
-      // } else {
-      //   alert('Credenciales inválidas');
-      // }
-
-
       // Calls service to login user to the api rest
       const request = {
         username: this.loginForm.get('email').value,
         password: this.loginForm.get('password').value,
       };
-      this.login.login(request);
-    //   .subscribe(
 
-    //   res => {
-    //    console.log(res);
-    //    alert('Entraste!');
-    //   },
-    //   error => {
-    //     console.error(error);
-    //     alert('Algo salió mal :(');
-    //   },
+      const loginData: LoginInterface = (await this.session.login(request)) as LoginInterface;
 
-    //   () => this.navigate()
-    // );
+      this.dialogRef.closeAll();
+
+      if (loginData.result.usuario === 'client') {
+        this.router.navigateByUrl('/home-adviser');
+      } else if (loginData.result.usuario === 'broker') {
+        this.router.navigateByUrl('/home-rent');
+      }
     }
-
-
   }
+
   closeDialog() {
     this.dialogRef.closeAll();
   }
-  navigate() {
-    this.router.navigateByUrl('/home');
-  }
-
 }
