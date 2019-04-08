@@ -2,110 +2,81 @@
     <h2 mat-dialog-title><small class="txt-title-muted">Registro </small><span class="txt-title"> {{ title }}</span></h2>
 </div>
 <mat-grid-list cols="12" rowHeight="1:5">
-    <mat-grid-tile colspan="2" style="border-right: black 1px solid;">
-        <ul style="list-style: none; margin-left: 15%; margin-right: 100px;">
-            <li *ngIf="!isRenter" style="margin-bottom: 100px;" class="txt-subtitle"><a (click)="changeRegister(1)">Rentar</a></li>
-            <li *ngIf="!isAdviser" style="margin-bottom: 100px;" class="txt-subtitle"><a (click)="changeRegister(2)">Publicar</a></li>
+    <mat-grid-tile colspan="2" class="titleGrid">
+        <ul>
+            <li *ngIf="isRenter" class="txt-subtitle">
+                <a (click)="changeRegister(1)">Rentar</a>
+            </li>
+            <li *ngIf="!isRenter" class="txt-subtitle">
+                <a (click)="changeRegister(2)">Publicar</a>
+            </li>
         </ul>
     </mat-grid-tile>
-    <div *ngIf="isRenter">
-        <mat-grid-tile colspan="5" style="margin-left:1%;">
-            <form [formGroup]="registerForm" (ngSubmit)="register()" novalidate="novalidate">
-                <mat-form-field class="full-width">
-                    <input type="text" class="input-form" matInput placeholder="Nombre(s)" [(ngModel)]="renter.names" formControlName="names" required>
-                    <mat-error *ngIf="registerForm.get('names').invalid">{{getErrorMessageNames()}}</mat-error>
-                </mat-form-field>
-                <mat-form-field style="padding-right: 10%;">
-                    <input type="text" class="input-form" matInput placeholder="Apellido Paterno" [(ngModel)]="renter.firstLastName" formControlName="firstLastName" required>
-                    <mat-error *ngIf="registerForm.get('firstLastName').invalid">{{getErrorMessageF()}}</mat-error>
-                </mat-form-field>
-                <mat-form-field>
-                    <input type="text" class="input-form" matInput placeholder="Apellido Materno" [(ngModel)]="renter.secondLastName" formControlName="secondLastName" required>
-                    <mat-error *ngIf="registerForm.get('secondLastName').invalid">{{getErrorMessageS()}}</mat-error>
-                </mat-form-field>
-                <mat-form-field class="full-width">
-                    <input type="tel" class="input-form" matInput placeholder="Teléfono" [(ngModel)]="renter.phoneNumber" formControlName="phoneNumber" required>
-                    <mat-error *ngIf="registerForm.get('phoneNumber').invalid">{{getErrorMessagePhone()}}</mat-error>
-                </mat-form-field>
-                <mat-form-field class="full-width">
-                    <input type="email" class="input-form" matInput placeholder="Correo Electrónico" [(ngModel)]="renter.email" formControlName="email" required>
-                    <mat-error *ngIf="registerForm.get('email').invalid">{{getErrorMessageEmail()}}</mat-error>
-                </mat-form-field>
-                <mat-form-field class="full-width">
-                    <input type="password" class="input-form" matInput placeholder="Contraseña" #renter.password formControlName="password" required>
-                    <mat-error *ngIf="registerForm.get('password').invalid">{{getErrorMessagePass()}}</mat-error>
-                </mat-form-field>
+    <mat-grid-tile colspan="5" style="margin-left:1%;">
+        <form [formGroup]="registerForm" (ngSubmit)="register()" novalidate="novalidate">
+            <mat-form-field class="full-width">
+                <input type="text" class="input-form" matInput placeholder="Nombre(s)" [(ngModel)]="regist.names" formControlName="names">
+                <mat-error *ngIf="registerForm.get('names').invalid">{{getErrorMessage("names")}}</mat-error>
+            </mat-form-field>
+            <mat-form-field style="padding-right: 10%;">
+                <input type="text" class="input-form" matInput placeholder="Apellido Paterno" [(ngModel)]="regist.firstLastName" formControlName="firstLastName">
+                <mat-error *ngIf="registerForm.get('firstLastName').invalid">{{getErrorMessage("firstLastName")}}</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input type="text" class="input-form" matInput placeholder="Apellido Materno" [(ngModel)]="regist.secondLastName" formControlName="secondLastName">
+                <mat-error *ngIf="registerForm.get('secondLastName').invalid">{{getErrorMessage("secondLastName")}}</mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input type="tel" class="input-form" matInput placeholder="Teléfono" [(ngModel)]="regist.phoneNumber" formControlName="phoneNumber">
+                <mat-error *ngIf="registerForm.get('phoneNumber').invalid">{{getErrorMessage("phoneNumber")}}</mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input type="email" class="input-form" matInput placeholder="Correo Electrónico" [(ngModel)]="regist.email" formControlName="email">
+                <mat-error *ngIf="registerForm.get('email').invalid">{{getErrorMessage("email")}}</mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input type="password" class="input-form" matInput placeholder="Contraseña" #regist.password formControlName="password">
+                <mat-error *ngIf="registerForm.get('password').invalid">{{getErrorMessage("password")}}</mat-error>
+            </mat-form-field>
+            <span *ngIf="isRenter">
                 <button class="btn-rounded full-width" style="margin-top: 5%;" mat-raised-button (click)="register(0)">Registrarme</button>
                 <small class="txt-muted">Al registrarte aceptas los <a (click)="openViewer()">Términos y Condiciones</a> y las <a (click)="openViewer()">Políticas de Privacidad</a>.</small>
-            </form>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="1">
-            <h1 class="txt-muted">ó</h1>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="4">
-            <div class="example-button-row">
-                <h1 class="txt-muted full-width">Ingresar con:</h1>
-                <div class="flex">
-                    <button mat-fab class="btn-black">
-                        <fa-icon [icon]="['fab', 'facebook-f']" size="2x"></fa-icon>
-                    </button>
-                    <button mat-fab class="btn-black">
-                        <fa-icon [icon]="['fab', 'google']" size="2x"></fa-icon>
-                    </button>
-                </div>
+            </span>
+        </form>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1">
+        <h1 *ngIf="isRenter" class="txt-muted">ó</h1>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="4">
+        <div [hidden]="!isRenter" class="example-button-row">
+            <h1 class="txt-muted full-width">Ingresar con:</h1>
+            <div class="flex">
+                <button mat-fab class="btn-black">
+                    <fa-icon [icon]="['fab', 'facebook-f']" size="2x"></fa-icon>
+                </button>
+                <button mat-fab class="btn-black">
+                    <fa-icon [icon]="['fab', 'google']" size="2x"></fa-icon>
+                </button>
             </div>
-        </mat-grid-tile>
-    </div>
-
-    <div *ngIf="isAdviser">
-        <mat-grid-tile colspan="5" style="margin-left:1%;">
-            <form [formGroup]="registerFormAdviser" (ngSubmit)="register()" novalidate="novalidate">
-                <mat-form-field class="full-width">
-                    <input type="text" class="input-form" matInput placeholder="Nombre(s)" [(ngModel)]="adviser.names" formControlName="names" required>
-                    <mat-error *ngIf="registerForm.get('names').invalid">{{getErrorMessageNamesA()}}</mat-error>
-                </mat-form-field>
-                <mat-form-field style="padding-right: 10%;">
-                    <input type="text" class="input-form" matInput placeholder="Apellido Paterno" [(ngModel)]="adviser.firstLastName" formControlName="firstLastName" required>
-                    <mat-error *ngIf="registerForm.get('firstLastName').invalid">{{getErrorMessageFA()}}</mat-error>
-                </mat-form-field>
-                <mat-form-field>
-                    <input type="text" class="input-form" matInput placeholder="Apellido Materno" [(ngModel)]="adviser.secondLastName" formControlName="secondLastName" required>
-                    <mat-error *ngIf="registerForm.get('secondLastName').invalid">{{getErrorMessageSA()}}</mat-error>
-                </mat-form-field>
-                <mat-form-field class="full-width">
-                    <input type="tel" class="input-form" matInput placeholder="Teléfono" [(ngModel)]="adviser.phoneNumber" formControlName="phoneNumber" required>
-                    <mat-error *ngIf="registerForm.get('phoneNumber').invalid">{{getErrorMessagePhoneA()}}</mat-error>
-                </mat-form-field>
-                <mat-form-field class="full-width">
-                    <input type="email" class="input-form" matInput placeholder="Correo Electrónico" [(ngModel)]="adviser.email" formControlName="email" required>
-                    <mat-error *ngIf="registerForm.get('email').invalid">{{getErrorMessageEmailA()}}</mat-error>
-                </mat-form-field>
-                <mat-form-field class="full-width">
-                    <input type="password" class="input-form" matInput placeholder="Contraseña" #adviser.password formControlName="password" required>
-                    <mat-error *ngIf="registerForm.get('password').invalid">{{getErrorMessagePassA()}}</mat-error>
-                </mat-form-field>
-            </form>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="1">
-        </mat-grid-tile>
-        <mat-grid-tile colspan="4">
-            <form [formGroup]="registerFormAdviser" (ngSubmit)="register()" novalidate="novalidate">
-                <h3 class="full-width">¿En dónde quiero mis comisiones?</h3>
-                <mat-form-field class="full-width">
-                    <mat-label>Institución Bancaria</mat-label>
-                    <mat-select [(value)]="adviser.bankName" required>
-                        <mat-option *ngFor="let item of catBancos" value="item.id">{{item.descripcion}}</mat-option>
-                    </mat-select>
-                    <mat-error *ngIf="registerFormAdviser.get('bankName').invalid">{{getErrorMessageBank()}}</mat-error>
-                </mat-form-field>
-                <mat-form-field class="full-width">
-                    <input type="text" matInput placeholder="Número de Cuenta" #adviser.clabe formControlName="clabe" required>
-                    <mat-error *ngIf="registerFormAdviser.get('clabe').invalid">{{getErrorMessageCLABE()}}</mat-error>
-                </mat-form-field>
-                <button class="btn-rounded full-width" style="margin-top: 5%;" mat-raised-button (click)="register(1)">Registrarme</button>
-                <small class="txt-muted">Al registrarte aceptas los <a (click)="openViewer()">Términos y Condiciones</a> y las <a (click)="openViewer()">Políticas de Privacidad</a>.</small>
-            </form>
-        </mat-grid-tile>
-    </div>
-
+        </div>
+        <form [hidden]="isRenter" [formGroup]="registerForm" (ngSubmit)="register()" novalidate="novalidate">
+            <h3 class="full-width">¿En dónde quiero mis comisiones?</h3>
+            <mat-form-field class="full-width">
+                <mat-label>Institución Bancaria</mat-label>
+                <mat-select matInput [(value)]="regist.bankName" [(ngModel)]="regist.bankName" formControlName="bankName">
+                    <mat-option *ngFor="let item of catBancos" [value]="item.id">{{item.corta}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="registerForm.get('bankName').invalid">{{getErrorMessage("bankName")}}</mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input type="text" matInput placeholder="Número de Cuenta" [(ngModel)]="regist.clabe" formControlName="clabe">
+                <mat-error *ngIf="registerForm.get('clabe').invalid">{{getErrorMessage("clabe")}}</mat-error>
+            </mat-form-field>
+            <button class="btn-rounded full-width" style="margin-top: 5%;" mat-raised-button (click)="register(1)">Registrarme</button>
+            <small class="txt-muted">Al registrarte aceptas los 
+                <a (click)="openViewer()">Términos y Condiciones</a> y las 
+                <a (click)="openViewer()">Políticas de Privacidad</a>.
+            </small>
+        </form>
+    </mat-grid-tile>
 </mat-grid-list>
