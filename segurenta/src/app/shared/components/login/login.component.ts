@@ -16,6 +16,8 @@ export class LoginComponent {
   isInvalidLogin: boolean;
   isHide: boolean;
 
+  public errorLogin: string = '';
+
   constructor(private session: SessionService, private router: Router, private dialogRef: MatDialog) {
     this.isInvalidLogin = false;
     this.isHide = true;
@@ -42,20 +44,24 @@ export class LoginComponent {
   private async logIn() {
     event.preventDefault();
     if (this.loginForm.valid) {
-      // Calls service to login user to the api rest
       const request = {
         username: this.loginForm.get('email').value,
         password: this.loginForm.get('password').value,
       };
 
-      const loginData: LoginInterface = (await this.session.login(request)) as LoginInterface;
+      const loginData: any = await this.session.login(request);
 
       this.dialogRef.closeAll();
 
-      if (loginData.result.usuario === 'client') {
-        this.router.navigateByUrl('/home-adviser');
-      } else if (loginData.result.usuario === 'broker') {
+      if (loginData.result.tipousuarioDefault === 1) {
         this.router.navigateByUrl('/home-rent');
+      } else if (loginData.result.tipousuarioDefault === 2) {
+        this.router.navigateByUrl('/home-adviser');
+      } else if (loginData.result.tipousuarioDefault === 3) {
+        this.router.navigateByUrl('/home-rent');
+      } else {
+        // Error
+        this.errorLogin = loginData.menssage;
       }
     }
   }
