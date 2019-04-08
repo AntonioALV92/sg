@@ -86,6 +86,25 @@ export class PropiedadesRecientesComponent implements OnInit {
     },
   ];
 
+  property = {
+    alias: 'DEPARTAMENTO 87m2 Del Valle, CDMX',
+    periodicidad: 'Mensual',
+    precioRenta: 10000,
+    mantenimiento: 500,
+    // tslint:disable-next-line:max-line-length
+    descripcion: 'Estrene precioso departamento en piso 12, con balcón, finos acabados, hermosa vista, fascinantes amenidades desde pista de hielo hasta servicios básicos, desarrollo vanguardista, ecológico, con servicios económicos, valet parking y vigilancia las 24 hrs.',
+    estatus: 'Disponible',
+    urlVideo: './assets/video/videoPrueba.mp4',
+    caracteristicas: [
+      { valor: '89', tipo: 'fas', icono: 'expand-arrows-alt'},
+      { valor: '2', tipo: 'fas', icono: 'bed'},
+      { valor: '1', tipo: 'fas', icono: 'toilet'},
+      { valor: '1', tipo: 'fas', icono: 'expand-arrows-alt'},
+      { valor: '2', tipo: 'fas', icono: 'bed'},
+      { valor: '135', tipo: 'fas', icono: 'toilet'}
+    ]
+  };
+  
   constructor() { }
 
   ngOnInit() {
