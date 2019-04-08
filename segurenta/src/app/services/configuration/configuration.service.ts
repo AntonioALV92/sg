@@ -52,5 +52,9 @@ export class ConfigurationService {
     catTipoRelaciones: '/catalogos/tiporelaciones',
     catTipoUsuario: '/catalogos/tipousuario',
     catTipoUsuarios: '/catalogos/tipousuario',
+
+    // Servicio Banner
+    banner: '/banner/banner',
+
   };
 }
