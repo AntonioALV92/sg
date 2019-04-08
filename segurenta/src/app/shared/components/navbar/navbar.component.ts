@@ -1,17 +1,10 @@
 import { Component } from '@angular/core';
 
 import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
-// import { FormGroup, FormControl, Validators } from '@angular/forms';
-// import { Observable } from 'rxjs';
-
-// Interface
-// import { PersonInterface } from 'src/app/shared/interfaces/person.interface';
-
-// Services
-// import { LoginService } from 'src/app/services/login/login.service';
 
 // Components
 import { LoginComponent } from '../login/login.component';
+import { RegisterComponent } from '../register/register.component';
 
 @Component({
   selector: 'app-navbar',
@@ -20,18 +13,8 @@ import { LoginComponent } from '../login/login.component';
 })
 export class NavbarComponent {
 
-  // renter: PersonInterface = {
-  //   names: 'Daniela',
-  //   firstLastName: 'Ortiz',
-  //   secondLastName: 'Rodriguez',
-  //   phoneNumber: '5555067209',
-  //   email: 'daniela.ortiz@stratplus.com',
-  //   nationality: 0,
-  // };
-  // registerForm: FormGroup;
-
   public loginDialogRef: MatDialogRef<LoginComponent>;
-  // registerDialogRef: MatDialogRef<RegisterComponent>;
+  public registerDialogRef: MatDialogRef<RegisterComponent>;
   // updateDialogRef: MatDialogRef<UpdateRenterComponent>;
 
   // isRenter: boolean;
@@ -54,10 +37,6 @@ export class NavbarComponent {
 
   }
 
-  // register() {
-  //   console.log('sdsd');
-  // }
-
   openLogin() {
     const dialogConfig = new MatDialogConfig();
 
@@ -73,6 +52,23 @@ export class NavbarComponent {
     };
 
     this.loginDialogRef = this.dialog.open(LoginComponent, dialogConfig);
+  }
+
+  openRegister() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.autoFocus = true;
+    dialogConfig.direction = 'ltr';
+    dialogConfig.width = '90vw';
+    dialogConfig.maxWidth = '95vw';
+    dialogConfig.panelClass = 'dialog-width';
+
+    dialogConfig.position = {
+      top: '100px',
+      left: '200px'
+    };
+
+    this.registerDialogRef = this.dialog.open(RegisterComponent, dialogConfig);
   }
 
   // openRegister() {

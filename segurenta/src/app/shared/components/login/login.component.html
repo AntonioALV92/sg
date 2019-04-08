@@ -16,6 +16,8 @@
             </mat-form-field>
             <a (click)="openReecovery()" class="full-width">Recuperar mi contraseña</a>
             <button type="submit" class="btn-rounded full-width" mat-raised-button>Ingresar</button>
+
+            <mat-error class="mt-4 text-center">{{errorLogin}}</mat-error>
         </form>
     </mat-grid-tile>
     <mat-grid-tile colspan="1">

@@ -16,6 +16,7 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material.module';
 import { FAwesomeModule } from '../fAwesome.module';
 import { PropertyDetailComponent } from './components/property-detail/property-detail.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PropertyDetailComponent } from './components/property-detail/property-d
     RequestDateComponent,
     NavbarComponent,
     LoginComponent,
-    PropertyDetailComponent
+    PropertyDetailComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
@@ -50,11 +52,12 @@ import { PropertyDetailComponent } from './components/property-detail/property-d
     RequestDateComponent,
     NavbarComponent,
     LoginComponent,
-    PropertyDetailComponent
+    PropertyDetailComponent,
+    RegisterComponent
   ],
   entryComponents: [
     LoginComponent,
-    // RegisterComponent,
+    RegisterComponent,
     // PdfViewerComponent,
     // RegisterPropertyComponent,
     // ShowRequirementsComponent
