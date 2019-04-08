@@ -25,6 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Imports services
 import { MiddlewareService } from './services/middleware/middleware.service';
 import { CatalogosService } from './services/catalogos/catalogos.service';
+import { BannerService } from './services/banner/banner.service';
 import { ConfigurationService } from './services/configuration/configuration.service';
 import { SessionService } from './services/session/session.service';
 
@@ -75,7 +76,8 @@ import { HttpClientModule } from '@angular/common/http';
     MiddlewareService,
     CatalogosService,
     ConfigurationService,
-    SessionService
+    SessionService,
+    BannerService
   ],
   bootstrap: [AppComponent],
   entryComponents: [

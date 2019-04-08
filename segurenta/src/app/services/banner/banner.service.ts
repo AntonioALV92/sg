@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { MiddlewareService } from '../middleware/middleware.service';
 import { ConfigurationService } from '../configuration/configuration.service';
 
+
 @Injectable()
 export class BannerService {
 
@@ -14,6 +15,7 @@ export class BannerService {
     return new Promise((resolve) => {
       this.middleware.get(this.config.endpoints.banner).subscribe(
         (res: any) => {
+          console.log("aqui");
           return resolve(res);
         },
         (err: any) => {

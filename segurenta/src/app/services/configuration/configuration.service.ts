@@ -54,7 +54,7 @@ export class ConfigurationService {
     catTipoUsuarios: '/catalogos/tipousuario',
 
     // Servicio Banner
-    banner: '/banner/banner',
+    banner: '/banner',
 
   };
 }
