@@ -14,7 +14,7 @@
                 <fa-icon *ngIf="!isHide" matSuffix (click)="isHide = !isHide" [icon]="['fas', 'eye']"></fa-icon>
                 <mat-error *ngIf="loginForm.get('password').invalid">{{getErrorMessagePass()}}</mat-error>
             </mat-form-field>
-            <a (click)="openReecovery()" class="full-width">Recuperar mi contraseña</a>
+            <a (click)="openRecovery()" class="full-width">Recuperar mi contraseña</a>
             <button type="submit" class="btn-rounded full-width" mat-raised-button>Ingresar</button>
 
             <mat-error class="mt-4 text-center">{{errorLogin}}</mat-error>

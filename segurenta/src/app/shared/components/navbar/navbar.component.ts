@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
 
 // Components
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
+import { Observable } from 'rxjs';
+import { SessionService } from 'src/app/services/session/session.service';
 
 @Component({
   selector: 'app-navbar',
@@ -20,10 +22,10 @@ export class NavbarComponent {
   // isRenter: boolean;
   // isBroker: boolean;
 
-  // isLoggedIn$: Observable<boolean>;
+  isLoggedIn: Observable<boolean>;
 
 
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog, private sessionService: SessionService) {
     // this.isRenter = true;
     // this.isBroker = false;
     // this.registerForm = new FormGroup({
@@ -35,6 +37,10 @@ export class NavbarComponent {
     //   password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(10)])
     // });
 
+  }
+
+  ngOnInit() {
+    this.isLoggedIn = this.sessionService.isLoggedIn;
   }
 
   openLogin() {
@@ -126,19 +132,19 @@ export class NavbarComponent {
   }
   */
 
-  // openUpdateRenterData() {
-  //   const dialogConfig = new MatDialogConfig();
+  openUpdateRenterData() {
+    // const dialogConfig = new MatDialogConfig();
 
-  //   // dialogConfig.disableClose = true;
-  //   dialogConfig.autoFocus = true;
-  //   dialogConfig.direction = 'ltr';
-  //   dialogConfig.width = '100vw';
-  //   dialogConfig.maxWidth = '98vw';
-  //   dialogConfig.panelClass = 'dialog-width';
-  //   dialogConfig.position = {
-  //     top: '100px',
-  //     left: '200px'
-  //   };
+    // // dialogConfig.disableClose = true;
+    // dialogConfig.autoFocus = true;
+    // dialogConfig.direction = 'ltr';
+    // dialogConfig.width = '100vw';
+    // dialogConfig.maxWidth = '98vw';
+    // dialogConfig.panelClass = 'dialog-width';
+    // dialogConfig.position = {
+    //   top: '100px',
+    //   left: '200px'
+    // };
 
 
 
@@ -146,5 +152,5 @@ export class NavbarComponent {
   }
 
 
-// }
+}
 
