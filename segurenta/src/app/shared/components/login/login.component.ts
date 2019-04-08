@@ -70,7 +70,7 @@ export class LoginComponent {
     this.dialogRef.closeAll();
   }
 
-  openReecovery() {
+  openRecovery() {
     // const dialogConfig = new MatDialogConfig();
 
     // // dialogConfig.disableClose = true;
