@@ -72,3 +72,23 @@ export const FormRegisterAdviser = new FormGroup({
     Validators.maxLength(20)
   ])
 });
+
+export const GetNumber = {
+  minMax: (item: string) => {
+    const num = {
+      min: 0,
+      max: 0
+    };
+    if (item.localeCompare('phoneNumber') === 0) {
+      num.min = 10;
+      num.max = 12;
+    } else if (item.localeCompare('password') === 0) {
+      num.min = 6;
+      num.max = 10;
+    } else if (item.localeCompare('clabe') === 0) {
+      num.min = 16;
+      num.max = 20;
+    }
+    return num;
+  }
+};

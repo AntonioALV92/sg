@@ -4,10 +4,10 @@
 <mat-grid-list cols="12" rowHeight="1:5">
     <mat-grid-tile colspan="2" class="titleGrid">
         <ul>
-            <li *ngIf="isRenter" class="txt-subtitle">
+            <li *ngIf="!isRenter" class="txt-subtitle">
                 <a (click)="changeRegister(1)">Rentar</a>
             </li>
-            <li *ngIf="!isRenter" class="txt-subtitle">
+            <li *ngIf="isRenter" class="txt-subtitle">
                 <a (click)="changeRegister(2)">Publicar</a>
             </li>
         </ul>
@@ -39,7 +39,7 @@
                 <mat-error *ngIf="registerForm.get('password').invalid">{{getErrorMessage("password")}}</mat-error>
             </mat-form-field>
             <span *ngIf="isRenter">
-                <button class="btn-rounded full-width" style="margin-top: 5%;" mat-raised-button (click)="register(0)">Registrarme</button>
+                <button class="btn-rounded full-width" style="margin-top: 5%;" mat-raised-button (click)="register()">Registrarme</button>
                 <small class="txt-muted">Al registrarte aceptas los <a (click)="openViewer()">Términos y Condiciones</a> y las <a (click)="openViewer()">Políticas de Privacidad</a>.</small>
             </span>
         </form>
@@ -72,7 +72,7 @@
                 <input type="text" matInput placeholder="Número de Cuenta" [(ngModel)]="regist.clabe" formControlName="clabe">
                 <mat-error *ngIf="registerForm.get('clabe').invalid">{{getErrorMessage("clabe")}}</mat-error>
             </mat-form-field>
-            <button class="btn-rounded full-width" style="margin-top: 5%;" mat-raised-button (click)="register(1)">Registrarme</button>
+            <button class="btn-rounded full-width" style="margin-top: 5%;" mat-raised-button (click)="register()">Registrarme</button>
             <small class="txt-muted">Al registrarte aceptas los 
                 <a (click)="openViewer()">Términos y Condiciones</a> y las 
                 <a (click)="openViewer()">Políticas de Privacidad</a>.
