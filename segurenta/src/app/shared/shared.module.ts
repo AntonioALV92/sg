@@ -17,6 +17,10 @@ import { MaterialModule } from '../material.module';
 import { FAwesomeModule } from '../fAwesome.module';
 import { PropertyDetailComponent } from './components/property-detail/property-detail.component';
 import { RegisterComponent } from './components/register/register.component';
+import { RegisterPropertyComponent } from './components/register-property/register-property.component';
+import { UploadImageComponent } from './components/register-property/upload-image/upload-image.component';
+import { UploadVideoComponent } from './components/register-property/upload-video/upload-video.component';
+import { MapComponent } from './components/register-property/map/map.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { RegisterComponent } from './components/register/register.component';
     NavbarComponent,
     LoginComponent,
     PropertyDetailComponent,
-    RegisterComponent
+    RegisterComponent,
+    RegisterPropertyComponent,
+    UploadImageComponent,
+    UploadVideoComponent,
+    MapComponent
   ],
   imports: [
     CommonModule,
