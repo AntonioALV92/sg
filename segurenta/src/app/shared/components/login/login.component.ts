@@ -69,4 +69,24 @@ export class LoginComponent {
   closeDialog() {
     this.dialogRef.closeAll();
   }
+
+  openRecovery() {
+    // const dialogConfig = new MatDialogConfig();
+
+    // // dialogConfig.disableClose = true;
+    // dialogConfig.autoFocus = true;
+    // dialogConfig.direction = 'ltr';
+    // // dialogConfig.width = '90%';
+    // dialogConfig.width = '100vw';
+    // dialogConfig.maxWidth = '95vw';
+    // dialogConfig.panelClass = 'dialog-width';
+
+    // dialogConfig.position = {
+    //   top: '100px',
+    //   left: '200px'
+    // };
+
+    // this.recoveryDialogRef = this.dialogRef.open(PasswordRecoveryComponent, dialogConfig);
+  }
+
 }
