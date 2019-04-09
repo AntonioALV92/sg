@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 import { NopagefoundComponent } from './components/nopagefound/nopagefound.component';
 import { PublicarComponent } from './components/publicar/publicar.component';
@@ -17,6 +18,7 @@ import { MaterialModule } from '../material.module';
 import { FAwesomeModule } from '../fAwesome.module';
 import { PropertyDetailComponent } from './components/property-detail/property-detail.component';
 import { RegisterComponent } from './components/register/register.component';
+import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { RegisterComponent } from './components/register/register.component';
     NavbarComponent,
     LoginComponent,
     PropertyDetailComponent,
-    RegisterComponent
+    RegisterComponent,
+    PdfViewerComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +42,8 @@ import { RegisterComponent } from './components/register/register.component';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    FAwesomeModule
+    FAwesomeModule,
+    PdfViewerModule
   ],
   exports: [
     NopagefoundComponent,
@@ -58,7 +62,7 @@ import { RegisterComponent } from './components/register/register.component';
   entryComponents: [
     LoginComponent,
     RegisterComponent,
-    // PdfViewerComponent,
+    PdfViewerComponent,
     // RegisterPropertyComponent,
     // ShowRequirementsComponent
   ]
