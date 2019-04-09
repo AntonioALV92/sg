@@ -35,3 +35,7 @@ input.input-transparent::placeholder {
 .btn-dark {
     background-color: #000 !important;
 }
+
+.img-carousel{
+    height: 90vh;
+}
