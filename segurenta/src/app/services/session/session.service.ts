@@ -17,7 +17,7 @@ export class SessionService {
     private router: Router
   ) {}
 
-  public login( request ) {
+  public login(request) {
     const headers = {
       'Content-Type': 'application/json',
       'Accept-Charset': 'utf-8'
@@ -28,8 +28,9 @@ export class SessionService {
         .post(this.config.endpoints.login, request, headers)
         .subscribe(
           (res: any) => {
-            const data: string = JSON.stringify(res);
-            localStorage.setItem('jwtoken', data);
+            const data: string = JSON.stringify(res.result);
+            sessionStorage.setItem('jwtoken', this.parseJwt(res.result.token));
+            sessionStorage.setItem('jwdata', this.parseJwt(data));
             this.loggedIn.next(true);
             return resolve(res);
           },
@@ -40,7 +41,23 @@ export class SessionService {
     });
   }
 
+  public parseJwt(token: string) {
+    return btoa(token);
+  }
+
   public logout() {
+    // this.middleware
+    // .post(this.config.endpoints.logout, request, headers)
+    // .subscribe(
+    //   (res: any) => {
+    //     return resolve(res);
+    //   },
+    //   (err: any) => {
+    //     console.error(err);
+    //   }
+    // );
+    delete sessionStorage.jwtoken;
+    delete sessionStorage.jwdata;
     this.loggedIn.next(false);
     this.router.navigate(['home']);
   }
