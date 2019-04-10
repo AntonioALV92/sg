@@ -21,10 +21,7 @@ export class NavbarComponent implements OnInit {
   // updateDialogRef: MatDialogRef<UpdateRenterComponent>;
   public isLoggedIn: Observable<boolean>;
 
-  // isRenter: boolean;
-  // isBroker: boolean;
-
-  isLoggedIn: Observable<boolean>;
+  public dialogConfig = new MatDialogConfig();
   public datosUsuario: {};
 
 
@@ -44,7 +41,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.isLoggedIn = this.sessionService.isLoggedIn;
-    let data = JSON.parse(localStorage.getItem('jwtoken'));
+    const data = JSON.parse(sessionStorage.getItem('jwtoken'));
     this.datosUsuario = data.result;
     console.log(this.datosUsuario);
 
