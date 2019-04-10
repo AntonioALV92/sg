@@ -23,6 +23,7 @@ export class NavbarComponent {
   // isBroker: boolean;
 
   isLoggedIn: Observable<boolean>;
+  public datosUsuario: {};
 
 
   constructor(private dialog: MatDialog, private sessionService: SessionService) {
@@ -41,6 +42,10 @@ export class NavbarComponent {
 
   ngOnInit() {
     this.isLoggedIn = this.sessionService.isLoggedIn;
+    let data = JSON.parse(localStorage.getItem('jwtoken'));
+    this.datosUsuario = data.result;
+    console.log(this.datosUsuario);
+
   }
 
   openLogin() {
