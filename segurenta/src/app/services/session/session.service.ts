@@ -42,6 +42,7 @@ export class SessionService {
   }
 
   public parseJwt(token: string) {
+    // btoa
     return btoa(token);
   }
 
