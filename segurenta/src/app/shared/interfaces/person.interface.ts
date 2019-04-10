@@ -1,25 +1,48 @@
 export interface PersonInterface {
-    id?: number;
-    names: string;
-    firstLastName: string;
-    secondLastName: string;
-    phoneNumber: number;
+    nombres: string;
+    paterno: string;
+    materno: string;
+    telefono: number;
     email: string;
     password: string;
-    nationality?: number;
-    bankName?: number;
+    cuenta: number;
+    banco?: number;
+    clabe?: number;
+}
+export class PersonClass implements PersonInterface {
+    nombres: string;
+    paterno: string;
+    materno: string;
+    telefono: number;
+    email: string;
+    password: string;
+    cuenta: number;
+    banco?: number;
     clabe?: number;
 }
 
-export class PersonClass implements PersonInterface {
-    id?: number;
-    names: string;
-    firstLastName: string;
-    secondLastName: string;
-    phoneNumber: number;
+export interface InquilinoInterface {
+    nombres: string;
+    paterno: string;
+    materno: string;
     email: string;
     password: string;
-    nationality?: number;
-    bankName?: number;
-    clabe?: number;
+    cuenta: number;
+}
+export class InquilinoClass implements InquilinoInterface {
+    nombres: string;
+    paterno: string;
+    materno: string;
+    email: string;
+    password: string;
+    cuenta: number;
+
+    constructor(person: PersonClass) {
+        this.nombres =  person.nombres;
+        this.paterno = person.paterno;
+        this.materno = person.materno;
+        this.email = person.email;
+        this.password = person.password;
+        this.cuenta = person.cuenta;
+    }
 }
