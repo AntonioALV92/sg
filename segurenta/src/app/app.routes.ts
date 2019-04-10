@@ -13,7 +13,7 @@ const appRoutes: Routes = [
     { path: 'home', component: HomeComponent},
     { path: 'home-adviser', component: HomeAdviserComponent},
     { path: 'home-adviser/propertyDetail', component: PropertyDetailComponent},
-    { path: 'home-adviser/registerProperty', component: RegisterPropertyComponent},
+    { path: 'registerProperty', component: RegisterPropertyComponent},
     { path: 'home-rent', component: HomeRentComponent},
     { path: '**', component: NopagefoundComponent }
 ];
