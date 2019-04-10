@@ -35,11 +35,11 @@ export class RegistroService {
     // return new Promise((resolve) => {
       this.middleware.post(this.config.endpoints.crearUsuario, person, this.headers).subscribe(
         (res: any) => {
-          this.alert.success('Arrendador creado!!');
+          this.alert.success('Asesor creado!!');
           // return resolve(res);
         },
         (err: any) => {
-          this.alert.error('Error al crear arrendador');
+          this.alert.error('Error al crear asesor');
           console.error(err);
         }
       );
