@@ -17,7 +17,7 @@ export class SessionService {
     private router: Router
   ) {}
 
-  public login(request) {
+  public login(request: any) {
     const headers = {
       'Content-Type': 'application/json',
       'Accept-Charset': 'utf-8'
