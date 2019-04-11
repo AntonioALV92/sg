@@ -16,7 +16,7 @@ export class LoginComponent {
   isInvalidLogin: boolean;
   isHide: boolean;
 
-  public errorLogin: string = '';
+  // public errorLogin: string = '';
 
   constructor(private session: SessionService, private router: Router, private dialogRef: MatDialog) {
     this.isInvalidLogin = false;
@@ -41,7 +41,7 @@ export class LoginComponent {
        '';
   }
 
-  private async logIn() {
+  private logIn() {
     event.preventDefault();
     if (this.loginForm.valid) {
       const request = {
@@ -49,20 +49,20 @@ export class LoginComponent {
         password: this.loginForm.get('password').value,
       };
 
-      const loginData: any = await this.session.login(request);
+      this.session.login(request);
 
       this.dialogRef.closeAll();
 
-      if (loginData.result.tipousuarioDefault === 1) {
-        this.router.navigateByUrl('/home-rent');
-      } else if (loginData.result.tipousuarioDefault === 2) {
-        this.router.navigateByUrl('/home-adviser');
-      } else if (loginData.result.tipousuarioDefault === 3) {
-        this.router.navigateByUrl('/home-rent');
-      } else {
-        // Error
-        this.errorLogin = loginData.menssage;
-      }
+      // if (loginData.result.tipousuarioDefault === 1) {
+      //   this.router.navigateByUrl('/home-rent');
+      // } else if (loginData.result.tipousuarioDefault === 2) {
+      //   this.router.navigateByUrl('/home-adviser');
+      // } else if (loginData.result.tipousuarioDefault === 3) {
+      //   this.router.navigateByUrl('/home-rent');
+      // } else {
+      //   // Error
+      //   this.errorLogin = loginData.menssage;
+      // }
     }
   }
 

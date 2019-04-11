@@ -19,13 +19,21 @@ export class NavbarComponent implements OnInit {
   public loginDialogRef: MatDialogRef<LoginComponent>;
   public registerDialogRef: MatDialogRef<RegisterComponent>;
   // updateDialogRef: MatDialogRef<UpdateRenterComponent>;
-  public isLoggedIn: Observable<boolean>;
+  public isLoggedIn: boolean;
 
   public dialogConfig = new MatDialogConfig();
-  public datosUsuario: {};
-
+  public datosUsuario = {
+    imagen: '',
+    tipousuarioDefault: '',
+    cuentas: [],
+    nombre: ''
+  };
 
   constructor(private dialog: MatDialog, private sessionService: SessionService) {
+    this.sessionService.loggedIn.subscribe(session => {
+      this.isLoggedIn = session;
+    });
+
     this.dialogConfig = {
       autoFocus: true,
       direction: 'ltr',
@@ -40,11 +48,12 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.isLoggedIn = this.sessionService.isLoggedIn;
-    const data = JSON.parse(sessionStorage.getItem('jwtoken'));
-    this.datosUsuario = data.result;
-    console.log(this.datosUsuario);
-
+    // this.isLoggedIn = this.sessionService.isLoggedIn;
+    // if (sessionStorage.jwdata) {
+    //   const data = JSON.parse(atob(sessionStorage.getItem('jwdata')));
+    //   this.datosUsuario = data.result;
+    //   console.log(this.datosUsuario);
+    // }
   }
 
   openLogin() {

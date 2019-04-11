@@ -5,12 +5,12 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div *ngIf="!(isLoggedIn | async)" class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
+    <div *ngIf="!isLoggedIn" class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
         <button class="btn btn-sm btn-outline-light btn-block m-1 col-1 thin" type="button" style="border-radius: 8px; font-size: 0.7rem;" (click)="openRegister()">Registrarse</button>
         <button class="btn btn-sm btn-outline-light btn-block m-1 col-1 thin" type="button" style="border-radius: 8px; font-size: 0.7rem;" (click)="openLogin() ">Entrar</button>
     </div>
 
-    <div *ngIf="!(isLoggedIn | async)" class="collapse navbar-collapse d-flex justify-content-end">
+    <div *ngIf="isLoggedIn" class="collapse navbar-collapse d-flex justify-content-end">
         <a class="btn btn-default btn-link text-white">
             <fa-icon class="pr-3 " [icon]="[ 'fas', 'bell'] "></fa-icon>
         </a>
@@ -22,7 +22,7 @@
             <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="dropdownMenuButton">
                 <h2 class="dropdown-header title-profile"><small class="h6">Sesión Actual</small> {{ datosUsuario.tipousuarioDefault }}</h2>
                 <a class="dropdown-item-text item-profile thin py-0" href="#">Editar Perfil</a>
-                <a class="dropdown-item-text item-profile mb-5 py-0" href="#"><small class="thin">Cerrar Sesión</small></a>
+                <a class="dropdown-item-text item-profile mb-5 py-0" (click)="sessionService.logout()"><small class="thin">Cerrar Sesión</small></a>
                 <!-- <div class="dropdown-divider"></div> -->
                 <h2 class="dropdown-header thin item-profile">Mis Cuentas</h2>
                 <div class="d-flex">
