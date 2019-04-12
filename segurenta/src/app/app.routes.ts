@@ -8,6 +8,7 @@ import { HomeRentComponent } from './home-rent/home-rent.component';
 import { PropertyDetailComponent } from './shared/components/property-detail/property-detail.component';
 import { SessionGuardGuard } from './services/guards/session-guard.guard';
 import { AuthGuardGuard } from './services/guards/auth-guard.guard';
+import { RegisterPropertyComponent } from './shared/components/register-property/register-property.component';
 
 const appRoutes: Routes = [
     {
@@ -43,6 +44,9 @@ const appRoutes: Routes = [
         data: {
             expectedRole: '1'
         }
+    },
+    { path: 'registerProperty', 
+        component: RegisterPropertyComponent
     },
     { path: '**', component: NopagefoundComponent }
 ];
