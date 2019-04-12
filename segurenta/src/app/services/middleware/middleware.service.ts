@@ -7,7 +7,7 @@ import { Operations } from './helpers/operations';
 export class MiddlewareService {
 
   private url: string = environment.API_URL;
-  private controller = Operations;
+  private controller = new Operations();
 
   constructor(private http: HttpClient) {}
 
@@ -16,7 +16,12 @@ export class MiddlewareService {
     return this.http.post(this.url + endpoint, request, {headers: header});
   }
 
-  get(endpoint: string,  headers?: object) {
+  postH(endpoint: string, request: object, headers: object) {
+    const header: HttpHeaders = this.controller.setHeaders(headers);
+    return this.http.post(this.url + endpoint, request, {headers: header, observe: 'response'});
+  }
+
+  get(endpoint: string, headers?: object) {
     const header: HttpHeaders = this.controller.setHeaders(headers);
     return this.http.get(this.url + endpoint, {headers: header});
   }
@@ -26,7 +31,7 @@ export class MiddlewareService {
     return this.http.put(this.url + endpoint, request, {headers: header});
   }
 
-  delete(endpoint: string,  headers?: object) {
+  delete(endpoint: string, headers?: object) {
     const header: HttpHeaders = this.controller.setHeaders(headers);
     return this.http.delete(this.url + endpoint, {headers: header});
   }

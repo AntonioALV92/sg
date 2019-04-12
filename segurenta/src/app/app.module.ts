@@ -31,6 +31,7 @@ import { SessionService } from './services/session/session.service';
 import { AlertsService } from './services/alerts/alerts.service';
 import { RegistroService } from './services/registro/registro.service';
 import { SessionGuardGuard } from './services/guards/session-guard.guard';
+import { AuthGuardGuard } from './services/guards/auth-guard.guard';
 
 // Files
 import { ngfModule } from 'angular-file';
@@ -83,7 +84,8 @@ import { HttpClientModule } from '@angular/common/http';
     BannerService,
     AlertsService,
     RegistroService,
-    SessionGuardGuard
+    SessionGuardGuard,
+    AuthGuardGuard
   ],
   bootstrap: [AppComponent],
   entryComponents: [
