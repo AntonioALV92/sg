@@ -48,21 +48,8 @@ export class LoginComponent {
         username: this.loginForm.get('email').value,
         password: this.loginForm.get('password').value,
       };
-
       this.session.login(request);
-
       this.dialogRef.closeAll();
-
-      // if (loginData.result.tipousuarioDefault === 1) {
-      //   this.router.navigateByUrl('/home-rent');
-      // } else if (loginData.result.tipousuarioDefault === 2) {
-      //   this.router.navigateByUrl('/home-adviser');
-      // } else if (loginData.result.tipousuarioDefault === 3) {
-      //   this.router.navigateByUrl('/home-rent');
-      // } else {
-      //   // Error
-      //   this.errorLogin = loginData.menssage;
-      // }
     }
   }
 
