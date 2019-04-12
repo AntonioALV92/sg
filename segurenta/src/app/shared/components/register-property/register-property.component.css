@@ -1,5 +1,5 @@
-.bgBlue {
-    background-color: #0D62B7 !important;
+.text-blue {
+    color: #0D62B7 !important;
 }
 
 ::ng-deep .mat-focused .mat-form-field-label {
