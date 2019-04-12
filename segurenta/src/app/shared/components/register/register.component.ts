@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { PersonClass } from '../../interfaces/person.interface';
+import { PersonClass, InquilinoClass } from '../../interfaces/person.interface';
 import { Router } from '@angular/router';
 import { MatDialogRef, MatDialog, MatDialogConfig } from '@angular/material';
 
 import { CatalogosService } from 'src/app/services/catalogos/catalogos.service';
-import { FormRegisterRent, FormRegisterAdviser } from './helpers/form';
-// import { PdfViewerComponent } from '../pdf-viewer/pdf-viewer.component';
-// import { PasswordRecoveryComponent } from '../password-recovery/password-recovery.component';
+import { FormRegisterRent, FormRegisterAdviser, GetNumber } from './helpers/form';
+import { PdfViewerComponent } from 'src/app/shared/components/pdf-viewer/pdf-viewer.component';
+import { RegistroService } from 'src/app/services/registro/registro.service';
 
 @Component({
   selector: 'app-register',
@@ -22,10 +22,9 @@ export class RegisterComponent implements OnInit {
   public title: string;
   public isRenter: boolean;
   public registerForm: FormGroup;
+  public fileNameDialogRef: MatDialogRef<PdfViewerComponent>;
 
-  // fileNameDialogRef: MatDialogRef<PdfViewerComponent>;
-
-  constructor(private router: Router, private dialog: MatDialog, private catalog: CatalogosService) {
+  constructor(private router: Router, private dialog: MatDialog, private catalog: CatalogosService, private registro: RegistroService) {
     this.isRenter = true;
     this.title = 'Rentar';
     this.registerForm = FormRegisterRent;
@@ -40,9 +39,7 @@ export class RegisterComponent implements OnInit {
   }
 
   openViewer() {
-    // this.fileNameDialogRef = this.dialog.open(PdfViewerComponent);
-    // const dialogConfig = new MatDialogConfig();
-    // this.dialog.open(DialogBodyComponent, dialogConfig);
+    this.fileNameDialogRef = this.dialog.open(PdfViewerComponent);
   }
 
   public changeRegister(opt: number): void {
@@ -53,72 +50,48 @@ export class RegisterComponent implements OnInit {
   }
 
   public getErrorMessage(item: string): string {
-    let min: number;
-    let max: number;
-    if (item.localeCompare('phoneNumber') === 0) {
-      min = 10;
-      max = 12;
-    } else if (item.localeCompare('password') === 0) {
-      min = 6;
-      max = 10;
-    } else if (item.localeCompare('clabe') === 0) {
-      min = 16;
-      max = 20;
-    }
+    const num: {min: number, max: number} = GetNumber.minMax(item);
     return this.registerForm.get(item).hasError('required') ? 'Campo requerido' :
       this.registerForm.get(item).hasError('email') ? 'Formato de correo inválido' :
       this.registerForm.get(item).hasError('pattern') ? 'Formato inválido' :
-      this.registerForm.get(item).hasError('minlength') ? 'Mínimo ' + min + ' caracteres' :
-      this.registerForm.get(item).hasError('maxlength') ? 'Máximo ' + max + ' caracteres' :
+      this.registerForm.get(item).hasError('minlength') ? 'Mínimo ' + num.min + ' caracteres' :
+      this.registerForm.get(item).hasError('maxlength') ? 'Máximo ' + num.max + ' caracteres' :
       '';
   }
 
-  public register(n?: number) {
+  public register() {
     event.preventDefault(); // Avoid default action for the submit button of the login form
     if (this.registerForm.valid) {
-      console.log(this.regist);
+      this.regist.cuenta = this.isRenter ? 1 : 2;
+      if (this.isRenter) {
+        const inqulino: InquilinoClass = new InquilinoClass(this.regist);
+        // send request registerRenter
+        this.registro.signRent(inqulino);
+      } else {
+        // send request registerAdviser
+        this.registro.signAdviser(this.regist);
+      }
+      this.dialog.closeAll();
     }
   }
-  // //   event.preventDefault();
-  // //   console.log(this.registerForm);
-  // //   if (this.registerForm.valid) {
-  // //     const names = this.registerForm.get('names').value;
-  // //     const firstLastName = this.registerForm.get('firstLastName').value;
-  // //     const secondLastName = this.registerForm.get('secondLastName').value;
-  // //     const phone = this.registerForm.get('phoneNumber').value;
-  // //     const email = this.registerForm.get('email').value;
-  // //     const password = this.registerForm.get('password').value;
-  // //     console.log(this.renter);
-  // //     this.router.navigate(['home-rent']);
-  // //     this.dialog.closeAll();
-  // //   }
 
-  llenar1(): void {
-    this.regist.names = 'Juan';
-    this.regist.firstLastName = 'Perez';
-    this.regist.secondLastName = 'Lopez';
-    this.regist.phoneNumber = 5522138924;
-    this.regist.email = 'correo@strat.net';
-    this.regist.password = 'lalalala';
+  // quitar solo es para pruebas
+  llenar2() {
+    this.regist.nombres = 'Danni';
+    this.regist.paterno = 'Ortiz';
+    this.regist.materno = 'Rodriguez';
+    this.regist.telefono = 1234567890;
+    this.regist.email = 'dani@strat.net';
+    this.regist.password = '12345678';
   }
-  llenar2(): void {
-    this.regist.names = 'Juan';
-    this.regist.firstLastName = 'Perez';
-    this.regist.secondLastName = 'Lopez';
-    this.regist.phoneNumber = 5522138924;
-    this.regist.email = 'correo@strat.net';
-    this.regist.password = 'lalalala';
+  llenar1() {
+    this.regist.nombres = 'Danni';
+    this.regist.paterno = 'Ortiz';
+    this.regist.materno = 'Rodriguez';
+    this.regist.telefono = 1234567890;
+    this.regist.email = 'dani@strat.net';
+    this.regist.banco = 2;
     this.regist.clabe = 1234567890123456;
+    this.regist.password = '12345678';
   }
-  // // }
-  // registerU(n?: number) {
-  //   if (n === 1) {
-  //     this.router.navigate(['home-adviser']);
-  //   }
-  //   this.dialog.closeAll();
-  // }
-
-  // navigate() {
-  //   this.router.navigate(['home-rent']);
-  // }
 }

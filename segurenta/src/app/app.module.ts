@@ -28,6 +28,10 @@ import { CatalogosService } from './services/catalogos/catalogos.service';
 import { BannerService } from './services/banner/banner.service';
 import { ConfigurationService } from './services/configuration/configuration.service';
 import { SessionService } from './services/session/session.service';
+import { AlertsService } from './services/alerts/alerts.service';
+import { RegistroService } from './services/registro/registro.service';
+import { SessionGuardGuard } from './services/guards/session-guard.guard';
+import { AuthGuardGuard } from './services/guards/auth-guard.guard';
 
 // Files
 import { ngfModule } from 'angular-file';
@@ -77,7 +81,11 @@ import { HttpClientModule } from '@angular/common/http';
     CatalogosService,
     ConfigurationService,
     SessionService,
-    BannerService
+    BannerService,
+    AlertsService,
+    RegistroService,
+    SessionGuardGuard,
+    AuthGuardGuard
   ],
   bootstrap: [AppComponent],
   entryComponents: [

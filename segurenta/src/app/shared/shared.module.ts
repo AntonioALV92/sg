@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 import { NopagefoundComponent } from './components/nopagefound/nopagefound.component';
 import { PublicarComponent } from './components/publicar/publicar.component';
@@ -21,6 +22,7 @@ import { RegisterPropertyComponent } from './components/register-property/regist
 import { UploadImageComponent } from './components/register-property/upload-image/upload-image.component';
 import { UploadVideoComponent } from './components/register-property/upload-video/upload-video.component';
 import { MapComponent } from './components/register-property/map/map.component';
+import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { MapComponent } from './components/register-property/map/map.component';
     RegisterPropertyComponent,
     UploadImageComponent,
     UploadVideoComponent,
-    MapComponent
+    MapComponent,
+    PdfViewerComponent
   ],
   imports: [
     CommonModule,
@@ -47,7 +50,8 @@ import { MapComponent } from './components/register-property/map/map.component';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    FAwesomeModule
+    FAwesomeModule,
+    PdfViewerModule
   ],
   exports: [
     NopagefoundComponent,
@@ -66,7 +70,7 @@ import { MapComponent } from './components/register-property/map/map.component';
   entryComponents: [
     LoginComponent,
     RegisterComponent,
-    // PdfViewerComponent,
+    PdfViewerComponent,
     // RegisterPropertyComponent,
     // ShowRequirementsComponent
   ]

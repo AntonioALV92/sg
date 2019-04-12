@@ -26,3 +26,33 @@
 .mid-width {
     width: 40%;
 }
+
+.title-profile {
+    font-size: 1.8rem !important;
+    color: #0D62B7 !important;
+}
+
+.item-profile {
+    font-size: 1.2rem !important;
+    color: #BABABA;
+}
+
+.active-item {
+    color: #0D62B7 !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.drop-with {
+    min-width: max-content;
+}
+
+.no-padding {
+    padding: 0%
+}
+
+.cuenta-text {
+    text-align: left;
+}

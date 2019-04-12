@@ -5,116 +5,47 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div *ngIf="!(isLoggedIn | async)" class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
+    <div *ngIf="!isLoggedIn" class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
         <button class="btn btn-sm btn-outline-light btn-block m-1 col-1 thin" type="button" style="border-radius: 8px; font-size: 0.7rem;" (click)="openRegister()">Registrarse</button>
         <button class="btn btn-sm btn-outline-light btn-block m-1 col-1 thin" type="button" style="border-radius: 8px; font-size: 0.7rem;" (click)="openLogin() ">Entrar</button>
     </div>
 
-    <div *ngIf="isLoggedIn | async" class="collapse navbar-collapse d-flex justify-content-end">
+    <div *ngIf="isLoggedIn" class="collapse navbar-collapse d-flex justify-content-end">
         <a class="btn btn-default btn-link text-white">
             <fa-icon class="pr-3 " [icon]="[ 'fas', 'bell'] "></fa-icon>
         </a>
         <span class="badge badge-notify rounded-circle text-white thin">9</span>
-        <a (click)="openUpdateRenterData()" role="button">
-            <img src="./assets/img/usrPrueba.png" class="rounded-circle" width="30" height="30">
-        </a>
+        <div class="dropdown">
+            <a class="rounded-circle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img [src]="datosUsuario.urlImagen" class="rounded-circle" width="50" height="50">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right text-right drop-with" aria-labelledby="dropdownMenuButton">
+                <h3 class="dropdown-header title-profile"><small class="h6"></small> {{ datosUsuario.perfilName }}</h3>
+                <a class="dropdown-item-text item-profile thin py-0" href="#">Editar Perfil</a>
+                <a class="dropdown-item-text item-profile mb-5 py-0 pointer" (click)="sessionService.logout()"><small class="thin">Cerrar Sesión</small></a>
+                <span *ngIf="datosUsuario.perfiles.length > 1">
+                    <h2 class="dropdown-header thin item-profile">Mis Cuentas</h2>
+                    <div class="row d-flex" *ngFor="let perfil of datosUsuario.perfiles">
+                        <div class="col-6 no-padding cuenta-text">
+                            <div class="dropdown-item-text item-profile thin py-0" href="#">{{ perfil.descripcion }}</div>
+                        </div>
+                        <div class="col-6 no-padding">
+                            <a class="dropdown-item-text item-profile py-0">
+                                <small *ngIf="perfil.idPerfil != datosUsuario.tipoUsuarioDefault" (click)="changeProfile(perfil.idPerfil)" class="thin">Cambiar</small>
+                                <small *ngIf="perfil.idPerfil == datosUsuario.tipoUsuarioDefault" class="thin active-item">Activa</small>
+                            </a>
+                        </div>
+                    </div>
+                </span>
+            </div>
+        </div>
+        <div class="col-2">
+            <p class="row text-left m-0 thin small">{{ datosUsuario.nombre }} {{ datosUsuario.apellidoPaterno }}</p>
+            <p class="row text-left m-0 thin small">{{ datosUsuario.tipousuarioDefault }}</p>
+        </div>
     </div>
-
 </nav>
-<!--
-<div *ngIf="isRenter " class="modal fade bd-example-modal-lg " id="myModal " tabindex="-1 " role="dialog " aria-labelledby="exampleModalLabel " aria-hidden="true ">
-    <div class="modal-dialog modal-dialog-centered modal-lg " role="document ">
-        <div class="modal-content ">
-            <div class="modal-header ">
-                <h5 class="modal-title " id="exampleModalLabel ">
-                    <span class="text-center ">
-                        Editar <span class="text-blue-big ">Perfil</span>
-                    </span>
 
-                </h5>
-                <button type="button " class="close " data-dismiss="modal " aria-label="Close ">
-                <span aria-hidden="true ">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body ">
-                <div class="row ">
-                    <div class="col-md-5 ">
-                        <br>
-                        <img src="./assets/img/usrPrueba.png " class="rounded-circle " width="200 " height="200 ">
-                    </div>
-                    <div class="col-md-7 ">
-                        <form [formGroup]="registerForm" (ngSubmit)="register()" novalidate="novalidate ">
-                            <mat-form-field class="full-width ">
-                                <input type="text " class="input-form " matInput placeholder="Nombre(s) " [(ngModel)]="renter.names" formControlName="names" required>
-                                <mat-error *ngIf="registerForm.get( 'names').invalid ">{{getErrorMessageNames()}}</mat-error>
-                            </mat-form-field>
-                            <mat-form-field style="padding-right: 10%; " class="mid-width ">
-                                <input type="text " class="input-form " matInput placeholder="Apellido Paterno " [(ngModel)]="renter.firstLastName" formControlName="firstLastName" required>
-                                <mat-error *ngIf="registerForm.get( 'firstLastName').invalid ">{{getErrorMessageF()}}</mat-error>
-                            </mat-form-field>
-                            <mat-form-field class="mid-width ">
-                                <input type="text " class="input-form " matInput placeholder="Apellido Materno " [(ngModel)]="renter.secondLastName" formControlName="secondLastName" required>
-                                <mat-error *ngIf="registerForm.get( 'secondLastName').invalid ">{{getErrorMessageS()}}</mat-error>
-                            </mat-form-field>
-                            <mat-form-field class="full-width ">
-                                <input type="email " class="input-form " matInput placeholder="Correo Electrónico " [(ngModel)]="renter.email" formControlName="email" required>
-                                <mat-error *ngIf="registerForm.get( 'email').invalid ">{{getErrorMessageEmail()}}</mat-error>
-                            </mat-form-field>
-                            <mat-form-field class="mid-width ">
-                                <input type="tel " class="input-form " matInput placeholder="Teléfono " [(ngModel)]="renter.phoneNumber" formControlName="phoneNumber" required>
-                                <mat-error *ngIf="registerForm.get( 'phoneNumber').invalid ">{{getErrorMessagePhone()}}</mat-error>
-                            </mat-form-field>
-                            <br>
-                            <mat-form-field class="mid-width ">
-                                <input type="password " class="input-form " matInput placeholder="Contraseña " #renter.password formControlName="password" required>
-                                <mat-error *ngIf="registerForm.get( 'password').invalid ">{{getErrorMessagePass()}}</mat-error>
-                            </mat-form-field>
-                        </form>
-                    </div>
-                </div>
-
-
-            </div>
-            <div class="modal-footer ">
-                <button type="button " class="btn btn-primary " style="border-radius: 15px; ">Modificar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div *ngIf="isBroker" class="modal fade bd-example-modal-lg " id="myModal " tabindex="-1 " role="dialog " aria-labelledby="exampleModalLabel " aria-hidden="true ">
-    <div class="modal-dialog modal-dialog-centered modal-lg " role="document ">
-        <div class="modal-content ">
-            <div class="modal-header ">
-                <h5 class="modal-title " id="exampleModalLabel ">
-                    <span class="txt-center ">
-                        Editar <span class="text-blue-big ">Perfil</span>
-                    </span>
-
-                </h5>
-                <button type="button " class="close " data-dismiss="modal " aria-label="Close ">
-                <span aria-hidden="true ">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body ">
-                <form [formGroup]="registerForm " (ngSubmit)="register() " novalidate="novalidate ">
-                    <mat-form-field class="full-width ">
-                        <input type="text " class="input-form " matInput placeholder="Nombre(s) " [(ngModel)]="renter.names " formControlName="names " required>
-                        <mat-error *ngIf="registerForm.get( 'names').invalid ">{{getErrorMessageNames()}}</mat-error>
-                    </mat-form-field>
-                    <mat-form-field style="padding-right: 10%; ">
-                        <input type="text " class="input-form " matInput placeholder="Apellido Paterno " [(ngModel)]="renter.firstLastName " formControlName="firstLastName " required>
-                        <mat-error *ngIf="registerForm.get( 'firstLastName').invalid ">{{getErrorMessageF()}}</mat-error>
-                    </mat-form-field>
-
-                </form>
-
-            </div>
-            <div class="modal-footer ">
-                <button type="button " class="btn btn-primary ">Modificar</button>
-            </div>
-        </div>
-    </div>
-
-</div>
-  -->
+<!-- <a (click)="openUpdateRenterData()" role="button">
+            <img src="./assets/img/usrPrueba.png" class="rounded-circle" width="30" height="30">
+        </a> -->

@@ -10,7 +10,7 @@ export class ConfigurationService {
     login: '/sesion/login',
     logout: '/sesion/logout',
 
-    // Catálogos
+    // Servicios Catálogos
     catBanco: '/catalogos/banco/',
     catBancos: '/catalogos/bancos',
     catCategoria: '/catalogos/categoria/',
@@ -56,5 +56,10 @@ export class ConfigurationService {
     // Servicio Banner
     banner: '/banner',
 
+    // Servicios Registro
+    crearUsuario: '/usuario/crear',
+
+    // Servicios Info Usuario
+    infoBasicUser: '/usuario/infoBasica'
   };
 }

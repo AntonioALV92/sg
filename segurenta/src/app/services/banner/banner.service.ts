@@ -11,11 +11,10 @@ export class BannerService {
     private config: ConfigurationService
   ) {}
 
-  public getBanner(){
+  public getBanner() {
     return new Promise((resolve) => {
       this.middleware.get(this.config.endpoints.banner).subscribe(
         (res: any) => {
-          console.log("aqui");
           return resolve(res);
         },
         (err: any) => {
