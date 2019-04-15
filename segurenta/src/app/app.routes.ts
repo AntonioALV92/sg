@@ -45,7 +45,7 @@ const appRoutes: Routes = [
             expectedRole: '1'
         }
     },
-    { path: 'registerProperty', 
+    { path: 'registerProperty',
         component: RegisterPropertyComponent
     },
     { path: '**', component: NopagefoundComponent }

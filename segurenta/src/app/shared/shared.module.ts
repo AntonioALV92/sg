@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 
+import {AgmCoreModule} from '@agm/core';
+
 import { NopagefoundComponent } from './components/nopagefound/nopagefound.component';
 import { PublicarComponent } from './components/publicar/publicar.component';
 import { ExplorarZonaComponent } from './components/explorar-zona/explorar-zona.component';
@@ -51,7 +53,10 @@ import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component
     ReactiveFormsModule,
     MaterialModule,
     FAwesomeModule,
-    PdfViewerModule
+    PdfViewerModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyB8PiES1ULHvO4eRUG7dJYfu5QeLtz1Qas'
+    })
   ],
   exports: [
     NopagefoundComponent,
@@ -61,6 +66,8 @@ import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component
     CarouselComponent,
     PropiedadesRecientesComponent,
     InProgressComponent,
+    RegisterPropertyComponent,
+    MapComponent,
     RequestDateComponent,
     NavbarComponent,
     LoginComponent,
