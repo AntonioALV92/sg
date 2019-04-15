@@ -1,0 +1,101 @@
+<div class="modal fade edit-user-modal mr-0" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="col-12 my-4">
+                <!-- <div class="row"> -->
+                <div class="col-1">
+                    <button type="button" #closeModal class="close" data-dismiss="modal" aria-label="Close">
+                        <h1 class="thin">X</h1>
+                    </button>
+                </div>
+                <div class="col-11">
+                    <div class="text-right align-middle">
+                        <h2><small class="txt-title-muted">Editar </small><span class="txt-title"> Perfil</span></h2>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+            <div class="col-12 my-4">
+                <div class="row">
+                    <div class="col-2 text-center">
+                        <div class="row">
+                            <div class="col-12 my-3">
+                                <img src="./assets/img/usrPrueba.png" class="rounded-circle" width="120" height="120">
+                            </div>
+                            <div class="col-12">
+                                <a>Cambiar foto</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <!-- <div class="row"> -->
+                        <form autocomplete="off">
+                            <mat-form-field class="col-12">
+                                <input autocomplete="off" type="text" matInput placeholder="Nombre(s)" required>
+                            </mat-form-field>
+                            <div class="row">
+                                <div class="col">
+                                    <mat-form-field class="col-12">
+                                        <input type="text " matInput placeholder="Apellido Paterno" required>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col">
+                                    <mat-form-field class="col-12">
+                                        <input type="text" matInput placeholder="Apellido Materno" required>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <mat-form-field class="col-12">
+                                <input autocomplete="off" type="email" matInput placeholder="Correo Electrónico" required>
+                            </mat-form-field>
+                            <mat-form-field class="col-12">
+                                <input autocomplete="off" type="text" matInput placeholder="Contraseña" required>
+                                <fa-icon matSuffix [icon]="[ 'fas', 'pen']"></fa-icon>
+                            </mat-form-field>
+                            <mat-form-field class="col-12">
+                                <input autocomplete="off" type="tel" matInput placeholder="Teléfono" required>
+                                <fa-icon matSuffix [icon]="[ 'fas', 'pen']"></fa-icon>
+                            </mat-form-field>
+                            <!-- <mat-form-field class="col-12">
+                                    <mat-label>Nacionalidad</mat-label>
+                                    <mat-select matInput>
+                                        <mat-option *ngFor="let item of catNacionalidad" [value]="item.id">{{item.descripcion}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field> -->
+                        </form>
+                        <!-- </div> -->
+                    </div>
+                    <div class="col">
+                        <div class="mb-4">
+                            <mat-form-field class="col-12">
+                                <input autocomplete="off" type="text" matInput placeholder="RFC" required>
+                                <fa-icon matSuffix [icon]="[ 'fas', 'pen']"></fa-icon>
+                            </mat-form-field>
+                            <mat-form-field class="col-12">
+                                <mat-label>Nacionalidad</mat-label>
+                                <select matNativeControl required>
+                                  <option *ngFor="let item of catNacionalidades" [value]="item.id">{{item.descripcion}}</option>
+                                </select>
+                            </mat-form-field>
+                        </div>
+                        <div class="text-center">
+                            <label class="col-12">¿En dónde quiero mis comisiones?</label>
+                            <mat-form-field class="col-12">
+                                <mat-label>Institución Bancaria</mat-label>
+                                <fa-icon matSuffix [icon]="[ 'fas', 'pen']"></fa-icon>
+                                <select matNativeControl required>
+                                  <option *ngFor="let item of catBancos" [value]="item.id">{{item.corta}}</option>
+                                </select>
+                            </mat-form-field>
+                            <mat-form-field class="col-12">
+                                <input type="text" matInput placeholder="Número de Cuenta">
+                                <fa-icon matSuffix [icon]="[ 'fas', 'pen']"></fa-icon>
+                            </mat-form-field>
+                        </div>
+                        <button class="btn btn-primary btn-rounded col-12">Modificar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -19,6 +19,8 @@ import { FAwesomeModule } from '../fAwesome.module';
 import { PropertyDetailComponent } from './components/property-detail/property-detail.component';
 import { RegisterComponent } from './components/register/register.component';
 import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
+import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery/password-recovery.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component
     LoginComponent,
     PropertyDetailComponent,
     RegisterComponent,
-    PdfViewerComponent
+    PdfViewerComponent,
+    EditUserComponent,
+    PasswordRecoveryComponent
   ],
   imports: [
     CommonModule,
@@ -63,6 +67,8 @@ import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component
     LoginComponent,
     RegisterComponent,
     PdfViewerComponent,
+    EditUserComponent,
+    PasswordRecoveryComponent
     // RegisterPropertyComponent,
     // ShowRequirementsComponent
   ]

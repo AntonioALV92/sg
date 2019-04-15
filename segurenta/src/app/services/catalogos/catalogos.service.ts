@@ -20,4 +20,17 @@ export class CatalogosService {
       );
     });
   }
+
+  public getNacionalidades() {
+    return new Promise((resolve) => {
+      this.middleware.get(this.config.endpoints.catNacionalidades).subscribe(
+        (res: any) => {
+          return resolve(res);
+        },
+        (err: any) => {
+          console.error(err);
+        }
+      );
+    });
+  }
 }

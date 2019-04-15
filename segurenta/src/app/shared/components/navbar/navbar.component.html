@@ -21,7 +21,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="dropdownMenuButton">
                 <h2 class="dropdown-header title-profile"><small class="h6">Sesión Actual</small> {{ datosUsuario.tipousuarioDefault }}</h2>
-                <a class="dropdown-item-text item-profile thin py-0" href="#">Editar Perfil</a>
+                <a class="dropdown-item-text item-profile thin py-0" data-toggle="modal" data-target=".edit-user-modal">Editar Perfil</a>
                 <a class="dropdown-item-text item-profile mb-5 py-0" (click)="sessionService.logout()"><small class="thin">Cerrar Sesión</small></a>
                 <!-- <div class="dropdown-divider"></div> -->
                 <h2 class="dropdown-header thin item-profile">Mis Cuentas</h2>
@@ -48,3 +48,6 @@
         </a> -->
     </div>
 </nav>
+
+<app-edit-user *ngIf="isLoggedIn"></app-edit-user>
+<app-password-recovery></app-password-recovery>
