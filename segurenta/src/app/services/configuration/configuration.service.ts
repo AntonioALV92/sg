@@ -18,8 +18,8 @@ export class ConfigurationService {
     catEstatus: '/catalogos/estatus',
     catModulo: '/catalogos/modulo',
     catModulos: '/catalogos/modulos',
-    catNacionelidad: '/catalogos/nacionalidad',
-    catNacionelidades: '/catalogos/nacionalidades',
+    catNacionalidad: '/catalogos/nacionalidad',
+    catNacionalidades: '/catalogos/nacionalidades',
     catPeriocidad: '/catalogos/periocidad',
     catPeriodicidades : '/catalogos/periodicidades',
     catRegimen: '/catalogos/regimen',
@@ -58,6 +58,9 @@ export class ConfigurationService {
 
     // Servicios Registro
     crearUsuario: '/usuario/crear',
+
+    // Servicio Info
+    infoUsuario: '/usuario/info',
 
     // Servicios Info Usuario
     infoBasicUser: '/usuario/infoBasica'
