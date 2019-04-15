@@ -1,10 +1,12 @@
-import { Component, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+
 
 // Components
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
+import { Controller } from './navbar.controller';
 
 // Services
 import { SessionService } from 'src/app/services/session/session.service';
@@ -14,77 +16,62 @@ import { SessionService } from 'src/app/services/session/session.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
 
   public loginDialogRef: MatDialogRef<LoginComponent>;
   public registerDialogRef: MatDialogRef<RegisterComponent>;
-  // updateDialogRef: MatDialogRef<UpdateRenterComponent>;
+  // public updateDialogRef: MatDialogRef<UpdateRenterComponent>;
   public isLoggedIn: boolean;
 
   public dialogConfig = new MatDialogConfig();
-  public datosUsuario = {
-    imagen: '',
-    tipousuarioDefault: '',
-    cuentas: [],
-    nombre: ''
-  };
+  public control = new Controller();
+  public datosUsuario: any;
 
-  constructor(private dialog: MatDialog, private sessionService: SessionService) {
+  constructor(private dialog: MatDialog, public sessionService: SessionService, private router: Router) {
     this.sessionService.loggedIn.subscribe(session => {
       this.isLoggedIn = session;
-    });
-
-    this.dialogConfig = {
-      autoFocus: true,
-      direction: 'ltr',
-      width: '100vw',
-      maxWidth: '95vw',
-      panelClass: 'dialog-width',
-      position: {
-        top: '100px',
-        left: '200px'
+      if (this.isLoggedIn) {
+        this.datosUsuario = this.sessionService.getDataUser();
+        this.getNamePerfil();
       }
-    };
+    });
+    this.dialogConfig = this.control.getDialog();
   }
 
-  ngOnInit() {
-    // this.isLoggedIn = this.sessionService.isLoggedIn;
-    // if (sessionStorage.jwdata) {
-    //   const data = JSON.parse(atob(sessionStorage.getItem('jwdata')));
-    //   this.datosUsuario = data.result;
-    //   console.log(this.datosUsuario);
-    // }
+  private getNamePerfil() {
+    const des = this.datosUsuario.perfiles.find(perfil => perfil.idPerfil === this.datosUsuario.tipoUsuarioDefault);
+    this.datosUsuario.perfilName = des.descripcion;
   }
 
-  openLogin() {
+  private openLogin() {
     this.dialogConfig.width = '100vw';
     this.loginDialogRef = this.dialog.open(LoginComponent, this.dialogConfig);
   }
 
-  openRegister() {
+  private openRegister() {
     this.dialogConfig.width = '90vw';
     this.registerDialogRef = this.dialog.open(RegisterComponent, this.dialogConfig);
   }
 
-  openUpdateRenterData() {
-    // const dialogConfig = new MatDialogConfig();
-
-    // // dialogConfig.disableClose = true;
-    // dialogConfig.autoFocus = true;
-    // dialogConfig.direction = 'ltr';
-    // dialogConfig.width = '100vw';
-    // dialogConfig.maxWidth = '98vw';
-    // dialogConfig.panelClass = 'dialog-width';
-    // dialogConfig.position = {
-    //   top: '100px',
-    //   left: '200px'
-    // };
-
-
-
+  private openUpdateRenterData() {
+    this.dialogConfig.disableClose = true;
+    this.dialogConfig.width = '100vw';
+    this.dialogConfig.maxWidth = '98vw';
     // this.updateDialogRef = this.dialog.open(UpdateRenterComponent, dialogConfig);
   }
 
-
+  private changeProfile(perfil: number): void {
+    this.sessionService.changeUserDefault(perfil);
+    switch (perfil) {
+      case 1:
+        this.router.navigateByUrl('/home-rent');
+        break;
+      case 2:
+        this.router.navigateByUrl('/home-adviser');
+        break;
+      case 3:
+        this.router.navigateByUrl('/home-rent');
+        break;
+    }
+  }
 }
-

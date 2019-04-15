@@ -60,7 +60,9 @@ export class ConfigurationService {
     crearUsuario: '/usuario/crear',
 
     // Servicio Info
-    infoUsuario: '/usuario/info'
+    infoUsuario: '/usuario/info',
 
+    // Servicios Info Usuario
+    infoBasicUser: '/usuario/infoBasica'
   };
 }

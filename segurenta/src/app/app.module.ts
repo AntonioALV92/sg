@@ -31,12 +31,10 @@ import { SessionService } from './services/session/session.service';
 import { AlertsService } from './services/alerts/alerts.service';
 import { RegistroService } from './services/registro/registro.service';
 import { SessionGuardGuard } from './services/guards/session-guard.guard';
+import { AuthGuardGuard } from './services/guards/auth-guard.guard';
 
 // Files
 import { ngfModule } from 'angular-file';
-
-// Maps
-import { AgmCoreModule } from '@agm/core';
 
 // Video
 import { VgCoreModule } from 'videogular2/core';
@@ -70,10 +68,7 @@ import { HttpClientModule } from '@angular/common/http';
     VgCoreModule,
     VgControlsModule,
     VgOverlayPlayModule,
-    VgBufferingModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyB3frb1yu2iHSbY-RnHgL-vjvqquWLvXxY'
-    })
+    VgBufferingModule
   ],
   providers: [
     MiddlewareService,
@@ -83,7 +78,8 @@ import { HttpClientModule } from '@angular/common/http';
     BannerService,
     AlertsService,
     RegistroService,
-    SessionGuardGuard
+    SessionGuardGuard,
+    AuthGuardGuard
   ],
   bootstrap: [AppComponent],
   entryComponents: [

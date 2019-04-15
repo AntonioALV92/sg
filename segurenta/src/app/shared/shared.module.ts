@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 
+import {AgmCoreModule} from '@agm/core';
+
 import { NopagefoundComponent } from './components/nopagefound/nopagefound.component';
 import { PublicarComponent } from './components/publicar/publicar.component';
 import { ExplorarZonaComponent } from './components/explorar-zona/explorar-zona.component';
@@ -18,6 +20,10 @@ import { MaterialModule } from '../material.module';
 import { FAwesomeModule } from '../fAwesome.module';
 import { PropertyDetailComponent } from './components/property-detail/property-detail.component';
 import { RegisterComponent } from './components/register/register.component';
+import { RegisterPropertyComponent } from './components/register-property/register-property.component';
+import { UploadImageComponent } from './components/register-property/upload-image/upload-image.component';
+import { UploadVideoComponent } from './components/register-property/upload-video/upload-video.component';
+import { MapComponent } from './components/register-property/map/map.component';
 import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery/password-recovery.component';
@@ -36,9 +42,11 @@ import { PasswordRecoveryComponent } from './components/password-recovery/passwo
     LoginComponent,
     PropertyDetailComponent,
     RegisterComponent,
-    PdfViewerComponent,
-    EditUserComponent,
-    PasswordRecoveryComponent
+    RegisterPropertyComponent,
+    UploadImageComponent,
+    UploadVideoComponent,
+    MapComponent,
+    PdfViewerComponent
   ],
   imports: [
     CommonModule,
@@ -47,7 +55,10 @@ import { PasswordRecoveryComponent } from './components/password-recovery/passwo
     ReactiveFormsModule,
     MaterialModule,
     FAwesomeModule,
-    PdfViewerModule
+    PdfViewerModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyB8PiES1ULHvO4eRUG7dJYfu5QeLtz1Qas'
+    })
   ],
   exports: [
     NopagefoundComponent,
@@ -57,6 +68,8 @@ import { PasswordRecoveryComponent } from './components/password-recovery/passwo
     CarouselComponent,
     PropiedadesRecientesComponent,
     InProgressComponent,
+    RegisterPropertyComponent,
+    MapComponent,
     RequestDateComponent,
     NavbarComponent,
     LoginComponent,
