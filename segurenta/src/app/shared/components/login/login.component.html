@@ -5,16 +5,16 @@
     <mat-grid-tile colspan="6">
         <form [formGroup]="loginForm" (ngSubmit)="logIn()" novalidate>
             <mat-form-field class="full-width">
-                <input type="email" class="input-form" matInput placeholder="Correo Electrónico" formControlName="email" required>
-                <mat-error *ngIf="loginForm.get('email').invalid">{{getErrorMessage()}}</mat-error>
+                <input type="text" class="input-form" matInput placeholder="Correo Electrónico / Usuario" formControlName="username" autocomplete="off" required>
+                <mat-error *ngIf="loginForm.get('username').invalid">{{getErrorMessage("username")}}</mat-error>
             </mat-form-field>
-            <mat-form-field class="full-width">
+            <mat-form-field class="full-width mb-3">
                 <input [type]="isHide ? 'password' : 'text'" class="input-form" matInput placeholder="Contraseña" formControlName="password" required>
                 <fa-icon *ngIf="isHide" matSuffix (click)="isHide = !isHide" [icon]="['fas', 'eye-slash']"></fa-icon>
                 <fa-icon *ngIf="!isHide" matSuffix (click)="isHide = !isHide" [icon]="['fas', 'eye']"></fa-icon>
-                <mat-error *ngIf="loginForm.get('password').invalid">{{getErrorMessagePass()}}</mat-error>
+                <mat-error *ngIf="loginForm.get('password').invalid">{{getErrorMessage("password")}}</mat-error>
             </mat-form-field>
-            <a (click)="openRecovery()" class="full-width">Recuperar mi contraseña</a>
+            <a (click)="openRecovery()" id="liga" class="full-width liga">Recuperar mi contraseña</a>
             <button type="submit" class="btn-rounded full-width" mat-raised-button>Ingresar</button>
 
             <mat-error class="mt-4 text-center">{{errorLogin}}</mat-error>

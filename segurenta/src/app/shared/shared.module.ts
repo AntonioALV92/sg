@@ -25,6 +25,7 @@ import { UploadImageComponent } from './components/register-property/upload-imag
 import { UploadVideoComponent } from './components/register-property/upload-video/upload-video.component';
 import { MapComponent } from './components/register-property/map/map.component';
 import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component';
+import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component
     UploadImageComponent,
     UploadVideoComponent,
     MapComponent,
-    PdfViewerComponent
+    PdfViewerComponent,
+    PasswordRecoveryComponent
   ],
   imports: [
     CommonModule,
@@ -72,12 +74,14 @@ import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component
     NavbarComponent,
     LoginComponent,
     PropertyDetailComponent,
-    RegisterComponent
+    RegisterComponent,
+    PasswordRecoveryComponent
   ],
   entryComponents: [
     LoginComponent,
     RegisterComponent,
     PdfViewerComponent,
+    PasswordRecoveryComponent
     // RegisterPropertyComponent,
     // ShowRequirementsComponent
   ]
