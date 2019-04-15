@@ -36,9 +36,6 @@ import { AuthGuardGuard } from './services/guards/auth-guard.guard';
 // Files
 import { ngfModule } from 'angular-file';
 
-// Maps
-import { AgmCoreModule } from '@agm/core';
-
 // Video
 import { VgCoreModule } from 'videogular2/core';
 import { VgControlsModule } from 'videogular2/controls';
@@ -71,10 +68,7 @@ import { HttpClientModule } from '@angular/common/http';
     VgCoreModule,
     VgControlsModule,
     VgOverlayPlayModule,
-    VgBufferingModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyB3frb1yu2iHSbY-RnHgL-vjvqquWLvXxY'
-    })
+    VgBufferingModule
   ],
   providers: [
     MiddlewareService,
