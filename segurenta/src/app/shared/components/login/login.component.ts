@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { FormGroup, Validators, FormControl} from '@angular/forms';
-import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material';
+
 import { SessionService } from 'src/app/services/session/session.service';
-import { LoginInterface } from 'src/app/shared/interfaces/login.interface';
+import { getDialog } from '../../constants/modals-structure';
+import { PasswordRecoveryComponent } from '../password-recovery/password-recovery.component';
 
 @Component({
   selector: 'app-login',
@@ -12,40 +13,45 @@ import { LoginInterface } from 'src/app/shared/interfaces/login.interface';
 })
 export class LoginComponent {
 
-  loginForm: FormGroup;
-  isInvalidLogin: boolean;
-  isHide: boolean;
+  public loginForm: FormGroup;
+  public isHide: boolean;
+  public errorLogin: string;
+  public recoveryDialogRef: MatDialogRef<PasswordRecoveryComponent>;
 
-  // public errorLogin: string = '';
-
-  constructor(private session: SessionService, private router: Router, private dialogRef: MatDialog) {
-    this.isInvalidLogin = false;
+  constructor(private session: SessionService, private dialogRef: MatDialog) {
     this.isHide = true;
     this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+[.][a-z]{2,3}$')]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(10)])
+      username: new FormControl('', [
+        Validators.required,
+        Validators.pattern('[a-zA-ZñÑ0-9._@-]{0,}$'),
+        Validators.minLength(3),
+        Validators.maxLength(10)
+      ]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(10)
+      ])
     });
   }
-
-  getErrorMessage() {
-    return this.loginForm.get('email').hasError('required') ? 'Campo requerido' :
-      this.loginForm.get('email').hasError('email') ? 'Formato inválido' :
-      this.loginForm.get('email').hasError('pattern') ? 'Formato inválido' :
+  public getErrorMessage(item: string): string {
+    let num: { min: number, max: number };
+    if (item === 'username') {
+      num = { min: 3, max: 16 };
+    } else {
+      num = { min: 6, max: 10 };
+    }
+    return this.loginForm.get(item).hasError('required') ? 'Campo requerido' :
+      this.loginForm.get(item).hasError('pattern') ? 'Formato inválido' :
+      this.loginForm.get(item).hasError('minlength') ? 'Mínimo ' + num.min + ' caracteres' :
+      this.loginForm.get(item).hasError('maxlength') ? 'Máximo ' + num.max + ' caracteres' :
       '';
   }
 
-  getErrorMessagePass() {
-    return this.loginForm.get('password').hasError('required') ? 'Campo requerido' :
-      this.loginForm.get('password').hasError('minlength') ? 'Mínimo 6 caracteres' :
-      this.loginForm.get('password').hasError('maxlength') ? 'Máximo 10 caracteres' :
-       '';
-  }
-
   private logIn() {
-    event.preventDefault();
     if (this.loginForm.valid) {
       const request = {
-        username: this.loginForm.get('email').value,
+        username: this.loginForm.get('username').value,
         password: this.loginForm.get('password').value,
       };
       this.session.login(request);
@@ -58,22 +64,12 @@ export class LoginComponent {
   }
 
   openRecovery() {
-    // const dialogConfig = new MatDialogConfig();
-
-    // // dialogConfig.disableClose = true;
-    // dialogConfig.autoFocus = true;
-    // dialogConfig.direction = 'ltr';
-    // // dialogConfig.width = '90%';
-    // dialogConfig.width = '100vw';
-    // dialogConfig.maxWidth = '95vw';
-    // dialogConfig.panelClass = 'dialog-width';
-
-    // dialogConfig.position = {
-    //   top: '100px',
-    //   left: '200px'
-    // };
-
-    // this.recoveryDialogRef = this.dialogRef.open(PasswordRecoveryComponent, dialogConfig);
+    this.dialogRef.closeAll();
+    const dialogConfig = getDialog;
+    // dialogConfig.disableClose = true;
+    // dialogConfig.width = '90%';
+    dialogConfig.maxWidth = '100vw';
+    this.recoveryDialogRef = this.dialogRef.open(PasswordRecoveryComponent, dialogConfig);
   }
 
 }

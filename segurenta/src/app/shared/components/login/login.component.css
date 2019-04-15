@@ -15,3 +15,13 @@
 .flex {
     display: flex;
 }
+
+#liga {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+#liga:hover {
+    text-decoration: underline #007bff;
+}

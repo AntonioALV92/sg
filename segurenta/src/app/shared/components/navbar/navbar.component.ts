@@ -2,14 +2,13 @@ import { Component } from '@angular/core';
 import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material';
 import { Router } from '@angular/router';
 
-
 // Components
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
-import { Controller } from './navbar.controller';
 
 // Services
 import { SessionService } from 'src/app/services/session/session.service';
+import { getDialog } from '../../constants/modals-structure';
 
 @Component({
   selector: 'app-navbar',
@@ -24,7 +23,7 @@ export class NavbarComponent {
   public isLoggedIn: boolean;
 
   public dialogConfig = new MatDialogConfig();
-  public control = new Controller();
+  // public control = new Controller();
   public datosUsuario: any;
 
   constructor(private dialog: MatDialog, public sessionService: SessionService, private router: Router) {
@@ -35,7 +34,7 @@ export class NavbarComponent {
         this.getNamePerfil();
       }
     });
-    this.dialogConfig = this.control.getDialog();
+    this.dialogConfig = getDialog;
   }
 
   private getNamePerfil() {
