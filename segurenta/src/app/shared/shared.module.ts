@@ -47,8 +47,8 @@ import { PasswordRecoveryComponent } from './components/password-recovery/passwo
     UploadVideoComponent,
     MapComponent,
     PdfViewerComponent,
-    EditUserComponent,
-    PasswordRecoveryComponent
+    PasswordRecoveryComponent,
+    EditUserComponent
   ],
   imports: [
     CommonModule,
@@ -76,7 +76,9 @@ import { PasswordRecoveryComponent } from './components/password-recovery/passwo
     NavbarComponent,
     LoginComponent,
     PropertyDetailComponent,
-    RegisterComponent
+    RegisterComponent,
+    PasswordRecoveryComponent,
+    EditUserComponent
   ],
   entryComponents: [
     LoginComponent,
