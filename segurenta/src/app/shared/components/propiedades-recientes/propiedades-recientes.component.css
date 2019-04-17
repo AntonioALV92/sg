@@ -1,4 +1,4 @@
-.card-hover .reveal {
+/* .card-hover .reveal {
     visibility: hidden;
     opacity: 0;
     height: 100%;
@@ -13,7 +13,7 @@
 }
 
 .bg-gray {
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .icon-left {
@@ -29,7 +29,7 @@
     color: white;
 }
 
-@media (min-width : 992px) and (max-width: 1204px) {
+@media (min-width: 992px) and (max-width: 1204px) {
     .icon {
         font-size: 24px;
         color: white;
@@ -38,4 +38,61 @@
         color: white;
         font-size: 10px;
     }
-  }
+} */
+
+.box-info {
+    padding: 0 0 0 0 !important;
+    margin: 0 !important;
+}
+
+.card-img-overlay .box-info {
+    height: 100% !important;
+    padding: 0 !important;
+}
+
+.card-img-overlay:hover .box-info {
+    display: none !important;
+    opacity: 0 !important;
+    transition: opacity 1s ease !important;
+}
+
+div.box-title {
+    background-color: rgba(255, 255, 255, 0.58) !important;
+    padding: 1% 1% 1% 1% !important;
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+div.box-footer {
+    background-color: rgba(255, 255, 255, 0.58) !important;
+    padding: 1% 1% 1% 1% !important;
+    margin: 25% 0 0 0 !important;
+    width: 100% !important;
+}
+
+.reveal {
+    padding: 1% 1% 1% 1% !important;
+    margin: 0 !important;
+}
+
+.card-img-overlay .reveal {
+    background-color: rgba(0, 0, 0, 0.58) !important;
+    visibility: hidden;
+    opacity: 0;
+    height: 100%;
+    padding: 0;
+}
+
+.card-img-overlay:hover .reveal {
+    height: 100%;
+    visibility: visible;
+    opacity: 10;
+    transition: opacity 1s ease;
+}
+
+@media (min-width: 992px) and (max-width: 1204px) {
+    .text-responsive {
+        font-size: 24px;
+        color: white;
+    }
+}
