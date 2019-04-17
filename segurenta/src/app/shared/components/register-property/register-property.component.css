@@ -4,20 +4,20 @@
 
 ::ng-deep .mat-focused .mat-form-field-label {
     /*change color of label*/
-    color: white !important;
+    color: #0D62B7 !important;
 }
 
  ::ng-deep.mat-form-field-underline {
     /*change color of underline*/
-    background-color: white !important;
+    background-color: #0D62B7 !important;
 }
 
  ::ng-deep.mat-form-field-ripple {
     /*change color of underline when focused*/
-    background-color: white !important;
+    background-color: #0D62B7 !important;
     ;
 }
 
 .mat-input-element::placeholder {
-    color: #ddd;
+    color: #000;
 }
