@@ -9,6 +9,7 @@ import { PropertyDetailComponent } from './shared/components/property-detail/pro
 import { SessionGuardGuard } from './services/guards/session-guard.guard';
 import { AuthGuardGuard } from './services/guards/auth-guard.guard';
 import { RegisterPropertyComponent } from './shared/components/register-property/register-property.component';
+import { SchedulerComponent } from './shared/components/scheduler/scheduler.component';
 
 const appRoutes: Routes = [
     {
@@ -47,6 +48,9 @@ const appRoutes: Routes = [
     },
     { path: 'registerProperty',
         component: RegisterPropertyComponent
+    },
+    { path: 'citas',
+        component: SchedulerComponent
     },
     { path: '**', component: NopagefoundComponent }
 ];

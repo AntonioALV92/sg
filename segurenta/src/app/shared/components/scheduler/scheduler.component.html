@@ -1,0 +1,30 @@
+<div class="col-12 mt-5 pt-5">
+    <div class="row my-5">
+        <div class="col-11">
+            <div class="txt-right">
+                <h2 mat-dialog-title><small class="txt-title-muted">Agendar </small><span class="txt-title"> Cita</span></h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row text-center">
+        <div class="col-8">
+            <app-calendar [viewFormat]="view"></app-calendar>
+        </div>
+        <div class="col-4">
+            <div class="btn-group">
+                <div class="btn btn-primary" (click)="setView('month')" [class.active]="view === 'month'">
+                    Mes
+                </div>
+                <div class="btn btn-primary" (click)="setView('week')" [class.active]="view === 'week'">
+                    Semana
+                </div>
+                <div class="btn btn-primary" (click)="setView('day')" [class.active]="view === 'day'">
+                    Hoy
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br>

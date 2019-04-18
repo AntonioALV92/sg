@@ -2,7 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { registerLocaleData } from '@angular/common';
+import localeEsMx from '@angular/common/locales/es-MX';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {AgmCoreModule} from '@agm/core';
 
 import { NopagefoundComponent } from './components/nopagefound/nopagefound.component';
@@ -27,7 +32,12 @@ import { MapComponent } from './components/register-property/map/map.component';
 import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
+import { SchedulerComponent } from './components/scheduler/scheduler.component';
+// import { CalendarComponent } from './components/scheduler/calendar/calendar.component';
+import { CalendarComponent } from './components/scheduler/calendar/calendar.component';
 
+
+registerLocaleData(localeEsMx);
 @NgModule({
   declarations: [
     NopagefoundComponent,
@@ -48,7 +58,9 @@ import { PasswordRecoveryComponent } from './components/password-recovery/passwo
     MapComponent,
     PdfViewerComponent,
     PasswordRecoveryComponent,
-    EditUserComponent
+    EditUserComponent,
+    SchedulerComponent,
+    CalendarComponent
   ],
   imports: [
     CommonModule,
@@ -58,8 +70,13 @@ import { PasswordRecoveryComponent } from './components/password-recovery/passwo
     MaterialModule,
     FAwesomeModule,
     PdfViewerModule,
+    NgbModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB8PiES1ULHvO4eRUG7dJYfu5QeLtz1Qas'
+    }),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
     })
   ],
   exports: [
@@ -78,7 +95,9 @@ import { PasswordRecoveryComponent } from './components/password-recovery/passwo
     PropertyDetailComponent,
     RegisterComponent,
     PasswordRecoveryComponent,
-    EditUserComponent
+    EditUserComponent,
+    SchedulerComponent,
+    CalendarComponent
   ],
   entryComponents: [
     LoginComponent,
