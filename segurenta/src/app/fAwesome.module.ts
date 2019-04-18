@@ -31,8 +31,8 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { faSave } from '@fortawesome/free-regular-svg-icons';
 
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
-import { faEllipsisV} from '@fortawesome/free-solid-svg-icons';
-
+import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 
 import { faExpandArrowsAlt } from '@fortawesome/free-solid-svg-icons';
 import { faBed } from '@fortawesome/free-solid-svg-icons';
@@ -41,6 +41,7 @@ import { faToilet } from '@fortawesome/free-solid-svg-icons';
 // Agregar iconos a library para su acceso
 library.add(faFacebookF);
 library.add(faEllipsisV);
+library.add(faEllipsisH);
 library.add(faPlay);
 library.add(faGoogle);
 library.add(faInstagram);

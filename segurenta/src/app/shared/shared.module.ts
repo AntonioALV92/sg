@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 
+import {AgmCoreModule} from '@agm/core';
+
 import { NopagefoundComponent } from './components/nopagefound/nopagefound.component';
 import { PublicarComponent } from './components/publicar/publicar.component';
 import { ExplorarZonaComponent } from './components/explorar-zona/explorar-zona.component';
@@ -23,6 +25,13 @@ import { UploadImageComponent } from './components/register-property/upload-imag
 import { UploadVideoComponent } from './components/register-property/upload-video/upload-video.component';
 import { MapComponent } from './components/register-property/map/map.component';
 import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
+import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
+
+// Files
+import { ngfModule, ngf } from 'angular-file';
+
+
 
 @NgModule({
   declarations: [
@@ -42,7 +51,9 @@ import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component
     UploadImageComponent,
     UploadVideoComponent,
     MapComponent,
-    PdfViewerComponent
+    PdfViewerComponent,
+    PasswordRecoveryComponent,
+    EditUserComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +62,11 @@ import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component
     ReactiveFormsModule,
     MaterialModule,
     FAwesomeModule,
-    PdfViewerModule
+    PdfViewerModule,
+    ngfModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyB8PiES1ULHvO4eRUG7dJYfu5QeLtz1Qas'
+    })
   ],
   exports: [
     NopagefoundComponent,
@@ -61,16 +76,24 @@ import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component
     CarouselComponent,
     PropiedadesRecientesComponent,
     InProgressComponent,
+    RegisterPropertyComponent,
+    UploadImageComponent,
+    UploadVideoComponent,
+    MapComponent,
     RequestDateComponent,
     NavbarComponent,
     LoginComponent,
     PropertyDetailComponent,
-    RegisterComponent
+    RegisterComponent,
+    PasswordRecoveryComponent,
+    EditUserComponent
   ],
   entryComponents: [
     LoginComponent,
     RegisterComponent,
     PdfViewerComponent,
+    EditUserComponent,
+    PasswordRecoveryComponent
     // RegisterPropertyComponent,
     // ShowRequirementsComponent
   ]
