@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+// import 'flatpickr/dist/flatpickr.css';
+// import { FlatpickrModule } from 'angularx-flatpickr';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { registerLocaleData } from '@angular/common';
@@ -33,9 +35,8 @@ import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
 import { SchedulerComponent } from './components/scheduler/scheduler.component';
-// import { CalendarComponent } from './components/scheduler/calendar/calendar.component';
 import { CalendarComponent } from './components/scheduler/calendar/calendar.component';
-
+import { FormEventComponent } from './components/scheduler/form-event/form-event.component';
 
 registerLocaleData(localeEsMx);
 @NgModule({
@@ -60,7 +61,8 @@ registerLocaleData(localeEsMx);
     PasswordRecoveryComponent,
     EditUserComponent,
     SchedulerComponent,
-    CalendarComponent
+    CalendarComponent,
+    FormEventComponent
   ],
   imports: [
     CommonModule,
@@ -71,6 +73,7 @@ registerLocaleData(localeEsMx);
     FAwesomeModule,
     PdfViewerModule,
     NgbModule,
+    // FlatpickrModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB8PiES1ULHvO4eRUG7dJYfu5QeLtz1Qas'
     }),
@@ -97,7 +100,8 @@ registerLocaleData(localeEsMx);
     PasswordRecoveryComponent,
     EditUserComponent,
     SchedulerComponent,
-    CalendarComponent
+    CalendarComponent,
+    FormEventComponent
   ],
   entryComponents: [
     LoginComponent,

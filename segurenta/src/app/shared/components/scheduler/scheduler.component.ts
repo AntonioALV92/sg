@@ -10,9 +10,11 @@ export class SchedulerComponent {
 
   public viewDate: Date = new Date();
   public view: string;
+  public markDays: boolean;
 
   constructor() {
     this.view = 'month';
+    this.markDays = false;
   }
 
   public setView(view: string) {
@@ -20,4 +22,12 @@ export class SchedulerComponent {
       this.view = view;
     }
   }
+
+  // public newEvent() {
+  //   this.markDays = true;
+  // }
+  // public cancelNewEvent() {
+  //   this.markDays = false;
+  //   this.selectedDays = [];
+  // }
 }
