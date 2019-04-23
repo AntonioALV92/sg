@@ -1,9 +1,6 @@
 <div class="row">
-    <!-- <div class="col-12">
-        <input type="text" mwlFlatpickr [(ngModel)]="newCita.inicio" [altInput]="true" [convertModelValue]="true">
-    </div> -->
     <div class="col-1"></div>
-    <div class="col-11">
+    <div class="col-11 fondo">
         <form [formGroup]="citaForm" (ngSubmit)="registerCita()" novalidate="novalidate">
             <mat-form-field class="full-width">
                 <input type="text" class="input-form" matInput placeholder="Titulo" [(ngModel)]="newCita.titulo" formControlName="titulo" autocomplete="off" required>
@@ -13,13 +10,15 @@
                 <input type="text" class="input-form" matInput placeholder="Descripción" [(ngModel)]="newCita.descripcion" formControlName="descripcion" autocomplete="off" required>
                 <mat-error *ngIf="citaForm.get('descripcion').invalid">{{getErrorMessage("descripcion")}}</mat-error>
             </mat-form-field>
-            <mat-form-field class="full-width">
+            <!-- <mat-form-field class="full-width">
                 <input type="text" class="input-form" matInput placeholder="Fecha inicio" [(ngModel)]="newCita.inicio" formControlName="inicio" autocomplete="off" required>
                 <mat-error *ngIf="citaForm.get('inicio').invalid">{{getErrorMessage("inicio")}}</mat-error>
-            </mat-form-field>
-            <!-- <mat-form-field class="full-width">
-                <input type="text" class="input-form" mwlFlatpickr [(ngModel)]="newCita.inicio" (ngModelChange)="refresh.next()" [altInput]="true" [convertModelValue]="true" [enableTime]="true" dateFormat="Y-m-dTH:i" altFormat="F j, Y H:i" placeholder="Not set" />
             </mat-form-field> -->
+            <mat-form-field class="full-width">
+                <input type="text" class="input-form" matInput mwlFlatpickr [(ngModel)]="newCita.inicio" [altInput]="true" [convertModelValue]="true" placeholder="Fecha inicio" required>
+                <mat-error *ngIf="citaForm.get('inicio').invalid">{{getErrorMessage("inicio")}}</mat-error>
+                <!-- <input type="text" class="input-form" mwlFlatpickr [(ngModel)]="newCita.inicio" [altInput]="true" [convertModelValue]="true" [enableTime]="true" dateFormat="Y-m-dTH:i" altFormat="F j, Y H:i" placeholder="Fecha inicio" /> -->
+            </mat-form-field>
             <mat-form-field class="full-width">
                 <input type="text" class="input-form" matInput placeholder="Fecha fin" [(ngModel)]="newCita.fin" formControlName="fin" autocomplete="off" required>
                 <mat-error *ngIf="citaForm.get('fin').invalid">{{getErrorMessage("fin")}}</mat-error>

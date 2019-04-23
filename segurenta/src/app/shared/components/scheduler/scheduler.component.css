@@ -10,3 +10,12 @@ pre {
 .cursor_pointer {
     cursor: pointer;
 }
+
+.fondo {
+    background: #d2d2d2;
+}
+
+.txt-title-muted {
+    font-size: 1.5rem !important;
+    color: #FFFFFF;
+}

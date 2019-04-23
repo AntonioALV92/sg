@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy, ViewChild, TemplateRef } from '@angular/core';
+// import { FlatpickrOptions } from 'ng2-flatpickr';
 
 import { FormGroup } from '@angular/forms';
 import { FormRegisterDate } from './helpers/form';
@@ -19,6 +20,11 @@ export class FormEventComponent {
 
   public citaForm: FormGroup;
   public newCita: DateClass = new DateClass();
+
+
+  // public exampleOptions: FlatpickrOptions = {
+  //   defaultDate: '2017-03-15'
+  // };
 
   constructor() {
     this.citaForm = FormRegisterDate;

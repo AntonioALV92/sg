@@ -1,45 +1,52 @@
-<div class="col-12 mt-5 pt-5">
-    <div class="row my-5">
-        <div class="col-11">
-            <div class="txt-right">
-                <h2 mat-dialog-title><small class="txt-title-muted">Agendar </small><span class="txt-title"> Cita</span></h2>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row text-center">
-        <div class="col-8 text-right col-offset-4">
-            <div class="btn-group">
-                <div class="btn btn-primary" (click)="setView('month')" [class.active]="view === 'month'">
-                    Mes
-                </div>
-                <div class="btn btn-primary" (click)="setView('week')" [class.active]="view === 'week'">
-                    Semana
-                </div>
-                <div class="btn btn-primary" (click)="setView('day')" [class.active]="view === 'day'">
-                    Hoy
-                </div>
-            </div>
-        </div>
-        <div class="col-8">
-            <app-calendar [view]="view" [newEvent]="markDays"></app-calendar>
-        </div>
-        <div class="col-4">
-            <div class="row">
-                <div class="col-12 my-5 text-right">
-                    <div class="btn btn-primary" *ngIf="!markDays" (click)="markDays = true;">
-                        Nuevo Evento
-                    </div>
-                    <div class="btn btn-primary" *ngIf="markDays" (click)="markDays = false;">
-                        Cancelar
-                    </div>
-                </div>
-                <div class="col-12" *ngIf="markDays">
-                    <app-form-event></app-form-event>
+<div class="fondo">
+    <div class="col-12 mt-5 pt-5">
+        <div class="row my-5">
+            <div class="col-11">
+                <div class="txt-right">
+                    <h2 mat-dialog-title><small class="txt-title-muted">Agendar </small><span class="txt-title"> Cita</span></h2>
                 </div>
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="row text-center">
+            <!-- <div class="col-8 text-right col-offset-4">
+                <div class="btn-group">
+                    <div class="btn btn-primary" (click)="setView('month')" [class.active]="view === 'month'">
+                        Mes
+                    </div>
+                    <div class="btn btn-primary" (click)="setView('week')" [class.active]="view === 'week'">
+                        Semana
+                    </div>
+                    <div class="btn btn-primary" (click)="setView('day')" [class.active]="view === 'day'">
+                        Hoy
+                    </div>
+                </div>
+            </div> -->
+            <div class="col-lg-9">
+                <app-week></app-week>
+                <!-- <app-calendar [view]="view" [newEvent]="markDays"></app-calendar> -->
+            </div>
+            <div class="col-3"></div>
+            <!-- <div class="col-8">
+                <app-calendar [view]="view" [newEvent]="markDays"></app-calendar>
+            </div>
+            <div class="col-4">
+                <div class="row">
+                    <div class="col-12 my-5 text-right">
+                        <div class="btn btn-primary" *ngIf="!markDays" (click)="markDays = true;">
+                            Nuevo Evento
+                        </div>
+                        <div class="btn btn-primary" *ngIf="markDays" (click)="markDays = false;">
+                            Cancelar
+                        </div>
+                    </div>
+                    <div class="col-12" *ngIf="markDays">
+                        <app-form-event></app-form-event>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <br><br><br>
 </div>
-<br><br><br>

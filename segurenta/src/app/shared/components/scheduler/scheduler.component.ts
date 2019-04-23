@@ -13,7 +13,7 @@ export class SchedulerComponent {
   public markDays: boolean;
 
   constructor() {
-    this.view = 'month';
+    this.view = 'week';
     this.markDays = false;
   }
 
