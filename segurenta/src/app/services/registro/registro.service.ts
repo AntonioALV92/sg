@@ -45,4 +45,20 @@ export class RegistroService {
       );
     // });
   }
+
+  public recoveryPassword(email: string) {
+    const req = {
+      correo: email
+    };
+    this.middleware.post(this.config.endpoints.recoveryPass, req, this.headers).subscribe(
+      (res: any) => {
+        this.alert.success('Peticion Exitosa');
+        // return resolve(res);
+      },
+      (err: any) => {
+        this.alert.error(err.mensaje);
+        console.error(err);
+      }
+    );
+  }
 }

@@ -63,6 +63,9 @@ export class ConfigurationService {
     infoUsuario: '/usuario/info',
 
     // Servicios Info Usuario
-    infoBasicUser: '/usuario/infoBasica'
+    infoBasicUser: '/usuario/infoBasica',
+
+    // Servicio Recuperar Contraseña
+    recoveryPass: '/password/recuperar'
   };
 }
