@@ -46,4 +46,17 @@ export class CatalogosService {
       );
     });
   }
+
+  public getCaracteristicas() {
+    return new Promise((resolve) => {
+      this.middleware.get(this.config.endpoints.catCategorias).subscribe(
+        (res: any) => {
+          return resolve(res);
+        },
+        (err: any) => {
+          console.error(err);
+        }
+      );
+    });
+  }
 }

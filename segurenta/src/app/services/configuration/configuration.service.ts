@@ -63,6 +63,11 @@ export class ConfigurationService {
     infoUsuario: '/usuario/info',
 
     // Servicios Info Usuario
-    infoBasicUser: '/usuario/infoBasica'
+    infoBasicUser: '/usuario/infoBasica',
+
+    // Servicio Propiedad
+    sendDireccion: '/propiedad/direccionPropiedad',
+    sendPropiedad: '/propiedad/generales',
+    sendCaracteristicas: '/propiedad/caracteristicas'
   };
 }
