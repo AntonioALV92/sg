@@ -46,3 +46,20 @@ export class InquilinoClass implements InquilinoInterface {
         this.cuenta = person.cuenta;
     }
 }
+
+class UsuarioClass {
+    nombres: string;
+    aPaterno: string;
+    aMaterno: string;
+    usuario: string;
+    email: string;
+    telefono: number;
+    imagenPerfil: string;
+    nacionalidad: string;
+    RFC?: string;
+}
+
+export class UsuarioAsesorClass extends UsuarioClass {
+    idBanco: number;
+    clabe: string;
+}

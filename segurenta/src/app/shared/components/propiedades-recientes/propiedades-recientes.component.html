@@ -6,23 +6,23 @@
             <h2><span class="text-muted"><u>P</u>ropiedades</span> Más Recientes</h2>
         </div>
         <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-12" *ngFor="let picture of pictures">
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-md-3" *ngFor="let picture of pictures">
                 <div class="card">
-                    <img class="card-img-top img-fluid" [src]="picture.img" style="height: 30vh !important;">
-                    <div class="card-img-overlay p-0" style="height: 30vh !important;">
+                    <img class="card-img-top img-fluid responsive-height" [src]="picture.img">
+                    <div class="card-img-overlay p-0 responsive-height">
                         <div class="row box-info d-flex align-content-between flex-wrap">
                             <div class="row box-title">
                                 <div class="col-6 text-left">
-                                    <p class="h5 text-white font-weight-bold text-break text-responsive">{{ picture.state }}</p>
+                                    <p class="text-responsive text-white font-weight-bold text-truncate">{{ picture.state }}</p>
                                 </div>
                                 <div class="col-6 text-right">
-                                    <p class="h5 mb-0 text-white text-break text-responsive">{{ picture.price | currency }}</p>
-                                    <small class="text-white small-responsive text-responsive">{{ picture.period }}</small>
+                                    <p class="text-responsive mb-0 text-white text-break">{{ picture.price | currency }}</p>
+                                    <small class="text-white small-responsive">{{ picture.period }}</small>
                                 </div>
                             </div>
                             <div class="row box-footer">
-                                <div class="col-12 text-left">
-                                    <p class="mb-0 text-white font-weight-bold text-break">{{ picture.propertyType }}</p>
+                                <div class="col-12 text-left text-wrap">
+                                    <p class="text-responsive mb-0 text-white font-weight-bold text-break">{{ picture.propertyType }}</p>
                                     <small class="text-white font-weight-bold text-break small-responsive">{{ picture.location }}</small>
                                 </div>
                             </div>
@@ -46,60 +46,6 @@
             </div>
         </div>
     </div>
-
-    <!-- <div class="col-sm-12">
-        <div class="my-4">
-            <h2><span class="text-muted"><u>P</u>ropiedades</span> Más Recientes</h2>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-12" *ngFor="let picture of pictures">
-                <div class="card card-hover border-0">
-                    <img class="card-img-top" [src]="picture.img">
-                    <div class="card-img-overlay">
-                        <div class="reveal bg-gray p-2">
-                            <div class="row">
-                                <div class="col-6">
-                                    <a class="icon-left" data-toggle="modal" data-target=".property-video-modal">
-                                        <fa-icon class="icon" [icon]="[ 'fas', 'play']"></fa-icon>
-                                        <br><span class="text-card-white icon-left">Video</span></a>
-                                </div>
-                                <div class="col-6 icon-left"> -->
-    <!-- <a [routerLink]="['/property-detail']"> -->
-    <!-- <a>
-                                        <fa-icon class="icon" [icon]="[ 'fas', 'ellipsis-v']"></fa-icon>
-                                        <br><span class="text-card-white">Más</span></a>
-                                </div>
-                            </div>
-
-
-
-                        </div>
-                    </div>
-
-                    <div class="card-body py-1 px-0">
-                        <div class="row">
-                            <div class="col d-none d-lg-block">
-                                <p class="card-text">
-                                    <fa-icon [icon]="[ 'fas', 'expand-arrows-alt']"></fa-icon>150
-                                </p>
-                            </div>
-                            <div class="col">
-                                <fa-icon [icon]="[ 'fas', 'bed']"></fa-icon>
-                                <p class="card-text d-inline-block h5">
-                                    2
-                                </p>
-                            </div>
-                            <div class="col">
-                                <p class="card-text">
-                                    <fa-icon [icon]="[ 'fas', 'toilet']"></fa-icon> 1
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
 
     <div class="modal fade property-video-modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-xl bg-transparent">

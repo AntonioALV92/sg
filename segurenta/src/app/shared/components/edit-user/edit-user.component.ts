@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CatalogosService } from '../../../services/catalogos/catalogos.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -11,15 +11,31 @@ import { UserService } from 'src/app/services/user/user.service';
 export class EditUserComponent implements OnInit {
   public catBancos: any;
   public catNacionalidades: any;
-  public data: any;
-  public editForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private catalog: CatalogosService, private userService: UserService) { }
+  public usuario: any;
+  public formEditar: FormGroup;
+
+  constructor(private formBuilder: FormBuilder, private catalog: CatalogosService, private userService: UserService) {
+    this.createForm();
+  }
+
+   createForm() {
+    this.formEditar = this.formBuilder.group({
+      nombre: ['', Validators.required ],
+      apellidoPaterno: ['', Validators.required ],
+      apellidoMaterno: ['', Validators.required ],
+      correoElectronico: ['', Validators.required ],
+      telefono: ['', Validators.required ],
+      rfc: [''],
+      nacionalidad: ['', Validators.required ],
+      imagenPerfil: [''],
+      clabe: ['']
+    });
+  }
 
   ngOnInit() {
     this.getCatalogos();
     this.getUserById();
-    this.editForm.setValue(this.data);
   }
 
   private async getCatalogos() {
@@ -28,7 +44,10 @@ export class EditUserComponent implements OnInit {
   }
 
   private async getUserById() {
-    this.data = await this.userService.getInfoUsuario();
+    this.usuario = await this.userService.getInfoUsuario();
+    let token = sessionStorage.getItem('jwtoken');
+    console.log(token);
+    console.log(this.usuario);
   }
 
 }

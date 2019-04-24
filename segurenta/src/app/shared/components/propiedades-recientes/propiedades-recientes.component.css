@@ -61,12 +61,14 @@ div.box-title {
     padding: 1% 1% 1% 1% !important;
     margin: 0 !important;
     width: 100% !important;
+    height: 25% !important;
 }
 
 div.box-footer {
     background-color: rgba(255, 255, 255, 0.58) !important;
     padding: 1% 1% 1% 1% !important;
-    margin: 25% 0 0 0 !important;
+    margin: 0 0 0 0 !important;
+    height: 25% !important;
     width: 100% !important;
 }
 
@@ -90,9 +92,50 @@ div.box-footer {
     transition: opacity 1s ease;
 }
 
-@media (min-width: 992px) and (max-width: 1204px) {
-    .text-responsive {
-        font-size: 24px;
-        color: white;
-    }
+.responsive-height {
+    height: 30vh !important;
 }
+
+.text-responsive {
+    font-size: 1.3vw;
+}
+
+.small-responsive {
+    font-size: 0.8vw;
+}
+
+
+/* @media (min-width: 411px) and (max-width: 767px) {
+    .text-responsive {
+        font-size: 4vw !important;
+    }
+    .small-responsive {
+        font-size: 2.8vw !important;
+    }
+} */
+
+
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+
+
+/* @media screen and (min-width: 601px) {
+    .text-responsive {
+        font-size: 4vw !important;
+    }
+    .small-responsive {
+        font-size: 2.8vw !important;
+    }
+} */
+
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+
+
+/* @media screen and (max-width: 600px) {
+    .text-responsive {
+        font-size: 4vw !important;
+    }
+    .small-responsive {
+        font-size: 2.8vw !important;
+    }
+} */

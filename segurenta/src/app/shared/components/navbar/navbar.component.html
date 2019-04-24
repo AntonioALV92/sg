@@ -21,7 +21,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right text-right drop-with" aria-labelledby="dropdownMenuButton">
                 <h3 class="dropdown-header title-profile"><small class="h6"></small> {{ datosUsuario.perfilName }}</h3>
-                <a class="dropdown-item-text item-profile thin py-0" href="#">Editar Perfil</a>
+                <a class="dropdown-item-text item-profile thin py-0" (click)="openUpdateUser()">Editar Perfil</a>
                 <a class="dropdown-item-text item-profile mb-5 py-0 pointer" (click)="sessionService.logout()"><small class="thin">Cerrar Sesión</small></a>
                 <span *ngIf="datosUsuario.perfiles.length > 1">
                     <h2 class="dropdown-header thin item-profile">Mis Cuentas</h2>
