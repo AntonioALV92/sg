@@ -68,6 +68,8 @@ export class ConfigurationService {
     // Servicio Propiedad
     sendDireccion: '/propiedad/direccionPropiedad',
     sendPropiedad: '/propiedad/generales',
-    sendCaracteristicas: '/propiedad/caracteristicas'
+    sendCaracteristicas: '/propiedad/caracteristicas',
+    // Servicio Recuperar Contraseña
+    recoveryPass: '/password/recuperar'
   };
 }
