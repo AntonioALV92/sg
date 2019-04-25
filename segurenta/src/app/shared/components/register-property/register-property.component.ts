@@ -26,6 +26,10 @@ export class RegisterPropertyComponent implements OnInit {
   amenities: CatalogItems;
   public catPropiedades: any;
   public catCaracteristicas: any;
+  public amenidades: any;
+  public obligatoria: any;
+  public caracteristicas: any;
+  public reglas: any;
 
   constructor( private catalog: CatalogosService, private propiedad: PropiedadService) {
     this.n = 1;
@@ -88,7 +92,16 @@ export class RegisterPropertyComponent implements OnInit {
 
   private async getCaracteristicas (){
     this.catCaracteristicas = await this.catalog.getCaracteristicas();
+    
+    this.catCaracteristicas = this.catCaracteristicas.result.categorias;
     console.log(this.catCaracteristicas);
+    this.amenidades = this.catCaracteristicas[0].items;
+    this.obligatoria = this.catCaracteristicas[1].items;
+    this.caracteristicas = this.catCaracteristicas[2].items;
+    this.reglas = this.catCaracteristicas[3].items;
+
+    
+    console.log(this.reglas);
     
   }
 

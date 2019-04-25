@@ -184,10 +184,56 @@
                         </div>
                        
                         <div *ngIf="n === 4" class="col-12">
-                            <h2 class="text-blue">
-                                Características de la propiedad
-                            </h2>
-
+                            <div class="container">
+                                    <h2 class="text-blue text-right">
+                                            Crear Propiedad
+                                        </h2>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                    <h4 class="text-blue">Obligatorias</h4>
+                                                    <div class="row">
+                                                        
+                                                        <br>
+                                                        <div class="col-6">
+                                                                <ul>
+                                                                        <li *ngFor="let item of obligatoria">{{item.descripcion}}&nbsp;</li>
+                                                                    </ul>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <h4 class="text-blue">Características de la propiedad</h4>
+                                                    <div class="row">
+                                                        
+                                                        <div class="col-8">
+                                                                <mat-checkbox *ngFor="let item of caracteristicas">{{item.descripcion}}&nbsp;</mat-checkbox>
+                                                            </div>
+                                                           
+                                                    </div>
+                                             </div>
+                                             <div class="col-6">
+                                                    <h4 class="text-blue">Amenidades</h4>
+                                                    <div class="row">
+                                                            
+                                                            <br>
+                                                            <div class="col-8">
+                                                                    <mat-checkbox *ngFor="let item of amenidades">{{item.descripcion}}&nbsp;</mat-checkbox>
+                                                            </div>
+                                                        </div>
+                                                        <br>
+                                                        <h4 class="text-blue">Reglas</h4>
+                                                        <div class="row">
+                                                            
+                                                            <div class="col-8">
+                                                                    <mat-checkbox *ngFor="let item of reglas">{{item.descripcion}}&nbsp;</mat-checkbox>
+                                                                </div>
+                                                               
+                                                        </div>
+                                             </div>   
+                                        </div>
+                                     
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
