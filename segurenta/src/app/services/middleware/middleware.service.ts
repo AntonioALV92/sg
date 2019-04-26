@@ -26,7 +26,7 @@ export class MiddlewareService {
     return this.http.get(this.url + endpoint, {headers: header});
   }
 
-  put(endpoint: string, request: object, headers: object) {
+  put(endpoint: string, request: object, headers?: object) {
     const header: HttpHeaders = this.controller.setHeaders(headers);
     return this.http.put(this.url + endpoint, request, {headers: header});
   }

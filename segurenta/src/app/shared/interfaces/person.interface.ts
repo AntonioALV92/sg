@@ -47,19 +47,31 @@ export class InquilinoClass implements InquilinoInterface {
     }
 }
 
-class UsuarioClass {
+export interface UsuarioInterface {
     nombres: string;
-    aPaterno: string;
-    aMaterno: string;
-    usuario: string;
-    email: string;
-    telefono: number;
-    imagenPerfil: string;
-    nacionalidad: string;
-    RFC?: string;
+    apellidoPaterno: string;
+    apellidoMaterno: string;
+    nombreUsuario?: string | null | undefined;
+    correoElectronico: string | null | undefined;
+    telefono?: string | null | undefined;
+    imagenPerfil?: string | null | undefined;
+    nacionalidad?: number | null | undefined;
+    rfc?: string | null | undefined;
 }
 
-export class UsuarioAsesorClass extends UsuarioClass {
-    idBanco: number;
-    clabe: string;
+export class UsuarioClass implements UsuarioInterface {
+    nombres: string;
+    apellidoPaterno: string;
+    apellidoMaterno: string;
+    correoElectronico: string | null | undefined;
+    telefono?: string | null | undefined;
+    imagenPerfil?: string | null | undefined;
+    nacionalidad?: number | null | undefined;
+    rfc?: string | null | undefined;
+    idBanco?: number | null | undefined;
+    clabe?: string | null | undefined;
+}
+
+export class EditarUsuarioClass<T> {
+
 }

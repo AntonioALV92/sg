@@ -78,7 +78,8 @@ import { PasswordRecoveryComponent } from './components/password-recovery/passwo
     PropertyDetailComponent,
     RegisterComponent,
     PasswordRecoveryComponent,
-    EditUserComponent
+    EditUserComponent,
+    UploadImageComponent
   ],
   entryComponents: [
     LoginComponent,

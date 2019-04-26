@@ -56,13 +56,16 @@ export class ConfigurationService {
     // Servicio Banner
     banner: '/banner',
 
-    // Servicios Registro
+    // Servicios Registro Usuario
     crearUsuario: '/usuario/crear',
 
     // Servicio Info
     infoUsuario: '/usuario/info',
 
     // Servicios Info Usuario
-    infoBasicUser: '/usuario/infoBasica'
+    infoBasicUser: '/usuario/infoBasica',
+
+    // Servicios Editar Usuario
+    editarUsuario: '/usuario/editar'
   };
 }

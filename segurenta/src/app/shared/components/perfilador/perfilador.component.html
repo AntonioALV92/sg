@@ -1,0 +1,205 @@
+<div class="col-12 mt-5 pt-5">
+    <div class="row">
+        <div class="col-11">
+            <div class="text-right align-middle">
+                <h2><small class="txt-title-muted">paso {{n}} </small><span class="txt-title"> Perfilador</span></h2>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="row"> -->
+<div class="container my-3 text-center">
+    <div class="row">
+        <div class="col-2">
+            <button (click)="step(1)" class="btn btn-sm btn-dark rounded-circle " style="height: 40px; width: 40px ">
+                          1
+                </button>
+        </div>
+        <div class="col-2">
+            <button (click)="step(2)" class="btn btn-sm btn-dark rounded-circle active" style="height: 40px; width: 40px ">
+                          2
+                </button>
+        </div>
+        <div class="col-2">
+            <button (click)="step(3)" class="btn btn-sm btn-dark rounded-circle " style="height: 40px; width: 40px ">
+                          3
+                </button>
+        </div>
+        <div class="col-2">
+            <button (click)="step(4)" class="btn btn-sm btn-dark rounded-circle " style="height: 40px; width: 40px ">
+                          4
+                </button>
+        </div>
+        <div class="col-2">
+            <button (click)="step(5)" class="btn btn-sm btn-dark rounded-circle " style="height: 40px; width: 40px ">
+                          5
+                </button>
+        </div>
+        <div class="col-2">
+            <button (click)="step(6)" class="btn btn-sm btn-dark rounded-circle " style="height: 40px; width: 40px ">
+                          6
+                </button>
+        </div>
+    </div>
+
+</div>
+<hr class="mb-5">
+<!-- </div> -->
+<!-- <div class="row"> -->
+<!-- <div class="col-11">
+        <div class="row"> -->
+<div *ngIf="n === 1" class="container">
+    <!-- <div class="col-12"> -->
+    <h3 class="mb-5">Datos para Contrato</h3>
+
+    <div class="row">
+        <div class="col-5">
+            <div class="row">
+                <label class="col-12">Tipo</label>
+                <mat-radio-group class="col-12">
+                    <div class="row">
+                        <mat-radio-button value="1" class="col-6">Amplia</mat-radio-button>
+                        <mat-radio-button value="2" class="col-6">Básica</mat-radio-button>
+                    </div>
+                </mat-radio-group>
+                <mat-form-field class="col-12 mt-3">
+                    <mat-label>Arrendador</mat-label>
+                    <select matNativeControl>
+                                    <option>Tipo Persona</option>
+                                    <option>Persona Moral</option>
+                                    <option>Persona Física</option>
+                                    <option>Persona Física con act.</option>
+                                </select>
+                </mat-form-field>
+                <mat-form-field class="col-12">
+                    <mat-label>Arrendatario</mat-label>
+                    <select matNativeControl>
+                                    <option>Tipo Persona</option>
+                                    <option>Persona Moral</option>
+                                    <option>Persona Física</option>
+                                    <option>Persona Física con act.</option>
+                                </select>
+                </mat-form-field>
+                <div class="col-12 mt-3">
+                    <mat-radio-group class="col-12">
+                        <div class="row">
+                            <mat-radio-button value="1" class="col-6">Segurenta</mat-radio-button>
+                            <mat-radio-button value="2" class="col-6">Aval propio</mat-radio-button>
+                        </div>
+                    </mat-radio-group>
+                </div>
+                <mat-form-field class="col-12 mt-3">
+                    <mat-label>Fiador</mat-label>
+                    <select matNativeControl>
+                                    <option>Selecciona</option>
+                                </select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="col">
+            <div class="accordion ml-5" id="accordionDiv">
+                <div class="row mb-4">
+                    <button class="btn btn-sm rounded-circle" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="height: 30px; width: 30px; color: white; background-color: #FF4D00;">
+                                    +
+                                </button> Datos Arrendatario
+                    <div class="col-12">
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionDiv">
+                            <mat-form-field class="col-12">
+                                <input autocomplete="off" type="text" matInput placeholder="Nombre" required>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <button class="btn btn-sm rounded-circle collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="height: 30px; width: 30px; color: white; background-color: #FF4D00;">
+                                    +
+                                </button> Datos Fiador
+                    <div class="col-12">
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionDiv">
+                            <mat-form-field class="col-12">
+                                <input autocomplete="off" type="text" matInput placeholder="Nombre" required>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <button class="btn btn-sm rounded-circle collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="height: 30px; width: 30px; color: white; background-color: #FF4D00;">
+                                    +
+                                </button> Datos del Inmueble
+                    <div class="col-12">
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionDiv">
+                            <mat-form-field class="col-12">
+                                <input autocomplete="off" type="text" matInput placeholder="Nombre" required>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <button class="btn btn-sm rounded-circle collapsed" data-toggle="collapse" data-target="#collapseFourth" aria-expanded="false" aria-controls="collapseFourth" style="height: 30px; width: 30px; color: white; background-color: #FF4D00;">
+                                    +
+                                </button> Referencias
+                    <div class="col-12">
+                        <div id="collapseFourth" class="collapse" aria-labelledby="headingFourth" data-parent="#accordionDiv">
+                            <mat-form-field class="col-12">
+                                <input autocomplete="off" type="text" matInput placeholder="Nombre" required>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- </div> -->
+</div>
+<div *ngIf="n === 2" class="container">
+    <h3 class="mb-5">Escaneo de Documentos</h3>
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <label class="col-12">Identificación Oficial</label>
+                <div class="row">
+                    <div class="col">
+                        <app-upload-image></app-upload-image>
+                    </div>
+                    <div class="col">
+                        <app-upload-image></app-upload-image>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+
+</div>
+<div *ngIf="n === 3" class="col-12">
+    <div class="container-fluid">
+        3
+    </div>
+
+</div>
+
+<div *ngIf="n === 4" class="col-12">
+    <div class="col-12 row">
+        <div class="col-5">
+            <label class="col-12">Pago</label>
+            <div class="col-12">
+                <button class="btn btn-lg btn-dark btn-rounded col-12">Generar Código</button>
+
+            </div>
+            <div class="col-12">
+                <label class="col-12">Tu código de pago:</label>
+                <button class="btn btn-lg btn-primary btn-rounded col-12">UYX189</button>
+            </div>
+            <div class="col-12">
+                <label>Total: $7,600.00</label>
+            </div>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+    <!-- </div>
+        </div> -->
+</div>
+<!-- </div> -->

@@ -17,11 +17,23 @@
         <div class="col-2 text-center">
             <div class="row">
                 <div class="col-12">
-                    <img src="./assets/img/usrPrueba.png" class="rounded-circle col-12" width="120" height="120">
-                    <a class="col-12">Cambiar foto</a>
+                    <div class="col-12">
+                        <img [src]="usuario?.urlImagen !== null ? usuario?.urlImagen : './assets/img/user.png'" class="rounded-circle" width="120" height="120">
+                        <div class="card-img-overlay p-0">
+                            <div class="row box-info d-flex align-content-end flex-wrap">
+                                <div class="row box-footer">
+                                    <div class="col-12 text-center">
+                                        <a>
+                                            <fa-icon matSuffix [icon]="[ 'fas', 'pen']"></fa-icon>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-12 my-2">
-                    <p class="mb-0">{{ usuario }}</p>
+                    <p class="mb-0">{{ usuario?.nombreUsuario }}</p>
                     <a>Cambiar contraseña</a>
                 </div>
             </div>
@@ -29,66 +41,68 @@
         <div class="col">
             <!-- <div class="row"> -->
             <form [formGroup]="formEditar" autocomplete="off">
-                <mat-form-field class="col-12">
-                    <input autocomplete="off" type="text" matInput placeholder="Nombre(s)" formControlName="nombre" #nombre [(ngModel)]="usuario.nombre">
-                </mat-form-field>
                 <div class="row">
+                    <mat-form-field class="col-12">
+                        <input autocomplete="off" type="text" matInput placeholder="Nombre(s)" formControlName="nombres">
+                        <fa-icon matSuffix [icon]="[ 'fas', 'pen']"></fa-icon>
+                    </mat-form-field>
                     <div class="col">
-                        <mat-form-field class="col-12">
-                            <input type="text " matInput placeholder="Apellido Paterno" formControlName="apellidoPaterno" #apellidoPaterno [(ngModel)]="usuario.apellidoPaterno">
-                        </mat-form-field>
+                        <div class="row">
+                            <mat-form-field class="col-12">
+                                <input type="text " matInput placeholder="Apellido Paterno" formControlName="apellidoPaterno">
+                                <fa-icon matSuffix [icon]="[ 'fas', 'pen']"></fa-icon>
+                            </mat-form-field>
+                        </div>
                     </div>
                     <div class="col">
-                        <mat-form-field class="col-12">
-                            <input type="text" matInput placeholder="Apellido Materno" formControlName="apellidoMaterno" #apellidoMaterno [(ngModel)]="usuario.apellidoMaterno">
-                        </mat-form-field>
+                        <div class="row">
+                            <mat-form-field class="col-12">
+                                <input type="text" matInput placeholder="Apellido Materno" formControlName="apellidoMaterno">
+                                <fa-icon matSuffix [icon]="[ 'fas', 'pen']"></fa-icon>
+                            </mat-form-field>
+                        </div>
                     </div>
+                    <mat-form-field class="col-12">
+                        <input autocomplete="off" type="email" matInput placeholder="Correo Electrónico" formControlName="correoElectronico">
+                        <fa-icon matSuffix [icon]="[ 'fas', 'pen']"></fa-icon>
+                    </mat-form-field>
+                    <mat-form-field class="col-12">
+                        <input autocomplete="off" type="tel" matInput placeholder="Teléfono" formControlName="telefono">
+                        <fa-icon matSuffix [icon]="[ 'fas', 'pen']"></fa-icon>
+                    </mat-form-field>
+                    <mat-form-field class="col-12">
+                        <input autocomplete="off" type="text" matInput placeholder="RFC" formControlName="rfc" oninput="this.value = this.value.toUpperCase()">
+                        <fa-icon matSuffix [icon]="[ 'fas', 'pen']"></fa-icon>
+                    </mat-form-field>
                 </div>
-                <mat-form-field class="col-12">
-                    <input autocomplete="off" type="email" matInput placeholder="Correo Electrónico" formControlName="correoElectronico" #correoElectronico [(ngModel)]="usuario.correoElectronico">
-                </mat-form-field>
-                <mat-form-field class="col-12">
-                    <input autocomplete="off" type="tel" matInput placeholder="Teléfono" formControlName="telefono" #telefono [(ngModel)]="usuario.telefono">
-                    <fa-icon matSuffix [icon]="[ 'fas', 'pen']"></fa-icon>
-                </mat-form-field>
-                <mat-form-field class="col-12">
-                    <input autocomplete="off" type="text" matInput placeholder="RFC" formControlName="rfc" #rfc [(ngModel)]="usuario.rfc">
-                    <fa-icon matSuffix [icon]="[ 'fas', 'pen']"></fa-icon>
-                </mat-form-field>
-                <!-- <mat-form-field class="col-12">
-                                    <mat-label>Nacionalidad</mat-label>
-                                    <mat-select matInput>
-                                        <mat-option *ngFor="let item of catNacionalidad" [value]="item.id">{{item.descripcion}}</mat-option>
-                                    </mat-select>
-                                </mat-form-field> -->
             </form>
             <!-- </div> -->
         </div>
         <div class="col">
-            <div class="mb-4">
-
+            <form [formGroup]="formEditar" autocomplete="off">
                 <mat-form-field class="col-12">
                     <mat-label>Nacionalidad</mat-label>
-                    <select matNativeControl required>
-                                  <option *ngFor="let item of catNacionalidades" [value]="item.id">{{item.descripcion}}</option>
-                                </select>
-                </mat-form-field>
-            </div>
-            <div class="text-center">
-                <label class="col-12">¿En dónde quiero mis comisiones?</label>
-                <mat-form-field class="col-12">
-                    <mat-label>Institución Bancaria</mat-label>
                     <fa-icon matSuffix [icon]="[ 'fas', 'pen']"></fa-icon>
-                    <select matNativeControl required>
-                                  <option *ngFor="let item of catBancos" [value]="item.id">{{item.corta}}</option>
-                                </select>
+                    <select matNativeControl formControlName="nacionalidad">
+                        <option *ngFor="let item of catNacionalidades" [ngValue]="item.id">{{item.descripcion}}</option>
+                    </select>
                 </mat-form-field>
-                <mat-form-field class="col-12">
-                    <input type="text" matInput placeholder="Número de Cuenta" formControlName="clabe" #clabe [(ngModel)]="usuario.clabe">
-                    <fa-icon matSuffix [icon]="[ 'fas', 'pen']"></fa-icon>
-                </mat-form-field>
-            </div>
-            <button class="btn btn-primary btn-rounded col-12">Modificar</button>
+                <div *ngIf="esAsesor" class="text-center">
+                    <label class="col-12">¿En dónde quiero mis comisiones?</label>
+                    <mat-form-field class="col-12">
+                        <mat-label>Institución Bancaria</mat-label>
+                        <fa-icon matSuffix [icon]="[ 'fas', 'pen']"></fa-icon>
+                        <select matNativeControl formControlName="banco">
+                        <option *ngFor="let item of catBancos" [ngValue]="item.id">{{item.corta}}</option>
+                    </select>
+                    </mat-form-field>
+                    <mat-form-field class="col-12">
+                        <input type="text" matInput placeholder="Número de Cuenta" formControlName="clabe">
+                        <fa-icon matSuffix [icon]="[ 'fas', 'pen']"></fa-icon>
+                    </mat-form-field>
+                </div>
+                <button class="btn btn-primary btn-rounded col-12" (click)="editar()">Modificar</button>
+            </form>
         </div>
     </div>
 </div>
