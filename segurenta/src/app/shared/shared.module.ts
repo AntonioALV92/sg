@@ -28,6 +28,11 @@ import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
 
+// Files
+import { ngfModule, ngf } from 'angular-file';
+
+
+
 @NgModule({
   declarations: [
     NopagefoundComponent,
@@ -58,6 +63,7 @@ import { PasswordRecoveryComponent } from './components/password-recovery/passwo
     MaterialModule,
     FAwesomeModule,
     PdfViewerModule,
+    ngfModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB8PiES1ULHvO4eRUG7dJYfu5QeLtz1Qas'
     })
@@ -71,6 +77,8 @@ import { PasswordRecoveryComponent } from './components/password-recovery/passwo
     PropiedadesRecientesComponent,
     InProgressComponent,
     RegisterPropertyComponent,
+    UploadImageComponent,
+    UploadVideoComponent,
     MapComponent,
     RequestDateComponent,
     NavbarComponent,

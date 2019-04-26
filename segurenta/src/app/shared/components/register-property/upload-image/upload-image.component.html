@@ -1,4 +1,4 @@
-<!-- <ngfFormData [files]="files" postName="file" [(FormData)]="sendableFormData"></ngfFormData>
+<ngfFormData [files]="files" postName="file" [(FormData)]="sendableFormData"></ngfFormData>
 <ngfUploadStatus [(percent)]="progress" [httpEvent]="httpEvent"></ngfUploadStatus>
 
 <div class="inline-block">
@@ -24,18 +24,18 @@
             <button type="button" class="btn btn-danger btn-xs mb-1" (click)="files.splice(i,1)">X</button>
         </div>
     </div>
-</div> -->
+</div>
 
 
-<!-- <div *ngIf="dragFiles">
+<div *ngIf="dragFiles">
     <h3 style="margin:0">Drag Files</h3>
     <p *ngIf="!dragFiles.length" style="color:red;">
         This browser does NOT release metadata for files being dragged. All files will be considered valid drags until dropped.
     </p>
     <pre>{{ dragFiles | json }}</pre>
-</div> -->
+</div>
 
-<!-- <div class="bg-warning" *ngIf="lastInvalids?.length" style="margin-bottom: 40px">
+<div class="bg-warning" *ngIf="lastInvalids?.length" style="margin-bottom: 40px">
     <h3 style="color:red;">Last {{ lastInvalids.length }} Invalid Selected Files</h3>
 
     <table class="table">
@@ -73,11 +73,12 @@
             </tr>
         </tbody>
     </table>
-</div> -->
+</div>
 
-<!-- <div style="margin-bottom: 40px">
+<div style="margin-bottom: 40px">
     <div>
         <div>
+            <br>
             Progreso:
             <div class="progress" style="">
                 <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': progress + '%' }"></div>
@@ -86,7 +87,8 @@
 
         <i *ngIf="progress==100" class="glyphicon glyphicon-ok"></i>
     </div>
+    <br>
     <button type="button" class="btn btn-success btn-s" (click)="uploadFiles(files)" *ngIf="files.length>0">
       Subir
     </button>
-</div> -->
+</div>

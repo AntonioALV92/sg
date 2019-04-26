@@ -11,7 +11,7 @@ export class MiddlewareService {
 
   constructor(private http: HttpClient) {}
 
-  post(endpoint: string, request: object, headers: object) {
+  post(endpoint: string, request: object, headers?: object) {
     const header: HttpHeaders = this.controller.setHeaders(headers);
     return this.http.post(this.url + endpoint, request, {headers: header});
   }

@@ -33,4 +33,30 @@ export class CatalogosService {
       );
     });
   }
+
+  public getTipoPropiedades() {
+    return new Promise((resolve) => {
+      this.middleware.get(this.config.endpoints.catTipoPropiedades).subscribe(
+        (res: any) => {
+          return resolve(res);
+        },
+        (err: any) => {
+          console.error(err);
+        }
+      );
+    });
+  }
+
+  public getCaracteristicas() {
+    return new Promise((resolve) => {
+      this.middleware.get(this.config.endpoints.catCategorias).subscribe(
+        (res: any) => {
+          return resolve(res);
+        },
+        (err: any) => {
+          console.error(err);
+        }
+      );
+    });
+  }
 }
