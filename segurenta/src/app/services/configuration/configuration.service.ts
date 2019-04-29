@@ -65,6 +65,8 @@ export class ConfigurationService {
     // Servicios Info Usuario
     infoBasicUser: '/usuario/infoBasica',
 
+    // Servicios Calendandario
+    citasBroker: '/citas/broker',
     // Servicios Editar Usuario
     editarUsuario: '/usuario/editar',
     // Servicio Propiedad

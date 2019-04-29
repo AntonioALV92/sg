@@ -54,15 +54,16 @@ export class SessionService {
   }
 
   public login(request: any) {
-    const headers = {
-      'Content-Type': 'application/json',
-      'Accept-Charset': 'utf-8'
-    };
+    const headers = {};
+    //   'Content-Type': '*',
+    //   'Accept-Charset': 'utf-8'
+    // };
 
     this.middleware.postH(this.config.endpoints.login, request, headers)
     .subscribe((res: HttpResponse<any>) => {
       const token: string = res.headers.get('Authorization');
       sessionStorage.setItem('jwtoken', this.parseJwt(token));
+      debugger;
       this.getCurrentUser();
     },
     (err: any) => {

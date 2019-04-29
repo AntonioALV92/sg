@@ -2,7 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+// import flatpickr from 'flatpickr';
+// import espanol from 'flatpickr/dist/l10n/es';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { registerLocaleData } from '@angular/common';
+import localeEsMx from '@angular/common/locales/es-MX';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {AgmCoreModule} from '@agm/core';
 
 import { NopagefoundComponent } from './components/nopagefound/nopagefound.component';
@@ -27,7 +35,15 @@ import { MapComponent } from './components/register-property/map/map.component';
 import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
+import { SchedulerComponent } from './components/scheduler/scheduler.component';
+import { CalendarComponent } from './components/scheduler/calendar/calendar.component';
+import { FormEventComponent } from './components/scheduler/form-event/form-event.component';
+import { WeekComponent } from './components/scheduler/week/week.component';
 
+
+// flatpickr.localize(espanol);
+
+registerLocaleData(localeEsMx);
 // Files
 import { ngfModule, ngf } from 'angular-file';
 
@@ -53,7 +69,11 @@ import { ngfModule, ngf } from 'angular-file';
     MapComponent,
     PdfViewerComponent,
     PasswordRecoveryComponent,
-    EditUserComponent
+    EditUserComponent,
+    SchedulerComponent,
+    CalendarComponent,
+    FormEventComponent,
+    WeekComponent
   ],
   imports: [
     CommonModule,
@@ -63,9 +83,15 @@ import { ngfModule, ngf } from 'angular-file';
     MaterialModule,
     FAwesomeModule,
     PdfViewerModule,
+    NgbModule,
+    FlatpickrModule.forRoot(),
     ngfModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB8PiES1ULHvO4eRUG7dJYfu5QeLtz1Qas'
+    }),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
     })
   ],
   exports: [
@@ -87,7 +113,10 @@ import { ngfModule, ngf } from 'angular-file';
     RegisterComponent,
     PasswordRecoveryComponent,
     EditUserComponent,
-    UploadImageComponent
+    SchedulerComponent,
+    CalendarComponent,
+    FormEventComponent,
+    WeekComponent
   ],
   entryComponents: [
     LoginComponent,
