@@ -29,6 +29,8 @@ import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { faSave } from '@fortawesome/free-regular-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+
 
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
@@ -74,6 +76,8 @@ library.add(faPlusCircle);
 library.add(faPen);
 library.add(faTrash);
 library.add(faSave);
+library.add(faTimes);
+
 
 
 @NgModule({

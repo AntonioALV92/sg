@@ -12,7 +12,8 @@ export class PropiedadesRecientesComponent implements OnInit {
       id: 1,
       title: 'Titulo',
       state: 'Disponible',
-      location: 'CDMX',
+      propertyType: 'Oficina',
+      location: 'Perisur, CDMX',
       characteristic: [
         {
           iconCharac: '',
@@ -31,13 +32,14 @@ export class PropiedadesRecientesComponent implements OnInit {
       period: 'mensual',
       // tslint:disable-next-line:max-line-length
       // img: 'https://e41ef2ad9891d7dd1442-94bb8684ffa0a53fb3624a3fb44b51a2.ssl.cf1.rackcdn.com/cliente/1398/fotosproductos/departamento-residencial-en-renta-en-colonia-jardines-de-virginia-boca-del-rio-16869_thumb.jpg'
-      img: './assets/img/imgPrueba3.jpg'
+      img: './assets/img/1.jpg'
     },
     {
       id: 2,
       title: 'Newspaper',
       state: 'Disponible',
-      location: 'CDMX',
+      propertyType: 'Oficina',
+      location: 'Perisur, CDMX',
       price: 10500,
       period: 'mensual',
       // img: 'https://i.ebayimg.com/images/g/ZacAAOSwGIZcOSuL/s-l400.jpg'
@@ -47,7 +49,8 @@ export class PropiedadesRecientesComponent implements OnInit {
       id: 3,
       title: 'Favourite',
       state: 'Disponible',
-      location: 'CDMX',
+      propertyType: 'Oficina',
+      location: 'Perisur, CDMX',
       price: 10500,
       period: 'mensual',
       // img: 'https://i.ebayimg.com/images/g/ZHEAAOSwNqRcNjJy/s-l400.jpg'
@@ -57,7 +60,8 @@ export class PropiedadesRecientesComponent implements OnInit {
       id: 4,
       title: 'Abstract',
       state: 'Disponible',
-      location: 'CDMX',
+      propertyType: 'Oficina',
+      location: 'Perisur, CDMX',
       price: 10500,
       period: 'mensual',
       // img: 'https://i.ebayimg.com/images/g/ci0AAOSwE8Vbx8kP/s-l400.jpg'
@@ -67,7 +71,8 @@ export class PropiedadesRecientesComponent implements OnInit {
       id: 5,
       title: 'Tech',
       state: 'Disponible',
-      location: 'CDMX',
+      propertyType: 'Oficina',
+      location: 'Perisur, CDMX',
       price: 10500,
       period: 'mensual',
       // tslint:disable-next-line:max-line-length
@@ -78,7 +83,8 @@ export class PropiedadesRecientesComponent implements OnInit {
       id: 6,
       title: 'Nightlife',
       state: 'Disponible',
-      location: 'CDMX',
+      propertyType: 'Oficina',
+      location: 'Perisur, CDMX',
       price: 10500,
       period: 'mensual',
       // img: 'https://i.ebayimg.com/images/g/PWYAAOSwj81boADF/s-l400.jpg'

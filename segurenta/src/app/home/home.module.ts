@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 
 import { HomeComponent } from './home.component';
+import { FAwesomeModule } from '../fAwesome.module';
 
 @NgModule({
   declarations: [
@@ -10,6 +11,7 @@ import { HomeComponent } from './home.component';
   ],
   imports: [
     CommonModule,
+    FAwesomeModule,
     SharedModule
   ]
 })

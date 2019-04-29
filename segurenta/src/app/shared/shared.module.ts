@@ -86,7 +86,8 @@ import { ngfModule, ngf } from 'angular-file';
     PropertyDetailComponent,
     RegisterComponent,
     PasswordRecoveryComponent,
-    EditUserComponent
+    EditUserComponent,
+    UploadImageComponent
   ],
   entryComponents: [
     LoginComponent,

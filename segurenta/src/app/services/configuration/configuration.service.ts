@@ -56,7 +56,7 @@ export class ConfigurationService {
     // Servicio Banner
     banner: '/banner',
 
-    // Servicios Registro
+    // Servicios Registro Usuario
     crearUsuario: '/usuario/crear',
 
     // Servicio Info
@@ -65,6 +65,8 @@ export class ConfigurationService {
     // Servicios Info Usuario
     infoBasicUser: '/usuario/infoBasica',
 
+    // Servicios Editar Usuario
+    editarUsuario: '/usuario/editar',
     // Servicio Propiedad
     sendDireccion: '/propiedad/direccionPropiedad',
     sendPropiedad: '/propiedad/generales',

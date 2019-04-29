@@ -1,8 +1,10 @@
 import { HttpHeaders } from '@angular/common/http';
+import { ChangeDetectorRef } from '@angular/core';
 
 export class Operations {
-
-    constructor() {}
+    private ref: ChangeDetectorRef;
+    constructor() {
+    }
 
     public setHeaders(array: any) {
         const header = new HttpHeaders();
@@ -20,4 +22,16 @@ export class Operations {
         }
         return header;
     }
+
+    // private setHeaders(headers?: HttpHeaders): HttpHeaders {
+    //     if (!headers) {
+    //       headers = new HttpHeaders();
+    //     }
+    //     headers.delete('authorization');
+    //     const token: any = atob(sessionStorage.jwtoken);
+    //     if (token) {
+    //       headers.append('Authorization', 'Bearer ' + token);
+    //     }
+    //     return headers;
+    //   }
 }
