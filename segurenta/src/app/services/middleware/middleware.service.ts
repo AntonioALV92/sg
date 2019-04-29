@@ -1,38 +1,76 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-import { Operations } from './helpers/operations';
 
 @Injectable()
 export class MiddlewareService {
 
   private url: string = environment.API_URL;
-  private controller = new Operations();
 
   constructor(private http: HttpClient) {}
 
-  post(endpoint: string, request: object, headers: object) {
-    const header: HttpHeaders = this.controller.setHeaders(headers);
+  private headers(headers?: any) {
+    if (sessionStorage.jwtoken) {
+      if (!headers) {
+        headers = {};
+      }
+      headers = Object.assign(headers, { Authorization: atob(sessionStorage.jwtoken) });
+    }
+    return headers;
+  }
+
+  post(endpoint: string, request: object, head?: any) {
+    const headersData = this.headers(head);
+    let header: HttpHeaders;
+    if (headersData) {
+      header = new HttpHeaders(headersData);
+    } else {
+      header = new HttpHeaders();
+    }
     return this.http.post(this.url + endpoint, request, {headers: header});
   }
 
-  postH(endpoint: string, request: object, headers: object) {
-    const header: HttpHeaders = this.controller.setHeaders(headers);
+  postH(endpoint: string, request: object, head: object) {
+    const headersData = this.headers(head);
+    let header: HttpHeaders;
+    if (headersData) {
+      header = new HttpHeaders(headersData);
+    } else {
+      header = new HttpHeaders();
+    }
     return this.http.post(this.url + endpoint, request, {headers: header, observe: 'response'});
   }
 
-  get(endpoint: string, headers?: object) {
-    const header: HttpHeaders = this.controller.setHeaders(headers);
+  get(endpoint: string, head?: object) {
+    const headersData = this.headers(head);
+    let header: HttpHeaders;
+    if (headersData) {
+      header = new HttpHeaders(headersData);
+    } else {
+      header = new HttpHeaders();
+    }
     return this.http.get(this.url + endpoint, {headers: header});
   }
 
-  put(endpoint: string, request: object, headers: object) {
-    const header: HttpHeaders = this.controller.setHeaders(headers);
+  put(endpoint: string, request: object, head?: object) {
+    const headersData = this.headers(head);
+    let header: HttpHeaders;
+    if (headersData) {
+      header = new HttpHeaders(headersData);
+    } else {
+      header = new HttpHeaders();
+    }
     return this.http.put(this.url + endpoint, request, {headers: header});
   }
 
-  delete(endpoint: string, headers?: object) {
-    const header: HttpHeaders = this.controller.setHeaders(headers);
+  delete(endpoint: string, head?: object) {
+    const headersData = this.headers(head);
+    let header: HttpHeaders;
+    if (headersData) {
+      header = new HttpHeaders(headersData);
+    } else {
+      header = new HttpHeaders();
+    }
     return this.http.delete(this.url + endpoint, {headers: header});
   }
 }

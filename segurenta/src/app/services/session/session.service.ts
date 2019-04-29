@@ -61,13 +61,12 @@ export class SessionService {
 
     this.middleware.postH(this.config.endpoints.login, request, headers)
     .subscribe((res: HttpResponse<any>) => {
-      debugger;
       const token: string = res.headers.get('Authorization');
       sessionStorage.setItem('jwtoken', this.parseJwt(token));
+      debugger;
       this.getCurrentUser();
     },
     (err: any) => {
-      debugger;
       this.alert.error();
       console.error(err);
     });
