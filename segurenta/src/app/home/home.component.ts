@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  estado: string = 'Disponible';
+  precio: number = 17000;
+  periodicidad: string = 'mensual';
+
   constructor() { }
 
   ngOnInit() {

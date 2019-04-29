@@ -42,21 +42,21 @@ export class ConfigurationService {
     catTipoMultimedias: '/catalogos/tipomultimedias',
     catAvalesSolidario: '/catalogos/tiposavalessolidario',
     catAvalesSolidarios: '/catalogos/tiposavalessolidarios',
-    catTipoPersona: '/catalogos/tipopersona',
-    catTipoPersonas: '/catalogos/tipopersonas',
-    catTipoPropiedad: '/catalogos/tipopropiedad',
-    catTipoPropiedades: '/catalogos/tipopropiedades',
-    catTipoReferencia: '/catalogos/tiporeferencia',
-    catTipoReferencias: '/catalogos/tiporeferencias',
-    catTipoRelacion: '/catalogos/tiporelacion',
-    catTipoRelaciones: '/catalogos/tiporelaciones',
-    catTipoUsuario: '/catalogos/tipousuario',
-    catTipoUsuarios: '/catalogos/tipousuario',
+    catTipoPersona: '/catalogos/tipoPersona',
+    catTipoPersonas: '/catalogos/tipoPersonas',
+    catTipoPropiedad: '/catalogos/tipoPropiedad',
+    catTipoPropiedades: '/catalogos/tipoPropiedades',
+    catTipoReferencia: '/catalogos/tipoReferencia',
+    catTipoReferencias: '/catalogos/tipoReferencias',
+    catTipoRelacion: '/catalogos/tipoRelacion',
+    catTipoRelaciones: '/catalogos/tipoRelaciones',
+    catTipoUsuario: '/catalogos/tipoUsuario',
+    catTipoUsuarios: '/catalogos/tipoUsuario',
 
     // Servicio Banner
     banner: '/banner',
 
-    // Servicios Registro
+    // Servicios Registro Usuario
     crearUsuario: '/usuario/crear',
 
     // Servicio Info
@@ -66,6 +66,14 @@ export class ConfigurationService {
     infoBasicUser: '/usuario/infoBasica',
 
     // Servicios Calendandario
-    citasBroker: '/citas/broker'
+    citasBroker: '/citas/broker',
+    // Servicios Editar Usuario
+    editarUsuario: '/usuario/editar',
+    // Servicio Propiedad
+    sendDireccion: '/propiedad/direccionPropiedad',
+    sendPropiedad: '/propiedad/generales',
+    sendCaracteristicas: '/propiedad/caracteristicas',
+    // Servicio Recuperar Contraseña
+    recoveryPass: '/password/recuperar'
   };
 }

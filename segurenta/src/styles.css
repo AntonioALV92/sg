@@ -120,8 +120,14 @@ html {
     font-family: 'Montserrat';
 }
 
-.dialog-width .mat-dialog-container {
+
+/* .dialog-width .mat-dialog-container {
     max-width: none;
+} */
+
+.dialog-width {
+    max-width: 95vw !important;
+    margin-left: auto;
 }
 
 a:hover {

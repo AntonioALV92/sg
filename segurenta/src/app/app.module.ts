@@ -33,6 +33,7 @@ import { RegistroService } from './services/registro/registro.service';
 import { SessionGuardGuard } from './services/guards/session-guard.guard';
 import { AuthGuardGuard } from './services/guards/auth-guard.guard';
 import { CalendarioService } from './services/calendario/calendario.service';
+import { PropiedadService } from './services/propiedad/propiedad.service';
 
 // Files
 import { ngfModule } from 'angular-file';
@@ -48,7 +49,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -82,6 +83,7 @@ import { HttpClientModule } from '@angular/common/http';
     SessionGuardGuard,
     AuthGuardGuard,
     CalendarioService
+    PropiedadService
   ],
   bootstrap: [AppComponent],
   entryComponents: [

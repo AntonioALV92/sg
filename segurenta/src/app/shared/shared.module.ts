@@ -44,6 +44,11 @@ import { WeekComponent } from './components/scheduler/week/week.component';
 // flatpickr.localize(espanol);
 
 registerLocaleData(localeEsMx);
+// Files
+import { ngfModule, ngf } from 'angular-file';
+
+
+
 @NgModule({
   declarations: [
     NopagefoundComponent,
@@ -80,6 +85,7 @@ registerLocaleData(localeEsMx);
     PdfViewerModule,
     NgbModule,
     FlatpickrModule.forRoot(),
+    ngfModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB8PiES1ULHvO4eRUG7dJYfu5QeLtz1Qas'
     }),
@@ -97,6 +103,8 @@ registerLocaleData(localeEsMx);
     PropiedadesRecientesComponent,
     InProgressComponent,
     RegisterPropertyComponent,
+    UploadImageComponent,
+    UploadVideoComponent,
     MapComponent,
     RequestDateComponent,
     NavbarComponent,

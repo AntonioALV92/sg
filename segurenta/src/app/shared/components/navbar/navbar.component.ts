@@ -9,6 +9,7 @@ import { RegisterComponent } from '../register/register.component';
 // Services
 import { SessionService } from 'src/app/services/session/session.service';
 import { getDialog } from '../../constants/modals-structure';
+import { EditUserComponent } from '../edit-user/edit-user.component';
 
 @Component({
   selector: 'app-navbar',
@@ -19,7 +20,7 @@ export class NavbarComponent {
 
   public loginDialogRef: MatDialogRef<LoginComponent>;
   public registerDialogRef: MatDialogRef<RegisterComponent>;
-  // public updateDialogRef: MatDialogRef<UpdateRenterComponent>;
+  public updateDialogRef: MatDialogRef<EditUserComponent>;
   public isLoggedIn: boolean;
 
   public dialogConfig = new MatDialogConfig();
@@ -43,20 +44,17 @@ export class NavbarComponent {
   }
 
   private openLogin() {
-    this.dialogConfig.width = '100vw';
+    // this.dialogConfig.width = '100vw';
     this.loginDialogRef = this.dialog.open(LoginComponent, this.dialogConfig);
   }
 
   private openRegister() {
-    this.dialogConfig.width = '90vw';
+    // this.dialogConfig.width = '90vw';
     this.registerDialogRef = this.dialog.open(RegisterComponent, this.dialogConfig);
   }
 
-  private openUpdateRenterData() {
-    this.dialogConfig.disableClose = true;
-    this.dialogConfig.width = '100vw';
-    this.dialogConfig.maxWidth = '98vw';
-    // this.updateDialogRef = this.dialog.open(UpdateRenterComponent, dialogConfig);
+  private openUpdateUser() {
+    this.updateDialogRef = this.dialog.open(EditUserComponent, this.dialogConfig);
   }
 
   private changeProfile(perfil: number): void {
