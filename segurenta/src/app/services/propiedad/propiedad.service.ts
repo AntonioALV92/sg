@@ -51,4 +51,21 @@ export class PropiedadService {
       });
 
     }
+
+    public sendImages(images){
+      return new Promise((resolve) => {
+        const headers = {
+          'Content-Type': 'multipart/form-data',
+        };
+        this.middleware.put(this.config.endpoints.sendImagenes, images, headers).subscribe(
+          (res: any) => {
+            return resolve(res);
+          },
+          (err: any) => {
+            console.error(err);
+          }
+        );
+      });
+
+    }
 }

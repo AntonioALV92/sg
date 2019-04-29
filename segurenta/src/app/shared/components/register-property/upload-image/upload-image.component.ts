@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpEvent, HttpClient, HttpClientModule, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Subscription } from 'rxjs';
+import { PropiedadService } from 'src/app/services/propiedad/propiedad.service';
 
 @Component({
   selector: 'app-upload-image',
@@ -34,6 +35,7 @@ export class UploadImageComponent {
   // }
 
   uploadFiles(files: File[]): Subscription {
+
     const req = new HttpRequest<FormData>('POST', this.url, this.sendableFormData, {
       reportProgress: true
     });

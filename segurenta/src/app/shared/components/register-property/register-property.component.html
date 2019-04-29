@@ -1,4 +1,5 @@
-<div class="col-12 mt-5 pt-5">
+<div class="container">
+    <div class="col-12 mt-5 pt-5">
         <div class="row">
             <div class="col-11">
                 <div class="text-right align-middle">
@@ -8,27 +9,34 @@
         </div>
     </div>
     <div class="row">
-            <div class="col-3 my-3 ">
+            <div class="col-2">
+
+            </div>
+            <div class="col-2 my-3 ">
                     <button (click)="step(1)" class="btn btn-sm btn-dark rounded-circle active" style="height: 40px; width: 40px ">
                         1
                     </button>
                 </div>
-                <div class="col-3 my-3 ">
+                <div class="col-2 my-3 ">
                     <button (click)="step(2)" class="btn btn-sm btn-dark rounded-circle " style="height: 40px; width: 40px ">
                         2
                     </button>
                 </div>
-                <div class="col-3 my-3 ">
+                <div class="col-2 my-3 ">
                     <button (click)="step(3)" class="btn btn-sm btn-dark rounded-circle " style="height: 40px; width: 40px ">
                         3
                     </button>
                 </div>
-                <div class="col-3 my-3 ">
+                <div class="col-2 my-3 ">
                     <button (click)="step(4)" class="btn btn-sm btn-dark rounded-circle " style="height: 40px; width: 40px ">
                         4
                     </button>
                 </div>
+                <div class="col-2">
+
+                </div>
     </div>
+ 
     <div class="row">
             <div class="col-11">
                     <div class="row">
@@ -51,18 +59,37 @@
                                                     <div class="col-8 ">
                                                         <mat-form-field class="full-width ">
                                                             <input type="text " matInput 
-                                                            placeholder="Calle, Num. Ext. e Int. " [(ngModel)]="address.calle" 
+                                                            placeholder="Calle " [(ngModel)]="address.calle" 
                                                             formControlName = "calle" required>
                                                         </mat-form-field>
                                                     </div>
                                                     <div class="col-4 ">
                                                         <mat-form-field class="full-width ">
                                                             <input type="text " matInput 
-                                                            placeholder="C.P. " 
-                                                            [(ngModel)]="address.codigoPostal" required
-                                                            formControlName = "codigoPostal">
+                                                            placeholder="Número exterior " 
+                                                            [(ngModel)]="address.numeroExterior" required
+                                                            formControlName = "numeroExterior">
                                                         </mat-form-field>
                                                     </div>
+                                                </div>
+                                                <div class="row">
+                                                        <div class="col ">
+                                                                <mat-form-field class="full-width ">
+                                                                    <input type="text " matInput 
+                                                                    placeholder="Número interior " 
+                                                                    [(ngModel)]="address.numeroInterior" required
+                                                                    formControlName = "numeroInterior">
+                                                                </mat-form-field>
+                                                            </div>
+                                                            <div class="col ">
+                                                                    <mat-form-field class="full-width ">
+                                                                            <input type="text " matInput 
+                                                                            placeholder="C.P. " 
+                                                                            [(ngModel)]="address.codigoPostal" required
+                                                                            formControlName = "codigoPostal">
+                                                                        </mat-form-field>
+                                                            </div>
+
                                                 </div>
                                                 <div class="row ">
                                                     <div class="col ">
@@ -185,9 +212,6 @@
                        
                         <div *ngIf="n === 4" class="col-12">
                             <div class="container">
-                                    <h2 class="text-blue text-right">
-                                            Crear Propiedad
-                                        </h2>
                                         <br>
                                         <div class="row">
                                             <div class="col-6">
@@ -196,9 +220,16 @@
                                                         
                                                         <br>
                                                         <div class="col-6">
-                                                                <ul>
-                                                                        <li *ngFor="let item of obligatoria">{{item.descripcion}}&nbsp;</li>
-                                                                    </ul>
+                                                            
+                                                                
+                                                                        <span *ngFor="let item of obligatoria">
+                                                                                
+                                                                                        <mat-form-field class="small-width">
+                                                                                          <input matInput placeholder="" value="">
+                                                                                        </mat-form-field>{{item.descripcion}}&nbsp;
+                                                                                <!-- <input matInput size="4" type="text">{{item.descripcion}}&nbsp; -->
+                                                                        </span>
+                                                                    
                                                         </div>
                                                     </div>
                                                     <br>
@@ -238,3 +269,4 @@
                     </div>
                 </div>
     </div>
+</div>

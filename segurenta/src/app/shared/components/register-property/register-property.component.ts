@@ -26,6 +26,7 @@ export class RegisterPropertyComponent implements OnInit {
   amenities: CatalogItems;
   public catPropiedades: any;
   public catCaracteristicas: any;
+  public catImagenes: any;
   public amenidades: any;
   public obligatoria: any;
   public caracteristicas: any;
@@ -90,6 +91,10 @@ export class RegisterPropertyComponent implements OnInit {
     this.typeProperties = this.catPropiedades;
   }
 
+  // public sendImagenes () {
+  //   this.propiedad.sendImages(this.images);
+    
+  // }
   private async getCaracteristicas (){
     this.catCaracteristicas = await this.catalog.getCaracteristicas();
     
