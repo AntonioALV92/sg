@@ -7,3 +7,17 @@
 .fondo {
     background: #ffffff;
 }
+
+.font {
+    font-size: 1em
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-infix {
+    padding: 0em 0 !important;
+}
+
+
+/* md-input-container>>>.mat-input-wrapper {
+    padding: 5px;
+    3px;
+} */

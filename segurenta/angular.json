@@ -32,13 +32,14 @@
                             "./node_modules/animate.css/animate.css",
                             "node_modules/bootstrap/dist/css/bootstrap.min.css",
                             "node_modules/angular-calendar/css/angular-calendar.css",
-                            "node_modules/flatpickr/dist/flatpickr.css"
+                            "node_modules/flatpickr/dist/themes/dark.css"
                         ],
                         "scripts": [
                             "node_modules/jquery/dist/jquery.slim.min.js",
                             "node_modules/popper.js/dist/umd/popper.min.js",
                             "node_modules/bootstrap/dist/js/bootstrap.min.js",
-                            "node_modules/flatpickr/dist/flatpickr.js"
+                            "node_modules/flatpickr/dist/flatpickr.js",
+                            "node_modules/flatpickr/dist/l10n/es.js"
                         ],
                         "es5BrowserSupport": true
                     },

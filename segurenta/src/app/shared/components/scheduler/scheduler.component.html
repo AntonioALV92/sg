@@ -8,7 +8,8 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div>
+        <!-- class="container" -->
         <div class="row text-center">
             <!-- <div class="col-8 text-right col-offset-4">
                 <div class="btn-group">
@@ -23,11 +24,21 @@
                     </div>
                 </div>
             </div> -->
-            <div class="col-lg-9">
+            <!-- <div class="col-1"></div> -->
+            <div class="col-12 borde">
                 <app-week></app-week>
                 <!-- <app-calendar [view]="view" [newEvent]="markDays"></app-calendar> -->
             </div>
-            <div class="col-3"></div>
+            <!-- <div class="col-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                    </div>
+                    <div class="panel-body inline-flatpickr">
+                        <input class="form-control" type="text" mwlFlatpickr [(ngModel)]="viewDate" [locale]="lan" [altInput]="true" [convertModelValue]="true" [inline]="true">
+                    </div>
+                </div>
+
+            </div> -->
             <!-- <div class="col-8">
                 <app-calendar [view]="view" [newEvent]="markDays"></app-calendar>
             </div>

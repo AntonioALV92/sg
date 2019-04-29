@@ -6,7 +6,8 @@ import { finalize, takeUntil } from 'rxjs/operators';
 import { startOfDay, endOfDay, subDays, addDays, endOfMonth, isSameDay, isSameMonth, addHours, addMinutes, endOfWeek } from 'date-fns';
 import { Subject } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Colors } from './helpers/colors';
+import { Colors } from './helpers/constants';
+import { formatDate } from '@angular/common';
 
 function floorToNearest(amount: number, precision: number) {
   return Math.floor(amount / precision) * precision;
@@ -15,57 +16,45 @@ function floorToNearest(amount: number, precision: number) {
 function ceilToNearest(amount: number, precision: number) {
   return Math.ceil(amount / precision) * precision;
 }
+// export class CustomEventTitleFormatter extends CalendarEventTitleFormatter {
+//   weekTooltip(event: CalendarEvent, title: string) {
+//     if (!event.meta.tmpEvent) {
+//       return super.weekTooltip(event, title);
+//     }
+//   }
 
-export class CustomEventTitleFormatter extends CalendarEventTitleFormatter {
-  weekTooltip(event: CalendarEvent, title: string) {
-    if (!event.meta.tmpEvent) {
-      return super.weekTooltip(event, title);
-    }
-  }
-
-  dayTooltip(event: CalendarEvent, title: string) {
-    if (!event.meta.tmpEvent) {
-      return super.dayTooltip(event, title);
-    }
-  }
-}
+//   dayTooltip(event: CalendarEvent, title: string) {
+//     if (!event.meta.tmpEvent) {
+//       return super.dayTooltip(event, title);
+//     }
+//   }
+// }
 
 @Component({
   selector: 'app-week',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './week.component.html',
-  // providers: [
-  //   {
-  //     provide: CalendarEventTitleFormatter,
-  //     useClass: CustomEventTitleFormatter
-  //   }
-  // ],
   styleUrls: ['./week.component.css']
 })
 export class WeekComponent implements OnInit {
 
-  public view: string;
+  public activeDayIsOpen: boolean;
+  public showForm: boolean;
+  public topDiv: number;
+  public leftDiv: number;
   public locale: string;
   public viewDate: Date = new Date();
   public dragToCreateActive = false;
   public events: CalendarEvent[] = [];
+  public eventsTempo: CalendarEvent[] = [];
+  public newEvent: CalendarEvent;
+  public refresh: Subject<any> = new Subject();
 
   constructor(private modal: NgbModal, private cdr: ChangeDetectorRef) {
-    this.view = 'week';
+    this.activeDayIsOpen = true;
+    this.showForm = false;
     this.locale = 'es-Mx';
   }
-
-  @ViewChild('modalContent') modalContent: TemplateRef<any>;
-
-  // CalendarView = CalendarView;
-
-  modalData: {
-    action: string;
-    event: CalendarEvent;
-  };
-
-
-  public vari = ['fas', 'pencil-alt'];
 
   actions: CalendarEventAction[] = [
     {
@@ -82,12 +71,15 @@ export class WeekComponent implements OnInit {
       }
     }
   ];
-
-  refresh: Subject<any> = new Subject();
-
-
-
-  activeDayIsOpen: boolean = true;
+  actions2: CalendarEventAction[] = [
+    {
+      label: '<i class="fa fa-fw fa-times"></i>',
+      onClick: ({ event }: { event: CalendarEvent }): void => {
+        this.events = this.events.filter(iEvent => iEvent !== event);
+        this.handleEvent('Deleted', event);
+      }
+    }
+  ];
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {
@@ -119,49 +111,26 @@ export class WeekComponent implements OnInit {
   }
 
   handleEvent(action: string, event: CalendarEvent): void {
-    this.modalData = { event, action };
-    this.modal.open(this.modalContent, { size: 'lg' });
-  }
-
-  addEvent(): void {
-    this.events = [
-      ...this.events,
-      {
-        title: 'New event',
-        start: startOfDay(new Date()),
-        end: endOfDay(new Date()),
-        color: Colors.red,
-        draggable: true,
-        actions: this.actions,
-        resizable: {
-          beforeStart: true,
-          afterEnd: true
-        }
-      }
-    ];
+    console.log('event CLick');
+    // this.modalData = { event, action };
+    // this.modal.open(this.modalContent, { size: 'lg' });
   }
 
   deleteEvent(eventToDelete: CalendarEvent) {
     this.events = this.events.filter(event => event !== eventToDelete);
   }
 
-  closeOpenMonthViewDay() {
-    this.activeDayIsOpen = false;
-  }
-
-  startDragToCreate(
-    segment: DayViewHourSegment,
-    mouseDownEvent: MouseEvent,
-    segmentElement: HTMLElement
-  ) {
+  startDragToCreate(segment: DayViewHourSegment, mouseDownEvent: MouseEvent, segmentElement: HTMLElement) {
+    this.events = this.eventsTempo;
+    this.getPosition(mouseDownEvent);
     const dragToSelectEvent: CalendarEvent = {
       id: this.events.length,
-      title: 'New event',
+      title: 'Nuevo Cita',
       start: segment.date,
       meta: {
         tmpEvent: true
       },
-      actions: this.actions,
+      actions: this.actions2,
       draggable: true,
       resizable: {
         beforeStart: true,
@@ -176,6 +145,21 @@ export class WeekComponent implements OnInit {
     fromEvent(document, 'mousemove')
       .pipe(
         finalize(() => {
+          if (!dragToSelectEvent.end) {
+            const minutesDiff = ceilToNearest(mouseDownEvent.clientY - segmentPosition.top, 60);
+            const daysDiff =
+              floorToNearest(
+                mouseDownEvent.clientX - segmentPosition.left,
+                segmentPosition.width
+              ) / segmentPosition.width;
+
+            const newEnd = addDays(addMinutes(segment.date, minutesDiff), daysDiff);
+            if (newEnd > segment.date && newEnd < endOfView) {
+              dragToSelectEvent.end = newEnd;
+            }
+          }
+          this.newEvent = dragToSelectEvent;
+          this.showForm = true;
           delete dragToSelectEvent.meta.tmpEvent;
           this.dragToCreateActive = false;
           this.refreshTwo();
@@ -183,10 +167,7 @@ export class WeekComponent implements OnInit {
         takeUntil(fromEvent(document, 'mouseup'))
       )
       .subscribe((mouseMoveEvent: MouseEvent) => {
-        const minutesDiff = ceilToNearest(
-          mouseMoveEvent.clientY - segmentPosition.top,
-          30
-        );
+        const minutesDiff = ceilToNearest(mouseMoveEvent.clientY - segmentPosition.top, 30);
 
         const daysDiff =
           floorToNearest(
@@ -207,19 +188,48 @@ export class WeekComponent implements OnInit {
     this.cdr.detectChanges();
   }
 
-  ngOnInit() {
-    this.events = [{
-      start: addHours(startOfDay(new Date()), 9),
-      end: addHours(startOfDay(new Date()), 11),
-      title: 'Cita dia 1',
-      color: Colors.yellow,
-      actions: this.actions,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      },
-      draggable: true
-    }];
+  private getPosition(e: any) {
+    this.leftDiv = e.clientX - e.layerX + 34;
+    this.topDiv = e.target.offsetTop + e.target.offsetHeight + 116;
   }
 
+  private formatDates() {
+    return formatDate(this.newEvent.start, 'fullDate', this.locale);
+  }
+
+  private cancelNewEvent() {
+    this.events = this.eventsTempo;
+    this.showForm = false;
+  }
+
+  private saveNewEvent() {
+    this.events.forEach( event => {
+      event.title = 'Cita dia 1',
+      event.actions = this.actions;
+      event.color = Colors.yellow;
+    });
+    this.showForm = false;
+    this.eventsTempo = this.events;
+  }
+
+  private hourSegmentModifier(segment) {
+    if (segment.date.getHours() < 9) {
+      segment.cssClass = 'cal-day-segment-disabled';
+    }
+  }
+
+  ngOnInit() {
+    // this.events = [{
+    //   start: addHours(startOfDay(new Date()), 9),
+    //   end: addHours(startOfDay(new Date()), 11),
+    //   title: 'Cita dia 1',
+    //   color: Colors.yellow,
+    //   actions: this.actions,
+    //   resizable: {
+    //     beforeStart: true,
+    //     afterEnd: true
+    //   },
+    //   draggable: true
+    // }];
+  }
 }

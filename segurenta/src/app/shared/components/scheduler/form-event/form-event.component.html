@@ -1,41 +1,28 @@
 <div class="row">
-    <div class="col-1"></div>
-    <div class="col-11 fondo">
+    <div class="col-12 fondo">
         <form [formGroup]="citaForm" (ngSubmit)="registerCita()" novalidate="novalidate">
             <mat-form-field class="full-width">
-                <input type="text" class="input-form" matInput placeholder="Titulo" [(ngModel)]="newCita.titulo" formControlName="titulo" autocomplete="off" required>
+                <input type="text" class="input-form form-control-sm" matInput placeholder="Titulo" [(ngModel)]="newCita.titulo" formControlName="titulo" autocomplete="off" required>
                 <mat-error *ngIf="citaForm.get('titulo').invalid">{{getErrorMessage("titulo")}}</mat-error>
             </mat-form-field>
-            <mat-form-field class="full-width">
-                <input type="text" class="input-form" matInput placeholder="Descripción" [(ngModel)]="newCita.descripcion" formControlName="descripcion" autocomplete="off" required>
-                <mat-error *ngIf="citaForm.get('descripcion').invalid">{{getErrorMessage("descripcion")}}</mat-error>
-            </mat-form-field>
             <!-- <mat-form-field class="full-width">
-                <input type="text" class="input-form" matInput placeholder="Fecha inicio" [(ngModel)]="newCita.inicio" formControlName="inicio" autocomplete="off" required>
-                <mat-error *ngIf="citaForm.get('inicio').invalid">{{getErrorMessage("inicio")}}</mat-error>
-            </mat-form-field> -->
-            <mat-form-field class="full-width">
                 <input type="text" class="input-form" matInput mwlFlatpickr [(ngModel)]="newCita.inicio" [altInput]="true" [convertModelValue]="true" placeholder="Fecha inicio" required>
                 <mat-error *ngIf="citaForm.get('inicio').invalid">{{getErrorMessage("inicio")}}</mat-error>
-                <!-- <input type="text" class="input-form" mwlFlatpickr [(ngModel)]="newCita.inicio" [altInput]="true" [convertModelValue]="true" [enableTime]="true" dateFormat="Y-m-dTH:i" altFormat="F j, Y H:i" placeholder="Fecha inicio" /> -->
-            </mat-form-field>
-            <mat-form-field class="full-width">
-                <input type="text" class="input-form" matInput placeholder="Fecha fin" [(ngModel)]="newCita.fin" formControlName="fin" autocomplete="off" required>
+            </mat-form-field> -->
+            <!-- <input type="text" class="input-form" mwlFlatpickr [(ngModel)]="newCita.inicio" [altInput]="true" [convertModelValue]="true" [enableTime]="true" dateFormat="Y-m-dTH:i" altFormat="F j, Y H:i" placeholder="Fecha inicio" /> -->
+            <!-- <mat-form-field class="full-width">
+                <input type="text" class="input-form font" matInput placeholder="Fecha fin" [(ngModel)]="newCita.fin" formControlName="fin" autocomplete="off" required>
                 <mat-error *ngIf="citaForm.get('fin').invalid">{{getErrorMessage("fin")}}</mat-error>
-            </mat-form-field>
-            <mat-form-field class="full-width">
-                <mat-label>Nivel de urgencia</mat-label>
-                <mat-select matInput [(value)]="newCita.nivel" [(ngModel)]="newCita.nivel" formControlName="nivel">
-                    <mat-option [value]="'Bajo'">Bajo</mat-option>
-                    <mat-option [value]="'Medio'">Medio</mat-option>
-                    <mat-option [value]="'Alto'">Alto</mat-option>
-                    <!-- <mat-option *ngFor="let item of catBancos" [value]="item.id">{{item.corta}}</mat-option> -->
-                </mat-select>
-                <mat-error *ngIf="citaForm.get('nivel').invalid">{{getErrorMessage("nivel")}}</mat-error>
-            </mat-form-field>
-            <span>
-                <button class="btn-rounded full-width" style="margin-top: 5%;" mat-raised-button (click)="registerCita()">Registrar Evento</button>
-            </span>
+            </mat-form-field> -->
+            <!-- <span>
+                
+            </span> -->
         </form>
+    </div>
+    <div class="col-6 fondo">
+        <button class="btn-rounded full-width" style="margin-top: 5%;" mat-raised-button (click)="registerCita()">Cancelar</button>
+    </div>
+    <div class="col-6 fondo">
+        <button class="btn-rounded full-width" style="margin-top: 5%;" mat-raised-button (click)="registerCita()">Guardar</button>
     </div>
 </div>
