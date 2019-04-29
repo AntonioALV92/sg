@@ -5,22 +5,27 @@ import { SessionService } from '../session/session.service';
 import { EstructuraResponse } from '../../shared/models/estructura-response.class';
 import { InfoUsuarioClass } from '../../shared/models/info-usuario.class';
 import { UsuarioClass } from '../../shared/interfaces/person.interface';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   private headers = {
-    'Content-Type': 'application/json',
+    'Content-Type': 'multipart/form-data',
+    // 'Content-Type': 'application/json',
     'Accept-Charset': 'utf-8'
     // 'Authorization':
   };
 
-  constructor(private middleware: MiddlewareService, private config: ConfigurationService, private session: SessionService) { }
+  // tslint:disable-next-line:max-line-length
+  constructor(private http: HttpClient, private middleware: MiddlewareService, private config: ConfigurationService, private session: SessionService) { }
 
   public getInfoUsuario() {
+    const header = new HttpHeaders({'Content-Type': 'multipart/form-data','Accept-Charset':'utf-8'});
     return new Promise((resolve) => {
-      this.middleware.get(this.config.endpoints.infoUsuario, this.headers).subscribe(
+      this.http.get(this.config.endpoints.infoUsuario, { headers: header}).subscribe(
+      // this.middleware.get(this.config.endpoints.infoUsuario, this.headers).subscribe(
         (res: EstructuraResponse<InfoUsuarioClass>) => {
           return resolve(res.result);
         },

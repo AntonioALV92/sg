@@ -1,0 +1,6 @@
+.container-owners {
+    height: 25vw;
+    width: 100%;
+    overflow-y: scroll;
+    border: solid 1px black;
+}

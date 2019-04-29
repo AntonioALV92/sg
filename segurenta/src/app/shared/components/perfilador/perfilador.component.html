@@ -105,6 +105,87 @@
                     <div class="col-12">
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionDiv">
                             <mat-form-field class="col-12">
+                                <input autocomplete="off" type="text" matInput placeholder="Nombre">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <button class="btn btn-sm rounded-circle collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="height: 30px; width: 30px; color: white; background-color: #FF4D00;">
+                                    +
+                                </button> Datos Fiador
+                    <div class="col-12">
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionDiv">
+                            <mat-form-field class="col-12">
+                                <input autocomplete="off" type="text" matInput placeholder="Nombre">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <button class="btn btn-sm rounded-circle collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="height: 30px; width: 30px; color: white; background-color: #FF4D00;">
+                                    +
+                                </button> Datos del Inmueble
+                    <div class="col-12">
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionDiv">
+                            <mat-form-field class="col-12">
+                                <input autocomplete="off" type="text" matInput placeholder="Nombre">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <button class="btn btn-sm rounded-circle collapsed" data-toggle="collapse" data-target="#collapseFourth" aria-expanded="false" aria-controls="collapseFourth" style="height: 30px; width: 30px; color: white; background-color: #FF4D00;">
+                                    +
+                                </button> Referencias
+                    <div class="col-12">
+                        <div id="collapseFourth" class="collapse" aria-labelledby="headingFourth" data-parent="#accordionDiv">
+                            <mat-form-field class="col-12">
+                                <input autocomplete="off" type="text" matInput placeholder="Nombre">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="mb-5">Alta Propietario</h3>
+
+    <div class="row">
+        <div class="col-5">
+            <div class="row">
+                <mat-form-field class="col-12">
+                    <input autocomplete="off" [(ngModel)]="searchText" type="text" matInput placeholder="Búsqueda por CURP">
+                    <!-- <fa-icon matSuffix [icon]="['fas', 'search']"></fa-icon> -->
+                </mat-form-field>
+                <div class="col-12">
+                    <div class="container-owners">
+                        <mat-nav-list class="col-12">
+                            <ng-container *ngFor="let c of owners | filter:searchText:'name'">
+                                <a mat-list-item>
+                                    <p matLine class="text-truncate"> {{ c.name }} </p>
+                                    <p matLine class="thin">
+                                        <span> {{ c.CURP }} </span>
+                                    </p>
+                                </a>
+                            </ng-container>
+                        </mat-nav-list>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col">
+            <div class="accordion ml-5" id="accordionDiv">
+                <div class="row mb-4">
+                    <button class="btn btn-sm rounded-circle" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="height: 30px; width: 30px; color: white; background-color: #FF4D00;">
+                                    +
+                    </button> Datos Arrendatario
+                    <div class="col-12">
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionDiv">
+                            <mat-form-field class="col-12">
                                 <input autocomplete="off" type="text" matInput placeholder="Nombre" required>
                             </mat-form-field>
                         </div>

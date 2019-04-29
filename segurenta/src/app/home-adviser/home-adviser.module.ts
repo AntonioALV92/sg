@@ -8,17 +8,22 @@ import { MyPropertyComponent } from './components/my-property/my-property.compon
 import { PerfiladorComponent } from '../shared/components/perfilador/perfilador.component';
 import { MaterialModule } from '../material.module';
 
+import { FormsModule } from '@angular/forms';
+import { FilterPipe} from '../shared/pipes/filter.pipe';
+
 @NgModule({
   declarations: [
     HomeAdviserComponent,
     MenuComponent,
     MyPropertyComponent,
-    PerfiladorComponent
+    PerfiladorComponent,
+    FilterPipe
   ],
   imports: [
     CommonModule,
     SharedModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ]
 })
 export class HomeAdviserModule { }
