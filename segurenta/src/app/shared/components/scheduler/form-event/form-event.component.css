@@ -1,23 +1,83 @@
-/* .inline-flatpickr .form-control,
-.flatpickr-calendar.arrowTop:before,
-.flatpickr-calendar.arrowTop:after {
-    display: none;
-} */
-
-.fondo {
-    background: #ffffff;
+.title-cita {
+    font-size: 1em;
 }
 
-.font {
-    font-size: 1em
+.text-detail {
+    font-size: .8em;
 }
 
-.mat-form-field-appearance-legacy .mat-form-field-infix {
-    padding: 0em 0 !important;
+.btn-citas {
+    background: black;
+    color: white;
+    width: 60% !important;
+    padding: 0.04rem .5rem !important;
+    font-size: 0.7rem !important;
+    border-color: black !important;
+}
+
+.padding-cero {
+    padding: 0px
+}
+
+.scroll-cita {
+    height: 39vh;
+    overflow: scroll;
 }
 
 
-/* md-input-container>>>.mat-input-wrapper {
-    padding: 5px;
-    3px;
-} */
+/* Tab Navigation */
+
+.nav-tabs .nav-link {
+    border-bottom: none !important;
+    border-color: none !important;
+    color: black !important;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+    border-color: none !important;
+}
+
+.nav-tabs:hover {
+    border-bottom: none !important;
+    border-color: none !important;
+}
+
+.nav-tabs .nav-link.active {
+    border-color: none !important;
+    color: white !important;
+}
+
+.nav-item {
+    background: #9a9a9a;
+    width: 50%;
+    font-size: .8rem;
+    color: white;
+}
+
+.nav-item .active {
+    background: black;
+}
+
+
+/* Tab Content */
+
+.tab-pane {
+    background: rgb(255, 255, 255);
+    box-shadow: 0 0 4px rgba(0, 0, 0, .4);
+    border-radius: 0px 0px 5px 5px;
+    text-align: center;
+    padding: 10px;
+}
+
+.imgRedonda {
+    width: 50px;
+    height: 50px;
+    border-radius: 150px;
+}
+
+.cal-day-segment-disabled,
+.cal-day-segment-disabled:hover {
+    background-color: grey !important;
+    cursor: not-allowed;
+}

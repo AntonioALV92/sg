@@ -1,28 +1,58 @@
-<div class="row">
-    <div class="col-12 fondo">
-        <form [formGroup]="citaForm" (ngSubmit)="registerCita()" novalidate="novalidate">
-            <mat-form-field class="full-width">
-                <input type="text" class="input-form form-control-sm" matInput placeholder="Titulo" [(ngModel)]="newCita.titulo" formControlName="titulo" autocomplete="off" required>
-                <mat-error *ngIf="citaForm.get('titulo').invalid">{{getErrorMessage("titulo")}}</mat-error>
-            </mat-form-field>
-            <!-- <mat-form-field class="full-width">
-                <input type="text" class="input-form" matInput mwlFlatpickr [(ngModel)]="newCita.inicio" [altInput]="true" [convertModelValue]="true" placeholder="Fecha inicio" required>
-                <mat-error *ngIf="citaForm.get('inicio').invalid">{{getErrorMessage("inicio")}}</mat-error>
-            </mat-form-field> -->
-            <!-- <input type="text" class="input-form" mwlFlatpickr [(ngModel)]="newCita.inicio" [altInput]="true" [convertModelValue]="true" [enableTime]="true" dateFormat="Y-m-dTH:i" altFormat="F j, Y H:i" placeholder="Fecha inicio" /> -->
-            <!-- <mat-form-field class="full-width">
-                <input type="text" class="input-form font" matInput placeholder="Fecha fin" [(ngModel)]="newCita.fin" formControlName="fin" autocomplete="off" required>
-                <mat-error *ngIf="citaForm.get('fin').invalid">{{getErrorMessage("fin")}}</mat-error>
-            </mat-form-field> -->
-            <!-- <span>
-                
-            </span> -->
-        </form>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="soli-tab" data-toggle="tab" href="#soli" role="tab" aria-controls="soli" aria-selected="true">SOLICITUDES</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="most-tab" data-toggle="tab" href="#most" role="tab" aria-controls="most" aria-selected="false">MOSTRADAS</a>
+    </li>
+</ul>
+<!-- Tab panes -->
+<div class="tab-content scroll-cita" id="myTabContent">
+    <div class="tab-pane fade show active" id="soli" role="tabpanel" aria-labelledby="soli-tab">
+        <ul class="list-unstyled">
+            <li *ngFor="let item of listDates | datesfilter: 'estatus' : 1">
+                <div class="row padding-cero">
+                    <div class="col-3 padding-cero">
+                        <img class="imgRedonda" src="{{item.url_imagen}}" alt="{{item.nombre_inquilino}}">
+                    </div>
+                    <div class="col-9 padding-cero">
+                        <p class="mt-0 mb-1 text-detail text-left">
+                            <strong class="title-cita">{{item.nombre_inquilino}}</strong> solicitó cita:<br> miércoles, 1 de mayo de 2019 <br> 3:00 PM a 4:00 PM
+                        </p>
+                    </div>
+                    <div class="col-6 padding-cero" style="text-align: right;">
+                        <button type="button" (click)="updateDate(item.id, 5)" class="btn btn-primary btn-sm btn-citas">Cancelar</button>
+                    </div>
+                    <div class="col-6 padding-cero">
+                        <button type="button" (click)="updateDate(item.id, 3)" class="btn btn-primary btn-sm btn-citas">Guardar</button>
+                    </div>
+                </div>
+                <hr>
+            </li>
+        </ul>
     </div>
-    <div class="col-6 fondo">
-        <button class="btn-rounded full-width" style="margin-top: 5%;" mat-raised-button (click)="registerCita()">Cancelar</button>
-    </div>
-    <div class="col-6 fondo">
-        <button class="btn-rounded full-width" style="margin-top: 5%;" mat-raised-button (click)="registerCita()">Guardar</button>
+    <div class="tab-pane fade" id="most" role="tabpanel" aria-labelledby="most-tab">
+        <ul class="list-unstyled">
+            <li *ngFor="let item of listDates | datesfilter: 'estatus' : 2">
+                <div class="row padding-cero">
+                    <div class="col-3 padding-cero">
+                        <img class="imgRedonda" src="{{item.url_imagen}}" alt="{{item.nombre_inquilino}}">
+                    </div>
+                    <div class="col-9 padding-cero">
+                        <p class="mt-0 mb-1 text-detail text-left">
+                            <strong class="title-cita">{{item.nombre_inquilino}}</strong><br> miércoles, 1 de mayo de 2019 <br> 3:00 PM a 4:00 PM
+                        </p>
+                    </div>
+                    <div class="col-6 padding-cero" style="text-align: right;">
+                        <button type="button" (click)="updateDate(item.id, 5)" class="btn btn-primary btn-sm btn-citas">Finalizar</button>
+                    </div>
+                    <div class="col-6 padding-cero">
+                        <button type="button" (click)="updateDate(item.id, 4)" class="btn btn-primary btn-sm btn-citas">Perfilar</button>
+                    </div>
+                </div>
+                <hr>
+            </li>
+        </ul>
     </div>
 </div>

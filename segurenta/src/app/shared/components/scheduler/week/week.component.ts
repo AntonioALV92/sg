@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, ViewChild, TemplateRef, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ViewChild, TemplateRef, ChangeDetectorRef, Component, OnInit, Input, SimpleChanges,
+  OnChanges } from '@angular/core';
 import { CalendarEvent, CalendarEventTitleFormatter, CalendarEventAction, CalendarEventTimesChangedEvent } from 'angular-calendar';
 import { DayViewHourSegment } from 'calendar-utils';
 import { fromEvent } from 'rxjs';
@@ -8,6 +9,9 @@ import { Subject } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Colors } from './helpers/constants';
 import { formatDate } from '@angular/common';
+import { CalendarioService } from 'src/app/services/calendario/calendario.service';
+import * as moment from 'moment';
+import { CatalogosService } from 'src/app/services/catalogos/catalogos.service';
 
 function floorToNearest(amount: number, precision: number) {
   return Math.floor(amount / precision) * precision;
@@ -36,21 +40,28 @@ function ceilToNearest(amount: number, precision: number) {
   templateUrl: './week.component.html',
   styleUrls: ['./week.component.css']
 })
-export class WeekComponent implements OnInit {
+export class WeekComponent implements OnInit, OnChanges {
+
+  @Input() public viewDate: Date;
+  @Input() public listDates: any;
 
   public activeDayIsOpen: boolean;
   public showForm: boolean;
   public topDiv: number;
   public leftDiv: number;
   public locale: string;
-  public viewDate: Date = new Date();
   public dragToCreateActive = false;
   public events: CalendarEvent[] = [];
   public eventsTempo: CalendarEvent[] = [];
   public newEvent: CalendarEvent;
   public refresh: Subject<any> = new Subject();
 
-  constructor(private modal: NgbModal, private cdr: ChangeDetectorRef) {
+  // public listDates: any;
+  public evento: any;
+  public catBancos: any;
+
+  constructor(private modal: NgbModal, private cdr: ChangeDetectorRef,
+              private service: CalendarioService, private catalog: CatalogosService) {
     this.activeDayIsOpen = true;
     this.showForm = false;
     this.locale = 'es-Mx';
@@ -203,6 +214,7 @@ export class WeekComponent implements OnInit {
   }
 
   private saveNewEvent() {
+    // const old = moment(e.fecha_inicio, 'DD-MM-YYYY HH:mm:ss').toDate() < new Date() ? true : false;
     this.events.forEach( event => {
       event.title = 'Cita dia 1',
       event.actions = this.actions;
@@ -219,17 +231,33 @@ export class WeekComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.events = [{
-    //   start: addHours(startOfDay(new Date()), 9),
-    //   end: addHours(startOfDay(new Date()), 11),
-    //   title: 'Cita dia 1',
-    //   color: Colors.yellow,
-    //   actions: this.actions,
-    //   resizable: {
-    //     beforeStart: true,
-    //     afterEnd: true
-    //   },
-    //   draggable: true
-    // }];
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.listDates) {
+      if (changes.listDates.currentValue) {
+        this.builEvents();
+      }
+    }
+  }
+
+  private builEvents() {
+    this.events = [];
+    this.listDates.forEach(e => {
+      if (e.estatus === 3 || e.estatus === 2) {
+        const old = moment(e.fecha_inicio, 'DD-MM-YYYY HH:mm:ss').toDate() < new Date() ? true : false;
+        const dragEvent: CalendarEvent = {
+          id: e.id,
+          title: e.nombre_inquilino,
+          start: moment(e.fecha_inicio, 'DD-MM-YYYY HH:mm:ss').toDate(),
+          end: moment(e.fecha_fin, 'DD-MM-YYYY HH:mm:ss').toDate(),
+          color: old ? Colors.red : Colors.yellow,
+          actions: old ? null : this.actions2,
+        };
+        this.events = [...this.events, dragEvent];
+      }
+    });
+
+    this.eventsTempo = this.events;
   }
 }

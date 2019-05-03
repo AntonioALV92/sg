@@ -40,6 +40,8 @@ import { CalendarComponent } from './components/scheduler/calendar/calendar.comp
 import { FormEventComponent } from './components/scheduler/form-event/form-event.component';
 import { WeekComponent } from './components/scheduler/week/week.component';
 
+import { DatesFilterPipe } from './pipes/dates-filter.pipe';
+
 
 // flatpickr.localize(espanol);
 
@@ -73,7 +75,8 @@ import { ngfModule, ngf } from 'angular-file';
     SchedulerComponent,
     CalendarComponent,
     FormEventComponent,
-    WeekComponent
+    WeekComponent,
+    DatesFilterPipe
   ],
   imports: [
     CommonModule,
