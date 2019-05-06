@@ -11,21 +11,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserService {
-  private headers = {
-    'Content-Type': 'multipart/form-data',
-    // 'Content-Type': 'application/json',
-    'Accept-Charset': 'utf-8'
-    // 'Authorization':
-  };
 
   // tslint:disable-next-line:max-line-length
   constructor(private http: HttpClient, private middleware: MiddlewareService, private config: ConfigurationService, private session: SessionService) { }
 
-  public getInfoUsuario() {
-    const header = new HttpHeaders({'Content-Type': 'multipart/form-data','Accept-Charset':'utf-8'});
+  public getInfoUsuario(tipoCuenta: number) {
     return new Promise((resolve) => {
-      this.http.get(this.config.endpoints.infoUsuario, { headers: header}).subscribe(
-      // this.middleware.get(this.config.endpoints.infoUsuario, this.headers).subscribe(
+    this.middleware.get(this.config.endpoints.infoUsuario + '/' + tipoCuenta).subscribe(
         (res: EstructuraResponse<InfoUsuarioClass>) => {
           return resolve(res.result);
         },
@@ -40,11 +32,9 @@ export class UserService {
    * editarUsuario
    */
   public editarUsuario(usuario: UsuarioClass) {
-    debugger;
     return new Promise((resolve) => {
-      this.middleware.put(this.config.endpoints.editarUsuario, usuario, this.headers).subscribe(
+      this.middleware.put(this.config.endpoints.editarUsuario, usuario).subscribe(
         (res: any) => {
-          debugger;
           return resolve(res.result);
         },
         (err: any) => {

@@ -2,17 +2,18 @@ export class InfoUsuarioClass {
     nombres: string;
     apellidoPaterno: string;
     apellidoMaterno: string;
-    tipoUsuarioDefault: number;
+    tipoCuenta: number;
+    // tipoUsuarioDefault: number;
     nombreUsuario: string;
-    urlImagen: string;
-    perfiles: Array<PerfilesUsuarioClass>;
+    urlImagen: string | null | undefined;
+    // perfiles: Array<PerfilesUsuarioClass>;
     idBanco: number | null | undefined;
-    tipoPersona: number;
-    clabe: string;
+    tipoPersona: number | null | undefined;
+    clabe: string | null | undefined;
     correoElectronico: string;
     telefono: string;
-    rfc: string | null;
-    nacionalidad: number;
+    rfc: string | null | undefined;
+    nacionalidad: number | null | undefined;
 }
 
 class PerfilesUsuarioClass {

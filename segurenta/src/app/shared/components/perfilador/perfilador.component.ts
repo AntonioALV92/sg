@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FilterPipe } from '../../pipes/filter.pipe';
+import { FormControl, Validators } from '@angular/forms';
 
 
 @Component({
@@ -10,6 +11,21 @@ import { FilterPipe } from '../../pipes/filter.pipe';
 export class PerfiladorComponent implements OnInit {
   n: number;
   public searchText = null;
+  tipoP: number;
+  tipoPersona = [
+    {
+      id: 1,
+      value: 'Persona Moral'
+    },
+    {
+      id: 2,
+      value: 'Persona Física'
+    },
+    {
+      id: 3,
+      value: 'Persona Física con Act.'
+    }
+  ];
   owners = [
     {
       id: 1,

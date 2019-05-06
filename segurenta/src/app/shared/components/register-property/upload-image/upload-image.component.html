@@ -7,10 +7,7 @@
         <p class="text-center">Imágenes <br> (Máx. <strong>2 MB</strong>)</p>
     </div>
 </div>
-<ngfFormData
-    [files] = "files"
-    [(FormData)] = "myFormData"
-    postName= "datoImagen"></ngfFormData>
+<ngfFormData [files]="files" [(FormData)]="myFormData" postName="datoImagen"></ngfFormData>
 <div class="row">
     <div class="col-12 form-inline">
         <h4 class="m-2">({{ files.length }}) Imágenes</h4>
@@ -32,8 +29,7 @@
 <div style="margin-bottom: 40px">
     <div>
         <div>
-            <br>
-            Progreso:
+            <br> Progreso:
             <div class="progress">
                 <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': progress + '%' }"></div>
             </div>
@@ -47,4 +43,3 @@
       Subir
     </button>
 </div>
-
