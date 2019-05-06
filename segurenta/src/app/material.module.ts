@@ -16,6 +16,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSelectModule } from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatStepperModule,
     MatChipsModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatRadioModule
   ],
   exports: [
     FlexLayoutModule,
@@ -52,7 +54,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatStepperModule,
     MatChipsModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatRadioModule
   ]
 })
 export class MaterialModule { }

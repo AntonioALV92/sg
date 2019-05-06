@@ -26,3 +26,11 @@
 #map {
     height: 400px !important;
 }
+
+.red-modal {
+    background-color: #ff0000;
+}
+
+.text-white {
+    color: #fff;
+}

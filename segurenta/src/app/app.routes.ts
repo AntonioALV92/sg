@@ -9,6 +9,8 @@ import { PropertyDetailComponent } from './shared/components/property-detail/pro
 import { SessionGuardGuard } from './services/guards/session-guard.guard';
 import { AuthGuardGuard } from './services/guards/auth-guard.guard';
 import { RegisterPropertyComponent } from './shared/components/register-property/register-property.component';
+import { SchedulerComponent } from './shared/components/scheduler/scheduler.component';
+import { PerfiladorComponent } from './shared/components/perfilador/perfilador.component';
 
 const appRoutes: Routes = [
     {
@@ -30,12 +32,12 @@ const appRoutes: Routes = [
         }
     },
     {
-        path: 'home-adviser/propertyDetail',
-        component: PropertyDetailComponent,
-        canActivate: [SessionGuardGuard],
-        data: {
-            expectedRole: '2'
-        }
+        path: 'propertyDetail/:idProperty',
+        component: PropertyDetailComponent
+    },
+    {
+        path: 'propertyDetail/:idProperty',
+        component: PropertyDetailComponent
     },
     {
         path: 'home-rent',
@@ -47,6 +49,13 @@ const appRoutes: Routes = [
     },
     { path: 'registerProperty',
         component: RegisterPropertyComponent
+    },
+    { path: 'citas',
+        component: SchedulerComponent
+    },
+    {
+        path: 'perfilador',
+        component: PerfiladorComponent
     },
     { path: '**', component: NopagefoundComponent }
 ];

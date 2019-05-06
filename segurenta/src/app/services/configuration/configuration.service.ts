@@ -56,7 +56,7 @@ export class ConfigurationService {
     // Servicio Banner
     banner: '/banner',
 
-    // Servicios Registro
+    // Servicios Registro Usuario
     crearUsuario: '/usuario/crear',
 
     // Servicio Info
@@ -65,11 +65,16 @@ export class ConfigurationService {
     // Servicios Info Usuario
     infoBasicUser: '/usuario/infoBasica',
 
+    // Servicios Calendandario
+    citasBroker: '/citas/broker',
+    // Servicios Editar Usuario
+    editarUsuario: '/usuario/editar',
     // Servicio Propiedad
     sendDireccion: '/propiedad/direccionPropiedad',
     sendPropiedad: '/propiedad/generales',
     sendCaracteristicas: '/propiedad/caracteristicas',
-    sendImagenes: '/propiedad/imagenesPropiedad',
+    sendImagenes: '/imagenesPropiedad',
+    deleteProperty: '/propiedad/eliminarPropiedad',
     // Servicio Recuperar Contraseña
     recoveryPass: '/password/recuperar'
   };

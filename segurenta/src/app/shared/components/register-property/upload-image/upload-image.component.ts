@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpEvent, HttpClient, HttpClientModule, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { PropiedadService } from 'src/app/services/propiedad/propiedad.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-upload-image',
@@ -9,6 +10,8 @@ import { PropiedadService } from 'src/app/services/propiedad/propiedad.service';
   styleUrls: ['./upload-image.component.css']
 })
 export class UploadImageComponent {
+
+  uploadForm: FormGroup; 
 
   accept = 'image/*';
   files: File[] = [];
@@ -21,11 +24,13 @@ export class UploadImageComponent {
   maxSizeImage: number = 2097152;
   // maxSizeImage: number = 209;
 
-
+  myFormData: FormData;
   sendableFormData: FormData;
+  SERVER_URL = "https://serviciobannerssg.herokuapp.com/api/sr/imagenesPropiedad/34";
 
   // tslint:disable-next-line:no-shadowed-variable
-  constructor(public HttpClient: HttpClient) { }
+  constructor(public HttpClient: HttpClient, private propiedad: PropiedadService,
+    private formBuilder: FormBuilder) { }
 
   // cancel() {
   //   this.progress = 0;
@@ -33,6 +38,28 @@ export class UploadImageComponent {
   //     this.httpEmitter.unsubscribe();
   //   }
   // }
+  ngOnInit() {
+    this.uploadForm = this.formBuilder.group({
+      profile: ['']
+    });
+  }
+
+  onFileSelect(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.uploadForm.get('profile').setValue(file);
+    }
+  }
+  
+  uploadFiles2() {
+    console.log(this.myFormData);
+    this.HttpClient.post<any>(this.SERVER_URL, this.myFormData).subscribe(
+      (res) => console.log(res),
+      (err) => console.log(err) 
+    );
+    // this.propiedad.sendImages(this.myFormData);
+
+  }
 
   uploadFiles(files: File[]): Subscription {
 
@@ -58,34 +85,5 @@ export class UploadImageComponent {
     console.log(this.files[0].type);
     return new Date();
   }
-
-  // public imagePath;
-  // imgURL: any;
-  // public message: string;
-
-  // constructor() {
-  //   this.imgURL = './assets/img/imgImagen.png';
-  //  }
-
-  // ngOnInit() {
-  // }
-  // preview(files) {
-  //   if (files.length === 0) {
-  //     return;
-  //   }
-  //   const mimeType = files[0].type;
-  //   if (mimeType.match(/image\/*/) == null) {
-  //     this.message = 'Solo son soportadas imágenes.';
-  //     return;
-  //   }
-
-  //   const reader = new FileReader();
-  //   this.imagePath = files;
-  //   reader.readAsDataURL(files[0]);
-  //   reader.onload = ($event) => {
-  //     this.imgURL = reader.result;
-  //   };
-  // }
-
 
 }

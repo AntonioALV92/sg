@@ -1,0 +1,51 @@
+h3 {
+    margin: 0 0 10px;
+}
+
+pre {
+    background-color: #f5f5f5;
+    padding: 15px;
+}
+
+.cursor_pointer {
+    cursor: pointer;
+}
+
+.fondo {
+    background: #3f4458;
+    /* background: #535353; */
+}
+
+.txt-title-muted {
+    font-size: 1.5rem !important;
+    color: #FFFFFF !important;
+    ;
+}
+
+.txt-title {
+    font-size: 4rem !important;
+    color: #FFFFFF !important;
+}
+
+.inline-flatpickr .form-control {
+    display: none;
+}
+
+.borde {
+    padding-left: 3em;
+    padding-right: 3em;
+}
+
+
+/* .cal-week-view .cal-time-events {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.cal-day-headers {
+    margin-right: 14.5px;
+}
+
+.cal-day-columns {
+    height: 100%;
+} */

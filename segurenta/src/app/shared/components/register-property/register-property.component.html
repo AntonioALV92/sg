@@ -134,8 +134,9 @@
                                                     [(ngModel)]="address.descripcion" required
                                                     formControlName = "descripcion"></textarea>
                                                 </mat-form-field>
-                                                <button class="btn btn-outline-light btn-sm" (click)="sendAddress()">Guardar para después</button>
+                                                <button class="btn btn-outline-dark btn-sm" (click)="sendAddress()">Guardar para después</button>
                                             </form>
+                                            <br><br>
                                         </div>
                                     </div>
                                 </div>
@@ -157,7 +158,7 @@
 
                                             </div>
                                             <br>
-                                            <button class="btn btn-outline-dark btn-sm">Guardar para después</button>
+                                            <button (click)="nextStep()" class="btn btn-outline-dark btn-sm">Guardar para después</button>
                                         </form>
                             </div>
                             <br>
@@ -204,7 +205,8 @@
                                                 </mat-form-field>
                                                 <mat-label> Mantenimiento</mat-label>
                                             </div>
-                                            <button (click)="sendProperty()" class="btn btn-outline-light btn-sm">Guardar para después</button>
+                                            <br>
+                                            <button (click)="sendProperty()" class="btn btn-outline-dark btn-sm">Guardar para después</button>
                                         </form> 
                             </div>
                             
@@ -262,7 +264,7 @@
                                                         </div>
                                              </div>   
                                         </div>
-                                     
+                                        <button (click)="sendCaracteristicas()" class="btn btn-outline-dark btn-sm">Enviar</button>   
                             </div>
                             
                         </div>

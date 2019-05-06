@@ -5,6 +5,7 @@ import { TypeProperty, CatalogItems } from '../../interfaces/catalog.interface';
 import { CatalogosService } from 'src/app/services/catalogos/catalogos.service';
 import { PropiedadService } from 'src/app/services/propiedad/propiedad.service';
 import { FormAddress, FormProperty} from './helpers/form';
+import { ObjectUnsubscribedError } from 'rxjs';
 
 @Component({
   selector: 'app-register-property',
@@ -79,10 +80,12 @@ export class RegisterPropertyComponent implements OnInit {
     //event.preventDefault(); // Avoid default action for the submit button of the login form
     //const direccion: DireccionClass = new DireccionClass();
     this.propiedad.sendDireccion(this.address);
+    this.n = 2;
   }
 
   public sendProperty() {
     this.propiedad.sendPropiedad(this.property);
+    this.n += 1;
   }
 
   private async getTipoPropiedad() {
@@ -91,6 +94,10 @@ export class RegisterPropertyComponent implements OnInit {
     this.typeProperties = this.catPropiedades;
   }
 
+
+  public nextStep() {
+    this.n += 1;
+  }
   // public sendImagenes () {
   //   this.propiedad.sendImages(this.images);
     
@@ -105,9 +112,16 @@ export class RegisterPropertyComponent implements OnInit {
     this.caracteristicas = this.catCaracteristicas[2].items;
     this.reglas = this.catCaracteristicas[3].items;
 
+    console.log(this.caracteristicas);
+
     
     console.log(this.reglas);
     
+  }
+
+  public sendCaracteristicas () {
+    
+
   }
 
   selectProperty(id: number): void {
