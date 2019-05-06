@@ -48,9 +48,6 @@ export class EditUserComponent implements OnInit {
         // Validators.minLength(10),
         // Validators.maxLength(13)
       ],
-      rfc: [''
-        // Validators.pattern('[a-zA-ZñÑ ]{0,40}$')
-      ],
       nacionalidad: ['',
         Validators.required
       ]
@@ -68,14 +65,13 @@ export class EditUserComponent implements OnInit {
   }
 
   private async getUserById() {
-    this.usuario = await this.userService.getInfoUsuario();
+    this.usuario = await this.userService.getInfoUsuario(1);
     this.formEditar.setValue({
       nombres: this.usuario.nombres,
       apellidoPaterno: this.usuario.apellidoPaterno,
       apellidoMaterno: this.usuario.apellidoMaterno,
       correoElectronico: this.usuario.correoElectronico,
       telefono: this.usuario.telefono,
-      rfc: this.usuario.rfc !== null && this.usuario.rfc !== undefined ? this.usuario.rfc : '',
       nacionalidad: this.usuario.nacionalidad !== null ? this.usuario.nacionalidad : 0
     });
     if (this.usuario.tipoUsuarioDefault === 2) {
@@ -99,16 +95,13 @@ export class EditUserComponent implements OnInit {
       this.editarUsuario.correoElectronico = this.formEditar.get('correoElectronico').value;
       this.editarUsuario.telefono = this.formEditar.get('telefono').value;
       this.editarUsuario.nacionalidad = this.formEditar.get('nacionalidad').value;
-      this.editarUsuario.rfc = this.formEditar.get('rfc').value;
     }
     console.log(this.editarUsuario);
     if (this.esAsesor) {
       this.editarUsuario.idBanco = this.formEditar.get('banco').value;
       this.editarUsuario.clabe = this.formEditar.get('clabe').value;
     }
-    debugger;
     await this.userService.editarUsuario(this.editarUsuario);
-    debugger;
     console.log('exito');
   }
 

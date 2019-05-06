@@ -1,4 +1,4 @@
-<ngfFormData [files]="files" postName="file" [(FormData)]="sendableFormData"></ngfFormData>
+<!-- <ngfFormData [files]="files" postName="file" [(FormData)]="sendableFormData"></ngfFormData>
 <ngfUploadStatus [(percent)]="progress" [httpEvent]="httpEvent"></ngfUploadStatus>
 
 <div class="inline-block">
@@ -91,4 +91,19 @@
     <button type="button" class="btn btn-success btn-s" (click)="uploadFiles(files)" *ngIf="files.length>0">
       Subir
     </button>
+</div> -->
+<div class="inline-block">
+    <div ngfDrop multiple="1" selectable="1" [(validDrag)]="validComboDrag" [(files)]="files" [accept]="accept" [maxSize]="maxSizeImage" [(lastInvalids)]="lastInvalids" [(dragFiles)]="dragFiles" class="well my-drop-zone" [class.invalid-drag]="validComboDrag===false"
+        [class.valid-drag]="validComboDrag" (filesChange)="lastFileAt=getDate()">
+        <p class="text-center">Imágenes <br> (Máx. <strong>2 MB</strong>)</p>
+    </div>
 </div>
+<button *ngIf="files" (click)="uploadFiles()">send files</button>
+
+<ngfFormData [files]="files" [(FormData)]="myFormData" postName="file"></ngfFormData>
+
+<!-- <ngfUploadStatus [(percent)]="uploadPercent" [httpEvent]="httpEvent"></ngfUploadStatus>
+
+<div *ngIf="uploadPercent">
+    Upload Progress: {{ uploadPercent }}%
+</div> -->

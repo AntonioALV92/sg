@@ -20,7 +20,7 @@ export class UploadImageComponent {
   maxSizeImage: number = 2097152;
   // maxSizeImage: number = 209;
 
-
+  myFormData: FormData = new FormData();
   sendableFormData: FormData;
 
   // tslint:disable-next-line:no-shadowed-variable
@@ -33,22 +33,12 @@ export class UploadImageComponent {
   //   }
   // }
 
-  uploadFiles(files: File[]): Subscription {
-    const req = new HttpRequest<FormData>('POST', this.url, this.sendableFormData, {
-      reportProgress: true
-    });
-    return this.httpEmitter = this.HttpClient.request(req)
-    .subscribe(
-      event => {
-        this.httpEvent = event;
+  uploadFiles() {
+    debugger;
+    console.log(this.myFormData);
+    this.files.forEach(file => this.myFormData.append('file', file));
+    console.log(this.myFormData);
 
-        if (event instanceof HttpResponse) {
-          delete this.httpEmitter;
-          console.log('request done', event);
-        }
-      },
-      error => console.log('Error Uploading', error)
-    );
   }
 
   getDate() {
