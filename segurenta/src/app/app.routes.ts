@@ -32,12 +32,12 @@ const appRoutes: Routes = [
         }
     },
     {
-        path: 'home-adviser/propertyDetail',
-        component: PropertyDetailComponent,
-        canActivate: [SessionGuardGuard],
-        data: {
-            expectedRole: '2'
-        }
+        path: 'propertyDetail/:idProperty',
+        component: PropertyDetailComponent
+    },
+    {
+        path: 'propertyDetail/:idProperty',
+        component: PropertyDetailComponent
     },
     {
         path: 'home-rent',

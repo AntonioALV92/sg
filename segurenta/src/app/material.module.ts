@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSelectModule } from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 
 
@@ -35,6 +36,7 @@ import { MatRadioModule } from '@angular/material/radio';
     MatStepperModule,
     MatChipsModule,
     MatSelectModule,
+    MatCheckboxModule,
     MatRadioModule
   ],
   exports: [
@@ -52,6 +54,7 @@ import { MatRadioModule } from '@angular/material/radio';
     MatStepperModule,
     MatChipsModule,
     MatSelectModule,
+    MatCheckboxModule,
     MatRadioModule
   ]
 })

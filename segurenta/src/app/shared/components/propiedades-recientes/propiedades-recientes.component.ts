@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-propiedades-recientes',
@@ -111,9 +112,13 @@ export class PropiedadesRecientesComponent implements OnInit {
     ]
   };
   
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  public openDetail(id: number) {
+    this.router.navigateByUrl('/propertyDetail/'+id);
   }
 
 }

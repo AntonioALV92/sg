@@ -35,10 +35,14 @@
                                 </a>
                             </div>
                             <div class="flex-fill text-center">
-                                <a class="">
+                                <a (click)="openDetail(picture.id)" class="">
                                     <fa-icon class="icon" [icon]="['fas', 'ellipsis-h']"></fa-icon>
                                     <small class="text-white">Más</small>
                                 </a>
+                                <!-- <a [routerLink]="['/property-detail']" [queryParams]="{id: picture.id}" class="">
+                                    <fa-icon class="icon" [icon]="['fas', 'ellipsis-h']"></fa-icon>
+                                    <small class="text-white">Más</small>
+                                </a> -->
                             </div>
                         </div>
                     </div>

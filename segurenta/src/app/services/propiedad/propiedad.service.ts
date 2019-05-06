@@ -51,4 +51,35 @@ export class PropiedadService {
       });
 
     }
+    public deleteProperty(id){
+      return new Promise((resolve) => {
+        this.middleware.delete(this.config.endpoints.deleteProperty + '/' + id).subscribe(
+          (res: any) => {
+            return resolve(res);
+          },
+          (err: any) => {
+            console.error(err);
+          }
+        );
+      });
+
+    }
+
+    public sendImages(images){
+      return new Promise((resolve) => {
+        const headers = {
+          'Content-Type': 'multipart/form-data'
+        };
+        debugger;
+        this.middleware.post(this.config.endpoints.sendImagenes + '/34', images, headers).subscribe(
+          (res: any) => {
+            return resolve(res);
+          },
+          (err: any) => {
+            console.error(err);
+          }
+        );
+      });
+
+    }
 }
