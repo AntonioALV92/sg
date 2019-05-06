@@ -36,10 +36,13 @@ import { PdfViewerComponent } from './components/pdf-viewer/pdf-viewer.component
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { PasswordRecoveryComponent } from './components/password-recovery/password-recovery.component';
 import { SchedulerComponent } from './components/scheduler/scheduler.component';
+import { SchedulerInquilinoComponent } from './components/scheduler-inquilino/scheduler-inquilino.component';
 import { CalendarComponent } from './components/scheduler/calendar/calendar.component';
 import { FormEventComponent } from './components/scheduler/form-event/form-event.component';
 import { WeekComponent } from './components/scheduler/week/week.component';
+import { WeekInquilinoComponent } from './components/scheduler-inquilino/week-inquilino/week-inquilino.component';
 
+import { DatesFilterPipe } from './pipes/dates-filter.pipe';
 
 // flatpickr.localize(espanol);
 
@@ -71,9 +74,12 @@ import { ngfModule, ngf } from 'angular-file';
     PasswordRecoveryComponent,
     EditUserComponent,
     SchedulerComponent,
+    SchedulerInquilinoComponent,
     CalendarComponent,
     FormEventComponent,
-    WeekComponent
+    WeekComponent,
+    WeekInquilinoComponent,
+    DatesFilterPipe
   ],
   imports: [
     CommonModule,
@@ -114,9 +120,11 @@ import { ngfModule, ngf } from 'angular-file';
     PasswordRecoveryComponent,
     EditUserComponent,
     SchedulerComponent,
+    SchedulerInquilinoComponent,
     CalendarComponent,
     FormEventComponent,
-    WeekComponent
+    WeekComponent,
+    WeekInquilinoComponent
   ],
   entryComponents: [
     LoginComponent,

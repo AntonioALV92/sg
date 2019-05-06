@@ -1,9 +1,41 @@
+.cursor_pointer {
+    cursor: pointer;
+}
+
+.disable-hover {
+    pointer-events: none;
+}
+
+.color-txt {
+    color: white !important;
+}
+
+.toggleBox {
+    display: flex;
+    border: 1px solid rgb(109, 109, 109);
+    background-color: white;
+    width: 12rem;
+    min-height: 6rem;
+    position: absolute;
+    z-index: 100;
+    padding: 10px;
+}
+
+.title-property {
+    font-size: .6em;
+}
+
 .title-cita {
     font-size: 1em;
 }
 
 .text-detail {
     font-size: .8em;
+}
+
+.btn-modal {
+    padding: 0.04rem .5rem !important;
+    font-size: 0.7rem !important;
 }
 
 .btn-citas {
@@ -17,6 +49,15 @@
 
 .padding-cero {
     padding: 0px
+}
+
+.inline-flatpickr .form-control {
+    display: none;
+}
+
+.scroll-week {
+    height: 80vh;
+    overflow: scroll;
 }
 
 .scroll-cita {

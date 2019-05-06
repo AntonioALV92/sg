@@ -6,6 +6,11 @@
                     <h2 mat-dialog-title><small class="txt-title-muted">Agendar </small><span class="txt-title"> Cita</span></h2>
                 </div>
             </div>
+            <div class="col-12">
+                <div class="text-left">
+                    <h2 class="txt-title-second">Horario disponibilidad<br><small class="txt-title-muted-second">Dá click en el horario de tu preferencia</small> </h2>
+                </div>
+            </div>
         </div>
     </div>
     <div>
@@ -13,16 +18,13 @@
             <div class="col-12 borde row">
                 <div class="col-9">
                     <!-- Calendar Week -->
-                    <app-week [viewDate]="viewDate" [listDates]="listDates"></app-week>
+                    <app-week-inquilino [viewDate]="viewDate" [listDates]="listDates" [listDisponibilidad]="listDisponibilidad"></app-week-inquilino>
                 </div>
                 <div class="col-3">
                     <!-- Calendar Month -->
                     <div class="inline-flatpickr">
                         <input class="form-control" type="text" mwlFlatpickr [(ngModel)]="viewDate" [altInput]="true" [convertModelValue]="true" [inline]="true">
                     </div>
-                    <br>
-                    <!-- Nav Dates -->
-                    <app-form-event [listDates]="listDates"></app-form-event>
                 </div>
             </div>
         </div>

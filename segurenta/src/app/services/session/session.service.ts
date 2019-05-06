@@ -63,7 +63,6 @@ export class SessionService {
     .subscribe((res: HttpResponse<any>) => {
       const token: string = res.headers.get('Authorization');
       sessionStorage.setItem('jwtoken', this.parseJwt(token));
-      debugger;
       this.getCurrentUser();
     },
     (err: any) => {
