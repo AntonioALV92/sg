@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogConfig, MatDialog, MatDialogRef } from '@angular/material';
+import { PropiedadService } from 'src/app/services/propiedad/propiedad.service';
+import { ActivatedRoute } from "@angular/router";
+import { SessionService } from 'src/app/services/session/session.service';
+
 // import { ShowRequirementsComponent } from '../show-requirements/show-requirements.component';
 
 @Component({
@@ -12,6 +16,10 @@ export class PropertyDetailComponent implements OnInit {
   isAdviser: boolean;
   // fileNameDialogRef: MatDialogRef<ShowRequirementsComponent>;
   imageSelected: string;
+  datosUsuario: any;
+  idProperty: number;
+
+  //@ViewChild('exampleModal') exampleModal: ModalDirective;
   property = {
       alias: 'DEPARTAMENTO 87m2 Del Valle, CDMX',
       periodicidad: 'Mensual',
@@ -79,16 +87,26 @@ export class PropertyDetailComponent implements OnInit {
         disponibilidad: 'Lun-Sab, 10:00 - 10:45'
       }
     };
-    constructor(private dialog: MatDialog) {
+    constructor(private dialog: MatDialog, private propiedad: PropiedadService, 
+      private route: ActivatedRoute, private session: SessionService) {
       this.isRenter = false;
-      this.isAdviser = false;
+      this.isAdviser = true;
       this.imageSelected = '';
       console.log(this.property);
    }
 
+  
+
   ngOnInit() {
+    this.datosUsuario = this.session.getDataUser();
+    this.idProperty = Number(this.route.snapshot.paramMap.get("idProperty"));
+    console.log('id Propiedad', this.idProperty);
   }
 
+  deleteProperty(){
+    let idProperty = 1;
+    this.propiedad.deleteProperty(idProperty);
+  }
   openViewer() {
 
     const dialogConfig = new MatDialogConfig();

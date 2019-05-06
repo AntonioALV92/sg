@@ -71,8 +71,11 @@
                         <fa-icon matSuffix [icon]="[ 'fas', 'pen']"></fa-icon>
                     </mat-form-field>
                     <mat-form-field class="col-12">
-                        <input autocomplete="off" type="text" matInput placeholder="RFC" formControlName="rfc" oninput="this.value = this.value.toUpperCase()">
+                        <mat-label>Nacionalidad</mat-label>
                         <fa-icon matSuffix [icon]="[ 'fas', 'pen']"></fa-icon>
+                        <select matNativeControl formControlName="nacionalidad">
+                                <option *ngFor="let item of catNacionalidades" [ngValue]="item.id">{{item.descripcion}}</option>
+                            </select>
                     </mat-form-field>
                 </div>
             </form>
@@ -80,13 +83,6 @@
         </div>
         <div class="col">
             <form [formGroup]="formEditar" autocomplete="off">
-                <mat-form-field class="col-12">
-                    <mat-label>Nacionalidad</mat-label>
-                    <fa-icon matSuffix [icon]="[ 'fas', 'pen']"></fa-icon>
-                    <select matNativeControl formControlName="nacionalidad">
-                        <option *ngFor="let item of catNacionalidades" [ngValue]="item.id">{{item.descripcion}}</option>
-                    </select>
-                </mat-form-field>
                 <div *ngIf="esAsesor" class="text-center">
                     <label class="col-12">¿En dónde quiero mis comisiones?</label>
                     <mat-form-field class="col-12">

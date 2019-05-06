@@ -56,6 +56,8 @@ export class MiddlewareService {
     const headersData = this.headers(head);
     let header: HttpHeaders;
     if (headersData) {
+
+      console.log(headersData)
       header = new HttpHeaders(headersData);
     } else {
       header = new HttpHeaders();

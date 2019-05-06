@@ -21,3 +21,11 @@
 .mat-input-element::placeholder {
     color: #000;
 }
+
+.small-width {
+    width: 10%;
+}
+
+.offset-fixed{
+    margin-left: 1%;
+}

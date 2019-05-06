@@ -67,7 +67,7 @@ export const FormRegisterAdviser = new FormGroup({
   ]),
   clabe: new FormControl('', [
     Validators.required,
-    Validators.pattern('[0-9]{0,}$'),
+    Validators.pattern('[0-9]{16,20}$'),
     Validators.minLength(16),
     Validators.maxLength(20)
   ])

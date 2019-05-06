@@ -7,7 +7,7 @@
         <p class="text-center">Imágenes <br> (Máx. <strong>2 MB</strong>)</p>
     </div>
 </div>
-
+<ngfFormData [files]="files" [(FormData)]="myFormData" postName="datoImagen"></ngfFormData>
 <div class="row">
     <div class="col-12 form-inline">
         <h4 class="m-2">({{ files.length }}) Imágenes</h4>
@@ -26,61 +26,11 @@
     </div>
 </div>
 
-
-<div *ngIf="dragFiles">
-    <h3 style="margin:0">Drag Files</h3>
-    <p *ngIf="!dragFiles.length" style="color:red;">
-        This browser does NOT release metadata for files being dragged. All files will be considered valid drags until dropped.
-    </p>
-    <pre>{{ dragFiles | json }}</pre>
-</div>
-
-<div class="bg-warning" *ngIf="lastInvalids?.length" style="margin-bottom: 40px">
-    <h3 style="color:red;">Last {{ lastInvalids.length }} Invalid Selected Files</h3>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Error</th>
-                <th>Type</th>
-                <th>Size</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of lastInvalids;let i=index">
-                <td>
-                    <div *ngIf="['image/gif','image/png','image/jpeg'].indexOf(item.file.type)>=0">
-                        <div class="previewIcon img-responsive" [ngfBackground]="item.File"></div>
-                    </div>
-                    <strong>{{ item.file.name }}</strong>
-                </td>
-                <td nowrap>
-                    {{ item.type }}
-                </td>
-                <td nowrap>
-                    {{ item.file.type }}
-                </td>
-                <td nowrap>
-                    {{ item.file.size/1024/1024 | number:'.2' }} MB
-                </td>
-                <td nowrap>
-                    <button type="button" class="btn btn-danger btn-xs" (click)="lastInvalids.splice(i,1)">
-                  <span class="glyphicon glyphicon-trash"></span>
-                </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
 <div style="margin-bottom: 40px">
     <div>
         <div>
-            <br>
-            Progreso:
-            <div class="progress" style="">
+            <br> Progreso:
+            <div class="progress">
                 <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': progress + '%' }"></div>
             </div>
         </div>
@@ -88,7 +38,8 @@
         <i *ngIf="progress==100" class="glyphicon glyphicon-ok"></i>
     </div>
     <br>
-    <button type="button" class="btn btn-success btn-s" (click)="uploadFiles(files)" *ngIf="files.length>0">
+    <!-- <button type="button" class="btn btn-success btn-s" (click)="uploadFiles(files)" *ngIf="files.length>0"> -->
+    <button type="button" class="btn btn-success btn-s" (click)="uploadFiles2()" *ngIf="files.length>0">
       Subir
     </button>
 </div>
