@@ -94,7 +94,7 @@
                                 </button>
                             </div>
                             <div class="col-6 text-center">
-                                <button class="btn btn-dark rounded-circle" style="height: 70px; width: 70px;">
+                                <button data-toggle="modal" data-target="#exampleModal" class="btn btn-dark rounded-circle" style="height: 70px; width: 70px;">
                                     <fa-icon [icon]="[ 'fas', 'trash']" size="2x"></fa-icon>
                                 </button>
                             </div>
@@ -185,3 +185,27 @@
     </div>
 </div>
 <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-xl">Extra large modal</button> -->
+
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-sm" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content red-modal">
+            <div class="modal-body text-white text-center">
+              Deseas eliminar esta propiedad?
+            </div>
+            <div class="modal-footer">
+              <div class="row">
+                  <div class="col-6">
+                        <button type="button" class="btn btn-block btn-danger" data-dismiss="modal">No</button>
+                  </div>
+                  <div class="col-6">
+                        <button type="button" (click)="deleteProperty()" class="btn btn-block btn-danger">Si</button>
+                    </div>
+              </div>
+              
+            
+            </div>
+          </div>
+        </div>
+      </div>

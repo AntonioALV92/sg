@@ -82,7 +82,7 @@ import { HttpClientModule } from '@angular/common/http';
     RegistroService,
     SessionGuardGuard,
     AuthGuardGuard,
-    CalendarioService
+    CalendarioService,
     PropiedadService
   ],
   bootstrap: [AppComponent],

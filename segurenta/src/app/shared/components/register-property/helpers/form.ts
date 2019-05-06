@@ -7,6 +7,12 @@ export const FormAddress = new FormGroup({
     calle: new FormControl('', [
       
     ]),
+    numeroExterior: new FormControl('', [
+      
+    ]),
+    numeroInterior: new FormControl('', [
+      
+    ]),
     codigoPostal: new FormControl('', [
      
     ]),
