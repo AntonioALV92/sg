@@ -67,6 +67,9 @@ export class ConfigurationService {
 
     // Servicios Calendandario
     citasBroker: '/citas/broker',
+    citasBroker2: '/citas/broker2',
+    solicitaCita: '/citas/inquilino',
+    disponibilidadBroker: '/disponibilidad/broker',
     // Servicios Editar Usuario
     editarUsuario: '/usuario/editar',
     // Servicio Propiedad
