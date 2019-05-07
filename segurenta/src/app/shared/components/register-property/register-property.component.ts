@@ -35,16 +35,6 @@ export class RegisterPropertyComponent implements OnInit {
 
   constructor( private catalog: CatalogosService, private propiedad: PropiedadService) {
     this.n = 1;
-    // this.typeProperties = [
-    //   new TypeProperty( 1, 'Casa', false),
-    //   new TypeProperty( 2, 'Departamento', false ),
-    //   new TypeProperty( 3, 'Local Comercial', false ),
-    //   new TypeProperty( 4, 'Terrenos', false ),
-    //   new TypeProperty( 5, 'Bodega', false ),
-    //   new TypeProperty( 6, 'Edificio', false ),
-    //   new TypeProperty( 7, 'Rancho', false ),
-    //   new TypeProperty( 8, 'Oficina', false ),
-    // ];
     this.rules = [
       {id: 1, value: 'No mascotas'},
       {id: 2, value: 'No niños'},
@@ -90,8 +80,8 @@ export class RegisterPropertyComponent implements OnInit {
 
   private async getTipoPropiedad() {
     this.catPropiedades = await this.catalog.getTipoPropiedades();
-    console.log(this.catPropiedades);
-    this.typeProperties = this.catPropiedades;
+    // console.log("cat",this.catPropiedades.result);
+    this.typeProperties = this.catPropiedades.result;
   }
 
 
@@ -120,7 +110,7 @@ export class RegisterPropertyComponent implements OnInit {
   }
 
   public sendCaracteristicas () {
-    
+  console.log(this.reglas);    
 
   }
 

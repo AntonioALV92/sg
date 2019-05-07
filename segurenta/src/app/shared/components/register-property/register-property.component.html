@@ -165,7 +165,7 @@
                         </div>
                         <div *ngIf="n === 3" class="col-12">
                             <div class="container-fluid">
-                                    <form autocomplete="off " (ngSubmit)="sendProperty()" [formGroup]="propertyForm">
+                                    <form autocomplete="off " [formGroup]="propertyForm">
                                             <hr>
                                             <h3 class="text-blue">Tipo de Propiedad</h3>
                                             <div class="col-12 ">
@@ -250,7 +250,7 @@
                                                             
                                                             <br>
                                                             <div class="col-8">
-                                                                    <mat-checkbox *ngFor="let item of amenidades">{{item.descripcion}}&nbsp;</mat-checkbox>
+                                                                    <mat-checkbox *ngFor="let item of amenidades" >{{item.descripcion}}&nbsp;</mat-checkbox>
                                                             </div>
                                                         </div>
                                                         <br>
