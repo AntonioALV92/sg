@@ -1,13 +1,19 @@
 import { Injectable } from '@angular/core';
 
-export interface CatalogInterface {
-  id?: number;
+export class ItemCatalog {
+  id: number;
   value: string;
 }
 
-export type CatalogItems = Array<CatalogInterface>;
+export class ItemCatalog2 {
+  id: number;
+  descripcion: string;
+}
 
-export class TypeProperty implements CatalogInterface {
+export type CatalogItems = Array<ItemCatalog>;
+export type CatalogItems2 = Array<ItemCatalog2>;
+
+export class TypeProperty implements ItemCatalog {
   constructor(
     public id: number,
     public value: string,

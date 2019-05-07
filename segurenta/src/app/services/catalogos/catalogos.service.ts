@@ -59,4 +59,18 @@ export class CatalogosService {
       );
     });
   }
+
+  public getRegimenes() {
+    return new Promise((resolve) => {
+      this.middleware.get(this.config.endpoints.catRegimenes).subscribe(
+        (res: any) => {
+          console.log(res);
+          return resolve(res);
+        },
+        (err: any) => {
+          console.error(err);
+        }
+      );
+    });
+  }
 }

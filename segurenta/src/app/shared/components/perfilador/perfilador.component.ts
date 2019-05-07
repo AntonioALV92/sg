@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FilterPipe } from '../../pipes/filter.pipe';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { CatalogItems, CatalogItems2, ItemCatalog2 } from '../../interfaces/catalog.interface';
+import { CatalogosService } from '../../../services/catalogos/catalogos.service';
 
 
 @Component({
@@ -11,7 +13,28 @@ import { FormControl, Validators } from '@angular/forms';
 export class PerfiladorComponent implements OnInit {
   n: number;
   public searchText = null;
-  tipoP: number;
+  selectedValue: number;
+  public formEditar: FormGroup;
+  // regimenes: CatalogItems;
+  regimenes: Array<ItemCatalog2>;
+  estadoCivil = [
+    {
+      id: 1,
+      value: 'Soltero'
+    },
+    {
+      id: 2,
+      value: 'Casado'
+    },
+    {
+      id: 3,
+      value: 'Divorciado'
+    },
+    {
+      id: 4,
+      value: 'Viudo'
+    }
+  ];
   tipoPersona = [
     {
       id: 1,
@@ -59,11 +82,19 @@ export class PerfiladorComponent implements OnInit {
     }
   ];
 
-  constructor() {
+  constructor(private formBuilder: FormBuilder, private catalog: CatalogosService) {
     this.n = 1;
+    this.selectedValue = 0;
+    const tipoP = new FormControl();
   }
 
   ngOnInit() {
+    this.getCatalogos();
+  }
+
+  private async getCatalogos() {
+    // this.regimenes = await this.catalog.getRegimenes();
+    // this.catNacionalidades = await this.catalog.getNacionalidades();
   }
 
   step(n: number) {
@@ -71,3 +102,4 @@ export class PerfiladorComponent implements OnInit {
   }
 
 }
+
