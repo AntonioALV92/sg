@@ -71,14 +71,14 @@ export class WeekComponent implements OnInit, OnChanges {
     {
       label: '<i class="fa fa-fw fa-pencil-alt"></i>',
       onClick: ({ event }: { event: CalendarEvent }): void => {
-        this.handleEvent('Edited', event);
+        // this.handleEvent('Edited', event);
       }
     },
     {
       label: '<i class="fa fa-fw fa-times"></i>',
       onClick: ({ event }: { event: CalendarEvent }): void => {
         this.events = this.events.filter(iEvent => iEvent !== event);
-        this.handleEvent('Deleted', event);
+        // this.handleEvent('Deleted', event);
       }
     }
   ];
@@ -87,7 +87,7 @@ export class WeekComponent implements OnInit, OnChanges {
       label: '<i class="fa fa-fw fa-times"></i>',
       onClick: ({ event }: { event: CalendarEvent }): void => {
         this.events = this.events.filter(iEvent => iEvent !== event);
-        this.handleEvent('Deleted', event);
+        // this.handleEvent('Deleted', event);
       }
     }
   ];
@@ -117,82 +117,85 @@ export class WeekComponent implements OnInit, OnChanges {
       }
       return iEvent;
     });
-    this.handleEvent('Dropped or resized', event);
+    // this.handleEvent('Dropped or resized', event);
     console.log(this.events);
   }
 
-  handleEvent(action: string, event: CalendarEvent): void {
+  handleEvent(action, event: CalendarEvent): void {
     console.log('event CLick');
-    // this.modalData = { event, action };
-    // this.modal.open(this.modalContent, { size: 'lg' });
+    console.log('action', action);
+    console.log('event', event);
+    // console.log('event', mouseDownEvent);
+    // this.getPosition(mouseDownEvent);
+    // this.showForm = true;
   }
 
   deleteEvent(eventToDelete: CalendarEvent) {
     this.events = this.events.filter(event => event !== eventToDelete);
   }
 
-  startDragToCreate(segment: DayViewHourSegment, mouseDownEvent: MouseEvent, segmentElement: HTMLElement) {
-    this.events = this.eventsTempo;
-    this.getPosition(mouseDownEvent);
-    const dragToSelectEvent: CalendarEvent = {
-      id: this.events.length,
-      title: 'Nuevo Cita',
-      start: segment.date,
-      meta: {
-        tmpEvent: true
-      },
-      actions: this.actions2,
-      draggable: true,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      }
-    };
-    this.events = [...this.events, dragToSelectEvent];
-    const segmentPosition = segmentElement.getBoundingClientRect();
-    this.dragToCreateActive = true;
-    const endOfView = endOfWeek(this.viewDate);
+  // startDragToCreate(segment: DayViewHourSegment, mouseDownEvent: MouseEvent, segmentElement: HTMLElement) {
+  //   this.events = this.eventsTempo;
+  //   this.getPosition(mouseDownEvent);
+  //   const dragToSelectEvent: CalendarEvent = {
+  //     id: this.events.length,
+  //     title: 'Nuevo Cita',
+  //     start: segment.date,
+  //     meta: {
+  //       tmpEvent: true
+  //     },
+  //     actions: this.actions2,
+  //     draggable: true,
+  //     resizable: {
+  //       beforeStart: true,
+  //       afterEnd: true
+  //     }
+  //   };
+  //   this.events = [...this.events, dragToSelectEvent];
+  //   const segmentPosition = segmentElement.getBoundingClientRect();
+  //   this.dragToCreateActive = true;
+  //   const endOfView = endOfWeek(this.viewDate);
 
-    fromEvent(document, 'mousemove')
-      .pipe(
-        finalize(() => {
-          if (!dragToSelectEvent.end) {
-            const minutesDiff = ceilToNearest(mouseDownEvent.clientY - segmentPosition.top, 60);
-            const daysDiff =
-              floorToNearest(
-                mouseDownEvent.clientX - segmentPosition.left,
-                segmentPosition.width
-              ) / segmentPosition.width;
+  //   fromEvent(document, 'mousemove')
+  //     .pipe(
+  //       finalize(() => {
+  //         if (!dragToSelectEvent.end) {
+  //           const minutesDiff = ceilToNearest(mouseDownEvent.clientY - segmentPosition.top, 60);
+  //           const daysDiff =
+  //             floorToNearest(
+  //               mouseDownEvent.clientX - segmentPosition.left,
+  //               segmentPosition.width
+  //             ) / segmentPosition.width;
 
-            const newEnd = addDays(addMinutes(segment.date, minutesDiff), daysDiff);
-            if (newEnd > segment.date && newEnd < endOfView) {
-              dragToSelectEvent.end = newEnd;
-            }
-          }
-          this.newEvent = dragToSelectEvent;
-          this.showForm = true;
-          delete dragToSelectEvent.meta.tmpEvent;
-          this.dragToCreateActive = false;
-          this.refreshTwo();
-        }),
-        takeUntil(fromEvent(document, 'mouseup'))
-      )
-      .subscribe((mouseMoveEvent: MouseEvent) => {
-        const minutesDiff = ceilToNearest(mouseMoveEvent.clientY - segmentPosition.top, 30);
+  //           const newEnd = addDays(addMinutes(segment.date, minutesDiff), daysDiff);
+  //           if (newEnd > segment.date && newEnd < endOfView) {
+  //             dragToSelectEvent.end = newEnd;
+  //           }
+  //         }
+  //         this.newEvent = dragToSelectEvent;
+  //         this.showForm = true;
+  //         delete dragToSelectEvent.meta.tmpEvent;
+  //         this.dragToCreateActive = false;
+  //         this.refreshTwo();
+  //       }),
+  //       takeUntil(fromEvent(document, 'mouseup'))
+  //     )
+  //     .subscribe((mouseMoveEvent: MouseEvent) => {
+  //       const minutesDiff = ceilToNearest(mouseMoveEvent.clientY - segmentPosition.top, 30);
 
-        const daysDiff =
-          floorToNearest(
-            mouseMoveEvent.clientX - segmentPosition.left,
-            segmentPosition.width
-          ) / segmentPosition.width;
+  //       const daysDiff =
+  //         floorToNearest(
+  //           mouseMoveEvent.clientX - segmentPosition.left,
+  //           segmentPosition.width
+  //         ) / segmentPosition.width;
 
-        const newEnd = addDays(addMinutes(segment.date, minutesDiff), daysDiff);
-        if (newEnd > segment.date && newEnd < endOfView) {
-          dragToSelectEvent.end = newEnd;
-        }
-        this.refreshTwo();
-      });
-  }
+  //       const newEnd = addDays(addMinutes(segment.date, minutesDiff), daysDiff);
+  //       if (newEnd > segment.date && newEnd < endOfView) {
+  //         dragToSelectEvent.end = newEnd;
+  //       }
+  //       this.refreshTwo();
+  //     });
+  // }
 
   private refreshTwo() {
     this.events = [...this.events];
