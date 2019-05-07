@@ -66,34 +66,40 @@
                                         <mat-form-field class="col-4">
                                             <mat-label>Tipo persona</mat-label>
                                             <select matNativeControl>
-                                                <option *ngFor="let item of tipoPersona" [value]="item.id">{{ item.value }}</option>
+                                                <option *ngFor="let item of tipoPersona" [ngValue]="item.id">{{ item.value }}</option>
+                                            </select>
+                                        </mat-form-field>
+                                        <mat-form-field class="col-8" *ngIf="tipoP === 1">
+                                            <input autocomplete="off" type="text" matInput placeholder="Razón social">
+                                        </mat-form-field>
+                                        <mat-form-field class="col-8" *ngIf="tipoP !== 1">
+                                            <input autocomplete="off" type="text" matInput placeholder="Nombre Completo">
+                                        </mat-form-field>
+                                        <mat-form-field class="col-4">
+                                            <input autocomplete="off" type="text" matInput placeholder="Identificación">
+                                        </mat-form-field>
+                                        <mat-form-field class="col-4">
+                                            <input autocomplete="off" type="text" matInput placeholder="Ocupación">
+                                        </mat-form-field>
+                                        <mat-form-field class="col-4">
+                                            <mat-label>Estado Civil</mat-label>
+                                            <select matNativeControl>
+                                                <option *ngFor="let item of estadoCivil" [value]="item.id">{{ item.value }}</option>
                                             </select>
                                         </mat-form-field>
                                         <mat-form-field class="col-8">
-                                            <input autocomplete="off" type="text" matInput placeholder="Razón social">
+                                            <input autocomplete="off" type="text" matInput placeholder="Nombre Cónyuge">
                                         </mat-form-field>
-                                        <mat-form-field class="col-8">
-                                            <input autocomplete="off" type="text" matInput placeholder="Nombre Completo">
+                                        <mat-form-field class="col-4">
+                                            <input autocomplete="off" type="date" matInput placeholder="Fecha de nacimiento">
                                         </mat-form-field>
-                                        <mat-form-field class="col-12">
-                                            <input autocomplete="off" type="text" matInput placeholder="Identificación">
-                                        </mat-form-field>
-                                        <mat-form-field class="col-12">
-                                            <input autocomplete="off" type="text" matInput placeholder="Ocupación">
-                                        </mat-form-field>
-                                        <mat-form-field class="col-12">
-                                            <input autocomplete="off" type="text" matInput placeholder="Cónyuge">
-                                        </mat-form-field>
-                                        <mat-form-field class="col-12">
-                                            <input autocomplete="off" type="text" matInput placeholder="Fecha de nacimiento">
-                                        </mat-form-field>
-                                        <mat-form-field class="col-12">
+                                        <mat-form-field class="col-4">
                                             <input autocomplete="off" type="text" matInput placeholder="Lugar de nacimiento">
                                         </mat-form-field>
                                         <mat-form-field class="col-12">
                                             <input autocomplete="off" type="text" matInput placeholder="Nacionalidad">
                                         </mat-form-field>
-                                        <mat-radio-group class="col-12">
+                                        <mat-radio-group class="col-4">
                                             <div class="row">
                                                 <div class="col-6">
                                                     <mat-radio-button value="1" class="col-6">Hombre</mat-radio-button>
@@ -105,9 +111,6 @@
                                         </mat-radio-group>
                                         <mat-form-field class="col-12">
                                             <input autocomplete="off" type="text" matInput placeholder="Edad">
-                                        </mat-form-field>
-                                        <mat-form-field class="col-12">
-                                            <input autocomplete="off" type="text" matInput placeholder="Estado civil">
                                         </mat-form-field>
                                         <mat-form-field class="col-12">
                                             <input autocomplete="off" type="text" matInput placeholder="CURP">

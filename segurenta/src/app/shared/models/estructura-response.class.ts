@@ -1,8 +1,8 @@
 export class EstructuraResponse<T> {
-    error: ErrorClass | null | undefined;
+    error: Error | null | undefined;
     result: T | null | undefined;
 }
 
-class ErrorClass {
+class Error {
     mensaje: string;
 }
